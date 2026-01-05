@@ -1,0 +1,42 @@
+import {
+  NOTIFICATION_AVAILABILITY,
+  NOTIFICATION_PREFERENCES,
+} from "@/shared/constants";
+
+export interface Notification_Prefrences {
+  type: NOTIFICATION_PREFERENCES;
+  availability: NOTIFICATION_AVAILABILITY[];
+}
+
+export const NotificationDummyData: Notification_Prefrences[] = [
+  {
+    type: NOTIFICATION_PREFERENCES.NEW_FOR_YOU,
+    availability: [
+      NOTIFICATION_AVAILABILITY.EMAIL,
+      NOTIFICATION_AVAILABILITY.BROWSER,
+      NOTIFICATION_AVAILABILITY.APP,
+    ],
+  },
+  {
+    type: NOTIFICATION_PREFERENCES.NEW_DEVICE_LINKED,
+    availability: [
+      NOTIFICATION_AVAILABILITY.EMAIL,
+      NOTIFICATION_AVAILABILITY.BROWSER,
+    ],
+  },
+  {
+    type: NOTIFICATION_PREFERENCES.ACCOUNT_ACTIVITY,
+    availability: [
+      NOTIFICATION_AVAILABILITY.EMAIL,
+      NOTIFICATION_AVAILABILITY.BROWSER,
+      NOTIFICATION_AVAILABILITY.APP,
+    ],
+  },
+  {
+    type: NOTIFICATION_PREFERENCES.NEW_BROWSER_SIGN_IN,
+    availability: [
+      NOTIFICATION_AVAILABILITY.EMAIL,
+      NOTIFICATION_AVAILABILITY.BROWSER,
+    ],
+  },
+];

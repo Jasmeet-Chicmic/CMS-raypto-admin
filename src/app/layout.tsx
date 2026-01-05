@@ -1,0 +1,43 @@
+import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "next-themes";
+import { DM_Sans } from "next/font/google";
+import FcmProvider from "./FcmProvider";
+import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+export const metadata = {
+  title: "Raypto Admin",
+  description: "Raypto Admin Template",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning className={dmSans.variable}>
+      <body>
+        <NextIntlClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            {children}
+            <ToastContainer position="top-right" />
+            <FcmProvider />
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}

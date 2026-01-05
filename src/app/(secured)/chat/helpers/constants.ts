@@ -1,0 +1,18 @@
+export const CHAT_STRINGS = {
+  CHAT_ROOMS: "Chat Rooms",
+  CREATE_ROOM: "Create Room",
+  EDIT_ROOM: "Edit Room",
+  DELETE_ROOM: "Delete Room",
+  ROOM_NAME: "Room Name",
+  ROOM_LOGO: "Room Logo URL",
+  MESSAGES: "Messages",
+  NO_ROOMS: "No chat rooms available",
+  NO_MESSAGES: "No messages in this chat room",
+  DELETE_ROOM_CONFIRMATION: "Are you sure you want to delete this chat room?",
+  DELETE_MESSAGE_CONFIRMATION: "Are you sure you want to delete this message?",
+  SEARCH_ROOMS: "Search rooms...",
+  ENTER_ROOM_NAME: "Enter room name",
+  ENTER_LOGO_URL: "Enter logo URL",
+  ROOMS: "Rooms",
+  LIVE_CHAT: "Live Chat",
+} as const;

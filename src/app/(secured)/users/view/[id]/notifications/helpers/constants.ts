@@ -1,0 +1,9 @@
+import { NOTIFICATION_PREFERENCES } from "@/shared/constants";
+
+export const NOTIFICATION_LABELS: Record<NOTIFICATION_PREFERENCES, string> = {
+  [NOTIFICATION_PREFERENCES.NEW_FOR_YOU]: "New for you",
+  [NOTIFICATION_PREFERENCES.ACCOUNT_ACTIVITY]: "Account activity",
+  [NOTIFICATION_PREFERENCES.NEW_BROWSER_SIGN_IN]:
+    "A new browser used to sign in",
+  [NOTIFICATION_PREFERENCES.NEW_DEVICE_LINKED]: "A new device is linked",
+};

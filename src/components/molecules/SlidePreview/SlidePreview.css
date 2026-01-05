@@ -1,0 +1,379 @@
+.slide-preview {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 320px;
+  /* max-height: 320px; */
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+:is(.dark) .slide-preview {
+  background: #1f293710;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.preview-toggle {
+  display: inline-flex;
+  padding: 4px;
+  background: #f4f7fe;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+:is(.dark) .preview-toggle {
+  background: #1f293710;
+  border-color: #1f2937;
+}
+
+.preview-toggle button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #a3aed0;
+  background: transparent;
+}
+
+.preview-toggle button.active {
+  background: white;
+  color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(67, 24, 255, 0.1);
+}
+
+:is(.dark) .preview-toggle button.active {
+  background: #1b2559;
+  color: #707eae;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Preview box styling - Premium card style */
+.preview-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f4f7fe;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  min-height: 180px;
+  height: 100%;
+  /* Standard height for both mobile and desktop */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preview-box.is-prominent {
+  /* min-height: 480px; */
+  /* Prominent height for create page */
+  height: inherit;
+}
+
+:is(.dark) .preview-box {
+  background: #1f293710;
+  border-color: #1f2937;
+}
+
+.preview-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+.preview-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #042e14;
+  flex-direction: column;
+}
+
+.preview-box-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.preview-box-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f4f7fe;
+  z-index: 1;
+}
+
+:is(.dark) .preview-box-placeholder {
+  background: #1f293710;
+}
+
+/* Object/Overlay Image */
+.preview-box-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-size: contain;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content layer - absolutely overlayed on image */
+.preview-box-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.preview-box-content.single-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 24px;
+}
+
+/* Premium Countdown cards */
+.preview-countdown {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 8px 12px;
+  border-radius: 14px;
+  text-align: center;
+  min-width: 52px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+:is(.dark) .countdown-item {
+  background: rgba(17, 28, 68, 0.8);
+  border-color: rgba(31, 41, 55, 0.8);
+}
+
+.countdown-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1b2559;
+  line-height: 1;
+}
+
+:is(.dark) .countdown-value {
+  color: #ffffff;
+}
+
+.countdown-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a3aed0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* CTA Button - Indigo theme */
+.preview-button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(67, 24, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.preview-button:hover {
+  background: #3311db;
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(67, 24, 255, 0.3);
+}
+
+.preview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  color: #a3aed0;
+  font-weight: 500;
+  gap: 12px;
+  background: #f4f7fe;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+}
+
+:is(.dark) .preview-empty {
+  background: #1f293710;
+  border-color: #1f2937;
+}
+
+/* Title over preview */
+.preview-title {
+  color: #1b2559;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 4px solid #4f46e5;
+  line-height: 1.2;
+}
+
+:is(.dark) .preview-title {
+  color: #ffffff;
+}
+
+/* Mobile Carousel Styles */
+.mobile-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.carousel-slider {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  height: 320px;
+  /* Standard sync height */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slider.is-prominent {
+  height: 480px;
+  /* Prominent sync height */
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.carousel-slide .preview-box {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  /* Already has slider shadow */
+}
+
+/* Navigation Arrows - Overlayed */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+:is(.dark) .carousel-arrow {
+  background: rgba(27, 37, 89, 0.9);
+  border-color: rgba(46, 59, 120, 0.8);
+  color: #ffffff;
+}
+
+.carousel-arrow:hover {
+  background: #4f46e5;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 20px rgba(67, 24, 255, 0.3);
+}
+
+.carousel-arrow.left-arrow {
+  left: 12px;
+}
+
+.carousel-arrow.right-arrow {
+  right: 12px;
+}
+
+/* Dot Indicators */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #d1d5db;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  width: 24px;
+  background: #4f46e5;
+}
+
+:is(.dark) .carousel-dot.active {
+  background: #707eae;
+}
+
+/* Card Counter */
+.carousel-counter {
+  text-align: center;
+  margin-top: 14px;
+  color: #a3aed0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
