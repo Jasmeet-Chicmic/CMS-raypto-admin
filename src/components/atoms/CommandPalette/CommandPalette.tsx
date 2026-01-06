@@ -143,9 +143,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       onClick={onClose}
       aria-label="Close command palette"
     >
-      <div
-        className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-gray-800"
-      >
+      <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-gray-800">
         {/* Search Input */}
         <div className="flex items-center px-4 py-3 border-b border-gray-200">
           <Search className="text-gray-400 mr-3" size={20} />
