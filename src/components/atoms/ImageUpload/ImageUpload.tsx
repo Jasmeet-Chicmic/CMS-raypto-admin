@@ -192,13 +192,16 @@ const ImageUpload = ({
         </label>
       )}
 
-      <div
+      <button
+        type="button"
         onClick={handleClick}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
+        disabled={disabled || isUploading}
+        aria-label={label || "Upload image"}
         className={`
-          relative overflow-hidden rounded-[20px] border-2 border-dashed transition-all duration-300 cursor-pointer group
+          relative overflow-hidden rounded-[20px] border-2 border-dashed transition-all duration-300 cursor-pointer group w-full text-left
           ${
             isDragging
               ? "border-[#4F46E5] bg-[#4F46E5]/5 dark:bg-[#4F46E5]/10"
@@ -243,9 +246,15 @@ const ImageUpload = ({
                 >
                   <X size={20} />
                 </button>
-                <div className="p-3 bg-[#4F46E5] text-white rounded-2xl shadow-xl">
+                <button
+                  type="button"
+                  onClick={handleClick}
+                  disabled={isUploading || disabled}
+                  className="p-3 bg-[#4F46E5] text-white rounded-2xl shadow-xl hover:bg-[#4F46E5]/90 transition-all"
+                  title="Change image"
+                >
                   <Upload size={20} />
-                </div>
+                </button>
               </div>
             </div>
 
@@ -295,7 +304,7 @@ const ImageUpload = ({
             )}
           </div>
         )}
-      </div>
+      </button>
     </div>
   );
 };

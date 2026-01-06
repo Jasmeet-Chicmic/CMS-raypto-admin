@@ -59,18 +59,23 @@ function FormBuilder<T extends FieldValues>({
           </div>
           <div className="flex items-center justify-between mb-4">
             {secondaryAction && (
-              <div className="flex-auto" onClick={onSecondaryAction}>
+              <button
+                type="button"
+                className="flex-auto text-left"
+                onClick={onSecondaryAction}
+              >
                 {secondaryAction}
-              </div>
+              </button>
             )}
 
             {additionalAction && (
-              <div
-                className="flex-auto justify-end"
+              <button
+                type="button"
+                className="flex-auto justify-end text-left"
                 onClick={onAdditionalAction}
               >
                 {additionalAction}
-              </div>
+              </button>
             )}
           </div>
         </div>

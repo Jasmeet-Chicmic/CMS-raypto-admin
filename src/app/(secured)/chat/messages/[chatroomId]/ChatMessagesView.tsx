@@ -323,11 +323,13 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
 
               {/* Messages */}
               {group.messages.map((message) => (
-                <div
+                <button
+                  type="button"
                   key={message._id}
-                  className="flex items-start space-x-3 group"
+                  className="flex items-start space-x-3 group w-full text-left"
                   onMouseEnter={() => setHoveredMessageId(message._id)}
                   onMouseLeave={() => setHoveredMessageId(null)}
+                  tabIndex={0}
                 >
                   {/* Avatar */}
                   <div className="flex-shrink-0">
@@ -418,7 +420,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                       </div>
                     )}
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           ))

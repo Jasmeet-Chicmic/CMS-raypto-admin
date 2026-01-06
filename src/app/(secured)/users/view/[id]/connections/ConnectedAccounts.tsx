@@ -87,6 +87,7 @@ const ConnectedAccounts = ({
                 </div>
               </div>
               <label className="inline-flex items-center cursor-pointer">
+                <span className="sr-only">Toggle {ui.name} connection</span>
                 <input
                   type="checkbox"
                   checked={acc.isConnected}

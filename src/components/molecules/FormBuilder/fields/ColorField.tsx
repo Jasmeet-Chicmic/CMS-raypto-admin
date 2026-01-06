@@ -47,11 +47,13 @@ export function ColorField<T extends FieldValues>({
         render={({ field }) => (
           <>
             <div className="flex items-center gap-2">
-              <div
+              <button
+                type="button"
                 className="w-6 h-6 rounded-full cursor-pointer border border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
                 style={{ backgroundColor: field.value }}
                 onClick={() => setOpen(true)}
-              ></div>
+                aria-label={`Select color for ${label}`}
+              ></button>
             </div>
             {open && (
               <CheckClickOutside onClick={() => setOpen(false)}>

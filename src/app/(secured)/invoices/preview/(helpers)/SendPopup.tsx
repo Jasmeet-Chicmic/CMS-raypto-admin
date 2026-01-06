@@ -67,12 +67,15 @@ export default function SendPopup({
               05/11/2021
             </textarea>
           </div>
-          <a
-            href="#"
-            className="text-indigo-600 text-sm underline flex items-center gap-1"
+          <button
+            type="button"
+            className="text-indigo-600 text-sm underline flex items-center gap-1 hover:text-indigo-800 transition-colors"
+            onClick={() => {
+              console.log("View attached invoice");
+            }}
           >
             <span>Invoice Attached</span>
-          </a>
+          </button>
           <div className="flex gap-2 mt-auto">
             <button
               type="submit"

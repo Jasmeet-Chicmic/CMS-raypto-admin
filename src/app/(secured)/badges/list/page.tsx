@@ -1,6 +1,5 @@
 import { getBadgesList } from "@/api/badges";
 import { BadgeTypes } from "../helpers/types";
-import BadgesList from "./BadgesList";
 import { SORT_DIRECTION } from "@/shared/types";
 
 // const badgesDummyData: BadgesInterface[] = [
@@ -91,14 +90,7 @@ const page = async ({
     return <div>Error fetching badges list</div>;
   }
 
-  return (
-    <div>
-      <BadgesList
-        badgesListData={badgesListData || []}
-        searchString={searchString || ""}
-      />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default page;

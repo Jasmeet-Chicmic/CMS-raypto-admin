@@ -6,12 +6,10 @@ import CompanyBranding from "./sections/CompanyBranding";
 import CompanyAbout from "./sections/CompanyAbout";
 import CompanyAchievements from "./sections/CompanyAchievements";
 import CompanyVideos from "./sections/CompanyVideos";
-import CompanySkills from "./sections/CompanySkills";
 import CompanyTestimonials from "./sections/CompanyTestimonials";
 import CompanySentimentSurvey from "./sections/CompanySentimentSurvey";
 import CompanyTeamProfiles from "./sections/CompanyTeamProfiles";
 import CompanyAwards from "./sections/CompanyAwards";
-import CompanyAdminsRoles from "./sections/CompanyAdminsRoles";
 import CompanyPrivateDetails from "./sections/CompanyPrivateDetails";
 import {
   COMPANY_PROFILE_SECTIONS,
@@ -50,11 +48,6 @@ const CompanyProfileView = () => {
       component: CompanyVideos,
     },
     {
-      id: "skills",
-      name: COMPANY_TAB_STRINGS.PROFILE.SKILLS,
-      component: CompanySkills,
-    },
-    {
       id: "testimonials",
       name: COMPANY_TAB_STRINGS.PROFILE.TESTIMONIALS,
       component: CompanyTestimonials,
@@ -79,11 +72,11 @@ const CompanyProfileView = () => {
     //   name: COMPANY_TAB_STRINGS.PROFILE.GROUPS_EVENTS,
     //   component: CompanyGroupsEvents,
     // },
-    {
-      id: "admins",
-      name: COMPANY_TAB_STRINGS.PROFILE.ADMINS_ROLES,
-      component: CompanyAdminsRoles,
-    },
+    // {
+    //   id: "admins",
+    //   name: COMPANY_TAB_STRINGS.PROFILE.ADMINS_ROLES,
+    //   component: CompanyAdminsRoles,
+    // },
     {
       id: "private",
       name: COMPANY_TAB_STRINGS.PROFILE.PRIVATE_DETAILS,

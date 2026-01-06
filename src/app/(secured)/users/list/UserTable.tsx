@@ -30,8 +30,6 @@ import {
   CURRENCY_TYPE_NAMES,
 } from "@/shared/constants";
 import { MESSAGES, STRING } from "@/shared/strings";
-
-import AddUserSidebar from "./AddUserSidebar";
 import { MODAL_TYPE } from "@/components/molecules/ConfirmationModal/helpers/constants";
 import { formatDate, walletTruncate, formatCurrency } from "@/shared/utils";
 
@@ -312,7 +310,6 @@ const UserTable = ({
     },
   ];
   const searchParams = useSearchParams();
-  const [open, setOpen] = useState(false);
   const [modal, setModal] = useState<{
     open: boolean;
     data?: User;
@@ -663,7 +660,6 @@ const UserTable = ({
                 : MESSAGES.SUSPEND_CONFIRMATION
         }
       />
-      <AddUserSidebar setOpen={setOpen} open={open} />
     </>
   );
 };
