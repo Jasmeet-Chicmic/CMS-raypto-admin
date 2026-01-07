@@ -1,7 +1,6 @@
 "use client";
 
-import { Copy, Eye, LogOut, ChevronDown, BadgeCheck } from "lucide-react";
-// import Link from "next/link";
+import { Copy, Eye, LogOut, ChevronDown, BadgeCheck ,Menu, RotateCcw } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -21,7 +20,7 @@ import ConfirmationModal from "@/components/molecules/ConfirmationModal/Confirma
 import CustomMenu from "@/components/atoms/Menu/Menu";
 import Select from "@/components/atoms/Select";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
-import { Menu, RotateCcw } from "lucide-react";
+
 
 import { ResponseType, SORT_DIRECTION, User } from "@/shared/types";
 import {
@@ -142,7 +141,7 @@ const UserTable = ({
       render: (data) => {
         const currencyParam = searchParams.get("currency");
         const currency = currencyParam ? Number(currencyParam) : 1;
-        return data?.betAmount !== undefined ? (
+        return data?.betAmount? (
           <div className="flex items-center gap-1">
             <span className="font-medium">
               {formatCurrency(data.betAmount)}
@@ -164,7 +163,7 @@ const UserTable = ({
       render: (data) => {
         const currencyParam = searchParams.get("currency");
         const currency = currencyParam ? Number(currencyParam) : 1;
-        return data?.profit !== undefined ? (
+        return data?.profit ? (
           <div className="flex items-center gap-1">
             <span className="font-medium">{formatCurrency(data.profit)}</span>
             <span className="text-[0.775rem] text-[#A3AED0]">
@@ -184,7 +183,7 @@ const UserTable = ({
       render: (data) => {
         const currencyParam = searchParams.get("currency");
         const currency = currencyParam ? Number(currencyParam) : 1;
-        return data?.rtp !== undefined ? (
+        return data?.rtp ? (
           <div className="flex items-center gap-1">
             <span className="font-medium">{data.rtp.toFixed(2)}</span>
             <span className="text-[0.775rem] text-[#A3AED0]">
@@ -288,7 +287,6 @@ const UserTable = ({
               router.push(`/users/view/${data._id}/transaction`, {
                 scroll: false,
               });
-              // setTimeout(() => window.scrollTo(0, 0), 0);
             }}
             className="text-gray-500 hover:text-blue-600 transition-colors dark:text-white"
             title="View"
@@ -432,9 +430,6 @@ const UserTable = ({
       router.refresh();
       setModal({ open: false });
     } catch (error) {
-      // if (error?.digest?.startsWith("NEXT_REDIRECT")) {
-      //   throw error;
-      // }
       console.error("User logout error:", error);
       toast.error("An error occurred while logging out the user.");
     } finally {

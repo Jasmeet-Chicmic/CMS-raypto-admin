@@ -3,36 +3,79 @@
 import { useId } from "react";
 import { Skeleton } from "@/components/atoms/Skeleton";
 
+// Reusable constants for repeated class strings
+const CARD_CLASSES = "bg-white rounded-lg shadow p-6 space-y-6";
+const DARK_MODE_CLASSES =
+  "dark:bg-gray-800 dark:border-gray-800 dark:text-white";
+
+// Reusable component for form field skeleton
+const FormFieldSkeleton = ({
+  labelWidth,
+  hasBottomMargin = true,
+}: {
+  labelWidth: string;
+  hasBottomMargin?: boolean;
+}) => (
+  <div>
+    <Skeleton className={`h-3 ${labelWidth} mb-1`} />
+    <Skeleton
+      className={`h-8 w-full rounded ${hasBottomMargin ? "mb-2" : ""}`}
+    />
+  </div>
+);
+
 const Loading = () => {
   const baseId = useId();
+
+  // Data for header info skeletons
+  const headerInfoWidths = ["w-48", "w-56", "w-40"];
+
+  // Data for invoice info form fields
+  const invoiceFormFields = [
+    { labelWidth: "w-16", hasBottomMargin: true },
+    { labelWidth: "w-20", hasBottomMargin: true },
+    { labelWidth: "w-20", hasBottomMargin: false },
+  ];
+
+  // Data for totals section
+  const totalsItems = [
+    { height: "h-4", width: "w-32" },
+    { height: "h-4", width: "w-24" },
+    { height: "h-4", width: "w-24" },
+    { height: "h-4", width: "w-24" },
+    { height: "h-6", width: "w-32" },
+  ];
+
+  // Data for sidebar buttons
+  const sidebarButtons = ["w-full mb-2", "w-full"];
 
   return (
     <main className="flex-1 overflow-y-auto">
       <div className="min-h-screen bg-gray-50 py-8 animate-pulse dark:bg-gray-800 dark:text-white">
         <form className="flex gap-2">
           {/* Main Form Card */}
-          <div className="bg-white rounded-lg shadow p-6 space-y-6 flex-1 min-w-0">
+          <div className={`${CARD_CLASSES} flex-1 min-w-0`}>
             {/* Header and Invoice Info */}
             <div className="flex justify-between items-start">
               <div>
                 <Skeleton className="h-8 w-32 mb-2" />
-                <Skeleton className="h-4 w-48 mb-1" />
-                <Skeleton className="h-4 w-56 mb-1" />
-                <Skeleton className="h-4 w-40 mb-1" />
+                {headerInfoWidths.map((width, index) => (
+                  <Skeleton
+                    key={`${baseId}-header-info-${index}`}
+                    className={`h-4 ${width} mb-1`}
+                  />
+                ))}
               </div>
-              <div className="w-[300px] space-y-2 bg-gray-100 p-4 rounded dark:bg-gray-800 dark:border-gray-800 dark:text-white">
-                <div>
-                  <Skeleton className="h-3 w-16 mb-1" />
-                  <Skeleton className="h-8 w-full rounded mb-2" />
-                </div>
-                <div>
-                  <Skeleton className="h-3 w-20 mb-1" />
-                  <Skeleton className="h-8 w-full rounded mb-2" />
-                </div>
-                <div>
-                  <Skeleton className="h-3 w-20 mb-1" />
-                  <Skeleton className="h-8 w-full rounded" />
-                </div>
+              <div
+                className={`w-[300px] space-y-2 bg-gray-100 p-4 rounded ${DARK_MODE_CLASSES}`}
+              >
+                {invoiceFormFields.map((field, index) => (
+                  <FormFieldSkeleton
+                    key={`${baseId}-invoice-field-${index}`}
+                    labelWidth={field.labelWidth}
+                    hasBottomMargin={field.hasBottomMargin}
+                  />
+                ))}
               </div>
             </div>
             {/* Invoice To and Table */}
@@ -43,7 +86,7 @@ const Loading = () => {
               </div>
               <div>
                 <table className="w-full text-left border-t border-b">
-                  <thead className="bg-white text-sm dark:bg-gray-800 dark:border-gray-800 dark:text-white">
+                  <thead className={`bg-white text-sm ${DARK_MODE_CLASSES}`}>
                     <tr>
                       {["Item", "Cost", "Qty", "Price", ""].map((col, i) => (
                         <th key={`${baseId}-header-${i}`} className="p-2">
@@ -64,9 +107,12 @@ const Loading = () => {
                           <div>
                             <Skeleton className="h-4 w-20 mb-1" />
                             <div className="flex gap-2">
-                              <Skeleton className="h-4 w-8" />
-                              <Skeleton className="h-4 w-8" />
-                              <Skeleton className="h-4 w-8" />
+                              {Array.from(new Array(3)).map((_, taxIdx) => (
+                                <Skeleton
+                                  key={`${baseId}-tax-${rowIdx}-${taxIdx}`}
+                                  className="h-4 w-8"
+                                />
+                              ))}
                             </div>
                           </div>
                         </td>
@@ -93,11 +139,12 @@ const Loading = () => {
                 <Skeleton className="h-8 w-full" />
               </div>
               <div className="space-y-2 text-right text-sm">
-                <Skeleton className="h-4 w-32 ml-auto" />
-                <Skeleton className="h-4 w-24 ml-auto" />
-                <Skeleton className="h-4 w-24 ml-auto" />
-                <Skeleton className="h-4 w-24 ml-auto" />
-                <Skeleton className="h-6 w-32 ml-auto" />
+                {totalsItems.map((item, index) => (
+                  <Skeleton
+                    key={`${baseId}-total-${index}`}
+                    className={`${item.height} ${item.width} ml-auto`}
+                  />
+                ))}
               </div>
             </div>
             {/* Notes */}
@@ -108,10 +155,14 @@ const Loading = () => {
           </div>
           {/* Sidebar Actions */}
           <div className="w-[20%] min-w-[220px]">
-            <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-800 dark:border-gray-800 dark:text-white">
+            <div className={`${CARD_CLASSES} ${DARK_MODE_CLASSES}`}>
               <div className="flex flex-col gap-2">
-                <Skeleton className="h-10 w-full mb-2" />
-                <Skeleton className="h-10 w-full" />
+                {sidebarButtons.map((width, index) => (
+                  <Skeleton
+                    key={`${baseId}-sidebar-btn-${index}`}
+                    className={`h-10 ${width}`}
+                  />
+                ))}
               </div>
             </div>
           </div>

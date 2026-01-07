@@ -72,10 +72,10 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
   );
   // Split data into positive and negative for different gradient directions
   const positiveRevenue = sortedData.map((item) =>
-    item.grossGamingRevenue > 0 ? item.grossGamingRevenue : 0,
+    Math.max(0, item.grossGamingRevenue),
   );
   const negativeRevenue = sortedData.map((item) =>
-    item.grossGamingRevenue < 0 ? item.grossGamingRevenue : 0,
+    Math.min(0, item.grossGamingRevenue),
   );
 
   // Calculate total revenue
@@ -181,7 +181,7 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
     },
     dataLabels: {
       enabled: true,
-      formatter: (value: number) => (value !== 0 ? formatCurrency(value) : ""),
+      formatter: (value: number) => (value ? formatCurrency(value) : ""),
       style: {
         fontSize: "12px",
         colors: ["#fff"],
@@ -211,6 +211,34 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
       data: negativeRevenue,
     },
   ];
+
+  // Render chart content based on loading state and data availability
+  const renderChartContent = () => {
+    if (loading) {
+      return (
+        <div className="flex items-center justify-center h-[350px]">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+        </div>
+      );
+    }
+
+    if (sortedData.length > 0) {
+      return (
+        <ReactApexCharts
+          type="bar"
+          height={400}
+          series={series}
+          options={chartOptions}
+        />
+      );
+    }
+
+    return (
+      <div className="flex items-center justify-center h-[350px] text-gray-500">
+        No data available
+      </div>
+    );
+  };
 
   return (
     <div
@@ -278,22 +306,7 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
           />
         </div>
       </div>
-      {loading ? (
-        <div className="flex items-center justify-center h-[350px]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-        </div>
-      ) : sortedData.length > 0 ? (
-        <ReactApexCharts
-          type="bar"
-          height={400}
-          series={series}
-          options={chartOptions}
-        />
-      ) : (
-        <div className="flex items-center justify-center h-[350px] text-gray-500">
-          No data available
-        </div>
-      )}
+      {renderChartContent()}
     </div>
   );
 };

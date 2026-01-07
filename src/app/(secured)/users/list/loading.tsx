@@ -6,6 +6,32 @@ import { Skeleton } from "@/components/atoms/Skeleton";
 const Loading = () => {
   const baseId = useId();
 
+  // Data for filter section skeletons
+  const filterSkeletons = [
+    { className: "h-10 w-24" },
+    { className: "h-10 w-36" },
+  ];
+
+  // Data for table header columns (excluding checkbox)
+  const headerColumns = 5; // Id, Name, Role, Status, Actions
+
+  // Data for table body columns with their specific widths
+  const bodyColumns = [
+    { className: "h-4 w-16" }, // Id
+    { className: "h-4 w-24" }, // Name
+    { className: "h-4 w-20" }, // Role
+    { className: "h-6 w-16 rounded-full" }, // Status
+  ];
+
+  // Data for action buttons
+  const actionButtons = 3;
+
+  // Data for pagination buttons
+  const paginationButtons = 7;
+
+  // Data for table rows
+  const tableRows = 7;
+
   return (
     <main className="flex-1 overflow-y-auto animate-pulse">
       <div className="space-y-6 mt-[20px]">
@@ -19,8 +45,12 @@ const Loading = () => {
                     <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
                     <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-60 bg-gray-100 h-10" />
                   </div>
-                  <Skeleton className="h-10 w-24" />
-                  <Skeleton className="h-10 w-36" />
+                  {filterSkeletons.map((skeleton, index) => (
+                    <Skeleton
+                      key={`${baseId}-filter-${index}`}
+                      className={skeleton.className}
+                    />
+                  ))}
                 </div>
                 <div className="flex justify-end items-center gap-x-3">
                   <Skeleton className="h-6 w-20" />
@@ -40,7 +70,7 @@ const Loading = () => {
                     <Skeleton className="h-4 w-4 rounded" />
                   </th>
                   {/* Id, Name, Role, Status, Actions */}
-                  {Array.from(new Array(5)).map((_, id) => (
+                  {Array.from(new Array(headerColumns)).map((_, id) => (
                     <th key={`${baseId}-header-${id}`} className="px-4 py-3">
                       <Skeleton className="h-3 w-20" />
                     </th>
@@ -48,34 +78,32 @@ const Loading = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                {Array.from(new Array(7)).map((_, rowId) => (
+                {Array.from(new Array(tableRows)).map((_, rowId) => (
                   <tr key={`${baseId}-row-${rowId}`}>
                     {/* Checkbox */}
                     <td className="px-4 py-3">
                       <Skeleton className="h-4 w-4 rounded" />
                     </td>
-                    {/* Id */}
-                    <td className="px-4 py-[6px] min-w-[120px]">
-                      <Skeleton className="h-4 w-16" />
-                    </td>
-                    {/* Name */}
-                    <td className="px-4 py-[6px] min-w-[120px]">
-                      <Skeleton className="h-4 w-24" />
-                    </td>
-                    {/* Role */}
-                    <td className="px-4 py-[6px] min-w-[120px]">
-                      <Skeleton className="h-4 w-20" />
-                    </td>
-                    {/* Status */}
-                    <td className="px-4 py-[6px] min-w-[120px]">
-                      <Skeleton className="h-6 w-16 rounded-full" />
-                    </td>
+                    {/* Id, Name, Role, Status */}
+                    {bodyColumns.map((column, colId) => (
+                      <td
+                        key={`${baseId}-row-${rowId}-col-${colId}`}
+                        className="px-4 py-[6px] min-w-[120px]"
+                      >
+                        <Skeleton className={column.className} />
+                      </td>
+                    ))}
                     {/* Actions */}
                     <td className="px-4 py-[6px] min-w-[120px]">
                       <div className="flex items-center space-x-2">
-                        <Skeleton className="h-6 w-6 rounded" />
-                        <Skeleton className="h-6 w-6 rounded" />
-                        <Skeleton className="h-6 w-6 rounded" />
+                        {Array.from(new Array(actionButtons)).map(
+                          (_, btnId) => (
+                            <Skeleton
+                              key={`${baseId}-row-${rowId}-action-${btnId}`}
+                              className="h-6 w-6 rounded"
+                            />
+                          ),
+                        )}
                       </div>
                     </td>
                   </tr>
@@ -92,7 +120,7 @@ const Loading = () => {
             </div>
             <div className="flex items-center space-x-2 lg:flex-row gap-2 flex-col">
               <div className="flex space-x-2 items-center">
-                {Array.from(new Array(7)).map((_, id) => (
+                {Array.from(new Array(paginationButtons)).map((_, id) => (
                   <Skeleton
                     key={`${baseId}-page-${id}`}
                     className="h-8 w-8 rounded"

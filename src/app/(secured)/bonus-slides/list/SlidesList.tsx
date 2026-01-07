@@ -5,7 +5,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import Table, { TableColumn } from "@/components/atoms/Table";
 import { SlideListItem } from "../helpers/types";
 import { ROUTES } from "@/shared/routes";
-import { deleteSlide } from "@/api/bonusSlides";
+import { deleteSlide, toggleSlideStatus } from "@/api/bonusSlides";
 import { toast } from "react-toastify";
 import { Eye, Pencil, Trash2, Plus, Menu, RotateCcw } from "lucide-react";
 import ConfirmationModal from "@/components/molecules/ConfirmationModal/ConfirmationModal";
@@ -18,7 +18,6 @@ import Select from "@/components/atoms/Select";
 import { useTheme } from "next-themes";
 import { THEME_TYPE } from "@/shared/constants";
 import { StylesConfig } from "react-select";
-import { toggleSlideStatus } from "@/api/bonusSlides";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
 
 interface SlidesListProps {

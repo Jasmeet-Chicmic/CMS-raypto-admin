@@ -92,10 +92,10 @@ const UserRevenuePerGameChart = ({
   );
   // Split data into positive and negative for different gradient directions
   const positiveRevenue = sortedData.map((item) =>
-    item.grossGamingRevenue > 0 ? item.grossGamingRevenue : 0,
+    Math.max(0, item.grossGamingRevenue),
   );
   const negativeRevenue = sortedData.map((item) =>
-    item.grossGamingRevenue < 0 ? item.grossGamingRevenue : 0,
+    Math.min(0, item.grossGamingRevenue),
   );
 
   // Calculate total revenue
@@ -201,7 +201,7 @@ const UserRevenuePerGameChart = ({
     },
     dataLabels: {
       enabled: true,
-      formatter: (value: number) => (value !== 0 ? formatCurrency(value) : ""),
+      formatter: (value: number) => (value  ? formatCurrency(value) : ""),
       style: {
         fontSize: "12px",
         colors: ["#fff"],
