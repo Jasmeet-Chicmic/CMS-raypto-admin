@@ -117,8 +117,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
           currency,
           rewardAmountNonWithdrawable:
             Number(configItem.rewardAmountNonWithdrawable) || 0,
-          rewardAmountWithdrawable:
-            Number(configItem.rewardAmountWithdrawable) || 0,
+          rewardAmountWithdrawable: 0, // Always set to 0
           betCount: Number(configItem.betCount) || 0,
           minimumBetAmount: Number(configItem.minimumBetAmount) || 0,
           commissionPercentage: Number(configItem.commissionPercentage) || 0,
