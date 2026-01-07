@@ -1,8 +1,16 @@
 "use client";
 
-import { Copy, Eye, LogOut, ChevronDown, BadgeCheck ,Menu, RotateCcw } from "lucide-react";
+import {
+  Copy,
+  Eye,
+  LogOut,
+  ChevronDown,
+  BadgeCheck,
+  Menu,
+  RotateCcw,
+} from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -12,17 +20,14 @@ import {
   logoutUserAction,
 } from "@/api/user";
 
-import Pagination from "@/components/atoms/Pagination";
 import SearchToolbar from "@/components/atoms/SearchToolbar";
-
-import Table, { TableColumn } from "@/components/atoms/Table";
+import { TableColumn } from "@/components/atoms/Table";
 import ConfirmationModal from "@/components/molecules/ConfirmationModal/ConfirmationModal";
 import CustomMenu from "@/components/atoms/Menu/Menu";
 import Select from "@/components/atoms/Select";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
 
-
-import { ResponseType, SORT_DIRECTION, User } from "@/shared/types";
+import { ResponseType, User } from "@/shared/types";
 import {
   USER_BLOCK_STATUS,
   CURRENCY_TYPE,
@@ -31,6 +36,7 @@ import {
 import { MESSAGES, STRING } from "@/shared/strings";
 import { MODAL_TYPE } from "@/components/molecules/ConfirmationModal/helpers/constants";
 import { formatDate, walletTruncate, formatCurrency } from "@/shared/utils";
+import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 
 const CURRENCY_OPTIONS = Object.entries(CURRENCY_TYPE)
   .filter((entry): entry is [string, number] => typeof entry[1] === "number")
@@ -48,13 +54,113 @@ const UserTable = ({
 }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const [modal, setModal] = useState<{
+    open: boolean;
+    data?: User;
+    type?: MODAL_TYPE;
+  }>({
+    open: false,
+  });
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isActionLoading, setIsActionLoading] = useState(false);
+
+  const handleDelete = async () => {
+    if (!modal.data?._id) return;
+    const res = await deleteUserAction({
+      userIds: [modal.data?._id],
+    });
+    if (res.status) {
+      toast.success(res.message);
+    } else {
+      toast.error(res.message);
+    }
+    router.refresh();
+    setModal({ open: false });
+  };
+
+  const handleSuspend = async () => {
+    if (!modal.data?._id) return;
+    const res = await suspendUserAction({
+      userId: modal.data?._id,
+      isSuspended: !modal.data.isSuspended,
+    });
+    if (res.status) {
+      toast.success(res.message);
+    } else {
+      toast.error(res.message);
+    }
+    router.refresh();
+    setModal({ open: false });
+  };
+
+  const handleBlockToggle = async () => {
+    if (!modal.data?._id) return;
+    const isBlocked = modal.data.status === USER_BLOCK_STATUS.INACTIVE;
+    const newStatus = isBlocked
+      ? USER_BLOCK_STATUS.ACTIVE
+      : USER_BLOCK_STATUS.INACTIVE;
+
+    const res = await blockUserAction({
+      userId: modal.data._id,
+      status: newStatus,
+    });
+    if (res.status) {
+      toast.success(
+        res.message ||
+          (isBlocked
+            ? "User unblocked successfully"
+            : "User blocked successfully"),
+      );
+    } else {
+      toast.error(res.message || "Failed to update user status");
+    }
+    router.refresh();
+    setModal({ open: false });
+  };
+
+  const handleStatusChange = async (userId: string, newStatus: number) => {
+    const res = await blockUserAction({
+      userId,
+      status: newStatus,
+    });
+    if (res.status) {
+      toast.success(
+        res.message ||
+          (newStatus === USER_BLOCK_STATUS.ACTIVE
+            ? "User activated successfully"
+            : "User deactivated successfully"),
+      );
+    } else {
+      toast.error(res.message || "Failed to update user status");
+    }
+    router.refresh();
+  };
+
+  const handleLogout = async () => {
+    if (!modal.data?._id) return;
+    setIsActionLoading(true);
+    try {
+      const res = await logoutUserAction({
+        userId: modal.data._id,
+      });
+      if (res.status) {
+        toast.success(res.message || "User logged out successfully");
+      } else {
+        toast.error(res.message || "Failed to logout user");
+      }
+      router.refresh();
+      setModal({ open: false });
+    } catch (error) {
+      console.error("User logout error:", error);
+      toast.error("An error occurred while logging out the user.");
+    } finally {
+      setIsActionLoading(false);
+    }
+  };
 
   const columns: TableColumn<User>[] = [
-    // {
-    //   field: "_id",
-    //   title: "Id",
-    //   render: (data) => (data?._id ? `#${data._id.slice(-6)}` : "-"),
-    // },
     {
       field: "wallet",
       title: "Wallet",
@@ -111,23 +217,6 @@ const UserTable = ({
       sortable: false,
       sortKey: "email",
     },
-    // {
-    //   field: "isEmailVerified",
-    //   title: "Verified",
-    //   render: (data) => (
-    //     <span
-    //       className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.875] font-medium ${
-    //         data?.isEmailVerified
-    //           ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-    //           : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
-    //       }`}
-    //     >
-    //       {data?.isEmailVerified ? "Yes" : "No"}
-    //     </span>
-    //   ),
-    //   sortable: false,
-    //   sortKey: "isEmailVerified",
-    // },
     {
       field: "phoneNumber",
       title: "Phone Number",
@@ -141,7 +230,7 @@ const UserTable = ({
       render: (data) => {
         const currencyParam = searchParams.get("currency");
         const currency = currencyParam ? Number(currencyParam) : 1;
-        return data?.betAmount? (
+        return data?.betAmount ? (
           <div className="flex items-center gap-1">
             <span className="font-medium">
               {formatCurrency(data.betAmount)}
@@ -261,22 +350,6 @@ const UserTable = ({
       sortable: false,
       sortKey: "status",
     },
-    // {
-    //   field: "status",
-    //   title: "Status",
-    //   render: (data) =>
-    //     data?.status ? (
-    //       <StatusBadgeToggle value={data.status}></StatusBadgeToggle>
-    //     ) : null,
-    // },
-    // {
-    //   field: "status",
-    //   title: "Status",
-    //   render: (data) =>
-    //     data?.status ? (
-    //       <StatusBadgeToggle value={data.status}></StatusBadgeToggle>
-    //     ) : null,
-    // },
     {
       field: "",
       title: "Actions",
@@ -307,318 +380,180 @@ const UserTable = ({
       fixed: "right",
     },
   ];
-  const searchParams = useSearchParams();
-  const [modal, setModal] = useState<{
-    open: boolean;
-    data?: User;
-    type?: MODAL_TYPE;
-  }>({
-    open: false,
-  });
-  const [selectedRows, setSelectedRows] = useState<string[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [sortKey, setSortKey] = useState("createdAt");
-  const [sortDirection, setSortDirection] = useState<SORT_DIRECTION>(-1);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isActionLoading, setIsActionLoading] = useState(false);
-  useEffect(() => {
-    const newParams = new URLSearchParams(searchParams.toString());
-    if (currentPage > 1) {
-      newParams.set("skip", ((currentPage - 1) * pageSize).toString());
-    } else {
-      newParams.delete("skip"); // Optional: clean URL
-    }
 
-    if (pageSize !== 10) {
-      newParams.set("limit", pageSize.toString());
-    } else {
-      newParams.delete("limit");
-    }
-    if (sortKey) {
-      newParams.set("sortKey", sortKey);
-      newParams.set("sortDirection", sortDirection.toString());
-    } else {
-      newParams.delete("sortKey");
-      newParams.delete("sortDirection");
-    }
+  const config: DataTableConfig<User> = {
+    columns,
+    keyExtractor: (item) => item._id || "",
+    paginationTitle: "users",
+    rowClassName: (item) => (item.isSuspicious ? "border border-red-500" : ""),
+    queryConfig: {
+      defaultSortKey: "createdAt",
+      defaultSortDirection: -1,
+    },
+    header: (
+      <>
+        <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
+          <div className="dark:border-gray-800">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+              <div>
+                <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                  Users
+                </h2>
+              </div>
+              <div className="flex items-center space-x-4">
+                <SearchToolbar
+                  initialQuery={searchString}
+                  placeholder="Search User"
+                />
+                <button
+                  onClick={() => setIsFilterOpen(true)}
+                  className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                >
+                  <Menu size={18} />
+                  <span>Filters</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    router.push(`?${newParams.toString()}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, pageSize, sortKey, sortDirection]);
-  const handleDelete = async () => {
-    if (!modal.data?._id) return;
-    const res = await deleteUserAction({
-      userIds: [modal.data?._id],
-    });
-    if (res.status) {
-      toast.success(res.message);
-    } else {
-      toast.error(res.message);
-    }
-    router.refresh();
-    setModal({ open: false });
-  };
-  const handleSuspend = async () => {
-    if (!modal.data?._id) return;
-    const res = await suspendUserAction({
-      userId: modal.data?._id,
-      isSuspended: !modal.data.isSuspended,
-    });
-    if (res.status) {
-      toast.success(res.message);
-    } else {
-      toast.error(res.message);
-    }
-    router.refresh();
-    setModal({ open: false });
-  };
-  const handleBlockToggle = async () => {
-    if (!modal.data?._id) return;
-    const isBlocked = modal.data.status === USER_BLOCK_STATUS.INACTIVE;
-    const newStatus = isBlocked
-      ? USER_BLOCK_STATUS.ACTIVE
-      : USER_BLOCK_STATUS.INACTIVE;
-
-    const res = await blockUserAction({
-      userId: modal.data._id,
-      status: newStatus,
-    });
-    console.log(res);
-    if (res.status) {
-      toast.success(
-        res.message ||
-          (isBlocked
-            ? "User unblocked successfully"
-            : "User blocked successfully"),
-      );
-    } else {
-      toast.error(res.message || "Failed to update user status");
-    }
-    router.refresh();
-    setModal({ open: false });
-  };
-  const handleStatusChange = async (userId: string, newStatus: number) => {
-    const res = await blockUserAction({
-      userId,
-      status: newStatus,
-    });
-    if (res.status) {
-      toast.success(
-        res.message ||
-          (newStatus === USER_BLOCK_STATUS.ACTIVE
-            ? "User activated successfully"
-            : "User deactivated successfully"),
-      );
-    } else {
-      toast.error(res.message || "Failed to update user status");
-    }
-    router.refresh();
-  };
-  const handleLogout = async () => {
-    if (!modal.data?._id) return;
-    setIsActionLoading(true);
-    try {
-      const res = await logoutUserAction({
-        userId: modal.data._id,
-      });
-      if (res.status) {
-        toast.success(res.message || "User logged out successfully");
-      } else {
-        toast.error(res.message || "Failed to logout user");
-      }
-      router.refresh();
-      setModal({ open: false });
-    } catch (error) {
-      console.error("User logout error:", error);
-      toast.error("An error occurred while logging out the user.");
-    } finally {
-      setIsActionLoading(false);
-    }
-  };
-
-  return (
-    <>
-      <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
-        {/* Table Controls */}
-        <div className="dark:border-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+        <FilterSidebar
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          title="User Filters"
+          footer={
+            <button
+              onClick={() => {
+                router.push(pathname);
+                setIsFilterOpen(false);
+              }}
+              className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+            >
+              <RotateCcw size={18} />
+              <span>Clear All Filters</span>
+            </button>
+          }
+        >
+          <div className="space-y-6">
             <div>
-              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
-                Users
-              </h2>
-              {/* <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
-                Manage and view all registered users
-              </p> */}
-            </div>
-            <div className="flex items-center space-x-4">
-              <SearchToolbar
-                initialQuery={searchString}
-                placeholder="Search User"
-              />
-              <button
-                onClick={() => setIsFilterOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+              <label
+                htmlFor="user-status-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
-                <Menu size={18} />
-                <span>Filters</span>
-              </button>
+                User Status
+              </label>
+              <Select
+                inputId="user-status-filter"
+                placeholder="Select Status"
+                isClearable
+                options={[
+                  { label: "Active", value: "active" },
+                  { label: "Blocked", value: "blocked" },
+                  { label: "Suspicious", value: "suspicious" },
+                ]}
+                value={
+                  searchParams.get("isSuspicious") === "true"
+                    ? { label: "Suspicious", value: "suspicious" }
+                    : searchParams.get("status") ===
+                        USER_BLOCK_STATUS.ACTIVE.toString()
+                      ? { label: "Active", value: "active" }
+                      : searchParams.get("status") ===
+                          USER_BLOCK_STATUS.INACTIVE.toString()
+                        ? { label: "Blocked", value: "blocked" }
+                        : null
+                }
+                onChange={(option) => {
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  newParams.delete("status");
+                  newParams.delete("isSuspicious");
+
+                  if (option?.value === "active") {
+                    newParams.set(
+                      "status",
+                      USER_BLOCK_STATUS.ACTIVE.toString(),
+                    );
+                  } else if (option?.value === "blocked") {
+                    newParams.set(
+                      "status",
+                      USER_BLOCK_STATUS.INACTIVE.toString(),
+                    );
+                  } else if (option?.value === "suspicious") {
+                    newParams.set("isSuspicious", "true");
+                  }
+
+                  router.push(`?${newParams.toString()}`);
+                }}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="joined-at-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Joined At
+              </label>
+              <input
+                id="joined-at-filter"
+                type="date"
+                max={new Date().toISOString().split("T")[0]}
+                className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:text-gray-300 transition-all"
+                onChange={(e) => {
+                  const val = e.target.value;
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  if (val) {
+                    newParams.set("joinedAt", val);
+                  } else {
+                    newParams.delete("joinedAt");
+                  }
+                  router.push(`?${newParams.toString()}`);
+                }}
+                value={searchParams.get("joinedAt") || ""}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="currency-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Currency
+              </label>
+              <Select
+                inputId="currency-filter"
+                placeholder="Select Currency"
+                isClearable={false}
+                options={CURRENCY_OPTIONS}
+                value={
+                  CURRENCY_OPTIONS.find(
+                    (opt) =>
+                      opt.value.toString() ===
+                      (searchParams.get("currency") || "1"),
+                  ) || CURRENCY_OPTIONS[0]
+                }
+                onChange={(option: { label: string; value: number } | null) => {
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  if (option) {
+                    newParams.set("currency", option.value.toString());
+                  } else {
+                    newParams.delete("currency");
+                  }
+                  router.push(`?${newParams.toString()}`);
+                }}
+                classNamePrefix="react-select"
+              />
             </div>
           </div>
-        </div>
-      </div>
-
-      <FilterSidebar
-        isOpen={isFilterOpen}
-        onClose={() => setIsFilterOpen(false)}
-        title="User Filters"
-        footer={
-          <button
-            onClick={() => {
-              router.push(pathname);
-              setIsFilterOpen(false);
-            }}
-            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
-          >
-            <RotateCcw size={18} />
-            <span>Clear All Filters</span>
-          </button>
-        }
-      >
-        <div className="space-y-6">
-          <div>
-            <label
-              htmlFor="user-status-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              User Status
-            </label>
-            <Select
-              inputId="user-status-filter"
-              placeholder="Select Status"
-              isClearable
-              options={[
-                { label: "Active", value: "active" },
-                { label: "Blocked", value: "blocked" },
-                { label: "Suspicious", value: "suspicious" },
-              ]}
-              value={
-                searchParams.get("isSuspicious") === "true"
-                  ? { label: "Suspicious", value: "suspicious" }
-                  : searchParams.get("status") ===
-                      USER_BLOCK_STATUS.ACTIVE.toString()
-                    ? { label: "Active", value: "active" }
-                    : searchParams.get("status") ===
-                        USER_BLOCK_STATUS.INACTIVE.toString()
-                      ? { label: "Blocked", value: "blocked" }
-                      : null
-              }
-              onChange={(option) => {
-                const newParams = new URLSearchParams(searchParams.toString());
-                newParams.delete("status");
-                newParams.delete("isSuspicious");
-
-                if (option?.value === "active") {
-                  newParams.set("status", USER_BLOCK_STATUS.ACTIVE.toString());
-                } else if (option?.value === "blocked") {
-                  newParams.set(
-                    "status",
-                    USER_BLOCK_STATUS.INACTIVE.toString(),
-                  );
-                } else if (option?.value === "suspicious") {
-                  newParams.set("isSuspicious", "true");
-                }
-
-                router.push(`?${newParams.toString()}`);
-              }}
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="joined-at-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Joined At
-            </label>
-            <input
-              id="joined-at-filter"
-              type="date"
-              max={new Date().toISOString().split("T")[0]}
-              className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:text-gray-300 transition-all"
-              onChange={(e) => {
-                const val = e.target.value;
-                const newParams = new URLSearchParams(searchParams.toString());
-                if (val) {
-                  newParams.set("joinedAt", val);
-                } else {
-                  newParams.delete("joinedAt");
-                }
-                router.push(`?${newParams.toString()}`);
-              }}
-              value={searchParams.get("joinedAt") || ""}
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="currency-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Currency
-            </label>
-            <Select
-              inputId="currency-filter"
-              placeholder="Select Currency"
-              isClearable={false}
-              options={CURRENCY_OPTIONS}
-              value={
-                CURRENCY_OPTIONS.find(
-                  (opt) =>
-                    opt.value.toString() ===
-                    (searchParams.get("currency") || "1"),
-                ) || CURRENCY_OPTIONS[0]
-              }
-              onChange={(option: { label: string; value: number } | null) => {
-                const newParams = new URLSearchParams(searchParams.toString());
-                if (option) {
-                  newParams.set("currency", option.value.toString());
-                } else {
-                  newParams.delete("currency");
-                }
-                router.push(`?${newParams.toString()}`);
-              }}
-              classNamePrefix="react-select"
-            />
-          </div>
-        </div>
-      </FilterSidebar>
-
-      <Table<User>
-        data={data?.data?.data || []}
-        columns={columns}
-        keyExtractor={(item) => item._id || ""}
-        handleSort={(sortKey, sortDirection) => {
-          setSortKey(sortKey);
-          setSortDirection(sortDirection);
-        }}
-        selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-        rowClassName={(item) =>
-          item.isSuspicious ? "border border-red-500" : ""
-        }
-      />
-      <Pagination
-        totalItems={data?.data?.count ?? 0}
-        currentPage={currentPage}
-        pageSize={pageSize}
-        onPageChange={(page) => setCurrentPage(page + 1)}
-        onPageSizeChange={(size) => {
-          setPageSize(size);
-          setCurrentPage(1); // reset to first page
-        }}
-        title="users"
-      />
+        </FilterSidebar>
+      </>
+    ),
+    footer: (
       <ConfirmationModal
         isOpen={modal.open}
         onClose={() => setModal({ open: false })}
@@ -655,7 +590,15 @@ const UserTable = ({
                 : MESSAGES.SUSPEND_CONFIRMATION
         }
       />
-    </>
+    ),
+  };
+
+  return (
+    <DataTable
+      data={data?.data?.data || []}
+      totalCount={data?.data?.count ?? 0}
+      config={config}
+    />
   );
 };
 

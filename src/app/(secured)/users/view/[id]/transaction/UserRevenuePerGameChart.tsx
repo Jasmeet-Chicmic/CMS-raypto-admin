@@ -201,7 +201,7 @@ const UserRevenuePerGameChart = ({
     },
     dataLabels: {
       enabled: true,
-      formatter: (value: number) => (value  ? formatCurrency(value) : ""),
+      formatter: (value: number) => (value ? formatCurrency(value) : ""),
       style: {
         fontSize: "12px",
         colors: ["#fff"],

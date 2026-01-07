@@ -3,14 +3,13 @@
 import { Eye, Menu, RotateCcw } from "lucide-react";
 import { StylesConfig } from "react-select";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { toast } from "react-toastify";
 import { updateGameConfigAction } from "@/api/gameConfig";
-import Pagination from "@/components/atoms/Pagination";
 import SearchToolbar from "@/components/atoms/SearchToolbar";
 import Select from "@/components/atoms/Select";
-import Table, { TableColumn } from "@/components/atoms/Table";
+import { TableColumn } from "@/components/atoms/Table";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
 import CustomModal from "@/components/molecules/CustomModal/CustomModal";
 import {
@@ -20,8 +19,9 @@ import {
 } from "@/shared/constants";
 import { useTheme } from "next-themes";
 import { ROUTES } from "@/shared/routes";
-import { ResponseType, SORT_DIRECTION } from "@/shared/types";
+import { ResponseType } from "@/shared/types";
 import { formatCurrency } from "@/shared/utils";
+import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { GameConfig } from "./page";
 
 const GameConfigTable = ({
@@ -38,11 +38,6 @@ const GameConfigTable = ({
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === THEME_TYPE.DARK;
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [sortKey, setSortKey] = useState("");
-  const [sortDirection, setSortDirection] = useState<SORT_DIRECTION>(1);
-  const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBetLimitItem, setSelectedBetLimitItem] =
     useState<GameConfig | null>(null);
@@ -53,33 +48,6 @@ const GameConfigTable = ({
       label: CURRENCY_TYPE_NAMES[value] || key,
       value: value,
     }));
-
-  useEffect(() => {
-    const newParams = new URLSearchParams(searchParams.toString());
-
-    if (currentPage > 1) {
-      newParams.set("skip", ((currentPage - 1) * pageSize).toString());
-    } else {
-      newParams.delete("skip");
-    }
-
-    if (pageSize !== 10) {
-      newParams.set("limit", pageSize.toString());
-    } else {
-      newParams.delete("limit");
-    }
-
-    if (sortKey) {
-      newParams.set("sortKey", sortKey);
-      newParams.set("sortDirection", sortDirection.toString());
-    } else {
-      newParams.delete("sortKey");
-      newParams.delete("sortDirection");
-    }
-
-    router.push(`?${newParams.toString()}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, pageSize, sortKey, sortDirection]);
 
   const handleStatusUpdate = async (
     id: string,
@@ -274,17 +242,6 @@ const GameConfigTable = ({
       sortable: true,
       sortKey: "profit",
     },
-    // {
-    //   field: "type",
-    //   title: "Type",
-    //   sortable: true,
-    //   sortKey: "type",
-    //   render: (item) => (
-    //     <span className="px-2 py-1 rounded-full text-[0.875] font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
-    //       {GAME_TYPE_NAMES[item.type] || `Type ${item.type}`}
-    //     </span>
-    //   ),
-    // },
     {
       field: "isEnabled",
       title: "Status",
@@ -361,17 +318,6 @@ const GameConfigTable = ({
         );
       },
     },
-    // {
-    //   field: "createdAt",
-    //   title: "Created At",
-    //   sortable: true,
-    //   sortKey: "createdAt",
-    //   render: (item) => (
-    //     <span className="text-[#1b2559] text-[0.875rem]">
-    //       {formatDate(item.createdAt)}
-    //     </span>
-    //   ),
-    // },
     {
       field: "",
       title: "Actions",
@@ -392,181 +338,165 @@ const GameConfigTable = ({
     },
   ];
 
-  return (
-    <>
-      <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
-        {/* Table Controls */}
-        <div className="dark:border-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+  const config: DataTableConfig<GameConfig> = {
+    columns,
+    keyExtractor: (item) => item._id || "",
+    paginationTitle: "game configs",
+    header: (
+      <>
+        <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
+          <div className="dark:border-gray-800">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+              <div>
+                <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                  Game Configs
+                </h2>
+              </div>
+              <div className="flex items-center space-x-4">
+                <SearchToolbar
+                  initialQuery={searchString}
+                  placeholder="Search Game..."
+                />
+                <button
+                  onClick={() => setIsFilterOpen(true)}
+                  className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                >
+                  <Menu size={18} />
+                  <span>Filters</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <FilterSidebar
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          title="Game Config Filters"
+          footer={
+            <button
+              onClick={() => {
+                router.push(pathname);
+                setIsFilterOpen(false);
+              }}
+              className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+            >
+              <RotateCcw size={18} />
+              <span>Clear All Filters</span>
+            </button>
+          }
+        >
+          <div className="space-y-6">
             <div>
-              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
-                Game Configs
-              </h2>
-              {/* <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
-                Manage game configurations and settings
-              </p> */}
-            </div>
-            <div className="flex items-center space-x-4">
-              <SearchToolbar
-                initialQuery={searchString}
-                placeholder="Search Game..."
-              />
-              <button
-                onClick={() => setIsFilterOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+              <label
+                htmlFor="status-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
-                <Menu size={18} />
-                <span>Filters</span>
-              </button>
+                Status
+              </label>
+              <Select
+                inputId="status-filter"
+                placeholder="Select Status"
+                isClearable
+                options={[
+                  { label: "Enabled", value: "true" },
+                  { label: "Disabled", value: "false" },
+                ]}
+                value={
+                  searchParams.get("isEnabled") === "true"
+                    ? { label: "Enabled", value: "true" }
+                    : searchParams.get("isEnabled") === "false"
+                      ? { label: "Disabled", value: "false" }
+                      : null
+                }
+                onChange={(option: { label: string; value: string } | null) => {
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  if (option) {
+                    newParams.set("isEnabled", option.value);
+                  } else {
+                    newParams.delete("isEnabled");
+                  }
+                  router.push(`?${newParams.toString()}`);
+                }}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="maintenance-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Maintenance
+              </label>
+              <Select
+                inputId="maintenance-filter"
+                placeholder="Select Maintenance Status"
+                isClearable
+                options={[
+                  { label: "Under Maintenance", value: "true" },
+                  { label: "Active", value: "false" },
+                ]}
+                value={
+                  searchParams.get("isMaintenance") === "true"
+                    ? { label: "Under Maintenance", value: "true" }
+                    : searchParams.get("isMaintenance") === "false"
+                      ? { label: "Active", value: "false" }
+                      : null
+                }
+                onChange={(option: { label: string; value: string } | null) => {
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  if (option) {
+                    newParams.set("isMaintenance", option.value);
+                  } else {
+                    newParams.delete("isMaintenance");
+                  }
+                  router.push(`?${newParams.toString()}`);
+                }}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="currency-filter"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Currency
+              </label>
+              <Select
+                inputId="currency-filter"
+                placeholder="Select Currency"
+                isClearable={false}
+                options={CURRENCY_OPTIONS}
+                value={
+                  CURRENCY_OPTIONS.find(
+                    (opt) =>
+                      opt.value.toString() ===
+                      (searchParams.get("currency") || "1"),
+                  ) || CURRENCY_OPTIONS[0]
+                }
+                onChange={(option: { label: string; value: number } | null) => {
+                  const newParams = new URLSearchParams(
+                    searchParams.toString(),
+                  );
+                  if (option) {
+                    newParams.set("currency", option.value.toString());
+                  } else {
+                    newParams.delete("currency");
+                  }
+                  router.push(`?${newParams.toString()}`);
+                }}
+                classNamePrefix="react-select"
+              />
             </div>
           </div>
-        </div>
-      </div>
-
-      <FilterSidebar
-        isOpen={isFilterOpen}
-        onClose={() => setIsFilterOpen(false)}
-        title="Game Config Filters"
-        footer={
-          <button
-            onClick={() => {
-              router.push(pathname);
-              setIsFilterOpen(false);
-            }}
-            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
-          >
-            <RotateCcw size={18} />
-            <span>Clear All Filters</span>
-          </button>
-        }
-      >
-        <div className="space-y-6">
-          <div>
-            <label
-              htmlFor="status-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Status
-            </label>
-            <Select
-              inputId="status-filter"
-              placeholder="Select Status"
-              isClearable
-              options={[
-                { label: "Enabled", value: "true" },
-                { label: "Disabled", value: "false" },
-              ]}
-              value={
-                searchParams.get("isEnabled") === "true"
-                  ? { label: "Enabled", value: "true" }
-                  : searchParams.get("isEnabled") === "false"
-                    ? { label: "Disabled", value: "false" }
-                    : null
-              }
-              onChange={(option: { label: string; value: string } | null) => {
-                const newParams = new URLSearchParams(searchParams.toString());
-                if (option) {
-                  newParams.set("isEnabled", option.value);
-                } else {
-                  newParams.delete("isEnabled");
-                }
-                router.push(`?${newParams.toString()}`);
-              }}
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="maintenance-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Maintenance
-            </label>
-            <Select
-              inputId="maintenance-filter"
-              placeholder="Select Maintenance Status"
-              isClearable
-              options={[
-                { label: "Under Maintenance", value: "true" },
-                { label: "Active", value: "false" },
-              ]}
-              value={
-                searchParams.get("isMaintenance") === "true"
-                  ? { label: "Under Maintenance", value: "true" }
-                  : searchParams.get("isMaintenance") === "false"
-                    ? { label: "Active", value: "false" }
-                    : null
-              }
-              onChange={(option: { label: string; value: string } | null) => {
-                const newParams = new URLSearchParams(searchParams.toString());
-                if (option) {
-                  newParams.set("isMaintenance", option.value);
-                } else {
-                  newParams.delete("isMaintenance");
-                }
-                router.push(`?${newParams.toString()}`);
-              }}
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="currency-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Currency
-            </label>
-            <Select
-              inputId="currency-filter"
-              placeholder="Select Currency"
-              isClearable={false}
-              options={CURRENCY_OPTIONS}
-              value={
-                CURRENCY_OPTIONS.find(
-                  (opt) =>
-                    opt.value.toString() ===
-                    (searchParams.get("currency") || "1"),
-                ) || CURRENCY_OPTIONS[0]
-              }
-              onChange={(option: { label: string; value: number } | null) => {
-                const newParams = new URLSearchParams(searchParams.toString());
-                if (option) {
-                  newParams.set("currency", option.value.toString());
-                } else {
-                  newParams.delete("currency");
-                }
-                router.push(`?${newParams.toString()}`);
-              }}
-              classNamePrefix="react-select"
-            />
-          </div>
-        </div>
-      </FilterSidebar>
-
-      <Table<GameConfig>
-        data={data?.data?.data || []}
-        columns={columns}
-        keyExtractor={(item) => item._id || ""}
-        handleSort={(sortKey, sortDirection) => {
-          setSortKey(sortKey);
-          setSortDirection(sortDirection);
-        }}
-        selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-      />
-      <Pagination
-        totalItems={data?.data?.count ?? 0}
-        currentPage={currentPage}
-        pageSize={pageSize}
-        onPageChange={(page) => setCurrentPage(page + 1)}
-        onPageSizeChange={(size) => {
-          setPageSize(size);
-          setCurrentPage(1);
-        }}
-        title="game configs"
-      />
-
-      {/* Bet Limits Modal */}
+        </FilterSidebar>
+      </>
+    ),
+    footer: (
       <CustomModal
         isOpen={!!selectedBetLimitItem}
         onClose={() => setSelectedBetLimitItem(null)}
@@ -574,7 +504,6 @@ const GameConfigTable = ({
       >
         {selectedBetLimitItem && (
           <>
-            {/* Modal Header */}
             <div className="mb-6">
               <h3 className="text-xl font-bold text-[#1B2559] dark:text-white mb-2">
                 Bet Limits
@@ -584,7 +513,6 @@ const GameConfigTable = ({
               </p>
             </div>
 
-            {/* Modal Content */}
             <div className="max-h-[60vh] overflow-y-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {selectedBetLimitItem.amountLimit.map((limit) => (
@@ -608,7 +536,15 @@ const GameConfigTable = ({
           </>
         )}
       </CustomModal>
-    </>
+    ),
+  };
+
+  return (
+    <DataTable
+      data={data?.data?.data || []}
+      totalCount={data?.data?.count ?? 0}
+      config={config}
+    />
   );
 };
 

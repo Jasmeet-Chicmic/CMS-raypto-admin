@@ -24,17 +24,18 @@ const GamePlayedUserChart = ({
   );
   const [data, setData] = useState<{ date: string; gamesPlayed: number }[]>([]);
   const [loading, setLoading] = useState(true);
-
+  console.log("Is Loading in Game Played User Chart ::", loading);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        console.log("Fetching user games played...", userId, dateRange);
         const response = await fetchUserGamesPlayedAction({
           userId,
           ...(dateRange.from && { fromDate: dateRange.from }),
           ...(dateRange.to && { toDate: dateRange.to }),
         });
-        console.log("response", response);
+        console.log("response <><><><>", response);
         if (response?.status && response?.data?.result) {
           setData(response.data.result);
         } else {
