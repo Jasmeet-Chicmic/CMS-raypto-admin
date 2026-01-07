@@ -102,7 +102,11 @@ export interface DataTableProps<T> {
  * />
  * ```
  */
-export function DataTable<T>({ data, totalCount, config }: DataTableProps<T>) {
+export function DataTable<T>({
+  data,
+  totalCount,
+  config,
+}: Readonly<DataTableProps<T>>) {
   const {
     currentPage,
     pageSize,

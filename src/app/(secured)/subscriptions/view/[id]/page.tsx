@@ -9,8 +9,6 @@ import {
   User,
   UserSubscription,
 } from "@/shared/types";
-
-import Actions from "./Actions";
 import SubscribersTable from "./SubscribersTable";
 
 const SubscriptionViewPage = async ({
@@ -174,9 +172,6 @@ const SubscriptionViewPage = async ({
                 </span>
               </div>
             </div>
-
-            {/* Actions */}
-            <Actions plan={plan} />
           </div>
         </div>
         {/* Right: Subscribers Table (2/3) */}

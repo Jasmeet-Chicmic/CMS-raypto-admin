@@ -1,8 +1,6 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-
-import CompanyProfileCard from "@/components/molecules/company/CompanyProfileCard/CompanyProfileCard";
 import CompanyTabs from "@/components/molecules/company/CompanyTabs/CompanyTabs";
 import CompanyActionsPanel from "@/app/(secured)/companies/view/[id]/CompanyActionsPanel";
 import { Company } from "@/shared/types";
@@ -34,8 +32,6 @@ const CompanyLayout = ({ children, data }: CompanyLayoutProps) => {
   return (
     <div className="p-6 flex flex-col lg:flex-row gap-6">
       <div className="w-full lg:w-1/3">
-        <CompanyProfileCard CompanyData={data} />
-
         {/* Admin Actions Panel - Below Company Profile Card */}
         <div className="mt-6">
           <CompanyActionsPanel

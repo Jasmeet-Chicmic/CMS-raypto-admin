@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
-import { Plus, Trash2, Pencil } from "lucide-react";
+import { Plus, Trash2, Pencil, Save } from "lucide-react";
 
 import Table, { TableColumn } from "@/components/atoms/Table";
 import Pagination from "@/components/atoms/Pagination";
@@ -23,7 +23,6 @@ import {
 import { RewardConfig, updateConfigAction } from "@/api/config";
 import Switch from "@/components/atoms/Switch/Switch";
 import Select from "@/components/atoms/Select";
-import { Save } from "lucide-react";
 
 interface ChatRoomsListProps {
   chatRoomsData: ResponseType & {

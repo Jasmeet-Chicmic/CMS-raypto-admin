@@ -1,7 +1,4 @@
 import { User } from "@/shared/types";
-
-// import BillingAddressForm from "./BillingAddressForm";
-
 const BillingAddress = ({ data }: { data: User }) => {
   console.log(data, "data");
   return (
@@ -11,7 +8,6 @@ const BillingAddress = ({ data }: { data: User }) => {
         <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
           Billing Address
         </h2>
-        {/* <BillingAddressForm data={data} /> */}
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>

@@ -397,13 +397,16 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
                 { label: "Active", value: "true" },
                 { label: "Inactive", value: "false" },
               ]}
-              value={
-                searchParams.get("isActive") === "true"
-                  ? { label: "Active", value: "true" }
-                  : searchParams.get("isActive") === "false"
-                    ? { label: "Inactive", value: "false" }
-                    : null
-              }
+              value={(() => {
+                const isActiveParam = searchParams.get("isActive");
+                if (isActiveParam === "true") {
+                  return { label: "Active", value: "true" };
+                }
+                if (isActiveParam === "false") {
+                  return { label: "Inactive", value: "false" };
+                }
+                return null;
+              })()}
               onChange={(option: { label: string; value: string } | null) => {
                 const newParams = new URLSearchParams(searchParams.toString());
                 if (option) {

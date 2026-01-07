@@ -3,7 +3,6 @@
 // import ProfileView from "@/components/molecules/company/ProfileView/ProfileView";
 // import { FollowCompanyCardProps } from "@/components/molecules/company/FollowCompany/FollowCompanyCard";
 // import FollowCompanyList from "@/components/molecules/company/FollowCompany/FollowCompanyList";
-import JobList from "@/components/molecules/company/JobsView/JobList";
 import { API_END_POINTS } from "@/shared/api";
 import { getRequest } from "@/shared/fetcher";
 import { GetParamsType, Job, SORT_DIRECTION } from "@/shared/types";
@@ -37,11 +36,6 @@ const JobPage = async ({
   console.log(data, "Test: JobPage");
   return (
     <div className="space-y-6">
-      <JobList
-        jobs={data?.data?.jobs ?? []}
-        total={data?.data?.total ?? 0}
-        companyId={id}
-      />
       {/* <ViewersList viewers={sampleViewers} />
       <FollowCompanyList companies={sampleCompany} /> */}
     </div>
