@@ -24,6 +24,57 @@ import { formatCurrency } from "@/shared/utils";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { GameConfig } from "./page";
 
+// Common text color classes
+const TEXT_SECONDARY = "text-[#A3AED0]";
+const TEXT_PRIMARY = "text-[#1B2559] dark:text-white";
+const TEXT_MEDIUM = "font-medium text-gray-900 dark:text-white";
+
+// Helper function to create sortable columns
+const createSortableColumn = <T,>(
+  field: keyof T,
+  title: string,
+  render: (item: T) => React.ReactNode,
+  sortKey?: string,
+): TableColumn<T> => ({
+  field,
+  title,
+  render,
+  sortable: true,
+  sortKey: sortKey || (field as string),
+});
+
+// Helper function to get filter value from search params
+const getFilterValue = (
+  searchParams: URLSearchParams,
+  paramName: string,
+  options: { label: string; value: string }[],
+) => {
+  const paramValue = searchParams.get(paramName);
+  if (paramValue === "true") {
+    return options.find((opt) => opt.value === "true") || null;
+  }
+  if (paramValue === "false") {
+    return options.find((opt) => opt.value === "false") || null;
+  }
+  return null;
+};
+
+// Helper function to handle filter changes
+const handleFilterChange = (
+  router: ReturnType<typeof useRouter>,
+  searchParams: URLSearchParams,
+  paramName: string,
+  value: string | number | null,
+) => {
+  const newParams = new URLSearchParams(searchParams.toString());
+  if (value === null) {
+    newParams.delete(paramName);
+  } else {
+    newParams.set(paramName, value.toString());
+  }
+  router.push(`?${newParams.toString()}`);
+};
+
 const GameConfigTable = ({
   data,
   searchString,
@@ -217,77 +268,51 @@ const GameConfigTable = ({
       title: "ID",
       render: (item) => (item?._id ? `#${item._id.slice(-8)}` : ""),
     },
-    {
-      field: "name",
-      title: "Game Name",
-      sortable: true,
-      sortKey: "name",
-      render: (item) => (
-        <span className="font-medium text-gray-900 dark:text-white">
-          {item.name}
-        </span>
-      ),
-    },
-    {
-      field: "profit",
-      title: "Profit",
-      render: (item) => {
-        const currencyParam = searchParams.get("currency");
-        const currency = currencyParam ? Number(currencyParam) : 1;
-        return item?.profit ? (
-          <div className="flex items-center gap-1">
-            <span className="font-medium">{formatCurrency(item.profit)}</span>
-            <span className="text-[0.775rem] text-[#A3AED0]">
-              {CURRENCY_TYPE_NAMES[currency] || ""}
-            </span>
-          </div>
-        ) : (
-          "-"
-        );
-      },
-      sortable: true,
-      sortKey: "profit",
-    },
-    {
-      field: "isEnabled",
-      title: "Status",
-      render: (item) => (
-        <div className="w-[120px]">
-          <Select
-            options={isEnabledOptions}
-            value={isEnabledOptions.find((opt) => opt.value === item.isEnabled)}
-            onChange={(val) =>
-              val && handleStatusUpdate(item._id, { isEnabled: val.value })
-            }
-            isSearchable={false}
-            styles={getStatusStyles(item.isEnabled)}
-          />
+    createSortableColumn("name", "Game Name", (item) => (
+      <span className={TEXT_MEDIUM}>{item.name}</span>
+    )),
+    createSortableColumn("profit", "Profit", (item) => {
+      const currencyParam = searchParams.get("currency");
+      const currency = currencyParam ? Number(currencyParam) : 1;
+      return item?.profit ? (
+        <div className="flex items-center gap-1">
+          <span className="font-medium">{formatCurrency(item.profit)}</span>
+          <span className={`text-[0.775rem] ${TEXT_SECONDARY}`}>
+            {CURRENCY_TYPE_NAMES[currency] || ""}
+          </span>
         </div>
-      ),
-      sortable: true,
-      sortKey: "isEnabled",
-    },
-    {
-      field: "isMaintenance",
-      title: "Maintenance",
-      render: (item) => (
-        <div className="w-[160px]">
-          <Select
-            options={isMaintenanceOptions}
-            value={isMaintenanceOptions.find(
-              (opt) => opt.value === item.isMaintenance,
-            )}
-            onChange={(val) =>
-              val && handleStatusUpdate(item._id, { isMaintenance: val.value })
-            }
-            isSearchable={false}
-            styles={getStatusStyles(!item.isMaintenance)}
-          />
-        </div>
-      ),
-      sortable: true,
-      sortKey: "isMaintenance",
-    },
+      ) : (
+        "-"
+      );
+    }),
+    createSortableColumn("isEnabled", "Status", (item) => (
+      <div className="w-[120px]">
+        <Select
+          options={isEnabledOptions}
+          value={isEnabledOptions.find((opt) => opt.value === item.isEnabled)}
+          onChange={(val) =>
+            val && handleStatusUpdate(item._id, { isEnabled: val.value })
+          }
+          isSearchable={false}
+          styles={getStatusStyles(item.isEnabled)}
+        />
+      </div>
+    )),
+    createSortableColumn("isMaintenance", "Maintenance", (item) => (
+      <div className="w-[160px]">
+        <Select
+          options={isMaintenanceOptions}
+          value={isMaintenanceOptions.find(
+            (opt) => opt.value === item.isMaintenance,
+          )}
+          onChange={(val) =>
+            val && handleStatusUpdate(item._id, { isMaintenance: val.value })
+          }
+          isSearchable={false}
+          styles={getStatusStyles(!item.isMaintenance)}
+        />
+      </div>
+    )),
     {
       field: "amountLimit",
       title: "Bet Limits",
@@ -303,11 +328,15 @@ const GameConfigTable = ({
               >
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#4F46E5]" />
-                  <span className="text-[10px] font-bold text-[#A3AED0] dark:text-gray-400 uppercase leading-none">
+                  <span
+                    className={`text-[10px] font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase leading-none`}
+                  >
                     {CURRENCY_TYPE_NAMES[limit.currency] || limit.currency}
                   </span>
                 </div>
-                <span className="text-[14px] font-bold text-[#1B2559] dark:text-white leading-none ml-3">
+                <span
+                  className={`text-[14px] font-bold ${TEXT_PRIMARY} leading-none ml-3`}
+                >
                   {formatCurrency(limit.maxBetAmount)}
                 </span>
               </div>
@@ -354,7 +383,7 @@ const GameConfigTable = ({
           <div className="dark:border-gray-800">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
               <div>
-                <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
                   Game Configs
                 </h2>
               </div>
@@ -408,27 +437,18 @@ const GameConfigTable = ({
                   { label: "Enabled", value: "true" },
                   { label: "Disabled", value: "false" },
                 ]}
-                value={(() => {
-                  const isEnabledParam = searchParams.get("isEnabled");
-                  if (isEnabledParam === "true") {
-                    return { label: "Enabled", value: "true" };
-                  }
-                  if (isEnabledParam === "false") {
-                    return { label: "Disabled", value: "false" };
-                  }
-                  return null;
-                })()}
-                onChange={(option: { label: string; value: string } | null) => {
-                  const newParams = new URLSearchParams(
-                    searchParams.toString(),
-                  );
-                  if (option) {
-                    newParams.set("isEnabled", option.value);
-                  } else {
-                    newParams.delete("isEnabled");
-                  }
-                  router.push(`?${newParams.toString()}`);
-                }}
+                value={getFilterValue(searchParams, "isEnabled", [
+                  { label: "Enabled", value: "true" },
+                  { label: "Disabled", value: "false" },
+                ])}
+                onChange={(option: { label: string; value: string } | null) =>
+                  handleFilterChange(
+                    router,
+                    searchParams,
+                    "isEnabled",
+                    option?.value || null,
+                  )
+                }
               />
             </div>
 
@@ -447,27 +467,18 @@ const GameConfigTable = ({
                   { label: "Under Maintenance", value: "true" },
                   { label: "Active", value: "false" },
                 ]}
-                value={(() => {
-                  const isMaintenanceParam = searchParams.get("isMaintenance");
-                  if (isMaintenanceParam === "true") {
-                    return { label: "Under Maintenance", value: "true" };
-                  }
-                  if (isMaintenanceParam === "false") {
-                    return { label: "Active", value: "false" };
-                  }
-                  return null;
-                })()}
-                onChange={(option: { label: string; value: string } | null) => {
-                  const newParams = new URLSearchParams(
-                    searchParams.toString(),
-                  );
-                  if (option) {
-                    newParams.set("isMaintenance", option.value);
-                  } else {
-                    newParams.delete("isMaintenance");
-                  }
-                  router.push(`?${newParams.toString()}`);
-                }}
+                value={getFilterValue(searchParams, "isMaintenance", [
+                  { label: "Under Maintenance", value: "true" },
+                  { label: "Active", value: "false" },
+                ])}
+                onChange={(option: { label: string; value: string } | null) =>
+                  handleFilterChange(
+                    router,
+                    searchParams,
+                    "isMaintenance",
+                    option?.value || null,
+                  )
+                }
               />
             </div>
 
@@ -490,17 +501,14 @@ const GameConfigTable = ({
                       (searchParams.get("currency") || "1"),
                   ) || CURRENCY_OPTIONS[0]
                 }
-                onChange={(option: { label: string; value: number } | null) => {
-                  const newParams = new URLSearchParams(
-                    searchParams.toString(),
-                  );
-                  if (option) {
-                    newParams.set("currency", option.value.toString());
-                  } else {
-                    newParams.delete("currency");
-                  }
-                  router.push(`?${newParams.toString()}`);
-                }}
+                onChange={(option: { label: string; value: number } | null) =>
+                  handleFilterChange(
+                    router,
+                    searchParams,
+                    "currency",
+                    option?.value || null,
+                  )
+                }
                 classNamePrefix="react-select"
               />
             </div>
@@ -517,10 +525,10 @@ const GameConfigTable = ({
         {selectedBetLimitItem && (
           <>
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-[#1B2559] dark:text-white mb-2">
+              <h3 className={`text-xl font-bold ${TEXT_PRIMARY} mb-2`}>
                 Bet Limits
               </h3>
-              <p className="text-sm text-[#A3AED0] dark:text-gray-400">
+              <p className={`text-sm ${TEXT_SECONDARY} dark:text-gray-400`}>
                 {selectedBetLimitItem.name}
               </p>
             </div>
@@ -534,11 +542,13 @@ const GameConfigTable = ({
                   >
                     <div className="flex items-center gap-2 mb-1.5">
                       <div className="w-2 h-2 rounded-full bg-[#4F46E5]" />
-                      <span className="text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase">
+                      <span
+                        className={`text-xs font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase`}
+                      >
                         {CURRENCY_TYPE_NAMES[limit.currency] || limit.currency}
                       </span>
                     </div>
-                    <span className="text-lg font-bold text-[#1B2559] dark:text-white ml-4">
+                    <span className={`text-lg font-bold ${TEXT_PRIMARY} ml-4`}>
                       {formatCurrency(limit.maxBetAmount)}
                     </span>
                   </div>

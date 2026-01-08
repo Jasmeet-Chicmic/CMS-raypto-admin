@@ -381,6 +381,45 @@ const UserTable = ({
     },
   ];
 
+  const getModalConfig = () => {
+    const { type, data } = modal;
+
+    switch (type) {
+      case MODAL_TYPE.DELETE:
+        return {
+          onConfirm: handleDelete,
+          title: STRING.DELETE_USER,
+          message: MESSAGES.DELETE_CONFIRMATION,
+        };
+      case MODAL_TYPE.BLOCK_TOGGLE:
+        return {
+          onConfirm: handleBlockToggle,
+          title:
+            data?.status === USER_BLOCK_STATUS.INACTIVE
+              ? STRING.UNBLOCK_USER
+              : STRING.BLOCK_USER,
+          message:
+            data?.status === USER_BLOCK_STATUS.INACTIVE
+              ? MESSAGES.UNBLOCK_CONFIRMATION
+              : MESSAGES.BLOCK_CONFIRMATION,
+        };
+      case MODAL_TYPE.LOGOUT:
+        return {
+          onConfirm: handleLogout,
+          title: STRING.LOGOUT_USER,
+          message: MESSAGES.LOGOUT_CONFIRMATION,
+        };
+      default:
+        return {
+          onConfirm: handleSuspend,
+          title: STRING.SUSPEND_USER,
+          message: MESSAGES.SUSPEND_CONFIRMATION,
+        };
+    }
+  };
+
+  const modalConfig = getModalConfig();
+
   const config: DataTableConfig<User> = {
     columns,
     keyExtractor: (item) => item._id || "",
@@ -442,50 +481,64 @@ const UserTable = ({
               >
                 User Status
               </label>
-              <Select
-                inputId="user-status-filter"
-                placeholder="Select Status"
-                isClearable
-                options={[
-                  { label: "Active", value: "active" },
-                  { label: "Blocked", value: "blocked" },
-                  { label: "Suspicious", value: "suspicious" },
-                ]}
-                value={
-                  searchParams.get("isSuspicious") === "true"
-                    ? { label: "Suspicious", value: "suspicious" }
-                    : searchParams.get("status") ===
-                        USER_BLOCK_STATUS.ACTIVE.toString()
-                      ? { label: "Active", value: "active" }
-                      : searchParams.get("status") ===
-                          USER_BLOCK_STATUS.INACTIVE.toString()
-                        ? { label: "Blocked", value: "blocked" }
-                        : null
+              {(() => {
+                let userStatusValue: { label: string; value: string } | null =
+                  null;
+
+                if (searchParams.get("isSuspicious") === "true") {
+                  userStatusValue = {
+                    label: "Suspicious",
+                    value: "suspicious",
+                  };
+                } else if (
+                  searchParams.get("status") ===
+                  USER_BLOCK_STATUS.ACTIVE.toString()
+                ) {
+                  userStatusValue = { label: "Active", value: "active" };
+                } else if (
+                  searchParams.get("status") ===
+                  USER_BLOCK_STATUS.INACTIVE.toString()
+                ) {
+                  userStatusValue = { label: "Blocked", value: "blocked" };
                 }
-                onChange={(option) => {
-                  const newParams = new URLSearchParams(
-                    searchParams.toString(),
-                  );
-                  newParams.delete("status");
-                  newParams.delete("isSuspicious");
 
-                  if (option?.value === "active") {
-                    newParams.set(
-                      "status",
-                      USER_BLOCK_STATUS.ACTIVE.toString(),
-                    );
-                  } else if (option?.value === "blocked") {
-                    newParams.set(
-                      "status",
-                      USER_BLOCK_STATUS.INACTIVE.toString(),
-                    );
-                  } else if (option?.value === "suspicious") {
-                    newParams.set("isSuspicious", "true");
-                  }
+                return (
+                  <Select
+                    inputId="user-status-filter"
+                    placeholder="Select Status"
+                    isClearable
+                    options={[
+                      { label: "Active", value: "active" },
+                      { label: "Blocked", value: "blocked" },
+                      { label: "Suspicious", value: "suspicious" },
+                    ]}
+                    value={userStatusValue}
+                    onChange={(option) => {
+                      const newParams = new URLSearchParams(
+                        searchParams.toString(),
+                      );
+                      newParams.delete("status");
+                      newParams.delete("isSuspicious");
 
-                  router.push(`?${newParams.toString()}`);
-                }}
-              />
+                      if (option?.value === "active") {
+                        newParams.set(
+                          "status",
+                          USER_BLOCK_STATUS.ACTIVE.toString(),
+                        );
+                      } else if (option?.value === "blocked") {
+                        newParams.set(
+                          "status",
+                          USER_BLOCK_STATUS.INACTIVE.toString(),
+                        );
+                      } else if (option?.value === "suspicious") {
+                        newParams.set("isSuspicious", "true");
+                      }
+
+                      router.push(`?${newParams.toString()}`);
+                    }}
+                  />
+                );
+              })()}
             </div>
 
             <div>
@@ -558,37 +611,9 @@ const UserTable = ({
         isOpen={modal.open}
         onClose={() => setModal({ open: false })}
         isLoading={isActionLoading}
-        onConfirm={
-          modal.type === MODAL_TYPE.DELETE
-            ? handleDelete
-            : modal.type === MODAL_TYPE.BLOCK_TOGGLE
-              ? handleBlockToggle
-              : modal.type === MODAL_TYPE.LOGOUT
-                ? handleLogout
-                : handleSuspend
-        }
-        title={
-          modal.type === MODAL_TYPE.DELETE
-            ? STRING.DELETE_USER
-            : modal.type === MODAL_TYPE.BLOCK_TOGGLE
-              ? modal.data?.status === USER_BLOCK_STATUS.INACTIVE
-                ? STRING.UNBLOCK_USER
-                : STRING.BLOCK_USER
-              : modal.type === MODAL_TYPE.LOGOUT
-                ? STRING.LOGOUT_USER
-                : STRING.SUSPEND_USER
-        }
-        message={
-          modal.type === MODAL_TYPE.DELETE
-            ? MESSAGES.DELETE_CONFIRMATION
-            : modal.type === MODAL_TYPE.BLOCK_TOGGLE
-              ? modal.data?.status === USER_BLOCK_STATUS.INACTIVE
-                ? MESSAGES.UNBLOCK_CONFIRMATION
-                : MESSAGES.BLOCK_CONFIRMATION
-              : modal.type === MODAL_TYPE.LOGOUT
-                ? MESSAGES.LOGOUT_CONFIRMATION
-                : MESSAGES.SUSPEND_CONFIRMATION
-        }
+        onConfirm={modalConfig.onConfirm}
+        title={modalConfig.title}
+        message={modalConfig.message}
       />
     ),
   };

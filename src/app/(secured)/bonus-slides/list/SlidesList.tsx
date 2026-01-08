@@ -70,10 +70,10 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
       newParams.delete("skip");
     }
 
-    if (pageSize !== 10) {
-      newParams.set("limit", pageSize.toString());
-    } else {
+    if (pageSize === 10) {
       newParams.delete("limit");
+    } else {
+      newParams.set("limit", pageSize.toString());
     }
 
     if (sortKey) {
