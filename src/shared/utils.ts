@@ -330,3 +330,30 @@ export const formatCurrencyAuto = (
     maximumFractionDigits: decimals,
   });
 };
+
+/**
+ * Helper function to create sortable table columns with consistent configuration
+ * @param field - The field key from the data type
+ * @param title - The column title to display
+ * @param render - Function to render the cell content
+ * @param sortKey - Optional custom sort key (defaults to field name)
+ * @returns TableColumn configuration object
+ */
+export const createSortableColumn = <T>(
+  field: keyof T,
+  title: string,
+  render: (item: T) => React.ReactNode,
+  sortKey?: string,
+): {
+  field: keyof T;
+  title: string;
+  render: (item: T) => React.ReactNode;
+  sortable: boolean;
+  sortKey: string;
+} => ({
+  field,
+  title,
+  render,
+  sortable: true,
+  sortKey: sortKey || (field as string),
+});

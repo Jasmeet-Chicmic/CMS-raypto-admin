@@ -45,16 +45,18 @@ export function PasswordField<T extends FieldValues>({
           {...register(name, validation)}
           className="w-full px-3 pr-10 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 text-black dark:bg-gray-900 dark:border-gray-800 dark:text-white"
         />
-        <div
+        <button
+          type="button"
           className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer select-none"
           onClick={() => setShowPassword((prev) => !prev)}
+          aria-label={showPassword ? "Hide password" : "Show password"}
         >
           {showPassword ? (
             <Eye className="h-5 w-5 text-gray-400" />
           ) : (
             <EyeOff className="h-5 w-5 text-gray-400" />
           )}
-        </div>
+        </button>
       </div>
       {fieldError && (
         <span className="text-red-500 text-[0.875] mt-1">

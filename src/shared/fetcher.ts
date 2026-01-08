@@ -84,7 +84,7 @@ const request = async <R, T = R>(
       cookieStore.delete("session");
       redirect(`${ROUTES.LOGIN}?unauthorized=true`);
     }
-    console.log("Error::", error);
+    console.log("Error::", error, "Config::", config);
     return error;
   }
 };

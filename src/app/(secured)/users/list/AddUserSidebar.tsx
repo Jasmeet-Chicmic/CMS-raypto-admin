@@ -138,9 +138,12 @@ const AddUserSidebar = ({
     <>
       {/* Overlay */}
       {open && (
-        <div
-          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity"
+        <button
+          type="button"
+          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
           onClick={() => setOpen(false)}
+          aria-label="Close sidebar"
+          tabIndex={-1}
         />
       )}
 
@@ -152,10 +155,14 @@ const AddUserSidebar = ({
       >
         <div className="flex items-center justify-between px-6 py-4 border-b">
           <h2 className="text-lg font-semibold text-gray-800">Add User</h2>
-          <X
+          <button
+            type="button"
             onClick={() => setOpen(false)}
-            className="text-gray-400 hover:text-gray-600 text-2xl cursor-pointer"
-          />
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close sidebar"
+          >
+            <X className="text-2xl" />
+          </button>
         </div>
         {open && (
           <FormBuilder<AddUserFormValues>

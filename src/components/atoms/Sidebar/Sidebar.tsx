@@ -102,9 +102,10 @@ const Sidebar: React.FC = () => {
             )}
           </Link>
         ) : (
-          <div
+          <button
+            type="button"
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-[#f4f7fe] hover:text-[#a3aed0] transition-all duration-200 group dark:text-white dark:hover:bg-gray-700 dark:hover:text-white sidebar-menu-item",
+              "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-[#f4f7fe] hover:text-[#a3aed0] transition-all duration-200 group dark:text-white dark:hover:bg-gray-700 dark:hover:text-white sidebar-menu-item w-full text-left",
               isActive &&
                 "bg-[#4F46E5] text-white hover:bg-[#4F46E5] hover:text-white",
             )}
@@ -144,7 +145,7 @@ const Sidebar: React.FC = () => {
                 )}
               </div>
             )}
-          </div>
+          </button>
         )}
         {isExpandable && expanded[item.label] && (
           <ul className="mt-1 space-y-1">
@@ -167,9 +168,12 @@ const Sidebar: React.FC = () => {
 
       {/* Overlay */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300"
+        <button
+          type="button"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 cursor-default"
           onClick={toggleSidebar}
+          aria-label="Close sidebar"
+          tabIndex={-1}
         />
       )}
 

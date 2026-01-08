@@ -22,9 +22,12 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
     <>
       {/* Overlay */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity"
+        <button
+          type="button"
+          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
           onClick={onClose}
+          aria-label="Close filter sidebar"
+          tabIndex={-1}
         />
       )}
 

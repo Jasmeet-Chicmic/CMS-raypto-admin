@@ -137,7 +137,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999] flex items-center justify-center">
+    <button
+      type="button"
+      className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999] flex items-center justify-center cursor-default"
+      onClick={onClose}
+      aria-label="Close command palette"
+    >
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-gray-800">
         {/* Search Input */}
         <div className="flex items-center px-4 py-3 border-b border-gray-200">
@@ -181,9 +186,10 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                     const globalIndex = allFilteredCommands.indexOf(command);
                     const Icon = command.icon;
                     return (
-                      <div
+                      <button
+                        type="button"
                         key={command.id}
-                        className={`flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-gray-700`}
+                        className={`flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 w-full text-left`}
                         onClick={() => {
                           command.action();
                           onClose();
@@ -216,7 +222,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             </kbd>
                           </div>
                         )}
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
@@ -255,7 +261,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

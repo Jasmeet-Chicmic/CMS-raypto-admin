@@ -5,8 +5,6 @@ import { API_END_POINTS } from "@/shared/api";
 import { getRequest } from "@/shared/fetcher";
 import { PromoCode } from "@/shared/types";
 
-import PromoCodeTable from "./PromoCodeTable";
-
 const PromoCodesPage = async ({
   params,
   searchParams,
@@ -59,13 +57,7 @@ const PromoCodesPage = async ({
           <StatsCard {...stat} key={stat.title} index={index} />
         ))}
       </div>
-      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
-        <PromoCodeTable
-          data={promoCodes?.data?.data || []}
-          userId={id}
-          count={promoCodes?.data?.count || 0}
-        />
-      </div>
+      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800 dark:text-white"></div>
     </div>
   );
 };

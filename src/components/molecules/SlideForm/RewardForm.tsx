@@ -120,7 +120,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       handleRewardChange(
                         index,
                         "amount",
-                        parseFloat(e.target.value) || 0,
+                        Number.parseFloat(e.target.value) || 0,
                       )
                     }
                     placeholder="0.00"

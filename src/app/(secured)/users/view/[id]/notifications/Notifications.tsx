@@ -84,12 +84,19 @@ const Notifications = ({ notificationsData, id }: NotificationsProps) => {
   ) => {
     const item = data.find((d) => d.type === prefType);
     const isChecked = item?.availability.includes(availability);
+    const notificationLabel = NOTIFICATION_LABELS[prefType];
+    const availabilityStr = String(availability);
+    const availabilityLabel =
+      availabilityStr.charAt(0).toUpperCase() +
+      availabilityStr.slice(1).toLowerCase();
+
     return (
       <input
         type="checkbox"
         checked={isChecked}
         onChange={() => toggleAvailability(prefType, availability)}
         className="w-4 h-4 accent-purple-600"
+        aria-label={`${notificationLabel} via ${availabilityLabel}`}
       />
     );
   };

@@ -70,12 +70,14 @@ const Image = ({
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-2">
           <CheckClickOutside onClick={() => setModal(false)}>
             <div className="bg-white rounded-lg shadow-lg w-full max-w-sm mt-2 p-3">
-              <div
-                className="flex justify-end mb-2 cursor-pointer"
+              <button
+                type="button"
+                className="flex justify-end mb-2 cursor-pointer w-full"
                 onClick={() => setModal(false)}
+                aria-label="Close image modal"
               >
                 <X />
-              </div>
+              </button>
               <NextImage
                 src={imageSource}
                 alt={alt || ""}

@@ -25,6 +25,8 @@ module.exports = {
         primary: {
           DEFAULT: "#2F3349",
         },
+        secondary: "#A3AED0",
+        navy: "#1b2559",
         menucolor: "#444050",
         menubackground: "#EEEFEF",
         muted: "#808390",

@@ -1,141 +1,86 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-
-import Pagination from "@/components/atoms/Pagination";
-import Table, { TableColumn } from "@/components/atoms/Table";
+import { useMemo } from "react";
 import { CURRENCY_TYPE_NAMES, GAME_TYPE_NAMES } from "@/shared/constants";
-import { ResponseType, SORT_DIRECTION } from "@/shared/types";
-import { formatCurrency, formatDate, walletTruncate } from "@/shared/utils";
+import { ResponseType } from "@/shared/types";
+import {
+  formatCurrency,
+  formatDate,
+  walletTruncate,
+  createSortableColumn,
+} from "@/shared/utils";
+import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { BetHistory } from "./page";
+
+import {
+  TEXT_SECONDARY,
+  TEXT_PRIMARY_DARK,
+  TEXT_GRAY_WHITE,
+  TEXT_SIZE_SM,
+  TEXT_SIZE_XS,
+} from "@/shared/styles";
 
 const BigBetsTable = ({
   data,
 }: {
   data: ResponseType & { data: { data: BetHistory[]; count: number } };
 }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [sortKey, setSortKey] = useState("");
-  const [sortDirection, setSortDirection] = useState<SORT_DIRECTION>(1);
-  const [selectedRows, setSelectedRows] = useState<string[]>([]);
-
-  useEffect(() => {
-    const newParams = new URLSearchParams(searchParams.toString());
-
-    if (currentPage > 1) {
-      newParams.set("skip", ((currentPage - 1) * pageSize).toString());
-    } else {
-      newParams.delete("skip");
-    }
-
-    if (pageSize !== 10) {
-      newParams.set("limit", pageSize.toString());
-    } else {
-      newParams.delete("limit");
-    }
-
-    if (sortKey) {
-      newParams.set("sortKey", sortKey);
-      newParams.set("sortDirection", sortDirection.toString());
-    } else {
-      newParams.delete("sortKey");
-      newParams.delete("sortDirection");
-    }
-
-    router.push(`?${newParams.toString()}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, pageSize, sortKey, sortDirection]);
-
-  const columns: TableColumn<BetHistory>[] = [
-    {
-      field: "_id",
-      title: "ID",
-      render: (item) => (item?._id ? `#${item._id.slice(-8)}` : ""),
-    },
-    {
-      field: "user",
-      title: "User",
-      render: (item) => (
-        <div className="flex flex-col">
-          <span className="font-medium text-gray-900 dark:text-white">
-            {item.user?.name || "Unknown"}
+  const config: DataTableConfig<BetHistory> = useMemo(
+    () => ({
+      columns: [
+        {
+          field: "_id",
+          title: "ID",
+          render: (item) => (item?._id ? `#${item._id.slice(-8)}` : ""),
+        },
+        createSortableColumn(
+          "user",
+          "User",
+          (item) => (
+            <div className="flex flex-col">
+              <span className={`font-medium ${TEXT_GRAY_WHITE}`}>
+                {item.user?.name || "Unknown"}
+              </span>
+              <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
+                {item.user?.wallet ? walletTruncate(item.user.wallet) : "N/A"}
+              </span>
+            </div>
+          ),
+          "userName",
+        ),
+        createSortableColumn("type", "Game", (item) => (
+          <span className="px-2 py-1 rounded-full text-[0.875] font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
+            {GAME_TYPE_NAMES[item.type] || `Type ${item.type}`}
           </span>
-          <span className="text-[0.875rem] text-[#A3AED0]">
-            {item.user?.wallet ? walletTruncate(item.user.wallet) : "N/A"}
+        )),
+        createSortableColumn("betAmount", "Bet Amount", (item) => (
+          <div className="flex items-center gap-1">
+            <span className="font-medium">
+              {formatCurrency(item.betAmount)}
+            </span>
+            <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
+              {CURRENCY_TYPE_NAMES[item.currency] || ""}
+            </span>
+          </div>
+        )),
+        createSortableColumn("createdAt", "Date", (item) => (
+          <span className={`${TEXT_SIZE_SM} ${TEXT_PRIMARY_DARK}`}>
+            {formatDate(item.createdAt)}
           </span>
-        </div>
-      ),
-      sortable: true,
-      sortKey: "userName",
-    },
-    {
-      field: "type",
-      title: "Game",
-      render: (item) => (
-        <span className="px-2 py-1 rounded-full text-[0.875] font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
-          {GAME_TYPE_NAMES[item.type] || `Type ${item.type}`}
-        </span>
-      ),
-      sortable: true,
-      sortKey: "type",
-    },
-    {
-      field: "betAmount",
-      title: "Bet Amount",
-      render: (item) => (
-        <div className="flex items-center gap-1">
-          <span className="font-medium">{formatCurrency(item.betAmount)}</span>
-          <span className="text-[0.775rem] text-[#A3AED0]">
-            {CURRENCY_TYPE_NAMES[item.currency] || ""}
-          </span>
-        </div>
-      ),
-      sortable: true,
-      sortKey: "betAmount",
-    },
-    {
-      field: "createdAt",
-      title: "Date",
-      render: (item) => (
-        <span className="text-[#1b2559] text-[0.875rem] dark:text-[#ffffff]">
-          {formatDate(item.createdAt)}
-        </span>
-      ),
-      sortable: true,
-      sortKey: "createdAt",
-    },
-  ];
+        )),
+      ],
+      keyExtractor: (item) => item._id || "",
+      paginationTitle: "big bets",
+    }),
+    [],
+  );
 
   return (
-    <>
-      <Table<BetHistory>
-        data={data?.data?.data || []}
-        columns={columns}
-        keyExtractor={(item) => item._id || ""}
-        handleSort={(sortKey, sortDirection) => {
-          setSortKey(sortKey);
-          setSortDirection(sortDirection);
-        }}
-        selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-      />
-      <Pagination
-        totalItems={data?.data?.count ?? 0}
-        currentPage={currentPage}
-        pageSize={pageSize}
-        onPageChange={(page) => setCurrentPage(page + 1)}
-        onPageSizeChange={(size) => {
-          setPageSize(size);
-          setCurrentPage(1);
-        }}
-        title="big bets"
-      />
-    </>
+    <DataTable
+      data={data?.data?.data || []}
+      totalCount={data?.data?.count ?? 0}
+      config={config}
+    />
   );
 };
 

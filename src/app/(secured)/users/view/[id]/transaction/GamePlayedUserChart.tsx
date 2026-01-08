@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
 import { fetchUserGamesPlayedAction } from "@/api/user";
 import DateRangeFilterDropdown from "@/components/atoms/DateRangeFilter/DateRangeFilterDropdown";
-
-const ReactApexCharts = dynamic(() => import("react-apexcharts"), {
-  ssr: false,
-});
+import { ChartContentRenderer } from "@/components/molecules/Charts/ChartContentRenderer";
+import {
+  getGamesPlayedChartOptions,
+  getGamesPlayedSeries,
+} from "@/shared/chartConfigs/gamesPlayedChartConfig";
 
 interface GamePlayedUserChartProps {
   userId: string;
@@ -34,7 +33,6 @@ const GamePlayedUserChart = ({
           ...(dateRange.from && { fromDate: dateRange.from }),
           ...(dateRange.to && { toDate: dateRange.to }),
         });
-        console.log("response", response);
         if (response?.status && response?.data?.result) {
           setData(response.data.result);
         } else {
@@ -63,100 +61,13 @@ const GamePlayedUserChart = ({
 
   const chartData = data.map((item) => item.gamesPlayed);
 
-  // Chart options
-  const chartOptions: ApexOptions = {
-    chart: {
-      type: "bar",
-      toolbar: { show: false },
-      zoom: { enabled: false },
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 6,
-        columnWidth: "50%",
-        dataLabels: {
-          position: "top",
-        },
-      },
-    },
-    xaxis: {
-      categories,
-      labels: {
-        style: {
-          colors: "#A3AED0",
-          fontFamily: "inherit",
-          fontSize: "12px",
-        },
-      },
-      axisBorder: {
-        show: true,
-      },
-      axisTicks: {
-        show: true,
-      },
-    },
-    yaxis: {
-      labels: {
-        style: {
-          colors: "#A3AED0",
-          fontFamily: "inherit",
-        },
-        formatter: (value: number) => Math.round(value).toString(),
-      },
-    },
-    colors: ["#4F46E5"],
-    fill: {
-      type: "gradient",
-      gradient: {
-        shade: "light",
-        type: "vertical",
-        shadeIntensity: 1,
-        opacityFrom: 0.8,
-        opacityTo: 0.3,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#4F46E5",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#ffffff",
-            opacity: 0,
-          },
-        ],
-      },
-    },
-    tooltip: {
-      y: {
-        formatter: (value: number) => `${value}`,
-      },
-    },
-    grid: {
-      borderColor: "transparent",
-      strokeDashArray: 4,
-    },
-    dataLabels: {
-      enabled: true,
-      formatter: (value: number) => value.toString(),
-      offsetY: -20,
-      style: {
-        fontSize: "12px",
-        colors: ["#9CA3AF"],
-      },
-    },
-  };
-
-  const series: ApexOptions["series"] = [
-    {
-      name: "Game Played",
-      data: chartData,
-    },
-  ];
+  // Use shared chart configuration
+  const chartOptions = getGamesPlayedChartOptions(categories);
+  const series = getGamesPlayedSeries(chartData);
 
   return (
     <div
-      className={`flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800 ${className}`}
+      className={`flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800 ${className}`}
     >
       <div className="flex md:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="w-full">
@@ -175,22 +86,14 @@ const GamePlayedUserChart = ({
           />
         </div>
       </div>
-      {loading ? (
-        <div className="flex items-center justify-center h-[300px]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-        </div>
-      ) : data.length > 0 ? (
-        <ReactApexCharts
-          type="bar"
-          // height={300}
-          series={series}
-          options={chartOptions}
-        />
-      ) : (
-        <div className="flex items-center justify-center h-[300px] text-gray-500">
-          No games played data available
-        </div>
-      )}
+      <ChartContentRenderer
+        loading={loading}
+        hasData={data.length > 0}
+        series={series}
+        options={chartOptions}
+        height={300}
+        emptyMessage="No games played data available"
+      />
     </div>
   );
 };

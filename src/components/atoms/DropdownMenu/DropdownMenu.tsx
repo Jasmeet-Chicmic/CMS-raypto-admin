@@ -40,15 +40,17 @@ const DropdownMenu = ({ options, onSelect }: DropdownMenuProps) => {
         <div className="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg border border-gray-100 z-10 dark:bg-gray-900 dark:border-gray-800">
           <ul className="py-1 text-sm text-gray-700 dark:text-gray-400">
             {options.map((option) => (
-              <li
-                key={option.value}
-                onClick={() => {
-                  onSelect?.(option.value);
-                  setOpen(false);
-                }}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800"
-              >
-                {option.label}
+              <li key={option.value}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onSelect?.(option.value);
+                    setOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800"
+                >
+                  {option.label}
+                </button>
               </li>
             ))}
           </ul>
