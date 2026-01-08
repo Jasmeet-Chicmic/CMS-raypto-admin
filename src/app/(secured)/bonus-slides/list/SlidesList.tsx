@@ -15,14 +15,17 @@ import SearchToolbar from "@/components/atoms/SearchToolbar";
 import Select from "@/components/atoms/Select";
 import { useTheme } from "next-themes";
 import { THEME_TYPE } from "@/shared/constants";
-import { StylesConfig } from "react-select";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import { createSortableColumn } from "@/shared/utils";
+import { getStatusSelectStyles } from "@/shared/selectStyles";
 
-// Common text color classes
-const TEXT_PRIMARY = "text-gray-900 dark:text-white";
-const TEXT_SECONDARY = "text-[#1b2559] dark:text-white";
+import {
+  TEXT_GRAY_WHITE as TEXT_PRIMARY,
+  TEXT_PRIMARY_DARK as TEXT_SECONDARY,
+  TEXT_SECONDARY as TEXT_MUTED,
+  TEXT_SIZE_SM,
+} from "@/shared/styles";
 
 // Status filter options
 const STATUS_FILTER_OPTIONS = [
@@ -70,51 +73,6 @@ const updateSearchParams = (
     newParams.set(paramName, value);
   }
   router.push(`?${newParams.toString()}`);
-};
-
-// Helper function to get color scheme based on state
-const getColorScheme = (isPositive: boolean, isDark: boolean) => {
-  if (isPositive) {
-    return isDark
-      ? {
-          background: "#064e3b",
-          border: "#065f46",
-          hoverBorder: "#059669",
-          text: "#34d399",
-          optionSelected: "#064e3b",
-          optionFocused: "#065f46",
-          optionActive: "#065f46",
-        }
-      : {
-          background: "#f0fdf4",
-          border: "#bbf7d0",
-          hoverBorder: "#86efac",
-          text: "#15803d",
-          optionSelected: "#f0fdf4",
-          optionFocused: "#f0fdf4",
-          optionActive: "#dcfce7",
-        };
-  }
-
-  return isDark
-    ? {
-        background: "#7f1d1d",
-        border: "#991b1b",
-        hoverBorder: "#dc2626",
-        text: "#f87171",
-        optionSelected: "#7f1d1d",
-        optionFocused: "#991b1b",
-        optionActive: "#991b1b",
-      }
-    : {
-        background: "#fef2f2",
-        border: "#fecaca",
-        hoverBorder: "#fca5a5",
-        text: "#b91c1c",
-        optionSelected: "#fef2f2",
-        optionFocused: "#fef2f2",
-        optionActive: "#fee2e2",
-      };
 };
 
 const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
@@ -165,84 +123,8 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
     }
   };
 
-  const getStatusStyles = (
-    isPositive: boolean,
-  ): StylesConfig<{ value: boolean; label: string }, false> => {
-    const colors = getColorScheme(isPositive, isDark);
-    const neutralTextColor = isDark ? "#9ca3af" : "#374151";
-    const menuBorder = isDark ? "#374151" : "#e5e7eb";
-    const menuBackground = isDark ? "#111827" : "white";
-
-    return {
-      control: (provided) => ({
-        ...provided,
-        minHeight: "32px",
-        height: "32px",
-        fontSize: "12px",
-        borderRadius: "9999px",
-        backgroundColor: colors.background,
-        borderColor: colors.border,
-        boxShadow: "none",
-        "&:hover": {
-          borderColor: colors.hoverBorder,
-        },
-      }),
-      valueContainer: (provided) => ({
-        ...provided,
-        padding: "0 12px",
-      }),
-      singleValue: (provided) => ({
-        ...provided,
-        color: colors.text,
-        fontWeight: "600",
-      }),
-      dropdownIndicator: (provided) => ({
-        ...provided,
-        padding: "0 8px 0 0",
-        color: colors.text,
-        "&:hover": {
-          color: colors.text,
-        },
-      }),
-      indicatorSeparator: () => ({
-        display: "none",
-      }),
-      menu: (provided) => ({
-        ...provided,
-        borderRadius: "12px",
-        overflow: "hidden",
-        border: `1px solid ${menuBorder}`,
-        boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-        backgroundColor: menuBackground,
-      }),
-      option: (provided, state) => {
-        const optionValue = (state.data as { value: boolean })?.value;
-        const optionColors = getColorScheme(optionValue, isDark);
-
-        let backgroundColor = "transparent";
-        let textColor = neutralTextColor;
-
-        if (state.isSelected) {
-          backgroundColor = optionColors.optionSelected;
-          textColor = optionColors.text;
-        } else if (state.isFocused) {
-          backgroundColor = optionColors.optionFocused;
-          textColor = optionColors.text;
-        }
-
-        return {
-          ...provided,
-          backgroundColor,
-          color: textColor,
-          fontSize: "12px",
-          cursor: "pointer",
-          "&:active": {
-            backgroundColor: optionColors.optionActive,
-          },
-        };
-      },
-    };
-  };
+  const getStatusStyles = (isPositive: boolean) =>
+    getStatusSelectStyles(isPositive, isDark);
 
   const columns: TableColumn<SlideListItem>[] = useMemo(
     () => [
@@ -263,7 +145,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
         </div>
       )),
       createSortableColumn("createdAt", "Created", (item) => (
-        <span className={`text-[0.875rem] ${TEXT_SECONDARY}`}>
+        <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
           {new Date(item.createdAt).toLocaleDateString()}
         </span>
       )),
@@ -326,10 +208,12 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
             <div className="dark:border-gray-800">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div>
-                  <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                  <h2 className={`text-[1.5rem] font-bold ${TEXT_SECONDARY}`}>
                     Bonus Slides
                   </h2>
-                  <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+                  <p
+                    className={`text-[14px] font-medium ${TEXT_MUTED} dark:text-gray-400`}
+                  >
                     Manage promotional slider content
                   </p>
                 </div>

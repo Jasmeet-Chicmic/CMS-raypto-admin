@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { formatCurrency } from "@/shared/utils";
 import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { fetchUserRevenuePerGameAction } from "@/api/user";
@@ -54,8 +54,6 @@ const UserRevenuePerGameChart = ({
           ...(dateRange.from && { fromDate: dateRange.from }),
           ...(dateRange.to && { toDate: dateRange.to }),
         };
-
-        console.log("params Samridh", params);
         const response = await fetchUserRevenuePerGameAction(params);
         if (response?.status && response?.data?.revenuePerGame) {
           setData(response.data.revenuePerGame);
@@ -83,8 +81,14 @@ const UserRevenuePerGameChart = ({
   } = useRevenuePerGameData(data);
 
   // Use shared chart configuration
-  const chartOptions = getRevenuePerGameChartOptions(categories);
-  const series = getRevenuePerGameSeries(positiveRevenue, negativeRevenue);
+  const chartOptions = useMemo(
+    () => getRevenuePerGameChartOptions(categories),
+    [categories],
+  );
+  const series = useMemo(
+    () => getRevenuePerGameSeries(positiveRevenue, negativeRevenue),
+    [positiveRevenue, negativeRevenue],
+  );
 
   console.log("data", data);
   return (

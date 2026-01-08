@@ -1,7 +1,7 @@
 "use client";
 
 import { Eye, Menu, RotateCcw } from "lucide-react";
-import { StylesConfig } from "react-select";
+import { getStatusSelectStyles } from "@/shared/selectStyles";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState, useMemo } from "react";
 
@@ -24,10 +24,12 @@ import { formatCurrency, createSortableColumn } from "@/shared/utils";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { GameConfig } from "./page";
 
-// Common text color classes
-const TEXT_SECONDARY = "text-[#A3AED0]";
-const TEXT_PRIMARY = "text-[#1B2559] dark:text-white";
-const TEXT_MEDIUM = "font-medium text-gray-900 dark:text-white";
+import {
+  TEXT_SECONDARY,
+  TEXT_PRIMARY_DARK as TEXT_PRIMARY,
+  TEXT_GRAY_WHITE as TEXT_MEDIUM,
+  TEXT_SIZE_XS,
+} from "@/shared/styles";
 
 // Helper function to get filter value from search params
 const getFilterValue = (
@@ -127,136 +129,8 @@ const GameConfigTable = ({
     { value: false, label: "Active" },
   ];
 
-  // Helper function to get color scheme based on state
-  const getColorScheme = (isPositive: boolean) => {
-    // Green colors for positive states (enabled/active)
-    if (isPositive) {
-      if (isDark) {
-        return {
-          background: "#064e3b",
-          border: "#065f46",
-          hoverBorder: "#059669",
-          text: "#34d399",
-          optionSelected: "#064e3b",
-          optionFocused: "#065f46",
-          optionActive: "#065f46",
-        };
-      } else {
-        return {
-          background: "#f0fdf4",
-          border: "#bbf7d0",
-          hoverBorder: "#86efac",
-          text: "#15803d",
-          optionSelected: "#f0fdf4",
-          optionFocused: "#f0fdf4",
-          optionActive: "#dcfce7",
-        };
-      }
-    }
-
-    // Red colors for negative states (disabled/maintenance)
-    if (isDark) {
-      return {
-        background: "#7f1d1d",
-        border: "#991b1b",
-        hoverBorder: "#dc2626",
-        text: "#f87171",
-        optionSelected: "#7f1d1d",
-        optionFocused: "#991b1b",
-        optionActive: "#991b1b",
-      };
-    } else {
-      return {
-        background: "#fef2f2",
-        border: "#fecaca",
-        hoverBorder: "#fca5a5",
-        text: "#b91c1c",
-        optionSelected: "#fef2f2",
-        optionFocused: "#fef2f2",
-        optionActive: "#fee2e2",
-      };
-    }
-  };
-
-  const getStatusStyles = (
-    isPositive: boolean,
-  ): StylesConfig<{ value: boolean; label: string }, false> => {
-    const colors = getColorScheme(isPositive);
-    const neutralTextColor = isDark ? "#9ca3af" : "#374151";
-    const menuBorder = isDark ? "#374151" : "#e5e7eb";
-    const menuBackground = isDark ? "#111827" : "white";
-
-    return {
-      control: (provided) => ({
-        ...provided,
-        minHeight: "32px",
-        height: "32px",
-        fontSize: "12px",
-        borderRadius: "9999px",
-        backgroundColor: colors.background,
-        borderColor: colors.border,
-        boxShadow: "none",
-        "&:hover": {
-          borderColor: colors.hoverBorder,
-        },
-      }),
-      valueContainer: (provided) => ({
-        ...provided,
-        padding: "0 12px",
-      }),
-      singleValue: (provided) => ({
-        ...provided,
-        color: colors.text,
-        fontWeight: "600",
-      }),
-      dropdownIndicator: (provided) => ({
-        ...provided,
-        padding: "0 8px 0 0",
-        color: colors.text,
-        "&:hover": {
-          color: colors.text,
-        },
-      }),
-      indicatorSeparator: () => ({
-        display: "none",
-      }),
-      menu: (provided) => ({
-        ...provided,
-        borderRadius: "12px",
-        overflow: "hidden",
-        border: `1px solid ${menuBorder}`,
-        boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-        backgroundColor: menuBackground,
-      }),
-      option: (provided, state) => {
-        // Get colors based on the option's value, not the current state
-        const optionValue = (state.data as { value: boolean })?.value;
-        const optionColors = getColorScheme(optionValue);
-
-        let backgroundColor = "transparent";
-        let textColor = neutralTextColor;
-
-        if (state.isSelected) {
-          backgroundColor = optionColors.optionSelected;
-          textColor = optionColors.text;
-        } else if (state.isFocused) {
-          backgroundColor = optionColors.optionFocused;
-          textColor = optionColors.text;
-        }
-
-        return {
-          ...provided,
-          backgroundColor,
-          color: textColor,
-          fontSize: "12px",
-          cursor: "pointer",
-          "&:active": {
-            backgroundColor: optionColors.optionActive,
-          },
-        };
-      },
-    };
-  };
+  const getStatusStyles = (isPositive: boolean) =>
+    getStatusSelectStyles(isPositive, isDark);
 
   const columns: TableColumn<GameConfig>[] = [
     {
@@ -273,7 +147,7 @@ const GameConfigTable = ({
       return item?.profit ? (
         <div className="flex items-center gap-1">
           <span className="font-medium">{formatCurrency(item.profit)}</span>
-          <span className={`text-[0.775rem] ${TEXT_SECONDARY}`}>
+          <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
             {CURRENCY_TYPE_NAMES[currency] || ""}
           </span>
         </div>

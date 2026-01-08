@@ -12,9 +12,13 @@ import {
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { BetHistory } from "./page";
 
-// Common text color classes
-const TEXT_SECONDARY = "text-[#A3AED0]";
-const TEXT_PRIMARY_DARK = "text-[#1b2559] dark:text-[#ffffff]";
+import {
+  TEXT_SECONDARY,
+  TEXT_PRIMARY_DARK,
+  TEXT_GRAY_WHITE,
+  TEXT_SIZE_SM,
+  TEXT_SIZE_XS,
+} from "@/shared/styles";
 
 const BigBetsTable = ({
   data,
@@ -34,10 +38,10 @@ const BigBetsTable = ({
           "User",
           (item) => (
             <div className="flex flex-col">
-              <span className="font-medium text-gray-900 dark:text-white">
+              <span className={`font-medium ${TEXT_GRAY_WHITE}`}>
                 {item.user?.name || "Unknown"}
               </span>
-              <span className={`text-[0.875rem] ${TEXT_SECONDARY}`}>
+              <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
                 {item.user?.wallet ? walletTruncate(item.user.wallet) : "N/A"}
               </span>
             </div>
@@ -54,13 +58,13 @@ const BigBetsTable = ({
             <span className="font-medium">
               {formatCurrency(item.betAmount)}
             </span>
-            <span className={`text-[0.775rem] ${TEXT_SECONDARY}`}>
+            <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
               {CURRENCY_TYPE_NAMES[item.currency] || ""}
             </span>
           </div>
         )),
         createSortableColumn("createdAt", "Date", (item) => (
-          <span className={`text-[0.875rem] ${TEXT_PRIMARY_DARK}`}>
+          <span className={`${TEXT_SIZE_SM} ${TEXT_PRIMARY_DARK}`}>
             {formatDate(item.createdAt)}
           </span>
         )),

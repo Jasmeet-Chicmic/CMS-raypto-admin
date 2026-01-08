@@ -10,6 +10,12 @@ import { ResponseType } from "@/shared/types";
 import { formatCurrency, formatDate, walletTruncate } from "@/shared/utils";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { BetHistory } from "./page";
+import {
+  TEXT_SECONDARY,
+  TEXT_PRIMARY_DARK,
+  TEXT_GRAY_WHITE,
+  TEXT_SIZE_SM,
+} from "@/shared/styles";
 
 const AllBetsTable = ({
   data,
@@ -29,10 +35,10 @@ const AllBetsTable = ({
           title: "User",
           render: (item) => (
             <div className="flex flex-col">
-              <span className="font-medium text-gray-900 dark:text-white">
+              <span className={`font-medium ${TEXT_GRAY_WHITE}`}>
                 {item.user?.name || "Unknown"}
               </span>
-              <span className="text-[0.875rem] text-[#A3AED0]">
+              <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
                 {item.user?.wallet ? walletTruncate(item.user.wallet) : "N/A"}
               </span>
             </div>
@@ -59,7 +65,7 @@ const AllBetsTable = ({
               <span className="font-medium">
                 {formatCurrency(item.betAmount)}
               </span>
-              <span className="text-[0.875rem] text-[#A3AED0]">
+              <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
                 {CURRENCY_TYPE_NAMES[item.currency] || ""}
               </span>
             </div>
@@ -118,7 +124,7 @@ const AllBetsTable = ({
           field: "createdAt",
           title: "Date",
           render: (item) => (
-            <span className="text-[#1b2559] text-[0.875rem] dark:text-[#ffffff]">
+            <span className={`${TEXT_PRIMARY_DARK} ${TEXT_SIZE_SM}`}>
               {formatDate(item.createdAt)}
             </span>
           ),

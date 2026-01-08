@@ -43,11 +43,13 @@ import {
 } from "@/shared/utils";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 
-// Common text color classes
-const TEXT_SECONDARY = "text-[#A3AED0]";
-const TEXT_PRIMARY = "text-[#1b2559] dark:text-white";
-const TEXT_SIZE_SM = "text-[0.875rem]";
-const TEXT_SIZE_XS = "text-[0.775rem]";
+import {
+  TEXT_SECONDARY,
+  TEXT_PRIMARY_DARK as TEXT_PRIMARY,
+  TEXT_SIZE_SM,
+  TEXT_SIZE_XS,
+  TEXT_GRAY_WHITE,
+} from "@/shared/styles";
 
 const CURRENCY_OPTIONS = Object.entries(CURRENCY_TYPE)
   .filter((entry): entry is [string, number] => typeof entry[1] === "number")
@@ -182,11 +184,11 @@ const UserTable = ({
       if (!data?.wallet) return "";
       return walletTruncate(data?.wallet);
     }),
-    createSortableColumn(
-      "name",
-      "Name",
-      (data) => `${data?.name ?? ""} ${data?.lastName ?? ""}`,
-    ),
+    createSortableColumn("name", "Name", (data) => (
+      <span className={TEXT_GRAY_WHITE}>
+        {`${data?.name ?? ""} ${data?.lastName ?? ""}`}
+      </span>
+    )),
     {
       field: "email",
       title: "Email",

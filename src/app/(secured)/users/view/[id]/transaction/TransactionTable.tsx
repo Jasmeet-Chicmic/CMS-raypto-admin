@@ -20,17 +20,16 @@ import { createSortableColumn } from "@/shared/utils";
 import type { UserTransaction } from "./page";
 import DateRangeFilter from "@/components/atoms/DateRangeFilter/DateRangeFilter";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
+import { TEXT_PRIMARY_DARK } from "@/shared/styles";
 
-// Common CSS classes
-const BADGE_BASE = "px-2 py-1 rounded-full text-[0.875] font-medium";
-const BADGE_GREEN =
-  "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
-const BADGE_RED =
-  "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
-const BADGE_YELLOW = "bg-yellow-100 text-yellow-800";
-const BADGE_PURPLE =
-  "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400";
-const BADGE_GRAY = "bg-gray-100 text-gray-800";
+import {
+  BADGE_BASE,
+  BADGE_GRAY,
+  BADGE_GREEN,
+  BADGE_PURPLE,
+  BADGE_RED,
+  BADGE_YELLOW,
+} from "@/shared/badge";
 
 // Helper function to create filter options from constants
 const createFilterOptions = (constantsMap: Record<string, string>) =>
@@ -93,11 +92,11 @@ const TransactionTable = ({
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const handleFilterApply = () => {
-    // Pagination reset is handled by the hook
+    setIsFilterOpen(false);
   };
 
   const handleFilterClear = () => {
-    // Pagination reset is handled by the hook
+    setIsFilterOpen(false);
   };
 
   const columns: TableColumn<UserTransaction>[] = [
@@ -190,7 +189,7 @@ const TransactionTable = ({
         <>
           <div className="p-4 border-b border-gray-200 dark:border-gray-800">
             <div className="flex flex-col lg:flex-row gap-6 justify-between items-center">
-              <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h3 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY_DARK}`}>
                 Transaction Statistics
               </h3>
               <div className="flex items-center gap-4">
@@ -213,7 +212,6 @@ const TransactionTable = ({
               <button
                 onClick={() => {
                   router.replace(window.location.pathname);
-                  setIsFilterOpen(false);
                   handleFilterClear();
                 }}
                 className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"

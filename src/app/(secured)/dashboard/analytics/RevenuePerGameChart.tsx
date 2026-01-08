@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { formatCurrency } from "@/shared/utils";
 import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { fetchRevenuePerGameAction, RevenuePerGameItem } from "@/api/dashboard";
@@ -65,8 +65,14 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
   } = useRevenuePerGameData(data);
 
   // Use shared chart configuration
-  const chartOptions = getRevenuePerGameChartOptions(categories);
-  const series = getRevenuePerGameSeries(positiveRevenue, negativeRevenue);
+  const chartOptions = useMemo(
+    () => getRevenuePerGameChartOptions(categories),
+    [categories],
+  );
+  const series = useMemo(
+    () => getRevenuePerGameSeries(positiveRevenue, negativeRevenue),
+    [positiveRevenue, negativeRevenue],
+  );
 
   return (
     <div
