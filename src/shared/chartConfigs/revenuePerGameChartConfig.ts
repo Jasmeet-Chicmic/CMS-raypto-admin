@@ -1,6 +1,27 @@
 import { ApexOptions } from "apexcharts";
 import { formatCurrency } from "@/shared/utils";
 
+// Chart constants
+const REVENUE_COLOR = "#10B981";
+const LOSS_COLOR = "#EF4444";
+const WHITE_COLOR = "#ffffff";
+const LABEL_COLOR = "#A3AED0";
+
+const LABEL_STYLE = {
+  colors: LABEL_COLOR,
+  fontFamily: "inherit",
+} as const;
+
+const createGradientColorStop = (
+  offset: number,
+  color: string,
+  opacity: number,
+) => ({
+  offset,
+  color,
+  opacity,
+});
+
 /**
  * Shared chart configuration for Revenue per Game charts
  * Used by both dashboard and user-specific revenue charts
@@ -25,7 +46,7 @@ export const getRevenuePerGameChartOptions = (
       },
     },
   },
-  colors: ["#10B981", "#EF4444"],
+  colors: [REVENUE_COLOR, LOSS_COLOR],
   fill: {
     type: "gradient",
     gradient: {
@@ -34,28 +55,12 @@ export const getRevenuePerGameChartOptions = (
       shadeIntensity: 1,
       colorStops: [
         [
-          {
-            offset: 0,
-            color: "#ffffff",
-            opacity: 0,
-          },
-          {
-            offset: 100,
-            color: "#10B981",
-            opacity: 1,
-          },
+          createGradientColorStop(0, WHITE_COLOR, 0),
+          createGradientColorStop(100, REVENUE_COLOR, 1),
         ],
         [
-          {
-            offset: 0,
-            color: "#EF4444",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#ffffff",
-            opacity: 0,
-          },
+          createGradientColorStop(0, LOSS_COLOR, 1),
+          createGradientColorStop(100, WHITE_COLOR, 0),
         ],
       ],
     },
@@ -63,18 +68,14 @@ export const getRevenuePerGameChartOptions = (
   xaxis: {
     categories,
     labels: {
-      style: {
-        colors: "#A3AED0",
-        fontFamily: "inherit",
-      },
+      style: LABEL_STYLE,
       formatter: (value: string) => formatCurrency(Number(value)),
     },
   },
   yaxis: {
     labels: {
       style: {
-        colors: "#A3AED0",
-        fontFamily: "inherit",
+        ...LABEL_STYLE,
         fontSize: "13px",
         fontWeight: 500,
       },
@@ -106,7 +107,7 @@ export const getRevenuePerGameChartOptions = (
     formatter: (value: number) => (value ? formatCurrency(value) : ""),
     style: {
       fontSize: "12px",
-      colors: ["#fff"],
+      colors: [WHITE_COLOR],
       fontWeight: 600,
     },
     dropShadow: {

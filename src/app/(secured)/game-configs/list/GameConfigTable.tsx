@@ -3,7 +3,7 @@
 import { Eye, Menu, RotateCcw } from "lucide-react";
 import { StylesConfig } from "react-select";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import { toast } from "react-toastify";
 import { updateGameConfigAction } from "@/api/gameConfig";
@@ -20,7 +20,7 @@ import {
 import { useTheme } from "next-themes";
 import { ROUTES } from "@/shared/routes";
 import { ResponseType } from "@/shared/types";
-import { formatCurrency } from "@/shared/utils";
+import { formatCurrency, createSortableColumn } from "@/shared/utils";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { GameConfig } from "./page";
 
@@ -28,20 +28,6 @@ import type { GameConfig } from "./page";
 const TEXT_SECONDARY = "text-[#A3AED0]";
 const TEXT_PRIMARY = "text-[#1B2559] dark:text-white";
 const TEXT_MEDIUM = "font-medium text-gray-900 dark:text-white";
-
-// Helper function to create sortable columns
-const createSortableColumn = <T,>(
-  field: keyof T,
-  title: string,
-  render: (item: T) => React.ReactNode,
-  sortKey?: string,
-): TableColumn<T> => ({
-  field,
-  title,
-  render,
-  sortable: true,
-  sortKey: sortKey || (field as string),
-});
 
 // Helper function to get filter value from search params
 const getFilterValue = (
@@ -74,6 +60,16 @@ const handleFilterChange = (
   }
   router.push(`?${newParams.toString()}`);
 };
+
+const STATUS_FILTER_OPTIONS = [
+  { label: "Enabled", value: "true" },
+  { label: "Disabled", value: "false" },
+];
+
+const MAINTENANCE_FILTER_OPTIONS = [
+  { label: "Under Maintenance", value: "true" },
+  { label: "Active", value: "false" },
+];
 
 const GameConfigTable = ({
   data,
@@ -373,193 +369,203 @@ const GameConfigTable = ({
     },
   ];
 
-  const config: DataTableConfig<GameConfig> = {
-    columns,
-    keyExtractor: (item) => item._id || "",
-    paginationTitle: "game configs",
-    header: (
-      <>
-        <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
-          <div className="dark:border-gray-800">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-              <div>
-                <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
-                  Game Configs
-                </h2>
-              </div>
-              <div className="flex items-center space-x-4">
-                <SearchToolbar
-                  initialQuery={searchString}
-                  placeholder="Search Game..."
-                />
-                <button
-                  onClick={() => setIsFilterOpen(true)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
-                >
-                  <Menu size={18} />
-                  <span>Filters</span>
-                </button>
+  const config: DataTableConfig<GameConfig> = useMemo(
+    () => ({
+      columns,
+      keyExtractor: (item) => item._id || "",
+      paginationTitle: "game configs",
+      header: (
+        <>
+          <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
+            <div className="dark:border-gray-800">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+                <div>
+                  <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
+                    Game Configs
+                  </h2>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <SearchToolbar
+                    initialQuery={searchString}
+                    placeholder="Search Game..."
+                  />
+                  <button
+                    onClick={() => setIsFilterOpen(true)}
+                    className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                  >
+                    <Menu size={18} />
+                    <span>Filters</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <FilterSidebar
-          isOpen={isFilterOpen}
-          onClose={() => setIsFilterOpen(false)}
-          title="Game Config Filters"
-          footer={
-            <button
-              onClick={() => {
-                router.push(pathname);
-                setIsFilterOpen(false);
-              }}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
-            >
-              <RotateCcw size={18} />
-              <span>Clear All Filters</span>
-            </button>
-          }
-        >
-          <div className="space-y-6">
-            <div>
-              <label
-                htmlFor="status-filter"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          <FilterSidebar
+            isOpen={isFilterOpen}
+            onClose={() => setIsFilterOpen(false)}
+            title="Game Config Filters"
+            footer={
+              <button
+                onClick={() => {
+                  router.push(pathname);
+                  setIsFilterOpen(false);
+                }}
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
               >
-                Status
-              </label>
-              <Select
-                inputId="status-filter"
-                placeholder="Select Status"
-                isClearable
-                options={[
-                  { label: "Enabled", value: "true" },
-                  { label: "Disabled", value: "false" },
-                ]}
-                value={getFilterValue(searchParams, "isEnabled", [
-                  { label: "Enabled", value: "true" },
-                  { label: "Disabled", value: "false" },
-                ])}
-                onChange={(option: { label: string; value: string } | null) =>
-                  handleFilterChange(
-                    router,
+                <RotateCcw size={18} />
+                <span>Clear All Filters</span>
+              </button>
+            }
+          >
+            <div className="space-y-6">
+              <div>
+                <label
+                  htmlFor="status-filter"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  Status
+                </label>
+                <Select
+                  inputId="status-filter"
+                  placeholder="Select Status"
+                  isClearable
+                  options={STATUS_FILTER_OPTIONS}
+                  value={getFilterValue(
                     searchParams,
                     "isEnabled",
-                    option?.value || null,
-                  )
-                }
-              />
-            </div>
+                    STATUS_FILTER_OPTIONS,
+                  )}
+                  onChange={(option: { label: string; value: string } | null) =>
+                    handleFilterChange(
+                      router,
+                      searchParams,
+                      "isEnabled",
+                      option?.value || null,
+                    )
+                  }
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="maintenance-filter"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Maintenance
-              </label>
-              <Select
-                inputId="maintenance-filter"
-                placeholder="Select Maintenance Status"
-                isClearable
-                options={[
-                  { label: "Under Maintenance", value: "true" },
-                  { label: "Active", value: "false" },
-                ]}
-                value={getFilterValue(searchParams, "isMaintenance", [
-                  { label: "Under Maintenance", value: "true" },
-                  { label: "Active", value: "false" },
-                ])}
-                onChange={(option: { label: string; value: string } | null) =>
-                  handleFilterChange(
-                    router,
+              <div>
+                <label
+                  htmlFor="maintenance-filter"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  Maintenance
+                </label>
+                <Select
+                  inputId="maintenance-filter"
+                  placeholder="Select Maintenance Status"
+                  isClearable
+                  options={MAINTENANCE_FILTER_OPTIONS}
+                  value={getFilterValue(
                     searchParams,
                     "isMaintenance",
-                    option?.value || null,
-                  )
-                }
-              />
-            </div>
+                    MAINTENANCE_FILTER_OPTIONS,
+                  )}
+                  onChange={(option: { label: string; value: string } | null) =>
+                    handleFilterChange(
+                      router,
+                      searchParams,
+                      "isMaintenance",
+                      option?.value || null,
+                    )
+                  }
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="currency-filter"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Currency
-              </label>
-              <Select
-                inputId="currency-filter"
-                placeholder="Select Currency"
-                isClearable={false}
-                options={CURRENCY_OPTIONS}
-                value={
-                  CURRENCY_OPTIONS.find(
-                    (opt) =>
-                      opt.value.toString() ===
-                      (searchParams.get("currency") || "1"),
-                  ) || CURRENCY_OPTIONS[0]
-                }
-                onChange={(option: { label: string; value: number } | null) =>
-                  handleFilterChange(
-                    router,
-                    searchParams,
-                    "currency",
-                    option?.value || null,
-                  )
-                }
-                classNamePrefix="react-select"
-              />
-            </div>
-          </div>
-        </FilterSidebar>
-      </>
-    ),
-    footer: (
-      <CustomModal
-        isOpen={!!selectedBetLimitItem}
-        onClose={() => setSelectedBetLimitItem(null)}
-        size="2xl"
-      >
-        {selectedBetLimitItem && (
-          <>
-            <div className="mb-6">
-              <h3 className={`text-xl font-bold ${TEXT_PRIMARY} mb-2`}>
-                Bet Limits
-              </h3>
-              <p className={`text-sm ${TEXT_SECONDARY} dark:text-gray-400`}>
-                {selectedBetLimitItem.name}
-              </p>
-            </div>
-
-            <div className="max-h-[60vh] overflow-y-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {selectedBetLimitItem.amountLimit.map((limit) => (
-                  <div
-                    key={`modal-${selectedBetLimitItem._id}-${limit.currency}`}
-                    className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-[#4F46E5]/30"
-                  >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <div className="w-2 h-2 rounded-full bg-[#4F46E5]" />
-                      <span
-                        className={`text-xs font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase`}
-                      >
-                        {CURRENCY_TYPE_NAMES[limit.currency] || limit.currency}
-                      </span>
-                    </div>
-                    <span className={`text-lg font-bold ${TEXT_PRIMARY} ml-4`}>
-                      {formatCurrency(limit.maxBetAmount)}
-                    </span>
-                  </div>
-                ))}
+              <div>
+                <label
+                  htmlFor="currency-filter"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  Currency
+                </label>
+                <Select
+                  inputId="currency-filter"
+                  placeholder="Select Currency"
+                  isClearable={false}
+                  options={CURRENCY_OPTIONS}
+                  value={
+                    CURRENCY_OPTIONS.find(
+                      (opt) =>
+                        opt.value.toString() ===
+                        (searchParams.get("currency") || "1"),
+                    ) || CURRENCY_OPTIONS[0]
+                  }
+                  onChange={(option: { label: string; value: number } | null) =>
+                    handleFilterChange(
+                      router,
+                      searchParams,
+                      "currency",
+                      option?.value || null,
+                    )
+                  }
+                  classNamePrefix="react-select"
+                />
               </div>
             </div>
-          </>
-        )}
-      </CustomModal>
-    ),
-  };
+          </FilterSidebar>
+        </>
+      ),
+      footer: (
+        <CustomModal
+          isOpen={!!selectedBetLimitItem}
+          onClose={() => setSelectedBetLimitItem(null)}
+          size="2xl"
+        >
+          {selectedBetLimitItem && (
+            <>
+              <div className="mb-6">
+                <h3 className={`text-xl font-bold ${TEXT_PRIMARY} mb-2`}>
+                  Bet Limits
+                </h3>
+                <p className={`text-sm ${TEXT_SECONDARY} dark:text-gray-400`}>
+                  {selectedBetLimitItem.name}
+                </p>
+              </div>
+
+              <div className="max-h-[60vh] overflow-y-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {selectedBetLimitItem.amountLimit.map((limit) => (
+                    <div
+                      key={`modal-${selectedBetLimitItem._id}-${limit.currency}`}
+                      className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-[#4F46E5]/30"
+                    >
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <div className="w-2 h-2 rounded-full bg-[#4F46E5]" />
+                        <span
+                          className={`text-xs font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase`}
+                        >
+                          {CURRENCY_TYPE_NAMES[limit.currency] ||
+                            limit.currency}
+                        </span>
+                      </div>
+                      <span
+                        className={`text-lg font-bold ${TEXT_PRIMARY} ml-4`}
+                      >
+                        {formatCurrency(limit.maxBetAmount)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </CustomModal>
+      ),
+    }),
+    [
+      columns,
+      searchString,
+      isFilterOpen,
+      selectedBetLimitItem,
+      searchParams,
+      router,
+      pathname,
+    ],
+  );
 
   return (
     <DataTable
