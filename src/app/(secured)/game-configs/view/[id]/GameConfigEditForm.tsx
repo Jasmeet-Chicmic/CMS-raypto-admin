@@ -48,6 +48,7 @@ interface FormValues {
 const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
   const router = useRouter();
   const [editMode, setEditMode] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Initialize form
   const methods = useForm<FormValues>({
@@ -93,11 +94,34 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       amountLimit: gameConfig.amountLimit,
       icon: gameConfig.icon || "",
     });
+    setErrors({});
     setEditMode(false);
+  };
+
+  const validate = (data: FormValues): Record<string, string> => {
+    const newErrors: Record<string, string> = {};
+
+    // Icon validation
+    if (!data.icon || data.icon.trim() === "") {
+      newErrors.icon = "Game icon is required";
+    }
+
+    setErrors(newErrors);
+    return newErrors;
   };
 
   const onSubmit = async (data: FormValues) => {
     if (!isDirty) return;
+
+    const validationErrors = validate(data);
+    if (Object.keys(validationErrors).length > 0) {
+      // Show first error in toast
+      const errorMessages = Object.values(validationErrors);
+      if (errorMessages.length > 0) {
+        toast.error(errorMessages[0]);
+      }
+      return;
+    }
 
     try {
       const res = await updateGameConfigAction({
@@ -111,6 +135,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
 
       if (res.status) {
         toast.success(res.message || "Game configuration updated successfully");
+        setErrors({});
         setEditMode(false);
         router.refresh();
       } else {
@@ -212,29 +237,53 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
 
                 <div className="flex w-full gap-4 flex-col md:flex-row">
                   {/* Game Icon */}
-                  <div className="max-w-[160px] w-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+                  <div className="xl:max-w-[230px] items-center justify-center flex flex-col max-w-none w-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
                     <div className="block mb-3 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
                       Game Icon
                     </div>
                     {editMode ? (
-                      <ImageUpload
-                        label=""
-                        value={watchedValues.icon || ""}
-                        onChange={(url) => {
-                          methods.setValue("icon", url, { shouldDirty: true });
-                        }}
-                        uploadFunction={uploadGameIcon}
-                        fileType={UPLOAD_FILE_TYPE.GAME_ICON}
-                        aspectRatio="1/1"
-                        placeholder="Upload game icon"
-                        maxSize={5}
-                        className="relative aspect-[3/4] w-[126px] rounded-xl overflow-hidden "
-                        previewClassName="relative aspect-[3/4] !w-[126px] !h-full !bg-white rounded-xl overflow-hidden "
-                      />
+                      <div className="w-full items-center justify-center flex flex-col">
+                        <ImageUpload
+                          label=""
+                          value={watchedValues.icon || ""}
+                          onChange={(url) => {
+                            methods.setValue("icon", url, {
+                              shouldDirty: true,
+                            });
+                            // Clear error when user uploads an image
+                            if (url && errors.icon) {
+                              setErrors((prev) => {
+                                const newErrors = { ...prev };
+                                delete newErrors.icon;
+                                return newErrors;
+                              });
+                            }
+                          }}
+                          uploadFunction={uploadGameIcon}
+                          fileType={UPLOAD_FILE_TYPE.GAME_ICON}
+                          aspectRatio="70/93"
+                          validateAspectRatio={true}
+                          placeholder="Game Icon"
+                          maxSize={5}
+                          required={true}
+                          className="relative aspect-[3/4] w-[126px] rounded-xl overflow-hidden "
+                          previewClassName="relative aspect-[3/4] !w-[126px] !h-full !bg-white rounded-xl overflow-hidden "
+                        />
+                        {!watchedValues.icon && (
+                          <p className="text-xs text-red-500 dark:text-red-400 mt-2 text-center">
+                            Upload image 280 × 372 px or same Ratio.
+                          </p>
+                        )}
+                        {errors.icon && (
+                          <p className="text-red-500 text-[0.875rem] mt-2 font-medium">
+                            {errors.icon}
+                          </p>
+                        )}
+                      </div>
                     ) : (
                       <div className="flex items-center gap-4">
                         {watchedValues.icon ? (
-                          <div className="relative aspect-[3/4] w-[178px] rounded-xl overflow-hidden ">
+                          <div className="relative aspect-[3/4] w-[120px] rounded-xl overflow-hidden ">
                             <img
                               src={getImageUrl(watchedValues.icon)}
                               alt="Game icon"
