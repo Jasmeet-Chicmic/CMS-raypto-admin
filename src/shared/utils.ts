@@ -6,6 +6,7 @@ import Payment from "payment";
 import { twMerge } from "tailwind-merge";
 
 import {
+  BASE_URL,
   ENTITY_STATUS,
   STATUS_COLOR_MAP,
   TRANSACTION_SOURCE_TYPES,
@@ -357,3 +358,20 @@ export const createSortableColumn = <T>(
   sortable: true,
   sortKey: sortKey || (field as string),
 });
+
+/**
+ * Builds a complete image URL from a path string
+ * @param path - The image path (can be a relative path, full URL, or blob URL)
+ * @returns The complete image URL, or empty string if path is empty
+ * @example
+ * getImageUrl("uploads/image.jpg") // "https://api.example.com/uploads/image.jpg"
+ * getImageUrl("http://example.com/image.jpg") // "http://example.com/image.jpg"
+ * getImageUrl("blob:http://localhost:3000/abc123") // "blob:http://localhost:3000/abc123"
+ */
+export const getImageUrl = (path: string | null | undefined): string => {
+  if (!path) return "";
+  if (path.startsWith("blob:") || path.startsWith("http")) return path;
+  const baseUrl = BASE_URL?.replace(/\/$/, "") || "";
+  const encodedPath = encodeURI(path);
+  return `${baseUrl}/${encodedPath}`;
+};

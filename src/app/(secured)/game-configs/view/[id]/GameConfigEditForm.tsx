@@ -19,6 +19,7 @@ import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 
 import {
   updateGameConfigAction,
+  uploadGameIcon,
   type AmountLimit,
   type GameConfig,
 } from "@/api/gameConfig";
@@ -28,9 +29,10 @@ import {
   FORM_FIELDS_TYPES,
 } from "@/shared/constants";
 import { ROUTES } from "@/shared/routes";
-import { formatDate, formatCurrency } from "@/shared/utils";
+import { formatDate, formatCurrency, getImageUrl } from "@/shared/utils";
 import { InputField } from "@/components/molecules/FormBuilder/fields/InputField";
 import { SwitchField } from "@/components/molecules/FormBuilder/fields/SwitchField";
+import { ImageUpload, UPLOAD_FILE_TYPE } from "@/components/atoms/ImageUpload";
 
 interface GameConfigEditFormProps {
   gameConfig: GameConfig;
@@ -41,6 +43,7 @@ interface FormValues {
   isEnabled: boolean;
   isMaintenance: boolean;
   amountLimit: AmountLimit[];
+  icon: string;
 }
 
 const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
@@ -54,6 +57,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     },
   });
 
@@ -76,6 +80,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     });
   }, [gameConfig, reset]);
 
@@ -87,6 +92,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     });
     setEditMode(false);
   };
@@ -101,6 +107,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
         isEnabled: data.isEnabled,
         isMaintenance: data.isMaintenance,
         amountLimit: data.amountLimit,
+        icon: data.icon,
       });
 
       if (res.status) {
@@ -205,6 +212,46 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                 </div>
 
                 <div className="space-y-4">
+                  {/* Game Icon */}
+                  <div className="p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+                    <div className="block mb-3 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                      Game Icon
+                    </div>
+                    {editMode ? (
+                      <ImageUpload
+                        label=""
+                        value={watchedValues.icon || ""}
+                        onChange={(url) => {
+                          methods.setValue("icon", url, { shouldDirty: true });
+                        }}
+                        uploadFunction={uploadGameIcon}
+                        fileType={UPLOAD_FILE_TYPE.GAME_ICON}
+                        aspectRatio="1/1"
+                        placeholder="Upload game icon"
+                        maxSize={5}
+                        className="w-full"
+                        previewClassName="max-w-[200px] mx-auto"
+                      />
+                    ) : (
+                      <div className="flex items-center gap-4">
+                        {watchedValues.icon ? (
+                          <div className="relative w-20 h-20 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                            <img
+                              src={getImageUrl(watchedValues.icon)}
+                              alt="Game icon"
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-20 h-20 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700">
+                            <Gamepad2 className="w-8 h-8 text-gray-400" />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Game Name */}
                   {editMode ? (
                     <div className="p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
                       <InputField<FormValues>

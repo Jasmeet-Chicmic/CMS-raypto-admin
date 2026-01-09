@@ -10,6 +10,7 @@ import { Upload, X, ImageIcon, Loader2 } from "lucide-react";
 export const UPLOAD_FILE_TYPE = {
   BONUS_BACKGROUND_IMAGE: 1,
   ROOM_LOGO: 2,
+  GAME_ICON: 3,
   DEFAULT: 1,
 };
 
