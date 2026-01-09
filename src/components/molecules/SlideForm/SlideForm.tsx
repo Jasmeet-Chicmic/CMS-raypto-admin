@@ -19,6 +19,7 @@ const getDefaultBox = (): BonusBox => ({
   mobileBackgroundImageUrl: "",
   objectImageUrl: "",
   buttonText: "Claim", // Default button text
+  enableButton: false,
   expireAt: "", // Optional - empty by default
   reward: [],
   buttonAndTimerPosition: 1,
@@ -136,6 +137,7 @@ const SlideForm = ({
           mobileBackgroundImageUrl: box.mobileBackgroundImageUrl || undefined,
           objectImageUrl: box.objectImageUrl || undefined,
           buttonText: box.buttonText.trim() || "Claim", // Default to Claim
+          enableButton: box.enableButton ?? false,
           expireAt: box.expireAt || undefined, // Optional
           reward: box.reward && box.reward.length > 0 ? box.reward : undefined, // Optional
           buttonAndTimerPosition: box.buttonAndTimerPosition || 1,

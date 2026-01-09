@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { TableColumn } from "@/components/atoms/Table";
 import { SlideListItem } from "../helpers/types";
@@ -95,7 +95,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
   const slides = slidesListData?.data?.data || [];
   const totalCount = slidesListData?.data?.count || 0;
 
-  const handleDelete = async () => {
+  const handleDelete = useCallback(async () => {
     if (!modal.slideId) return;
 
     const result = await deleteSlide(modal.slideId);
@@ -106,25 +106,30 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
       toast.error(result.message || "Failed to delete slide");
     }
     setModal({ open: false });
-  };
+  }, [modal.slideId, router]);
 
-  const handleStatusUpdate = async (id: string, isActive: boolean) => {
-    try {
-      const res = await toggleSlideStatus(id, isActive);
+  const handleStatusUpdate = useCallback(
+    async (id: string, isActive: boolean) => {
+      try {
+        const res = await toggleSlideStatus(id, isActive);
 
-      if (res.status) {
-        toast.success(res.message || "Status updated successfully");
-        router.refresh();
-      } else {
-        toast.error(res.message || "Failed to update status");
+        if (res.status) {
+          toast.success(res.message || "Status updated successfully");
+          router.refresh();
+        } else {
+          toast.error(res.message || "Failed to update status");
+        }
+      } catch {
+        toast.error("An error occurred while updating status");
       }
-    } catch {
-      toast.error("An error occurred while updating status");
-    }
-  };
+    },
+    [router],
+  );
 
-  const getStatusStyles = (isPositive: boolean) =>
-    getStatusSelectStyles(isPositive, isDark);
+  const getStatusStyles = useCallback(
+    (isPositive: boolean) => getStatusSelectStyles(isPositive, isDark),
+    [isDark],
+  );
 
   const columns: TableColumn<SlideListItem>[] = useMemo(
     () => [
@@ -190,7 +195,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
         fixed: "right",
       },
     ],
-    [isDark],
+    [getStatusStyles, handleStatusUpdate, router],
   );
 
   const config: DataTableConfig<SlideListItem> = useMemo(
@@ -308,6 +313,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
       router,
       pathname,
       modal.open,
+      handleDelete,
     ],
   );
 

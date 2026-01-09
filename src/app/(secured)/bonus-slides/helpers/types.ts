@@ -10,6 +10,7 @@ export interface BonusBox {
   mobileBackgroundImageUrl?: string;
   objectImageUrl?: string;
   buttonText: string;
+  enableButton?: boolean;
   expireAt?: string; // Optional
   reward?: Reward[]; // Optional
   buttonAndTimerPosition?: number;
