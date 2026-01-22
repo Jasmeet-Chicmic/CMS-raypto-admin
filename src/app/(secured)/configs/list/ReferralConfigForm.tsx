@@ -31,6 +31,7 @@ import {
   formatCurrency,
   truncateToCurrencyPrecision,
   getCurrencyStep,
+  truncateToDecimalPlaces,
 } from "@/shared/utils";
 
 interface FormValues {
@@ -429,6 +430,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                           placeholder="Enter percentage"
                           className="!mb-0"
                           step={0.01}
+                          interceptor={(val) => truncateToDecimalPlaces(val, 2)}
                           validation={{
                             required: "Required",
                             min: { value: 0, message: "Must be 0 or greater" },
