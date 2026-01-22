@@ -421,3 +421,15 @@ export const getCurrencyStep = (currency: number): string => {
   if (precision === undefined || precision === 0) return "1";
   return `0.${"0".repeat(precision - 1)}1`;
 };
+
+export const truncateToDecimalPlaces = (
+  value: string | number,
+  decimalPlaces: number,
+): string => {
+  const strValue = String(value);
+  if (!strValue.includes(".")) return strValue;
+
+  const [integerPart, decimalPart] = strValue.split(".");
+  const truncatedDecimal = decimalPart.slice(0, decimalPlaces);
+  return truncatedDecimal ? `${integerPart}.${truncatedDecimal}` : integerPart;
+};
