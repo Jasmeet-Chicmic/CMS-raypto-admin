@@ -1,6 +1,6 @@
 export interface Reward {
   currency: number;
-  amount: number;
+  amount: string;
   isAmountWithdrawable: boolean;
 }
 

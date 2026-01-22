@@ -139,7 +139,14 @@ const SlideForm = ({
           buttonText: box.buttonText.trim() || "Claim", // Default to Claim
           enableButton: box.enableButton ?? false,
           expireAt: box.expireAt || undefined, // Optional
-          reward: box.reward && box.reward.length > 0 ? box.reward : undefined, // Optional
+          reward:
+            box.reward && box.reward.length > 0
+              ? box.reward.map((r) => ({
+                  currency: r.currency,
+                  amount: String(r.amount), // Convert amount to string
+                  isAmountWithdrawable: r.isAmountWithdrawable,
+                }))
+              : undefined, // Optional
           buttonAndTimerPosition: box.buttonAndTimerPosition || 1,
         })),
       };

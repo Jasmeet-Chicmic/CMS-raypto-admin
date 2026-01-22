@@ -28,7 +28,13 @@ import {
   FORM_FIELDS_TYPES,
 } from "@/shared/constants";
 import { ROUTES } from "@/shared/routes";
-import { formatDate, formatCurrency, getImageUrl } from "@/shared/utils";
+import {
+  formatDate,
+  formatCurrency,
+  getImageUrl,
+  truncateToCurrencyPrecision,
+  getCurrencyStep,
+} from "@/shared/utils";
 import { InputField } from "@/components/molecules/FormBuilder/fields/InputField";
 import { SwitchField } from "@/components/molecules/FormBuilder/fields/SwitchField";
 import { ImageUpload, UPLOAD_FILE_TYPE } from "@/components/atoms/ImageUpload";
@@ -130,6 +136,14 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
         maxProfit: String(limit.maxProfit || 0),
       }));
 
+      console.log("testing=>", {
+        gameConfigId: gameConfig._id,
+        name: data.name,
+        isEnabled: data.isEnabled,
+        isMaintenance: data.isMaintenance,
+        amountLimit: transformedAmountLimit as unknown as AmountLimit[],
+        icon: data.icon,
+      });
       const res = await updateGameConfigAction({
         gameConfigId: gameConfig._id,
         name: data.name,
@@ -424,11 +438,15 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                       {/* Max Bet Amount */}
                       <div className="group/field">
                         {editMode ? (
-                          <div className="p-4 bg-[#F4F7FE] dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
+                          <div className="p-4 bg-[ #F 4F7FE] dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
                             <InputField<FormValues>
                               name={`amountLimit.${index}.maxBetAmount`}
                               label="Max Bet Amount"
                               type={FORM_FIELDS_TYPES.NUMBER}
+                              interceptor={(val) =>
+                                truncateToCurrencyPrecision(val, field.currency)
+                              }
+                              step={getCurrencyStep(field.currency)}
                               className="!mb-0"
                             />
                           </div>
@@ -459,6 +477,10 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                               label="Max Profit"
                               type={FORM_FIELDS_TYPES.NUMBER}
                               className="!mb-0"
+                              interceptor={(val) =>
+                                truncateToCurrencyPrecision(val, field.currency)
+                              }
+                              step={getCurrencyStep(field.currency)}
                             />
                           </div>
                         ) : (
