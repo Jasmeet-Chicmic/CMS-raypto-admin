@@ -13,7 +13,7 @@ interface RewardFormProps {
 
 const defaultReward: Reward = {
   currency: CURRENCY_TYPE.ETH,
-  amount: 0,
+  amount: "0",
   isAmountWithdrawable: true,
 };
 
