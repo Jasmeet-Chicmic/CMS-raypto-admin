@@ -13,11 +13,11 @@ export interface CurrencyWiseConfig {
 
 export interface ReferralRewardConfig {
   currency: number;
-  rewardAmountNonWithdrawable: number;
+  rewardAmountNonWithdrawable: string | number;
   rewardAmountWithdrawable: number;
   betCount: number;
-  minimumBetAmount: number;
-  commissionPercentage: number;
+  minimumBetAmount: string | number;
+  commissionPercentage: string | number;
 }
 
 export interface RewardConfig {
