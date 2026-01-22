@@ -13,6 +13,7 @@ import {
   updateConfigAction,
 } from "@/api/config";
 import { CURRENCY_TYPE_NAMES, CONFIG_TYPE } from "@/shared/constants";
+import { formatCurrency } from "@/shared/utils";
 
 interface FormValues {
   currencyWiseConfigs: CurrencyWiseConfig[];
@@ -71,9 +72,10 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
           Number(configItem.currency) || fields[index]?.currency || 1;
         return {
           currency,
-          loginRewardPayout: Number(configItem.loginRewardPayout) || 0,
-          depositBonusPercentage:
-            Number(configItem.depositBonusPercentage) || 0,
+          loginRewardPayout: String(configItem.loginRewardPayout || 0),
+          depositBonusPercentage: String(
+            configItem.depositBonusPercentage || 0,
+          ),
         };
       },
     );
@@ -218,11 +220,11 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                             <Wallet className="w-5 h-5 text-[#4F46E5] dark:text-white" />
                           </div>
                           <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-white leading-none">
-                            {currencyWiseConfigs[
-                              index
-                            ]?.loginRewardPayout?.toLocaleString() ||
-                              field.loginRewardPayout?.toLocaleString() ||
-                              "0"}
+                            {formatCurrency(
+                              currencyWiseConfigs[index]?.loginRewardPayout ||
+                                field.loginRewardPayout ||
+                                0,
+                            )}
                           </span>
                         </div>
                       </div>

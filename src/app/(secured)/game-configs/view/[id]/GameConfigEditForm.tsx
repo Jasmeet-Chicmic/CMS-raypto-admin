@@ -124,12 +124,18 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
     }
 
     try {
+      const transformedAmountLimit = data.amountLimit.map((limit) => ({
+        ...limit,
+        maxBetAmount: String(limit.maxBetAmount || 0),
+        maxProfit: String(limit.maxProfit || 0),
+      }));
+
       const res = await updateGameConfigAction({
         gameConfigId: gameConfig._id,
         name: data.name,
         isEnabled: data.isEnabled,
         isMaintenance: data.isMaintenance,
-        amountLimit: data.amountLimit,
+        amountLimit: transformedAmountLimit as unknown as AmountLimit[],
         icon: data.icon,
       });
 
