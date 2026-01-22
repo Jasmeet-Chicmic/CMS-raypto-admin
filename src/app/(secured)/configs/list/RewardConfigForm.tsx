@@ -13,7 +13,11 @@ import {
   updateConfigAction,
 } from "@/api/config";
 import { CURRENCY_TYPE_NAMES, CONFIG_TYPE } from "@/shared/constants";
-import { formatCurrency } from "@/shared/utils";
+import {
+  formatCurrency,
+  truncateToCurrencyPrecision,
+  getCurrencyStep,
+} from "@/shared/utils";
 
 interface FormValues {
   currencyWiseConfigs: CurrencyWiseConfig[];
@@ -204,6 +208,10 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           type="number"
                           placeholder="Enter login reward amount"
                           className="!mb-0"
+                          step={getCurrencyStep(field.currency)}
+                          interceptor={(val) =>
+                            truncateToCurrencyPrecision(val, field.currency)
+                          }
                           validation={{
                             required: "Login reward payout is required",
                             min: { value: 0, message: "Must be 0 or greater" },
@@ -221,9 +229,11 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           </div>
                           <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-white leading-none">
                             {formatCurrency(
-                              currencyWiseConfigs[index]?.loginRewardPayout ||
-                                field.loginRewardPayout ||
-                                0,
+                              Number(
+                                currencyWiseConfigs[index]?.loginRewardPayout ||
+                                  field.loginRewardPayout ||
+                                  0,
+                              ),
                             )}
                           </span>
                         </div>
@@ -241,6 +251,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           type="number"
                           placeholder="Enter deposit bonus percentage"
                           className="!mb-0"
+                          step={0.01}
                           validation={{
                             required: "Deposit bonus percentage is required",
                             min: { value: 0, message: "Must be 0 or greater" },

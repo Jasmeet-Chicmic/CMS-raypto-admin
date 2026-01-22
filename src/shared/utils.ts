@@ -10,6 +10,7 @@ import {
   ENTITY_STATUS,
   STATUS_COLOR_MAP,
   TRANSACTION_SOURCE_TYPES,
+  CURRENCY_PRECISION,
 } from "./constants";
 
 // Set session cookie by sending token to server
@@ -374,4 +375,49 @@ export const getImageUrl = (path: string | null | undefined): string => {
   const baseUrl = BASE_URL?.replace(/\/$/, "") || "";
   const encodedPath = encodeURI(path);
   return `${baseUrl}/${encodedPath}`;
+};
+
+/**
+ * Get the number of decimal places in a value
+ * @param value - The value to check (string or number)
+ * @returns Number of decimal places
+ */
+export const getDecimalPlaces = (value: string | number): number => {
+  const strValue = String(value);
+  if (!strValue.includes(".")) return 0;
+  return strValue.split(".")[1]?.length || 0;
+};
+
+/**
+ * Truncate a value to the allowed decimal places for a currency
+ * @param value - The value to truncate
+ * @param currency - The currency type (from CURRENCY_TYPE enum)
+ * @returns The truncated value as a string
+ */
+export const truncateToCurrencyPrecision = (
+  value: string | number,
+  currency: number,
+): string => {
+  const precision =
+    CURRENCY_PRECISION[currency as keyof typeof CURRENCY_PRECISION];
+  if (precision === undefined) return String(value);
+
+  const strValue = String(value);
+  if (!strValue.includes(".")) return strValue;
+
+  const [integerPart, decimalPart] = strValue.split(".");
+  const truncatedDecimal = decimalPart.slice(0, precision);
+  return truncatedDecimal ? `${integerPart}.${truncatedDecimal}` : integerPart;
+};
+
+/**
+ * Get the step value for a number input based on currency precision
+ * @param currency - The currency type (from CURRENCY_TYPE enum)
+ * @returns The step value as a string (e.g., "0.00000001" for 8 decimals)
+ */
+export const getCurrencyStep = (currency: number): string => {
+  const precision =
+    CURRENCY_PRECISION[currency as keyof typeof CURRENCY_PRECISION];
+  if (precision === undefined || precision === 0) return "1";
+  return `0.${"0".repeat(precision - 1)}1`;
 };

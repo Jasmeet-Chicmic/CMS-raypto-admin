@@ -7,8 +7,8 @@ import { ResponseType } from "@/shared/types";
 
 export interface CurrencyWiseConfig {
   currency: number;
-  loginRewardPayout: number;
-  depositBonusPercentage: number;
+  loginRewardPayout: string;
+  depositBonusPercentage: string;
 }
 
 export interface ReferralRewardConfig {
