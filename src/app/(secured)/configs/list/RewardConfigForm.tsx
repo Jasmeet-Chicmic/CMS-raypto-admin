@@ -17,6 +17,7 @@ import {
   formatCurrency,
   truncateToCurrencyPrecision,
   getCurrencyStep,
+  truncateToDecimalPlaces,
 } from "@/shared/utils";
 
 interface FormValues {
@@ -252,6 +253,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           placeholder="Enter deposit bonus percentage"
                           className="!mb-0"
                           step={0.01}
+                          interceptor={(val) => truncateToDecimalPlaces(val, 2)}
                           validation={{
                             required: "Deposit bonus percentage is required",
                             min: { value: 0, message: "Must be 0 or greater" },
