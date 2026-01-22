@@ -299,6 +299,14 @@ export enum CURRENCY_TYPE {
   BNB = 6,
 }
 
+export const CURRENCY_PRECISION: Record<number, number> = {
+  [CURRENCY_TYPE.BTC]: 8,
+  [CURRENCY_TYPE.ETH]: 18,
+  [CURRENCY_TYPE.SOL]: 9,
+  [CURRENCY_TYPE.DOGE]: 8,
+  [CURRENCY_TYPE.TRX]: 6,
+  [CURRENCY_TYPE.BNB]: 18,
+};
 export const CURRENCY_TYPE_NAMES: Record<number, string> = {
   [CURRENCY_TYPE.ETH]: "ETH",
   [CURRENCY_TYPE.BTC]: "BTC",
