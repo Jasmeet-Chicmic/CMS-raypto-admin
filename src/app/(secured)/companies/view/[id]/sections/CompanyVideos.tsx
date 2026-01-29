@@ -97,12 +97,12 @@ const CompanyVideos = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Videos
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -119,7 +119,7 @@ const CompanyVideos = () => {
             {fields.map((video) => (
               <div
                 key={video.id}
-                className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-4"
+                className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4"
               >
                 <div className="aspect-video mb-4">
                   <iframe
@@ -129,7 +129,7 @@ const CompanyVideos = () => {
                     allowFullScreen
                   />
                 </div>
-                <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff] mb-2">
+                <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite mb-2">
                   {video.title}
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -146,13 +146,13 @@ const CompanyVideos = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Videos
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addVideo}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Video
           </button>
@@ -174,7 +174,7 @@ const CompanyVideos = () => {
             <button
               type="button"
               onClick={addVideo}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Video
             </button>
@@ -184,7 +184,7 @@ const CompanyVideos = () => {
             {fields.map((video, index) => (
               <div
                 key={video.id}
-                className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6"
+                className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Video Preview */}
@@ -217,7 +217,7 @@ const CompanyVideos = () => {
                         {...register(`videos.${index}.title` as const, {
                           required: "Title is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.videos?.[index]?.title && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -244,7 +244,7 @@ const CompanyVideos = () => {
                           },
                         })}
                         placeholder="https://www.youtube.com/watch?v=..."
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.videos?.[index]?.url && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -271,7 +271,7 @@ const CompanyVideos = () => {
                           },
                         })}
                         placeholder="2:30"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.videos?.[index]?.duration && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -283,7 +283,7 @@ const CompanyVideos = () => {
                     <button
                       type="button"
                       onClick={() => remove(index)}
-                      className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                      className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                     >
                       Remove Video
                     </button>
@@ -305,7 +305,7 @@ const CompanyVideos = () => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

@@ -18,7 +18,7 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
 
   return (
     <>
-      <div className="bg-white dark:bg-[#111827] rounded-[20px] md:w-[400px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 p-8 w-full">
+      <div className="bg-bgwhite dark:bg-[#111827] rounded-[20px] md:w-[400px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-darkbgprimary transition-all duration-300 p-8 w-full">
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center mb-0">
           {/* Profile Image with Gradient Background */}
@@ -35,12 +35,12 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           </div>
 
           {/* Name */}
-          <h3 className="text-[2rem] font-bold text-[#2B3674] dark:text-[#CCCFD1] mb-2">
+          <h3 className="text-[2rem] font-bold text-[#2B3674] dark:text-sidebartext mb-2">
             {name || walletTruncate(wallet)}
           </h3>
 
           {/* Location - using wallet as location placeholder */}
-          <div className="flex items-center gap-1 text-[#CCCFD1] dark:text-gray-400 mb-6">
+          <div className="flex items-center gap-1 text-sidebartext dark:text-gray-400 mb-6">
             <MapPin className="w-4 h-4" />
             <span className="text-[0.95rem] font-medium">
               {walletTruncate(wallet)}
@@ -51,10 +51,10 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           {/* <div className="flex items-center justify-center gap-12 w-full">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <p className="text-[0.9rem] font-medium text-[#CCCFD1] dark:text-gray-400 mb-1">
+                <p className="text-[0.9rem] font-medium text-sidebartext dark:text-gray-400 mb-1">
                   {stat.label}
                 </p>
-                <p className="text-[2rem] font-bold text-[#2B3674] dark:text-[#CCCFD1] leading-none">
+                <p className="text-[2rem] font-bold text-[#2B3674] dark:text-sidebartext leading-none">
                   {stat.value}
                 </p>
               </div>
@@ -63,50 +63,50 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-100 dark:border-[#1A1A1A] mb-6" />
+        <div className="border-t border-gray-100 dark:border-darkbgprimary mb-6" />
 
         {/* Contact Details */}
         <div className="space-y-3">
           {/* Wallet */}
-          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-[#C4FF0E]/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-white dark:bg-white rounded-lg shadow-sm">
+          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
               <WalletIcon className="w-4 h-4 text-[#4F46E5]" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">
                 Wallet Address
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-[#CCCFD1] truncate">
+              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext truncate">
                 {walletTruncate(wallet) || "N/A"}
               </p>
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-[#C4FF0E]/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-white dark:bg-white rounded-lg shadow-sm">
+          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
               <Mail className="w-4 h-4 text-[#4F46E5]" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">
                 Email Address
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-[#CCCFD1] truncate">
+              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext truncate">
                 {email}
               </p>
             </div>
           </div>
 
           {/* Phone */}
-          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-[#C4FF0E]/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-white dark:bg-white rounded-lg shadow-sm">
+          <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
               <Phone className="w-4 h-4 text-[#4F46E5]" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">
                 Contact Number
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-[#CCCFD1]">
+              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext">
                 {phoneNumber || "N/A"}
               </p>
             </div>

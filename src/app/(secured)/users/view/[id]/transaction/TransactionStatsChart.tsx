@@ -157,10 +157,10 @@ const TransactionStatsChart = ({
   };
 
   return (
-    <div className="flex-1 bg-white border border-[#E5E7EB] rounded-[20px]  p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+    <div className="flex-1 bg-bgwhite border border-bordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center justify-start w-full">
-          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff] w-full">
+          <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite w-full">
             Transaction Statistics
           </h3>
         </div>

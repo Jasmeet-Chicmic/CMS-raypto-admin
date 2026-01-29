@@ -103,12 +103,12 @@ const CompanyBranding = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Branding
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -162,7 +162,7 @@ const CompanyBranding = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Tagline
             </div>
-            <p className="text-gray-900 dark:text-[#CCCFD1] italic">
+            <p className="text-gray-900 dark:text-sidebartext italic">
               {`${defaultValues.tagline}`}
             </p>
           </div>
@@ -174,7 +174,7 @@ const CompanyBranding = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Branding
         </h3>
         <button
@@ -204,7 +204,7 @@ const CompanyBranding = () => {
                 <button
                   type="button"
                   onClick={removeLogo}
-                  className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-[0.875] hover:bg-red-600 transition-colors"
+                  className="absolute -top-2 -right-2 bg-red-500 text-bgwhite rounded-full w-6 h-6 flex items-center justify-center text-[0.875] hover:bg-red-600 transition-colors"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -219,7 +219,7 @@ const CompanyBranding = () => {
                     onChange={handleLogoUpload}
                     className="hidden"
                   />
-                  <div className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors flex items-center space-x-2">
+                  <div className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors flex items-center space-x-2">
                     <Upload className="w-4 h-4" />
                     <span>{logoFile ? "Change Logo" : "Upload Logo"}</span>
                   </div>
@@ -230,7 +230,7 @@ const CompanyBranding = () => {
                   </span>
                 )}
               </div>
-              <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+              <p className="text-[0.875rem] text-sidebartext mt-1">
                 {COMPANY_BRANDING.IMAGES_GUIDELINES.COMPANY_LOGO}
               </p>
             </div>
@@ -254,7 +254,7 @@ const CompanyBranding = () => {
               <button
                 type="button"
                 onClick={removeCover}
-                className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-[0.875] hover:bg-red-600 transition-colors"
+                className="absolute top-2 right-2 bg-red-500 text-bgwhite rounded-full w-6 h-6 flex items-center justify-center text-[0.875] hover:bg-red-600 transition-colors"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -267,7 +267,7 @@ const CompanyBranding = () => {
                   onChange={handleCoverUpload}
                   className="hidden"
                 />
-                <div className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors inline-flex items-center space-x-2">
+                <div className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors inline-flex items-center space-x-2">
                   <Upload className="w-4 h-4" />
                   <span>{coverFile ? "Change Cover" : "Upload Cover"}</span>
                 </div>
@@ -278,7 +278,7 @@ const CompanyBranding = () => {
                 </span>
               )}
             </div>
-            <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+            <p className="text-[0.875rem] text-sidebartext mt-1">
               {COMPANY_BRANDING.IMAGES_GUIDELINES.COVER_IMAGE}
             </p>
           </div>
@@ -303,20 +303,20 @@ const CompanyBranding = () => {
             })}
             rows={3}
             placeholder="Enter your company tagline..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] resize-none"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext resize-none"
           />
           {errors.tagline && (
             <p className="text-red-500 text-[0.875] mt-1">
               {errors.tagline.message}
             </p>
           )}
-          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+          <p className="text-[0.875rem] text-sidebartext mt-1">
             Max 100 characters
           </p>
         </div>
 
         {/* Brand Guidelines */}
-        <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
           <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Brand Guidelines
           </h4>
@@ -340,7 +340,7 @@ const CompanyBranding = () => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

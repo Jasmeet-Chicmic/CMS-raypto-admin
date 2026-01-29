@@ -71,7 +71,7 @@ export default function SelectFilter<T>({
         isClearable={isClearable}
         placeholder={placeholder}
         classNamePrefix="react-select"
-        className="dark:bg-[#1a1a1a] dark:border-[#1e2939]"
+        className="dark:bg-darkbgprimary dark:border-darkbordercolor1"
         inputId={id}
       />
     </div>

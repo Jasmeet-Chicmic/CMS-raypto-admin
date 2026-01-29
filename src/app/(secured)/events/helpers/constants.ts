@@ -169,10 +169,10 @@ export const TOAST_MESSAGES = {
 
 // Action button styles
 export const BUTTON_STYLES = {
-  primary: "bg-blue-600 hover:bg-blue-700 text-white",
-  danger: "bg-red-600 hover:bg-red-700 text-white",
-  warning: "bg-yellow-600 hover:bg-yellow-700 text-white",
-  success: "bg-green-600 hover:bg-green-700 text-white",
+  primary: "bg-blue-600 hover:bg-blue-700 text-bgwhite",
+  danger: "bg-red-600 hover:bg-red-700 text-bgwhite",
+  warning: "bg-yellow-600 hover:bg-yellow-700 text-bgwhite",
+  success: "bg-green-600 hover:bg-green-700 text-bgwhite",
 } as const;
 
 // Action button labels

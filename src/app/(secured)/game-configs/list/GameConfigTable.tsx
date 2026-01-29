@@ -194,10 +194,10 @@ const GameConfigTable = ({
             {item.amountLimit.slice(0, 2).map((limit) => (
               <div
                 key={`${item._id}-${limit.currency}`}
-                className="flex flex-col px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-[#1A1A1A]/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-sm hover:border-[#4F46E5]/30 group min-w-[100px]"
+                className="flex flex-col px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-sm hover:border-[#4F46E5]/30 group min-w-[100px]"
               >
                 <div className="flex items-center gap-1.5 mb-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C4FF0E]" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primarycolor" />
                   <span
                     className={`text-[10px] font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase leading-none`}
                   >
@@ -214,7 +214,7 @@ const GameConfigTable = ({
             {remainingCount > 0 && (
               <button
                 onClick={() => setSelectedBetLimitItem(item)}
-                className="flex items-center justify-center px-3 py-1.5 rounded-xl border border-dashed border-[#4F46E5]/30 dark:border-indigo-500/30 text-[12px] font-bold text-[#4F46E5] dark:text-indigo-400 bg-[#C4FF0E]/5 dark:bg-indigo-500/10 hover:bg-[#C4FF0E]/10 dark:hover:bg-indigo-500/20 cursor-pointer transition-all min-w-[80px]"
+                className="flex items-center justify-center px-3 py-1.5 rounded-xl border border-dashed border-[#4F46E5]/30 dark:border-indigo-500/30 text-[12px] font-bold text-[#4F46E5] dark:text-indigo-400 bg-primarycolor/5 dark:bg-indigo-500/10 hover:bg-primarycolor/10 dark:hover:bg-indigo-500/20 cursor-pointer transition-all min-w-[80px]"
               >
                 +{remainingCount} More
               </button>
@@ -250,8 +250,8 @@ const GameConfigTable = ({
       paginationTitle: "game configs",
       header: (
         <>
-          <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-[#1a1a1a] dark:border-[#1e2939]">
-            <div className="dark:border-[#1A1A1A]">
+          <div className="bg-bgwhite px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+            <div className="dark:border-darkbgprimary">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div>
                   <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
@@ -265,7 +265,7 @@ const GameConfigTable = ({
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-[8px] hover:bg-[#0D0D0D] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
                   >
                     <Menu size={18} />
                     <span>Filters</span>
@@ -285,7 +285,7 @@ const GameConfigTable = ({
                   router.push(pathname);
                   setIsFilterOpen(false);
                 }}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-[#1A1A1A] text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
               >
                 <RotateCcw size={18} />
                 <span>Clear All Filters</span>
@@ -405,10 +405,10 @@ const GameConfigTable = ({
                   {selectedBetLimitItem.amountLimit.map((limit) => (
                     <div
                       key={`modal-${selectedBetLimitItem._id}-${limit.currency}`}
-                      className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#1A1A1A]/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-[#4F46E5]/30"
+                      className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-[#4F46E5]/30"
                     >
                       <div className="flex items-center gap-2 mb-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#C4FF0E]" />
+                        <div className="w-2 h-2 rounded-full bg-primarycolor" />
                         <span
                           className={`text-xs font-bold ${TEXT_SECONDARY} dark:text-gray-400 uppercase`}
                         >

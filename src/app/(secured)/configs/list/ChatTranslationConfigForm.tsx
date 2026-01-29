@@ -92,7 +92,7 @@ const ChatTranslationConfigForm = ({
           {/* Header with Edit/Save buttons */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-[1.25rem] font-bold text-[#1b2559] dark:text-[#CCCFD1]">
+              <h3 className="text-[1.25rem] font-bold text-textprimary dark:text-sidebartext">
                 Chat Translation Settings
               </h3>
             </div>
@@ -102,7 +102,7 @@ const ChatTranslationConfigForm = ({
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-[#1A1A1A] dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-bgwhite border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
                   >
                     <X size={16} />
                     Cancel
@@ -110,7 +110,7 @@ const ChatTranslationConfigForm = ({
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#C4FF0E] rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-bgwhite bg-primarycolor rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Save size={16} />
                     {isLoading ? "Saving..." : "Save"}
@@ -120,7 +120,7 @@ const ChatTranslationConfigForm = ({
                 <button
                   type="button"
                   onClick={() => setIsEditing(true)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#C4FF0E] rounded-lg hover:bg-purple-700"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-bgwhite bg-primarycolor rounded-lg hover:bg-purple-700"
                 >
                   <Pencil size={16} />
                   Edit
@@ -139,11 +139,11 @@ const ChatTranslationConfigForm = ({
               />
             ) : (
               <div className="space-y-2">
-                <div className="block mb-1 font-medium dark:text-[#CCCFD1]">
+                <div className="block mb-1 font-medium dark:text-sidebartext">
                   Enable Chat Translation
                 </div>
-                <div className="px-4 py-3 bg-gray-50 rounded-lg dark:bg-[#1A1A1A]">
-                  <span className="text-sm font-medium text-gray-900 dark:text-[#CCCFD1]">
+                <div className="px-4 py-3 bg-gray-50 rounded-lg dark:bg-darkbgprimary">
+                  <span className="text-sm font-medium text-gray-900 dark:text-sidebartext">
                     {watchedValues.enableChatTranslation
                       ? "Enabled"
                       : "Disabled"}

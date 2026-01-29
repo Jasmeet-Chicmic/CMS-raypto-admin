@@ -29,7 +29,7 @@ const CardStatsVertical = ({
   return (
     <div
       className={clsx(
-        "bg-white rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-[#111827]",
+        "bg-bgwhite rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-[#111827]",
         className,
       )}
     >

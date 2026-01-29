@@ -60,14 +60,14 @@ const ForgotPassword = () => {
         secondaryAction={
           <Link
             href={ROUTES.LOGIN}
-            className="text-[#000000] dark:text-white hover:underline flex items-center justify-center gap-[6px]"
+            className="text-bgblack dark:text-bgwhite hover:underline flex items-center justify-center gap-[6px]"
           >
             <Image
               src={chevronLogo}
               width={20}
               height={20}
               alt="chevron-left"
-              className="text-[#000000] !dark:text-[#ffffff]"
+              className="text-bgblack !dark:text-bgwhite"
             />
             Back to Login
           </Link>

@@ -102,10 +102,10 @@ const Notifications = ({ notificationsData, id }: NotificationsProps) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+    <div className="bg-bgwhite rounded-xl shadow-sm p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+        <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
           Notifications
         </h2>
         <p className="text-sm text-gray-500 mt-1">
@@ -115,9 +115,9 @@ const Notifications = ({ notificationsData, id }: NotificationsProps) => {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-700 dark:text-[#CCCFD1]">
+        <table className="w-full text-sm text-left text-gray-700 dark:text-sidebartext">
           <thead>
-            <tr className="border-b border-gray-200 text-[0.875rem] text-[#CCCFD1] uppercase dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+            <tr className="border-b border-gray-200 text-[0.875rem] text-sidebartext uppercase dark:bg-darkbgprimary dark:border-darkbordercolor1">
               <th className="py-2">Type</th>
               <th className="py-2 text-center">Email</th>
               <th className="py-2 text-center">Browser</th>
@@ -128,7 +128,7 @@ const Notifications = ({ notificationsData, id }: NotificationsProps) => {
             {data.map((item) => (
               <tr
                 key={item.type}
-                className="border-b last:border-none dark:bg-[#1a1a1a] dark:border-[#1e2939]"
+                className="border-b last:border-none dark:bg-darkbgprimary dark:border-darkbordercolor1"
               >
                 <td className="py-3">{NOTIFICATION_LABELS[item.type]}</td>
                 <td className="text-center">
@@ -147,16 +147,16 @@ const Notifications = ({ notificationsData, id }: NotificationsProps) => {
       </div>
 
       {/* Buttons */}
-      <div className="mt-6 flex gap-3 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+      <div className="mt-6 flex gap-3 dark:bg-darkbgprimary dark:border-darkbordercolor1">
         <button
           onClick={saveNotifications}
-          className="bg-[#C4FF0E] text-[#000000] text-sm font-medium px-4 py-2 rounded-md hover:bg-purple-700 disabled:bg-purple-300 disabled:cursor-not-allowed disabled:opacity-70"
+          className="bg-primarycolor text-bgblack text-sm font-medium px-4 py-2 rounded-md hover:bg-purple-700 disabled:bg-purple-300 disabled:cursor-not-allowed disabled:opacity-70"
           disabled={!isDirty || isLoading}
         >
           {isLoading ? "Saving..." : "Save changes"}
         </button>
         <button
-          className="bg-white border border-gray-300 text-sm text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50"
+          className="bg-bgwhite border border-gray-300 text-sm text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50"
           onClick={() => {
             setData(originalRef.current);
             setIsDirty(false);

@@ -120,12 +120,12 @@ const CompanyAdmins = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Company Admins & Roles
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -142,7 +142,7 @@ const CompanyAdmins = () => {
             {fields.map((admin) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-4"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
@@ -156,7 +156,7 @@ const CompanyAdmins = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+                      <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                         {admin.name}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -183,13 +183,13 @@ const CompanyAdmins = () => {
         )}
 
         {/* Admin Summary */}
-        <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+        <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
             Admin Summary
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
+              <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
                 {fields.length}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -229,13 +229,13 @@ const CompanyAdmins = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Company Admins & Roles
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addAdmin}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Admin
           </button>
@@ -257,7 +257,7 @@ const CompanyAdmins = () => {
             <button
               type="button"
               onClick={addAdmin}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Admin
             </button>
@@ -267,7 +267,7 @@ const CompanyAdmins = () => {
             {fields.map((admin, index) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Admin Info */}
@@ -285,7 +285,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.name` as const, {
                           required: "Name is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.name && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -311,7 +311,7 @@ const CompanyAdmins = () => {
                             message: "Please enter a valid email address",
                           },
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.email && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -332,7 +332,7 @@ const CompanyAdmins = () => {
                         type="url"
                         {...register(`admins.${index}.profileImage` as const)}
                         placeholder="https://example.com/profile.jpg"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.profileImage && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -356,7 +356,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.role` as const, {
                           required: "Role is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       >
                         <option value="Super Admin">Super Admin</option>
                         <option value="Editor">Editor</option>
@@ -381,7 +381,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.status` as const, {
                           required: "Status is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       >
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
@@ -397,7 +397,7 @@ const CompanyAdmins = () => {
                       <button
                         type="button"
                         onClick={() => remove(index)}
-                        className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                        className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                       >
                         Remove Admin
                       </button>
@@ -420,7 +420,7 @@ const CompanyAdmins = () => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

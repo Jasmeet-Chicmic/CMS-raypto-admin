@@ -79,25 +79,25 @@ export function Table<T>({
   return (
     <div
       className={
-        "bg-white dark:bg-[#111827] overflow-auto custom-scrollbar relative " +
+        "bg-bgwhite dark:bg-[#111827] overflow-auto custom-scrollbar relative " +
         (className || "")
       }
     >
-      <table className="w-full divide-y divide-[#F4F7FE] dark:bg-[#1A1A1A]">
+      <table className="w-full divide-y divide-[#F4F7FE] dark:bg-darkbgprimary">
         <thead className="bg-transparent">
           <tr>
             {!hideSelectCol && (
               <th
                 className={`px-6 py-4 text-left w-[60px] ${
                   hasFixedLeft
-                    ? "sticky left-0 z-20 bg-white dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-[#1A1A1A]"
+                    ? "sticky left-0 z-20 bg-bgwhite dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-darkbgprimary"
                     : ""
                 }`}
               >
                 <div className="flex items-center justify-center">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 rounded-md border-[#F4F7FE] dark:border-[#1A1A1A] text-[#4F46E5] focus:ring-[#4F46E5] cursor-pointer transition-all"
+                    className="w-4 h-4 rounded-md border-[#F4F7FE] dark:border-darkbgprimary text-[#4F46E5] focus:ring-[#4F46E5] cursor-pointer transition-all"
                     checked={
                       !!selectedRows.length &&
                       !!data.length &&
@@ -120,9 +120,9 @@ export function Table<T>({
               const isFixedRight = column.fixed === "right";
 
               const stickyClass = isFixedLeft
-                ? "sticky z-10 bg-white dark:bg-[#1A1A1A] shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-[#E5E7EB] dark:border-[#1E2939]"
+                ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-bordercolor1 dark:border-darkbordercolor1"
                 : isFixedRight
-                  ? "sticky z-10 bg-white dark:bg-[#1A1A1A] shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-[#E5E7EB] dark:border-[#1E2939]"
+                  ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-bordercolor1 dark:border-darkbordercolor1"
                   : "";
 
               return (
@@ -145,9 +145,9 @@ export function Table<T>({
                   }
                   className={`px-6 py-4 whitespace-nowrap ${
                     index === columns.length - 1 ? "text-right" : "text-left"
-                  } text-[0.875rem] sm:text-[0.875rem] font-bold text-[#3d3d3d] dark:text-[#ffffff] tracking-widest ${
+                  } text-[0.875rem] sm:text-[0.875rem] font-bold text-[#3d3d3d] dark:text-bgwhite tracking-widest ${
                     column.width ? column.width : ""
-                  } ${column.sortable ? "cursor-pointer select-none hover:text-[#1a1a1a] transition-colors" : ""} ${stickyClass}`}
+                  } ${column.sortable ? "cursor-pointer select-none hover:text-darkbgprimary transition-colors" : ""} ${stickyClass}`}
                 >
                   <div
                     className={`flex ${index === columns.length - 1 ? "justify-end" : "justify-start"} items-center gap-2`}
@@ -171,7 +171,7 @@ export function Table<T>({
             <tr className="empty-row">
               <td
                 colSpan={columns.length + (hideSelectCol ? 0 : 1)}
-                className="px-4 py-16 text-sm text-gray-500 text-center dark:text-[#ffffff] font-medium"
+                className="px-4 py-16 text-sm text-gray-500 text-center dark:text-bgwhite font-medium"
               >
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-2xl opacity-50">📭</span>
@@ -186,10 +186,10 @@ export function Table<T>({
                 className={
                   "group transition-all duration-200 " +
                   (onRowClick
-                    ? "cursor-pointer hover:bg-gray-50/80 dark:hover:bg-[#1a1a1a]/50"
-                    : "hover:bg-[#1A1A1A]/40 dark:hover:bg-[#1a1a1a]/30") +
+                    ? "cursor-pointer hover:bg-gray-50/80 dark:hover:bg-darkbgprimary/50"
+                    : "hover:bg-darkbgprimary/5 dark:hover:bg-darkbgprimary/30") +
                   (selectedRows?.includes(keyExtractor(item))
-                    ? " bg-[#C4FF0E]/5 dark:bg-[#C4FF0E]/10 "
+                    ? " bg-primarycolor/5 dark:bg-primarycolor/10 "
                     : "") +
                   (rowClassName ? ` ${rowClassName(item)}` : "")
                 }
@@ -199,7 +199,7 @@ export function Table<T>({
                   <td
                     className={`px-6 py-4 text-center w-[60px] ${
                       hasFixedLeft
-                        ? "sticky left-0 z-20 bg-white dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-[#1A1A1A] group-hover:bg-gray-50 dark:group-hover:bg-[#1a1a1a] transition-colors"
+                        ? "sticky left-0 z-20 bg-bgwhite dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                         : ""
                     }`}
                   >
@@ -242,9 +242,9 @@ export function Table<T>({
                   const isFixedRight = column.fixed === "right";
 
                   const stickyClass = isFixedLeft
-                    ? "sticky z-10 bg-white dark:bg-[#1A1A1A] shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-[#F4F7FE] dark:border-[#1A1A1A] group-hover:bg-gray-50 dark:group-hover:bg-[#1a1a1a] transition-colors"
+                    ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                     : isFixedRight
-                      ? "sticky z-10 bg-white dark:bg-[#1A1A1A] shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-[#F4F7FE] dark:border-[#1A1A1A] group-hover:bg-gray-50 dark:group-hover:bg-[#1a1a1a] transition-colors"
+                      ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                       : "";
 
                   return (
@@ -257,7 +257,7 @@ export function Table<T>({
                             ? { right: 0 }
                             : {}
                       }
-                      className={`px-6 py-4 whitespace-nowrap text-[14px] text-[#1B2559] dark:text-[#CCCFD1] ${
+                      className={`px-6 py-4 whitespace-nowrap text-[14px] text-textprimary dark:text-sidebartext ${
                         index === columns.length - 1
                           ? "text-right"
                           : "text-left"
@@ -275,10 +275,10 @@ export function Table<T>({
         </tbody>
       </table>
       {isLoading && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 dark:bg-[#111827]/60 backdrop-blur-sm transition-all">
+        <div className="absolute inset-0 z-50 flex items-center justify-center bgbgwhite/60 dark:bg-[#111827]/60 backdrop-blur-sm transition-all">
           <div className="flex flex-col items-center gap-3">
             <div className="w-10 h-10 border-4 border-[#4F46E5] border-t-transparent rounded-full animate-spin shadow-lg shadow-indigo-500/20" />
-            <span className="text-[12px] font-bold text-[#4F46E5] dark:text-[#CCCFD1] tracking-wider uppercase">
+            <span className="text-[12px] font-bold text-[#4F46E5] dark:text-sidebartext tracking-wider uppercase">
               Loading...
             </span>
           </div>

@@ -295,7 +295,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
             </Link>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-white font-medium">
+              <span className="text-bgwhite font-medium">
                 {chatRoomName || "Chat Room"}
               </span>
             </div>
@@ -333,7 +333,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                 >
                   {/* Avatar */}
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-semibold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-bgwhite font-semibold text-sm">
                       {getInitials(message.senderName)}
                     </div>
                   </div>
@@ -341,7 +341,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                   {/* Message Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center space-x-2 mb-1">
-                      <span className="text-white font-semibold text-sm">
+                      <span className="text-bgwhite font-semibold text-sm">
                         {message.senderName || "Unknown"}:
                       </span>
                       {hoveredMessageId === message._id && (
@@ -393,7 +393,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                               setEditingMessage(null);
                             }
                           }}
-                          className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                          className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-bgwhite placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                           autoFocus
                         />
                         <button
@@ -402,7 +402,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                           disabled={isLoading || !editingMessage.message.trim()}
                           title="Save"
                         >
-                          <Check size={16} className="text-white" />
+                          <Check size={16} className="text-bgwhite" />
                         </button>
                         <button
                           onClick={() => setEditingMessage(null)}

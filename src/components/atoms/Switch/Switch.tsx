@@ -10,7 +10,9 @@ const Switch: React.FC<ToggleSwitchProps> = ({ enabled, onToggle, label }) => {
   return (
     <div className="flex items-center gap-3">
       {label && (
-        <span className="text-sm font-medium dark:text-[#CCCFD1]">{label}</span>
+        <span className="text-sm font-medium dark:text-sidebartext">
+          {label}
+        </span>
       )}
       <button
         onClick={onToggle}
@@ -20,7 +22,7 @@ const Switch: React.FC<ToggleSwitchProps> = ({ enabled, onToggle, label }) => {
         }`}
       >
         <span
-          className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-300 ease-in-out ${
+          className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-bgwhite shadow-md ring-0 transition duration-300 ease-in-out ${
             enabled ? "translate-x-5" : "translate-x-0"
           }`}
         />

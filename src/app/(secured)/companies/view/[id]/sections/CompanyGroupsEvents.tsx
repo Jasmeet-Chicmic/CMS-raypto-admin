@@ -136,14 +136,14 @@ const CompanyGroupsEvents = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Groups / Events / Initiatives
         </h3>
         <div className="flex space-x-2">
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Types</option>
             <option value="event">Events</option>
@@ -153,7 +153,7 @@ const CompanyGroupsEvents = () => {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -166,27 +166,27 @@ const CompanyGroupsEvents = () => {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
             {groupsEvents.length}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">
             Total Items
           </div>
         </div>
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-blue-600">
             {groupsEvents.filter((item) => item.type === "event").length}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Events</div>
         </div>
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-green-600">
             {groupsEvents.filter((item) => item.type === "group").length}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Groups</div>
         </div>
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-purple-600">
             {groupsEvents.filter((item) => item.type === "initiative").length}
           </div>
@@ -201,14 +201,14 @@ const CompanyGroupsEvents = () => {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+            className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-6"
           >
             <div className="flex items-start justify-between">
               <div className="flex items-start space-x-4">
                 <div className="text-2xl">{getTypeIcon(item.type)}</div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-2">
-                    <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+                    <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                       {item.name}
                     </h4>
                     <span
@@ -226,7 +226,7 @@ const CompanyGroupsEvents = () => {
                   <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
                     {item.description}
                   </p>
-                  <div className="flex items-center space-x-4 text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
+                  <div className="flex items-center space-x-4 text-[0.875rem] text-sidebartext dark:text-gray-400">
                     <span>📅 {new Date(item.date).toLocaleDateString()}</span>
                     <span>👥 {item.participants} participants</span>
                     <span>🏷️ {item.category}</span>
@@ -234,10 +234,10 @@ const CompanyGroupsEvents = () => {
                 </div>
               </div>
               <div className="flex space-x-2">
-                <button className="px-3 py-1 text-[0.875] font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors">
+                <button className="px-3 py-1 text-[0.875] font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors">
                   View Details
                 </button>
-                <button className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-white transition-colors">
+                <button className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-bgwhite transition-colors">
                   Edit
                 </button>
               </div>
@@ -253,8 +253,8 @@ const CompanyGroupsEvents = () => {
       </div>
 
       {/* Summary by Type */}
-      <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
-        <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+      <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+        <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
           Summary by Type
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

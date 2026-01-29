@@ -39,6 +39,31 @@ module.exports = {
         "chart-secondary": "#7B5BE7",
         "chart-accent-cyan": "#00D4FF",
         "chart-accent-teal": "#14B8A6",
+
+        // Background Colors
+        lightbgbase: "#FAFAFA",
+        darkbgbase: "#0A0A0A",
+        bgwhite: "#ffffff",
+        bgblack: "#000000",
+        bgprimary: "#0D0D0D",
+        darkbgprimary: "#1A1A1A",
+        // primarycolor: "#C4FF0E",
+        primarycolor: "#FF5722",
+        sidebartext: "#CCCFD1",
+        darkhoverbgprimary: "#262626",
+        bgblue: "#155DFC",
+        bgorange: "#FF5722",
+        bgpurple: "#9810FA",
+        hoverbg: "#191919",
+        bgpurple1: "#4F46E5",
+        // Text Colors
+        textprimary: "#1B2559",
+        textparagraph: "#4a5565",
+        textparagraphlight: "#99A1AF",
+        textparagraphlight2: "#D1D1C6",
+        // Border Colors
+        bordercolor1: "#E5E7EB",
+        darkbordercolor1: "#1E2939",
       },
       fontSize: {
         heading: ["38px", { lineHeight: "48px", fontWeight: "500" }],

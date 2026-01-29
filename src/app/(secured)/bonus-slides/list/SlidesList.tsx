@@ -158,7 +158,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
               onClick={() =>
                 router.push(`${ROUTES.BONUS_SLIDES_EDIT}?id=${item._id}`)
               }
-              className="text-gray-500 hover:text-blue-600 transition-colors dark:text-[#CCCFD1]"
+              className="text-gray-500 hover:text-blue-600 transition-colors dark:text-sidebartext"
               title="View"
             >
               <Eye size={18} />
@@ -167,7 +167,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
               onClick={() =>
                 router.push(`${ROUTES.BONUS_SLIDES_EDIT}?id=${item._id}`)
               }
-              className="text-gray-500 hover:text-purple-600 transition-colors dark:text-[#CCCFD1]"
+              className="text-gray-500 hover:text-purple-600 transition-colors dark:text-sidebartext"
               title="Edit"
             >
               <Pencil size={18} />
@@ -204,8 +204,8 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
       },
       header: (
         <>
-          <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-[#1a1a1a] dark:border-[#1e2939]">
-            <div className="dark:border-[#1A1A1A]">
+          <div className="bg-bgwhite px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+            <div className="dark:border-darkbgprimary">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div>
                   <h2 className={`text-[1.5rem] font-bold ${TEXT_SECONDARY}`}>
@@ -224,14 +224,14 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-[8px] hover:bg-[#0D0D0D] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
                   >
                     <Menu size={18} />
                     <span>Filters</span>
                   </button>
                   <button
                     onClick={() => router.push(ROUTES.BONUS_SLIDES_ADD)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-lg hover:bg-purple-700 transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-lg hover:bg-purple-700 transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
                   >
                     <Plus size={18} />
                     <span>Add New Slide</span>
@@ -251,7 +251,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
                   router.push(pathname);
                   setIsFilterOpen(false);
                 }}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-[#1A1A1A] text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
               >
                 <RotateCcw size={18} />
                 <span>Clear All Filters</span>

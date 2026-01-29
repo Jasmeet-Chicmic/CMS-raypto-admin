@@ -81,7 +81,7 @@ const ProjectStatusCard = () => {
   ];
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-[#111827]">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-[#111827]">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>

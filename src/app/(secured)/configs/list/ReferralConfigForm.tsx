@@ -174,10 +174,10 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
           {/* Header with Edit/Save buttons */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-[1.25rem] font-bold text-[#1b2559] dark:text-[#CCCFD1]">
+              <h3 className="text-[1.25rem] font-bold text-textprimary dark:text-sidebartext">
                 Referral Settings
               </h3>
-              <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 Configure referral rewards and time limits per currency
               </p>
             </div>
@@ -187,7 +187,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-[#1A1A1A] dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-bgwhite border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
                   >
                     <X size={16} />
                     Cancel
@@ -195,7 +195,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#C4FF0E] rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-bgwhite bg-primarycolor rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Save size={16} />
                     {isLoading ? "Saving..." : "Save"}
@@ -205,7 +205,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                 <button
                   type="button"
                   onClick={() => setIsEditing(true)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#C4FF0E] rounded-lg hover:bg-purple-700"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-bgwhite bg-primarycolor rounded-lg hover:bg-purple-700"
                 >
                   <Pencil size={16} />
                   Edit
@@ -215,16 +215,16 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
           </div>
 
           {/* Referral Time Limit */}
-          <div className="mb-8 p-6 bg-white dark:bg-[#111827] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300">
-            <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-[#1A1A1A]">
-              <div className="p-3 bg-[#F4F7FE] dark:bg-[#C4FF0E] rounded-2xl">
-                <Clock className="w-6 h-6 text-[#4F46E5] dark:text-[#000000]" />
+          <div className="mb-8 p-6 bg-bgwhite dark:bg-[#111827] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-darkbgprimary transition-all duration-300">
+            <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-darkbgprimary">
+              <div className="p-3 bg-[#F4F7FE] dark:bg-primarycolor rounded-2xl">
+                <Clock className="w-6 h-6 text-[#4F46E5] dark:text-bgblack" />
               </div>
               <div>
-                <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff] leading-none">
+                <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite leading-none">
                   Referral Time Limit
                 </h4>
-                <p className="text-sm font-medium text-[#CCCFD1] dark:text-gray-400 mt-2">
+                <p className="text-sm font-medium text-sidebartext dark:text-gray-400 mt-2">
                   Set the duration for which a referral remains valid
                 </p>
               </div>
@@ -233,7 +233,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="group">
                 {isEditing ? (
-                  <div className="p-4 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-2xl border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                  <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
                     <InputField<FormValues>
                       name="referralTimeLimitInHours"
                       label="Time Limit (Hours)"
@@ -247,15 +247,15 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                     />
                   </div>
                 ) : (
-                  <div className="p-6 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-[10px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                    <div className="block mb-4 text-xs font-bold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-widest">
+                  <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                    <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
                       Time Limit (Hours)
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="p-3 bg-white dark:bg-[#C4FF0E] rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                        <Clock className="w-5 h-5 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                      <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        <Clock className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
                       </div>
-                      <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-[#CCCFD1] leading-none">
+                      <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                         {referralTimeLimitInHours} hours
                       </span>
                     </div>
@@ -270,18 +270,18 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
             {fields.map((field, index) => (
               <div
                 key={field.id}
-                className="p-6 bg-white dark:bg-[#111827] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300"
+                className="p-6 bg-bgwhite dark:bg-[#111827] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-darkbgprimary transition-all duration-300"
               >
-                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-[#1A1A1A]">
-                  <div className="p-3 bg-[#F4F7FE] dark:bg-[#C4FF0E] rounded-2xl">
-                    <Coins className="w-6 h-6 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-darkbgprimary">
+                  <div className="p-3 bg-[#F4F7FE] dark:bg-primarycolor rounded-2xl">
+                    <Coins className="w-6 h-6 text-[#4F46E5] dark:text-sidebartext" />
                   </div>
                   <div>
-                    <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff] leading-none">
+                    <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite leading-none">
                       {CURRENCY_TYPE_NAMES[field.currency] ||
                         `Currency ${field.currency}`}
                     </h4>
-                    <p className="text-sm font-medium text-[#CCCFD1] dark:text-gray-400 mt-2">
+                    <p className="text-sm font-medium text-sidebartext dark:text-gray-400 mt-2">
                       Manage referral rewards for this currency
                     </p>
                   </div>
@@ -291,7 +291,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   {/* Reward Amount Non-Withdrawable */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-2xl border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
                         <InputField<FormValues>
                           name={`referralRewardConfig.${index}.rewardAmountNonWithdrawable`}
                           label="Non-Withdrawable Reward"
@@ -305,15 +305,15 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
                           Non-Withdrawable Reward
                         </div>
                         <div className="flex items-center gap-4">
-                          <div className="p-3 bg-white dark:bg-[#C4FF0E] rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Wallet className="w-5 h-5 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                          <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            <Wallet className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
                           </div>
-                          <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-[#CCCFD1] leading-none">
+                          <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                             {referralRewardConfig[
                               index
                             ]?.rewardAmountNonWithdrawable?.toLocaleString() ||
@@ -328,7 +328,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   {/* Bet Count */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-2xl border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
                         <InputField<FormValues>
                           name={`referralRewardConfig.${index}.betCount`}
                           label="Required Bet Count"
@@ -342,15 +342,15 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
                           Required Bet Count
                         </div>
                         <div className="flex items-center gap-4">
-                          <div className="p-3 bg-white dark:bg-[#C4FF0E] rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Target className="w-5 h-5 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                          <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            <Target className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
                           </div>
-                          <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-[#CCCFD1] leading-none">
+                          <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                             {referralRewardConfig[
                               index
                             ]?.betCount?.toLocaleString() ||
@@ -365,7 +365,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   {/* Minimum Bet Amount */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-2xl border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
                         <InputField<FormValues>
                           name={`referralRewardConfig.${index}.minimumBetAmount`}
                           label="Minimum Bet Amount"
@@ -379,15 +379,15 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
                           Minimum Bet Amount
                         </div>
                         <div className="flex items-center gap-4">
-                          <div className="p-3 bg-white dark:bg-[#C4FF0E] rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Banknote className="w-5 h-5 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                          <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            <Banknote className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
                           </div>
-                          <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-[#CCCFD1] leading-none">
+                          <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                             {referralRewardConfig[
                               index
                             ]?.minimumBetAmount?.toLocaleString() ||
@@ -402,7 +402,7 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                   {/* Commission Percentage */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-2xl border border-gray-100 dark:border-[#1A1A1A] transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
                         <InputField<FormValues>
                           name={`referralRewardConfig.${index}.commissionPercentage`}
                           label="Commission Percentage"
@@ -417,16 +417,16 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-[#1A1A1A]/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-[#CCCFD1] dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
                           Commission Percentage
                         </div>
                         <div className="flex items-center gap-4">
-                          <div className="p-3 bg-white dark:bg-[#C4FF0E] rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Percent className="w-5 h-5 text-[#4F46E5] dark:text-[#CCCFD1]" />
+                          <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            <Percent className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-[1.75rem] font-bold text-[#1B2559] dark:text-[#CCCFD1] leading-none">
+                            <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                               {referralRewardConfig[
                                 index
                               ]?.commissionPercentage?.toLocaleString() ||

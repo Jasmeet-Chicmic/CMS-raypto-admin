@@ -140,7 +140,7 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
             value={formData.name}
             onChange={handleChange}
             placeholder={CHAT_STRINGS.ENTER_ROOM_NAME}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-[#1A1A1A] dark:border-gray-600 dark:text-[#CCCFD1]"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-darkbgprimary dark:border-gray-600 dark:text-sidebartext"
             required
           />
         </div>
@@ -170,7 +170,7 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-primarycolor text-bgblack rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
             disabled={isLoading}
           >
             {isLoading ? "Saving..." : isEdit ? "Update" : "Create"}

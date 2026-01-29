@@ -78,7 +78,7 @@ const CompanySentimentSurvey = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Sentiment Survey Results
         </h3>
         <div className="flex space-x-2">
@@ -86,7 +86,7 @@ const CompanySentimentSurvey = () => {
             onClick={() => setActiveTab("analytics")}
             className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
               activeTab === "analytics"
-                ? "bg-primary text-white"
+                ? "bg-primary text-bgwhite"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
             }`}
           >
@@ -96,7 +96,7 @@ const CompanySentimentSurvey = () => {
             onClick={() => setActiveTab("raw")}
             className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
               activeTab === "raw"
-                ? "bg-primary text-white"
+                ? "bg-primary text-bgwhite"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
             }`}
           >
@@ -112,7 +112,7 @@ const CompanySentimentSurvey = () => {
               key={survey.id}
               className="border border-gray-200 dark:border-gray-700 rounded-lg p-6"
             >
-              <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+              <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
                 {survey.question}
               </h4>
 
@@ -125,7 +125,7 @@ const CompanySentimentSurvey = () => {
                 </div>
                 <div className="flex h-8 bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
                   <div
-                    className="bg-green-500 flex items-center justify-center text-white text-[0.875] font-medium"
+                    className="bg-green-500 flex items-center justify-center text-bgwhite text-[0.875] font-medium"
                     style={{
                       width: `${calculatePercentage(survey.responses.likely, survey.totalResponses)}%`,
                     }}
@@ -138,7 +138,7 @@ const CompanySentimentSurvey = () => {
                     %)
                   </div>
                   <div
-                    className="bg-yellow-500 flex items-center justify-center text-white text-[0.875] font-medium"
+                    className="bg-yellow-500 flex items-center justify-center text-bgwhite text-[0.875] font-medium"
                     style={{
                       width: `${calculatePercentage(survey.responses.neutral, survey.totalResponses)}%`,
                     }}
@@ -151,7 +151,7 @@ const CompanySentimentSurvey = () => {
                     %)
                   </div>
                   <div
-                    className="bg-red-500 flex items-center justify-center text-white text-[0.875] font-medium"
+                    className="bg-red-500 flex items-center justify-center text-bgwhite text-[0.875] font-medium"
                     style={{
                       width: `${calculatePercentage(survey.responses.unlikely, survey.totalResponses)}%`,
                     }}
@@ -164,7 +164,7 @@ const CompanySentimentSurvey = () => {
                     %)
                   </div>
                 </div>
-                <div className="flex justify-between text-[0.875rem] text-[#CCCFD1] dark:text-gray-400 mt-1">
+                <div className="flex justify-between text-[0.875rem] text-sidebartext dark:text-gray-400 mt-1">
                   <span>Likely</span>
                   <span>Neutral</span>
                   <span>Unlikely</span>
@@ -220,7 +220,7 @@ const CompanySentimentSurvey = () => {
               key={survey.id}
               className="border border-gray-200 dark:border-gray-700 rounded-lg p-6"
             >
-              <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+              <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
                 {survey.question}
               </h4>
 
@@ -233,7 +233,7 @@ const CompanySentimentSurvey = () => {
                   {survey.comments.map((comment, index) => (
                     <div
                       key={index}
-                      className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-3"
+                      className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-3"
                     >
                       <p className="text-gray-700 dark:text-gray-300 text-sm">
                         {`${comment}`}
@@ -253,7 +253,7 @@ const CompanySentimentSurvey = () => {
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Likely
                     </span>
-                    <span className="text-sm font-medium text-gray-900 dark:text-[#CCCFD1]">
+                    <span className="text-sm font-medium text-gray-900 dark:text-sidebartext">
                       {survey.responses.likely} responses
                     </span>
                   </div>
@@ -261,7 +261,7 @@ const CompanySentimentSurvey = () => {
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Neutral
                     </span>
-                    <span className="text-sm font-medium text-gray-900 dark:text-[#CCCFD1]">
+                    <span className="text-sm font-medium text-gray-900 dark:text-sidebartext">
                       {survey.responses.neutral} responses
                     </span>
                   </div>
@@ -269,7 +269,7 @@ const CompanySentimentSurvey = () => {
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Unlikely
                     </span>
-                    <span className="text-sm font-medium text-gray-900 dark:text-[#CCCFD1]">
+                    <span className="text-sm font-medium text-gray-900 dark:text-sidebartext">
                       {survey.responses.unlikely} responses
                     </span>
                   </div>
@@ -281,8 +281,8 @@ const CompanySentimentSurvey = () => {
       )}
 
       {/* Summary Statistics */}
-      <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
-        <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+      <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+        <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
           Summary
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

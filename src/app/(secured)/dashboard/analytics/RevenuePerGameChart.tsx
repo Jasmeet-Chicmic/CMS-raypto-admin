@@ -76,14 +76,14 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
 
   return (
     <div
-      className={`bg-white rounded-lg dark:bg-[#1a1a1a] dark:border-[#1e2939] ${className}`}
+      className={`bg-bgwhite rounded-lg dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
     >
       <div className="flex gap-4 mb-4 justify-between flex-col xl:flex-row">
         <div>
-          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+          <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
             Revenue per Game
           </h3>
-          <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
+          <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
             Total: {formatCurrency(totalRevenue)}
           </p>
         </div>

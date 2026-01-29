@@ -37,7 +37,7 @@ const DropdownMenu = ({ options, onSelect }: DropdownMenuProps) => {
 
       {/* Dropdown content */}
       {open && (
-        <div className="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg border border-gray-100 z-10 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+        <div className="absolute right-0 mt-2 w-36 bg-bgwhite rounded shadow-lg border border-gray-100 z-10 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <ul className="py-1 text-sm text-gray-700 dark:text-gray-400">
             {options.map((option) => (
               <li key={option.value}>

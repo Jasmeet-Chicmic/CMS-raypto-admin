@@ -124,7 +124,7 @@ export default function EarningReportCard({
   };
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-[#111827]">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-[#111827]">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
@@ -188,7 +188,7 @@ export default function EarningReportCard({
               <div className="font-semibold text-gray-800 mb-1 text-subheading dark:text-gray-400">
                 {item.value}
               </div>
-              <div className="w-[75%] h-1 bg-gray-200 rounded dark:bg-[#1A1A1A]">
+              <div className="w-[75%] h-1 bg-gray-200 rounded dark:bg-darkbgprimary">
                 <div
                   className={`${item.barColor} h-1 rounded`}
                   style={{ width: "75%" }}

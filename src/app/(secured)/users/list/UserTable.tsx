@@ -355,7 +355,7 @@ const UserTable = ({
                 scroll: false,
               });
             }}
-            className="text-gray-500 hover:text-blue-600 transition-colors dark:text-[#CCCFD1]"
+            className="text-gray-500 hover:text-blue-600 transition-colors dark:text-sidebartext"
             title="View"
           >
             <Eye size={18} />
@@ -427,8 +427,8 @@ const UserTable = ({
       },
       header: (
         <>
-          <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-[#1a1a1a] dark:border-[#1e2939]">
-            <div className="dark:border-[#1A1A1A]">
+          <div className="bg-bgwhite px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+            <div className="dark:border-darkbgprimary">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div>
                   <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
@@ -442,7 +442,7 @@ const UserTable = ({
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-[8px] hover:bg-[#0D0D0D] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
                   >
                     <Menu size={18} />
                     <span>Filters</span>
@@ -462,7 +462,7 @@ const UserTable = ({
                   router.push(pathname);
                   setIsFilterOpen(false);
                 }}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-[#1A1A1A] text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
               >
                 <RotateCcw size={18} />
                 <span>Clear All Filters</span>
@@ -544,7 +544,7 @@ const UserTable = ({
                   id="joined-at-filter"
                   type="date"
                   max={new Date().toISOString().split("T")[0]}
-                  className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-[#1A1A1A] dark:text-gray-300 transition-all"
+                  className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-darkbgprimary dark:text-gray-300 transition-all"
                   onChange={(e) => {
                     const val = e.target.value;
                     const newParams = new URLSearchParams(

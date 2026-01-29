@@ -29,7 +29,7 @@ export const ChartContentRenderer: React.FC<ChartContentRendererProps> = ({
   if (loading) {
     return (
       <div className="flex items-center justify-center h-[350px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1e2939]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-darkbordercolor1"></div>
       </div>
     );
   }

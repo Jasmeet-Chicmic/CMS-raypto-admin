@@ -36,7 +36,7 @@ export function SwitchField<T extends FieldValues>({
     <div className={`mb-4 ${width} ${className}`}>
       <label
         htmlFor={name}
-        className="block mb-1 font-medium dark:text-[#CCCFD1]"
+        className="block mb-1 font-medium dark:text-sidebartext"
       >
         {label}
       </label>

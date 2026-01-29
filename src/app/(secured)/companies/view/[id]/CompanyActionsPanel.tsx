@@ -79,21 +79,21 @@ const CompanyActionsPanel = ({
 
     switch (variant) {
       case "primary":
-        return `${baseClasses} bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700`;
+        return `${baseClasses} bg-blue-600 text-bgwhite hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700`;
       case "danger":
-        return `${baseClasses} bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700`;
+        return `${baseClasses} bg-red-600 text-bgwhite hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700`;
       case "warning":
-        return `${baseClasses} bg-yellow-600 text-white hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-700`;
+        return `${baseClasses} bg-yellow-600 text-bgwhite hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-700`;
       case "success":
-        return `${baseClasses} bg-green-600 text-white hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700`;
+        return `${baseClasses} bg-green-600 text-bgwhite hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700`;
       default:
-        return `${baseClasses} bg-gray-600 text-white hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700`;
+        return `${baseClasses} bg-gray-600 text-bgwhite hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700`;
     }
   };
 
   return (
     <>
-      <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+      <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
             Admin Actions

@@ -71,7 +71,7 @@ const EventViewContent = ({
     <div className="space-y-6">
       {/* Event Banner/Image */}
       {config.showBanner !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
           <div className="relative h-64 md:h-80">
             <Image
               src={bannerImage}
@@ -80,10 +80,10 @@ const EventViewContent = ({
               className="object-cover"
             />
             <div className="absolute top-4 right-4 flex gap-2">
-              <button className="bg-white/90 hover:bg-white dark:bg-[#1A1A1A]/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
+              <button className="bgbgwhite/90 hover:bg-bgwhite dark:bg-darkbgprimary/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
                 <Download className="w-4 h-4 text-gray-600 dark:text-gray-400" />
               </button>
-              <button className="bg-white/90 hover:bg-white dark:bg-[#1A1A1A]/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
+              <button className="bgbgwhite/90 hover:bg-bgwhite dark:bg-darkbgprimary/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
                 <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400" />
               </button>
             </div>
@@ -93,7 +93,7 @@ const EventViewContent = ({
 
       {/* Description */}
       {config.showDescription !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.DESCRIPTION}
           </h2>
@@ -107,7 +107,7 @@ const EventViewContent = ({
 
       {/* Tags */}
       {event.tags && event.tags.length > 0 && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             Tags
           </h2>
@@ -126,7 +126,7 @@ const EventViewContent = ({
 
       {/* Location */}
       {config.showLocation !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.LOCATION}
           </h2>
@@ -138,7 +138,7 @@ const EventViewContent = ({
               </p>
               {event.isOnline && event.meetingUrl && (
                 <div className="mt-2">
-                  <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af] mb-1">
+                  <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight mb-1">
                     Online Event
                   </p>
                   <a
@@ -163,7 +163,7 @@ const EventViewContent = ({
 
       {/* Date & Time */}
       {config.showDateTime !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.DATE_TIME}
           </h2>
@@ -179,7 +179,7 @@ const EventViewContent = ({
                     day: "numeric",
                   })}
                 </p>
-                <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
+                <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                   {new Date(event.eventDate).toLocaleTimeString("en-US", {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -196,7 +196,7 @@ const EventViewContent = ({
 
       {/* Event Type & Pricing */}
       {config.showTypePricing !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.TYPE_PRICING}
           </h2>
@@ -221,7 +221,7 @@ const EventViewContent = ({
               )}
             </div>
             {event.type === EVENT_TYPE.PAID && (
-              <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 Ticketing platform: Eventbrite
               </p>
             )}
@@ -231,7 +231,7 @@ const EventViewContent = ({
 
       {/* Media Gallery */}
       {config.showMediaGallery !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.MEDIA_GALLERY}
           </h2>
@@ -245,7 +245,7 @@ const EventViewContent = ({
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
+                  <div className="absolute inset-0 bgbgblack/0 group-hover:bgbgblack/20 transition-colors duration-200" />
                 </div>
               </div>
             ))}
@@ -255,7 +255,7 @@ const EventViewContent = ({
 
       {/* RSVP List */}
       {config.showRsvpList !== false && (
-        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.RSVP_LIST}
           </h2>
@@ -274,13 +274,13 @@ const EventViewContent = ({
                 <span className="text-gray-700 dark:text-gray-300">
                   {typeof rsvp === "string" ? rsvp : rsvp.name}
                 </span>
-                <span className="text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
+                <span className="text-[0.875rem] text-sidebartext dark:text-gray-400">
                   {index + 1} day{index !== 0 ? "s" : ""} ago
                 </span>
               </div>
             ))}
             {event.rsvpCount > 10 && (
-              <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af] mt-2">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight mt-2">
                 +{event.rsvpCount - 10} more RSVPs
               </p>
             )}

@@ -48,7 +48,7 @@ const ExportButton = ({
         Export
       </Button>
       {showOptions && (
-        <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-[#111827] rounded-md shadow-lg border border-gray-200 dark:border-[#1A1A1A] z-50">
+        <div className="absolute right-0 mt-2 w-32 bg-bgwhite dark:bg-[#111827] rounded-md shadow-lg border border-gray-200 dark:border-darkbgprimary z-50">
           <div className="py-1">
             <button
               onClick={() => handleFormatSelect("excel")}

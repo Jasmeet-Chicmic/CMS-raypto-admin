@@ -136,10 +136,10 @@ const DateRangeFilterDropdown = ({
       {/* Dropdown Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 border border-[#E5E7EB] dark:border-[#1e2939]"
+        className="flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 border border-bordercolor1 dark:border-darkbordercolor1"
       >
         <svg
-          className="w-5 h-5 text-[#1A1A1A] dark:text-[#ffffff]"
+          className="w-5 h-5 text-darkbgprimary dark:text-bgwhite"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -151,13 +151,13 @@ const DateRangeFilterDropdown = ({
             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
-        <span className="text-sm whitespace-nowrap font-semibold text-[#1A1A1A] dark:text-[#ffffff]">
+        <span className="text-sm whitespace-nowrap font-semibold text-darkbgprimary dark:text-bgwhite">
           {hasFilters
             ? `${formatDateDisplay(fromDate)} - ${formatDateDisplay(toDate)}`
             : "Date Range"}
         </span>
         <svg
-          className={`w-4 h-4 text-[#1A1A1A] dark:text-[#ffffff] transition-transform ${
+          className={`w-4 h-4 text-darkbgprimary dark:text-bgwhite transition-transform ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -175,7 +175,7 @@ const DateRangeFilterDropdown = ({
 
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 p-4 bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 min-w-[320px]">
+        <div className="absolute right-0 mt-2 p-4 bg-bgwhite dark:bg-[#111827] border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 min-w-[320px]">
           <div className="space-y-4">
             {/* From Date */}
             <div className="flex flex-col">
@@ -191,7 +191,7 @@ const DateRangeFilterDropdown = ({
                 value={fromDate}
                 onChange={(e) => handleFromDateChange(e.target.value)}
                 max={today}
-                className="px-4 py-2.5 border border-[#1E2939] rounded-lg transition-all duration-200 dark:bg-[#1A1A1A] dark:border-[#4F46E540] dark:text-[#CCCFD1] font-medium cursor-pointer"
+                className="px-4 py-2.5 border border-darkbordercolor1 rounded-lg transition-all duration-200 dark:bg-darkbgprimary dark:border-[#4F46E540] dark:text-sidebartext font-medium cursor-pointer"
               />
             </div>
 
@@ -211,7 +211,7 @@ const DateRangeFilterDropdown = ({
                 disabled={!fromDate}
                 min={fromDate}
                 max={getMaxToDate()}
-                className={`px-4 py-2.5 border border-[#1E2939] rounded-lg dark:bg-[#1A1A1A] dark:text-[#CCCFD1] font-medium transition-all duration-200 ${
+                className={`px-4 py-2.5 border border-darkbordercolor1 rounded-lg dark:bg-darkbgprimary dark:text-sidebartext font-medium transition-all duration-200 ${
                   !fromDate
                     ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-gray-300 dark:border-gray-700"
                     : "border-[#4F46E540] cursor-pointer"
@@ -224,7 +224,7 @@ const DateRangeFilterDropdown = ({
               <button
                 onClick={handleApply}
                 disabled={!fromDate}
-                className={`flex-1 px-6 py-2.5 bg-[#C4FF0E] text-[#000000] font-semibold rounded-lg hover:bg-[#C4FF0E] transition-all duration-200 ${
+                className={`flex-1 px-6 py-2.5 bg-primarycolor text-bgblack font-semibold rounded-lg hover:bg-primarycolor transition-all duration-200 ${
                   !fromDate
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:scale-100"
@@ -235,7 +235,7 @@ const DateRangeFilterDropdown = ({
               {hasFilters && (
                 <button
                   onClick={handleClear}
-                  className="flex-1 px-6 py-2.5 border-2 border-[#0D0D0D] text-[#0D0D0D] font-semibold rounded-lg hover:bg-[#C4FF0E] hover:text-[#0D0D0D] transition-all duration-200 dark:border-[#C4FF0E] dark:text-[#C4FF0E]"
+                  className="flex-1 px-6 py-2.5 border-2 border-bgprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgprimary transition-all duration-200 dark:border-primarycolor dark:text-primarycolor"
                 >
                   Clear
                 </button>

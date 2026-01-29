@@ -76,16 +76,16 @@ const PlanUpgradeModal = ({
       </Button>
       <CustomModal isOpen={isOpen} onClose={handleClose}>
         <div className="p-8 min-w-[400px] max-w-[500px]">
-          <h1 className="text-3xl font-bold text-center mb-2 dark:text-[#CCCFD1]">
+          <h1 className="text-3xl font-bold text-center mb-2 dark:text-sidebartext">
             Upgrade Plan
           </h1>
-          <p className="text-center text-gray-400 mb-6 dark:text-[#CCCFD1]">
+          <p className="text-center text-gray-400 mb-6 dark:text-sidebartext">
             Choose the best plan for user.
           </p>
           <div className="mb-6">
             <label
               htmlFor="plan-select"
-              className="block text-sm font-medium mb-2 dark:text-[#CCCFD1]"
+              className="block text-sm font-medium mb-2 dark:text-sidebartext"
             >
               Choose Plan
             </label>
@@ -97,7 +97,7 @@ const PlanUpgradeModal = ({
                 checked={subType === SUBSCRIPTION_PURCHASE_TYPE.MONTHLY}
                 onChange={() => setSubType(SUBSCRIPTION_PURCHASE_TYPE.MONTHLY)}
               />
-              <label htmlFor="monthly" className="dark:text-[#CCCFD1]">
+              <label htmlFor="monthly" className="dark:text-sidebartext">
                 Monthly
               </label>
             </div>
@@ -109,14 +109,14 @@ const PlanUpgradeModal = ({
                 checked={subType === SUBSCRIPTION_PURCHASE_TYPE.YEARLY}
                 onChange={() => setSubType(SUBSCRIPTION_PURCHASE_TYPE.YEARLY)}
               />
-              <label htmlFor="yearly" className="dark:text-[#CCCFD1]">
+              <label htmlFor="yearly" className="dark:text-sidebartext">
                 Yearly
               </label>
             </div>
             <div className="flex gap-3 items-center">
               <select
                 id="plan-select"
-                className="border rounded px-3 py-2 min-w-[250px] dark:bg-[#1a1a1a] dark:border-[#1e2939] dark:text-[#CCCFD1]"
+                className="border rounded px-3 py-2 min-w-[250px] dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"
                 value={selectedPlan}
                 onChange={handlePlanChange}
               >
@@ -140,7 +140,7 @@ const PlanUpgradeModal = ({
           <hr className="my-6" />
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-gray-500 mb-1 dark:text-[#CCCFD1]">
+              <div className="text-gray-500 mb-1 dark:text-sidebartext">
                 User current plan is {currentPlan?.subscriptionPlan.name} plan
               </div>
               <div className="flex items-end gap-1">
@@ -151,7 +151,7 @@ const PlanUpgradeModal = ({
                     ? currentPlan?.subscriptionPlan.monthlyPrice
                     : currentPlan?.subscriptionPlan.yearlyPrice}
                 </span>
-                <span className="text-gray-400 mb-1 dark:text-[#CCCFD1]">
+                <span className="text-gray-400 mb-1 dark:text-sidebartext">
                   /month
                 </span>
               </div>
@@ -159,7 +159,7 @@ const PlanUpgradeModal = ({
             <Button
               variant="danger"
               type="button"
-              className="bg-red-100 text-red-500 hover:bg-red-200 px-6 py-2 dark:bg-red-600 dark:text-[#CCCFD1]"
+              className="bg-red-100 text-red-500 hover:bg-red-200 px-6 py-2 dark:bg-red-600 dark:text-sidebartext"
               isLoading={isLoading}
               onClick={handleCancelSubscription}
             >

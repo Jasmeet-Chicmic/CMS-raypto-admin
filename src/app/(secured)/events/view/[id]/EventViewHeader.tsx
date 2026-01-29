@@ -13,7 +13,7 @@ interface EventViewHeaderProps {
 
 const EventViewHeader = ({ event }: EventViewHeaderProps) => {
   return (
-    <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
         {/* Left side - Title and Status */}
         <div className="flex-1">
@@ -30,7 +30,7 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
           </div>
 
           {/* Event ID */}
-          <div className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af] mb-4">
+          <div className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight mb-4">
             Event ID: #{event._id}
           </div>
         </div>

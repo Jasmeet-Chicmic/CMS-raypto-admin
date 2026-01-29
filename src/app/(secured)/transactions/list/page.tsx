@@ -85,9 +85,9 @@ const TransactionsManagement = async ({ searchParams }: PageProps) => {
         ))}
       </div>
       <div className="overflow-x-auto">
-        <div className="bg-white rounded-t-lg shadow-sm border border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+        <div className="bg-bgwhite rounded-t-lg shadow-sm border border-gray-200 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           {/* Filters Section */}
-          <div className="p-6 dark:border-[#1A1A1A]">
+          <div className="p-6 dark:border-darkbgprimary">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
               <div className="flex items-center space-x-4">
                 <SearchToolbar

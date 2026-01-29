@@ -175,12 +175,12 @@ const CompanyAchievements = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Achievements
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -248,7 +248,7 @@ const CompanyAchievements = () => {
             )}
 
             {/* Achievement Display */}
-            <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
+            <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Image */}
                 <div className="relative">
@@ -267,7 +267,7 @@ const CompanyAchievements = () => {
                     <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Title
                     </div>
-                    <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+                    <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                       {currentAchievement?.title}
                     </h4>
                   </div>
@@ -312,13 +312,13 @@ const CompanyAchievements = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Achievements
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addAchievement}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Achievement
           </button>
@@ -340,7 +340,7 @@ const CompanyAchievements = () => {
             <button
               type="button"
               onClick={addAchievement}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Achievement
             </button>
@@ -404,7 +404,7 @@ const CompanyAchievements = () => {
             )}
 
             {/* Achievement Form */}
-            <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
+            <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Image Upload */}
                 <div className="space-y-4">
@@ -423,7 +423,7 @@ const CompanyAchievements = () => {
                           onClick={() =>
                             removeImage(currentAchievement?.id || "")
                           }
-                          className="bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                          className="bg-red-500 text-bgwhite rounded-full p-1 hover:bg-red-600 transition-colors"
                         >
                           <svg
                             className="w-4 h-4"
@@ -459,10 +459,10 @@ const CompanyAchievements = () => {
                           onChange={(e) =>
                             handleImageUpload(currentAchievement?.id || "", e)
                           }
-                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-white hover:file:bg-primary-dark transition-colors"
+                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-bgwhite hover:file:bg-primary-dark transition-colors"
                         />
                       </div>
-                      <p className="text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
+                      <p className="text-[0.875rem] text-sidebartext dark:text-gray-400">
                         Supported formats: JPG, PNG, GIF. Max size: 5MB
                       </p>
                     </div>
@@ -487,7 +487,7 @@ const CompanyAchievements = () => {
                           required: "Title is required",
                         },
                       )}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                     />
                     {errors.achievements?.[currentIndex]?.title && (
                       <p className="text-red-500 text-[0.875] mt-1">
@@ -513,7 +513,7 @@ const CompanyAchievements = () => {
                             required: "Year is required",
                           },
                         )}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.achievements?.[currentIndex]?.year && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -538,7 +538,7 @@ const CompanyAchievements = () => {
                             required: "Category is required",
                           },
                         )}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.achievements?.[currentIndex]?.category && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -569,7 +569,7 @@ const CompanyAchievements = () => {
                         },
                       )}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] resize-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext resize-none"
                     />
                     {errors.achievements?.[currentIndex]?.description && (
                       <p className="text-red-500 text-[0.875] mt-1">
@@ -584,7 +584,7 @@ const CompanyAchievements = () => {
                   <button
                     type="button"
                     onClick={() => remove(currentIndex)}
-                    className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                   >
                     Remove Achievement
                   </button>
@@ -605,7 +605,7 @@ const CompanyAchievements = () => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

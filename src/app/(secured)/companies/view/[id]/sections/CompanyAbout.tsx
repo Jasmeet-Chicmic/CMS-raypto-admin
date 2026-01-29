@@ -103,12 +103,12 @@ const CompanyAbout = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             About the Company
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -120,7 +120,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.MISSION}
             </div>
-            <p className="text-gray-900 dark:text-[#CCCFD1]">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.mission}
             </p>
           </div>
@@ -130,7 +130,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.VISION}
             </div>
-            <p className="text-gray-900 dark:text-[#CCCFD1]">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.vision}
             </p>
           </div>
@@ -140,7 +140,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.CORE_VALUES}
             </div>
-            <p className="text-gray-900 dark:text-[#CCCFD1]">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.coreValues}
             </p>
           </div>
@@ -150,7 +150,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.COMPANY_BIO}
             </div>
-            <p className="text-gray-900 dark:text-[#CCCFD1]">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.companyBio}
             </p>
           </div>
@@ -162,7 +162,7 @@ const CompanyAbout = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           About the Company
         </h3>
         <button

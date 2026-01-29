@@ -65,7 +65,7 @@ const AssignBadgeModal = ({
       </Button>
       <CustomModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div>
-          <h2 className="text-lg font-semibold text-gray-800 dark:text-[#CCCFD1] mb-4">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-sidebartext mb-4">
             Assign Badge
           </h2>
           <SearchInput value={search} onChange={setSearch} />
@@ -87,10 +87,10 @@ const AssignBadgeModal = ({
                 <th className="px-4 py-2"></th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200 dark:bg-[#111827] dark:divide-gray-800">
+            <tbody className="bg-bgwhite divide-y divide-gray-200 dark:bg-[#111827] dark:divide-gray-800">
               {badges.map((badge) => (
                 <tr key={badge._id}>
-                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-[#CCCFD1]">
+                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-sidebartext">
                     {badge.name}
                   </td>
                   <td className="px-4 py-2">
@@ -104,7 +104,7 @@ const AssignBadgeModal = ({
                       />
                     )}
                   </td>
-                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-[#CCCFD1]">
+                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-sidebartext">
                     {badge.type}
                   </td>
                   <td className="px-4 py-2">
@@ -129,7 +129,7 @@ const AssignBadgeModal = ({
                 onPageChange={(selected) => setCurrentPage(selected.selected)}
                 containerClassName="flex space-x-2 items-center paginationWrapper"
                 pageClassName="rounded"
-                activeClassName="text-black font-bold dark:text-[#CCCFD1]"
+                activeClassName="textbgblack font-bold dark:text-sidebartext"
                 previousLabel={
                   <Button variant="ghost" size="sm">
                     <ChevronLeft className="w-4 h-4" />

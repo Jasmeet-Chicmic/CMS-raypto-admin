@@ -122,7 +122,7 @@ export default function TotalEarningCard({
   };
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-[#111827]">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-[#111827]">
       {/* Header */}
       <div className="flex justify-between items-start mb-2">
         <h3 className="text-title text-gray-800 dark:text-gray-400">{title}</h3>

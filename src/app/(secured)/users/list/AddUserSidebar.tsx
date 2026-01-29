@@ -140,7 +140,7 @@ const AddUserSidebar = ({
       {open && (
         <button
           type="button"
-          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
+          className="fixed inset-0 bgbgblack/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
           onClick={() => setOpen(false)}
           aria-label="Close sidebar"
           tabIndex={-1}
@@ -149,7 +149,7 @@ const AddUserSidebar = ({
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-lg z-[110] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 h-full w-full max-w-md bg-bgwhite shadow-lg z-[110] transform transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >

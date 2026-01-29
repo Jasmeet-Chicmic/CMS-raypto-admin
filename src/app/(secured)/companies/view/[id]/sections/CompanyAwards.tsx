@@ -130,12 +130,12 @@ const CompanyAwards = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Achievements Section
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -152,13 +152,13 @@ const CompanyAwards = () => {
             {fields.map((award) => (
               <div
                 key={award.id}
-                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+                        <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                           {award.title}
                         </h4>
                         <span
@@ -195,13 +195,13 @@ const CompanyAwards = () => {
         )}
 
         {/* Awards Summary */}
-        <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+        <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
             Awards Summary
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
+              <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
                 {fields.length}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -245,13 +245,13 @@ const CompanyAwards = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Achievements Section
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addAward}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Award
           </button>
@@ -273,7 +273,7 @@ const CompanyAwards = () => {
             <button
               type="button"
               onClick={addAward}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Award
             </button>
@@ -283,7 +283,7 @@ const CompanyAwards = () => {
             {fields.map((award, index) => (
               <div
                 key={award.id}
-                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
@@ -301,7 +301,7 @@ const CompanyAwards = () => {
                           {...register(`awards.${index}.title` as const, {
                             required: "Award title is required",
                           })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm"
                         />
                         {errors.awards?.[index]?.title && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -323,7 +323,7 @@ const CompanyAwards = () => {
                             {...register(`awards.${index}.year` as const, {
                               required: "Year is required",
                             })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm"
                           />
                           {errors.awards?.[index]?.year && (
                             <p className="text-red-500 text-[0.875] mt-1">
@@ -344,7 +344,7 @@ const CompanyAwards = () => {
                             {...register(`awards.${index}.category` as const, {
                               required: "Category is required",
                             })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm"
                           />
                           {errors.awards?.[index]?.category && (
                             <p className="text-red-500 text-[0.875] mt-1">
@@ -369,7 +369,7 @@ const CompanyAwards = () => {
                               required: "Awarding organization is required",
                             },
                           )}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm"
                         />
                         {errors.awards?.[index]?.awardingOrganization && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -398,7 +398,7 @@ const CompanyAwards = () => {
                             },
                           })}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm resize-none"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm resize-none"
                         />
                         {errors.awards?.[index]?.description && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -418,7 +418,7 @@ const CompanyAwards = () => {
                           type="url"
                           {...register(`awards.${index}.badgeImage` as const)}
                           placeholder="https://example.com/badge.png"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext text-sm"
                         />
                         {errors.awards?.[index]?.badgeImage && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -447,7 +447,7 @@ const CompanyAwards = () => {
                   <button
                     type="button"
                     onClick={() => remove(index)}
-                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                   >
                     Remove Award
                   </button>
@@ -468,7 +468,7 @@ const CompanyAwards = () => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

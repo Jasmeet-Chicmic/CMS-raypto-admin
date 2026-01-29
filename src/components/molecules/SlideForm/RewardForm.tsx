@@ -45,13 +45,13 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
   return (
     <div className="space-y-6 pt-2">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-[14px] font-bold text-[#1B2559] dark:text-[#CCCFD1] uppercase tracking-wider">
+        <h3 className="text-[14px] font-bold text-textprimary dark:text-sidebartext uppercase tracking-wider">
           Manage Rewards <span className="text-red-500 font-bold">*</span>
         </h3>
         <button
           type="button"
           onClick={handleAddReward}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-[#C4FF0E] rounded-xl hover:bg-purple-700 transition-all shadow-sm hover:shadow-lg hover:shadow-indigo-500/20"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-bgwhite bg-primarycolor rounded-xl hover:bg-purple-700 transition-all shadow-sm hover:shadow-lg hover:shadow-indigo-500/20"
         >
           <Plus className="w-4 h-4" />
           Add New Benefit
@@ -62,14 +62,14 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
         {rewards.map((reward, index) => (
           <div
             key={index}
-            className="p-6 bg-gray-50 dark:bg-[#1A1A1A]/40 border border-gray-200 dark:border-gray-700 rounded-2xl transition-all duration-300 hover:border-purple-200 dark:hover:border-purple-900/50"
+            className="p-6 bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-200 dark:border-gray-700 rounded-2xl transition-all duration-300 hover:border-purple-200 dark:hover:border-purple-900/50"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
               {/* Currency */}
               <div className="md:col-span-5">
                 <label
                   htmlFor={`reward-asset-${index}`}
-                  className="block text-xs font-bold text-[#CCCFD1] dark:text-gray-400 mb-2 uppercase"
+                  className="block text-xs font-bold text-sidebartext dark:text-gray-400 mb-2 uppercase"
                 >
                   Reward Asset
                 </label>
@@ -87,7 +87,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         Number.parseInt(e.target.value),
                       )
                     }
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-[#CCCFD1] appearance-none"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -102,7 +102,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
               <div className="md:col-span-4">
                 <label
                   htmlFor={`reward-value-${index}`}
-                  className="block text-xs font-bold text-[#CCCFD1] dark:text-gray-400 mb-2 uppercase"
+                  className="block text-xs font-bold text-sidebartext dark:text-gray-400 mb-2 uppercase"
                 >
                   Reward Value
                 </label>
@@ -124,7 +124,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       )
                     }
                     placeholder="0.00"
-                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-[#CCCFD1]"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
                   />
                 </div>
               </div>

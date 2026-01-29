@@ -37,7 +37,7 @@ const Loading = () => {
       <div className="space-y-6 mt-[20px]">
         {/* Filters and Actions */}
         <div className="overflow-x-auto">
-          <div className="bg-white rounded-t-lg shadow-sm border border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+          <div className="bg-bgwhite rounded-t-lg shadow-sm border border-gray-200 dark:bg-darkbgprimary dark:border-darkbordercolor1">
             <div className="p-6 border-b border-gray-200">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div className="flex items-center space-x-4">
@@ -61,9 +61,9 @@ const Loading = () => {
           </div>
 
           {/* Table Skeleton */}
-          <div className="bg-white overflow-auto shadow-sm dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+          <div className="bg-bgwhite overflow-auto shadow-sm dark:bg-darkbgprimary dark:border-darkbordercolor1">
             <table className="min-w-full divide-y">
-              <thead className="bg-white dark:bg-[#1A1A1A]">
+              <thead className="bg-bgwhite dark:bg-darkbgprimary">
                 <tr>
                   {/* Checkbox */}
                   <th className="px-4 py-3 w-[60px]">
@@ -113,7 +113,7 @@ const Loading = () => {
           </div>
 
           {/* Pagination Skeleton */}
-          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+          <div className="bg-bgwhite px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-darkbgprimary dark:border-darkbordercolor1">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />
@@ -135,7 +135,7 @@ const Loading = () => {
           </div>
         </div>
         {/* Add User Sidebar Skeleton */}
-        <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out translate-x-full dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+        <div className="fixed right-0 top-0 h-full w-full max-w-md bg-bgwhite shadow-lg z-50 transform transition-transform duration-300 ease-in-out translate-x-full dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <div className="flex items-center justify-between px-6 py-4 border-b">
             <Skeleton className="h-6 w-32" />
             <Skeleton className="h-8 w-8 rounded" />

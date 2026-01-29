@@ -260,7 +260,7 @@ const EventView = ({
 
         {/* Admin Actions Panel - Inside the page */}
         {mergedConfig.layout.showActions && actionButtons.length > 0 && (
-          <div className="mt-8 bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="mt-8 bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Admin Actions
             </h2>

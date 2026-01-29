@@ -8,7 +8,7 @@ interface ViewersListProps {
 
 const ViewersList = ({ viewers }: ViewersListProps) => {
   return (
-    <div className="bg-white p-6 rounded shadow space-y-4">
+    <div className="bg-bgwhite p-6 rounded shadow space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-lg font-semibold">Viewers</h3>

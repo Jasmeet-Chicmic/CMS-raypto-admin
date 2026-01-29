@@ -105,16 +105,16 @@ const Header = () => {
       <header className="flex items-center justify-between p-0 dark:border-gray-700 rounded-[10px]">
         {/* Search Bar */}
         <div className="flex-1 max-w-md">
-          <div className="relative dark:border-[#1E2939] border border-[#E5E7EB] rounded-[10px]">
+          <div className="relative dark:border-darkbordercolor1 border border-bordercolor1 rounded-[10px]">
             <Search
-              className="absolute left-[15px] top-1/2 transform -translate-y-1/2 text-[#1B2559] dark:text-gray-400"
+              className="absolute left-[15px] top-1/2 transform -translate-y-1/2 text-textprimary dark:text-gray-400"
               size={18}
             />
             <input
               type="text"
               placeholder="Search (Ctrl + K)"
               onClick={() => setShowCommandPalette(true)}
-              className="pl-10 border-none px-4 py-3 w-full border-[1px] placeholder:text-[#8F9BBA] bg-white dark:bg-[#1A1A1A] rounded-[10px] focus:outline-none transition-all duration-200 text-black"
+              className="pl-10 border-none px-4 py-3 w-full border-[1px] placeholder:text-[#8F9BBA] bg-bgwhite dark:bg-darkbgprimary rounded-[10px] focus:outline-none transition-all duration-200 textbgblack"
             />
           </div>
         </div>
@@ -131,7 +131,7 @@ const Header = () => {
                 <Languages size={18} />
               </button>
               {showLanguageMenu && (
-                <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50 dark:bg-[#1A1A1A] dark:border-gray-700">
+                <div className="absolute right-0 mt-2 w-40 bg-bgwhite rounded-lg shadow-lg border border-gray-200 py-1 z-50 dark:bg-darkbgprimary dark:border-gray-700">
                   <button
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-400 ${language === "en" ? "font-bold bg-gray-100 dark:bg-gray-700" : ""}`}
                     onClick={() => void handleLanguageChange("en")}
@@ -184,13 +184,13 @@ const Header = () => {
               >
                 <Bell size={18} />
                 {notificationCount > 0 && (
-                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-[#155DFC] text-white text-[0.875] font-bold flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-bgblue text-bgwhite text-[0.875] font-bold flex items-center justify-center">
                     {notificationCount}
                   </span>
                 )}
               </button>
               {showNotifications && (
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50 dark:bg-[#1A1A1A] dark:border-gray-700">
+                <div className="absolute right-0 mt-2 w-80 bg-bgwhite rounded-lg shadow-lg border border-gray-200 z-50 dark:bg-darkbgprimary dark:border-gray-700">
                   <div className="p-4 border-b border-gray-200">
                     <h3 className="font-semibold text-gray-900 dark:text-gray-400">
                       Notifications ({notificationCount})
@@ -204,7 +204,7 @@ const Header = () => {
                           <p className="text-sm font-medium text-gray-900 dark:text-gray-400">
                             New user registered
                           </p>
-                          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+                          <p className="text-[0.875rem] text-sidebartext mt-1">
                             2 minutes ago
                           </p>
                         </div>
@@ -217,7 +217,7 @@ const Header = () => {
                           <p className="text-sm font-medium text-gray-900 dark:text-gray-400">
                             Order completed
                           </p>
-                          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+                          <p className="text-[0.875rem] text-sidebartext mt-1">
                             5 minutes ago
                           </p>
                         </div>
@@ -230,7 +230,7 @@ const Header = () => {
                           <p className="text-sm font-medium text-gray-900 dark:text-gray-400">
                             System update available
                           </p>
-                          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
+                          <p className="text-[0.875rem] text-sidebartext mt-1">
                             1 hour ago
                           </p>
                         </div>
@@ -248,19 +248,17 @@ const Header = () => {
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded-lg focus:ring-0 transition-colors duration-200 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-700"
               >
-                <div className="w-8 h-8 bg-[#C4FF0E] rounded-full flex items-center justify-center">
-                  <span className="text-[#000000] text-sm font-semibold">
-                    JD
-                  </span>
+                <div className="w-8 h-8 bg-primarycolor rounded-full flex items-center justify-center">
+                  <span className="text-bgblack text-sm font-semibold">JD</span>
                 </div>
               </button>
               {showUserMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-[#ffffff] rounded-lg shadow-lg border border-gray-200 py-1 z-50 dark:bg-[#1A1A1A] dark:border-gray-700">
+                <div className="absolute right-0 mt-2 w-56 bg-bgwhite rounded-lg shadow-lg border border-gray-200 py-1 z-50 dark:bg-darkbgprimary dark:border-gray-700">
                   <div className="px-4 py-3 border-b border-gray-200">
-                    <p className="text-sm font-medium text-[#000000] dark:text-gray-400">
+                    <p className="text-sm font-medium text-bgblack dark:text-gray-400">
                       John Doe
                     </p>
-                    <p className="text-[0.875rem] text-[#CCCFD1]">
+                    <p className="text-[0.875rem] text-sidebartext">
                       john.doe@example.com
                     </p>
                   </div>
@@ -291,10 +289,10 @@ const Header = () => {
         onClose={() => setShowCommandPalette(false)}
       />
       {isLoggingOut && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/50 dark:bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bgbgwhite/50 dark:bgbgblack/50 backdrop-blur-sm">
           <div className="flex flex-col items-center gap-4">
             <Loader />
-            <p className="text-lg font-medium text-[#1B2559] dark:text-[#CCCFD1]">
+            <p className="text-lg font-medium text-textprimary dark:text-sidebartext">
               Logging out...
             </p>
           </div>

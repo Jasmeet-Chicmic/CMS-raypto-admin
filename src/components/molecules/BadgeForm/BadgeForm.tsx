@@ -143,7 +143,7 @@ const BadgeForm = ({
   const isFormValid = !!name.trim() && (!!image || !!imagePreview);
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-6">
+    <div className="max-w-3xl mx-auto p-6 bg-bgwhite shadow-md rounded-lg space-y-6">
       <h1 className="text-2xl font-bold text-gray-800">
         {isEdit ? "Edit Badge" : "Add New Badge"}
       </h1>
@@ -198,7 +198,7 @@ const BadgeForm = ({
                     setImage(null);
                     setImagePreview("");
                   }}
-                  className="absolute -top-2 -right-2 bg-white text-gray-700 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-500 hover:text-white transition text-sm shadow"
+                  className="absolute -top-2 -right-2 bg-bgwhite text-gray-700 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-500 hover:text-bgwhite transition text-sm shadow"
                   title="Remove image"
                 >
                   &times;
@@ -246,7 +246,7 @@ const BadgeForm = ({
             <button
               type="submit"
               disabled={!isFormValid}
-              className={`px-5 py-2 rounded transition text-white ${
+              className={`px-5 py-2 rounded transition text-bgwhite ${
                 isFormValid
                   ? "bg-blue-600 hover:bg-blue-700"
                   : "bg-gray-300 cursor-not-allowed"

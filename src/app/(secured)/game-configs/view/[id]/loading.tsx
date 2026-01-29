@@ -9,7 +9,7 @@ export default function Loading() {
   return (
     <main className="flex-1 overflow-y-auto">
       <div className="space-y-6 mt-[20px]">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+        <div className="bg-bgwhite rounded-lg shadow-sm border border-gray-200 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           {/* Header Skeleton */}
           <div className="p-6 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
@@ -81,7 +81,7 @@ export default function Loading() {
                     {Array.from(new Array(6)).map((_, id) => (
                       <tr
                         key={`${baseId}-row-${id}`}
-                        className="border-b border-gray-100 dark:border-[#1A1A1A]"
+                        className="border-b border-gray-100 dark:border-darkbgprimary"
                       >
                         <td className="py-3 px-4">
                           <Skeleton className="h-6 w-16 rounded-full" />

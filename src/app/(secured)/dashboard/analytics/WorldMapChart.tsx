@@ -51,12 +51,12 @@ const WorldMapChart = ({ data }: WorldMapChartProps) => {
   );
 
   return (
-    <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-0 dark:border-[#1E2939] w-full h-full">
+    <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-0 dark:border-darkbordercolor1 w-full h-full">
       <div className="mb-4">
-        <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
+        <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
           Users by Country
         </h3>
-        <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
+        <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
           Global distribution of active users
         </p>
       </div>

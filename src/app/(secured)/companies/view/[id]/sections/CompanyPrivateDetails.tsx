@@ -129,12 +129,12 @@ const CompanyPrivateDetails = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Private Details (Admin Only)
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -162,7 +162,7 @@ const CompanyPrivateDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Financial Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1]">
+            <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
               Financial Information
             </h4>
 
@@ -170,7 +170,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.REVENUE}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1] font-medium">
+              <p className="text-gray-900 dark:text-sidebartext font-medium">
                 {defaultValues.revenue}
               </p>
             </div>
@@ -179,7 +179,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.TURNOVER}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1] font-medium">
+              <p className="text-gray-900 dark:text-sidebartext font-medium">
                 {defaultValues.turnover}
               </p>
             </div>
@@ -187,7 +187,7 @@ const CompanyPrivateDetails = () => {
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1]">
+            <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
               Contact Information
             </h4>
 
@@ -195,7 +195,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.CONTACT_EMAIL}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1]">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.contactEmail}
               </p>
             </div>
@@ -204,7 +204,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.CONTACT_PHONE}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1]">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.contactPhone}
               </p>
             </div>
@@ -213,7 +213,7 @@ const CompanyPrivateDetails = () => {
 
         {/* Dates */}
         <div className="mt-6 space-y-4">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1]">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
             Important Dates
           </h4>
 
@@ -222,7 +222,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.CREATED_DATE}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1]">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {new Date(defaultValues.createdDate).toLocaleDateString()}
               </p>
             </div>
@@ -231,7 +231,7 @@ const CompanyPrivateDetails = () => {
               <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {STRING.LAST_UPDATED}
               </div>
-              <p className="text-gray-900 dark:text-[#CCCFD1]">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {new Date(defaultValues.lastUpdated).toLocaleDateString()}
               </p>
             </div>
@@ -240,10 +240,10 @@ const CompanyPrivateDetails = () => {
 
         {/* Notes */}
         <div className="mt-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
             {STRING.NOTES}
           </h4>
-          <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-4">
+          <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
             <p className="text-gray-700 dark:text-gray-300">
               {defaultValues.notes}
             </p>
@@ -256,7 +256,7 @@ const CompanyPrivateDetails = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Private Details (Admin Only)
         </h3>
         <button

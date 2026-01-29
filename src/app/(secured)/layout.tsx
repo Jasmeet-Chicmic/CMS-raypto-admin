@@ -9,7 +9,7 @@ type LayoutProps = {
 
 const SecuredLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A]">
+    <div className="min-h-screen bg-lightbgbase dark:bg-darkbgbase">
       <Sidebar />
       <div className="flex-1 flex flex-col lg:ml-72 py-6 pl-3">
         <div className="custom-container w-full">
