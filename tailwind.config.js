@@ -25,7 +25,7 @@ module.exports = {
         primary: {
           DEFAULT: "#2F3349",
         },
-        secondary: "#A3AED0",
+        secondary: "#99a1af",
         navy: "#1b2559",
         menucolor: "#444050",
         menubackground: "#EEEFEF",
@@ -62,10 +62,15 @@ module.exports = {
         textparagraphlight: "#99A1AF",
         textparagraphlight2: "#D1D1C6",
         darktextparagraphlight: "#D1D5D0",
+        // Label Colors
+        labelprimary: "#374151",
+        darklabelprimary: "#d1d5db",
         // Border Colors
         bordercolor1: "#E5E7EB",
         bordercolor2: "#374151",
-        darkbordercolor1: "#1E2939",
+        darkbordercolor1: "#1e2939",
+        bordergray100: "#f3f4f6",
+        bordergray200: "#f3f4f6",
       },
       fontSize: {
         heading: ["38px", { lineHeight: "48px", fontWeight: "500" }],

@@ -17,8 +17,8 @@ const Switch: React.FC<ToggleSwitchProps> = ({ enabled, onToggle, label }) => {
       <button
         onClick={onToggle}
         type="button"
-        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus:outline-none dark:bg-gray-700 ${
-          enabled ? "bg-blue-600" : "bg-gray-300"
+        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus:outline-none dark:bg-labelprimary ${
+          enabled ? "bg-blue-600" : "bg-darklabelprimary"
         }`}
       >
         <span

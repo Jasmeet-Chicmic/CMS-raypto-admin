@@ -153,12 +153,12 @@ const AddUserSidebar = ({
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-bordergray200">
           <h2 className="text-lg font-semibold text-gray-800">Add User</h2>
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="bordercolor1 hover:text-gray-600 transition-colors"
             aria-label="Close sidebar"
           >
             <X className="text-2xl" />

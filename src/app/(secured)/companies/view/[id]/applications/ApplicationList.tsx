@@ -156,7 +156,7 @@ const ApplicationList = ({
                   </span>
                 ))
               ) : (
-                <span className="text-[0.875] text-gray-400">
+                <span className="text-[0.875] bordercolor1">
                   No skills listed
                 </span>
               )}

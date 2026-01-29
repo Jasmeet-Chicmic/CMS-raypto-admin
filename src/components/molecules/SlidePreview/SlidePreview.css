@@ -37,7 +37,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #a3aed0;
+  color: #99a1af;
   background: transparent;
 }
 
@@ -187,7 +187,7 @@
 .countdown-label {
   font-size: 10px;
   font-weight: 700;
-  color: #a3aed0;
+  color: #99a1af;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: 2px;
@@ -222,7 +222,7 @@
   align-items: center;
   justify-content: center;
   height: 240px;
-  color: #a3aed0;
+  color: #99a1af;
   font-weight: 500;
   gap: 12px;
   background: #f4f7fe;
@@ -371,7 +371,7 @@
 .carousel-counter {
   text-align: center;
   margin-top: 14px;
-  color: #a3aed0;
+  color: #99a1af;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;

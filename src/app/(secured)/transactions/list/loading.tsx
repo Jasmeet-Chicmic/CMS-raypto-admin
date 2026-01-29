@@ -15,7 +15,7 @@ export default function TransactionsListSkeleton() {
             (bg, id) => (
               <div
                 key={`${baseId}-stat-${id}`}
-                className="bg-bgwhite p-6 rounded-lg shadow-sm border border-gray-200"
+                className="bg-bgwhite p-6 rounded-lg shadow-sm border bordergray200"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-full">
@@ -37,13 +37,13 @@ export default function TransactionsListSkeleton() {
 
         {/* Filters and Actions */}
         <div className="overflow-x-auto">
-          <div className="bg-bgwhite rounded-t-lg shadow-sm border border-gray-200">
-            <div className="p-6 border-b border-gray-200">
+          <div className="bg-bgwhite rounded-t-lg shadow-sm border bordergray200">
+            <div className="p-6 border-b border-bordergray200">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div className="flex items-center space-x-4">
                   <div className="relative w-60">
                     <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
-                    <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full bg-gray-100 h-10" />
+                    <Skeleton className="pl-10 pr-4 py-2 border bordergray200 rounded-lg w-full bg-gray-100 h-10" />
                   </div>
                   <Skeleton className="h-10 w-24" />
                 </div>

@@ -31,7 +31,7 @@ const ChatRoomsPage = async ({
   if (!chatRoomsData.status) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-gray-500 dark:text-gray-400">
+        <p className="text-gray-500 dark:bordercolor1">
           Error fetching chat rooms
         </p>
       </div>

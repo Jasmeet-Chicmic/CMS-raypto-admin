@@ -116,7 +116,7 @@ const DateRangeFilter = ({
         <div className="flex flex-col flex-1">
           <label
             htmlFor={id ? `${id}-from` : undefined}
-            className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
           >
             From Date
           </label>
@@ -132,7 +132,7 @@ const DateRangeFilter = ({
         <div className="flex flex-col flex-1">
           <label
             htmlFor={id ? `${id}-to` : undefined}
-            className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
           >
             To Date
           </label>
@@ -146,7 +146,7 @@ const DateRangeFilter = ({
             max={getMaxToDate()}
             className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-0 transition-all duration-200 ${
               !fromDate
-                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-gray-300 dark:border-gray-700"
+                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-darkbgprimary border-darklabelprimary dark:border-labelprimary"
                 : "border-[#4F46E540] focus:border-0 cursor-pointer"
             }`}
           />
@@ -156,7 +156,7 @@ const DateRangeFilter = ({
         <button
           onClick={handleApply}
           disabled={!fromDate}
-          className={`flex-1 px-4 py-2 bg-primarycolor text-bgblack font-semibold rounded-lg hover:bg-bgprimary transition-all duration-200 ${
+          className={`flex-1 px-4 py-2 bg-primarycolor text-bgwhite font-semibold rounded-lg hover:bg-bgprimary transition-all duration-200 ${
             !fromDate ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -165,7 +165,7 @@ const DateRangeFilter = ({
         {hasFilters && (
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 border-2 border-bgprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-bgpurple1 dark:text-bgpurple1"
+            className="flex-1 px-4 py-2 border-2 border-b border-bordergray200gprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-b border-bordergray200gpurple1 dark:text-bgpurple1"
           >
             Clear
           </button>

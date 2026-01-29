@@ -167,7 +167,7 @@ const CompanyPrivateDetails = () => {
             </h4>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.REVENUE}
               </div>
               <p className="text-gray-900 dark:text-sidebartext font-medium">
@@ -176,7 +176,7 @@ const CompanyPrivateDetails = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.TURNOVER}
               </div>
               <p className="text-gray-900 dark:text-sidebartext font-medium">
@@ -192,7 +192,7 @@ const CompanyPrivateDetails = () => {
             </h4>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT_EMAIL}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -201,7 +201,7 @@ const CompanyPrivateDetails = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT_PHONE}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -219,7 +219,7 @@ const CompanyPrivateDetails = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CREATED_DATE}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -228,7 +228,7 @@ const CompanyPrivateDetails = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.LAST_UPDATED}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -244,7 +244,7 @@ const CompanyPrivateDetails = () => {
             {STRING.NOTES}
           </h4>
           <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-labelprimary dark:text-darklabelprimary">
               {defaultValues.notes}
             </p>
           </div>
@@ -261,7 +261,7 @@ const CompanyPrivateDetails = () => {
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -296,7 +296,7 @@ const CompanyPrivateDetails = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

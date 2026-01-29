@@ -12,7 +12,7 @@ const JobsLoading = () => {
       <div className="flex justify-between items-center">
         <div className="relative w-full">
           <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
-          <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full h-10" />
+          <Skeleton className="pl-10 pr-4 py-2 border bordergray200 rounded-lg w-full h-10" />
         </div>
         <Skeleton className="h-10 w-32 rounded-md ml-2" />
       </div>
@@ -44,7 +44,7 @@ const JobsLoading = () => {
             {Array.from(new Array(5)).map((_, techId) => (
               <Skeleton
                 key={`${baseId}-tech-${id}-${techId}`}
-                className="h-6 w-20 rounded-full border border-gray-300"
+                className="h-6 w-20 rounded-full border border-darklabelprimary"
               />
             ))}
           </div>

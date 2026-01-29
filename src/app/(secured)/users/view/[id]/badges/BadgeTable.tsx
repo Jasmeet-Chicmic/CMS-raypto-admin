@@ -100,7 +100,7 @@ const BadgeTable = ({
             height={32}
           />
         ) : (
-          <span className="text-gray-400 text-sm italic">No image</span>
+          <span className="bordercolor1 text-sm italic">No image</span>
         ),
     },
     {

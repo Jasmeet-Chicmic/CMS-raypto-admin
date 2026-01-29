@@ -79,7 +79,7 @@ const PlanUpgradeModal = ({
           <h1 className="text-3xl font-bold text-center mb-2 dark:text-sidebartext">
             Upgrade Plan
           </h1>
-          <p className="text-center text-gray-400 mb-6 dark:text-sidebartext">
+          <p className="text-center bordercolor1 mb-6 dark:text-sidebartext">
             Choose the best plan for user.
           </p>
           <div className="mb-6">
@@ -151,7 +151,7 @@ const PlanUpgradeModal = ({
                     ? currentPlan?.subscriptionPlan.monthlyPrice
                     : currentPlan?.subscriptionPlan.yearlyPrice}
                 </span>
-                <span className="text-gray-400 mb-1 dark:text-sidebartext">
+                <span className="bordercolor1 mb-1 dark:text-sidebartext">
                   /month
                 </span>
               </div>

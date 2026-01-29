@@ -20,7 +20,7 @@ const Skeleton = ({
   if (variant === "pulse") {
     return (
       <div
-        className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded ${className}`}
+        className={`animate-pulse bg-gray-200 dark:bg-labelprimary rounded ${className}`}
         style={style}
       />
     );
@@ -29,7 +29,7 @@ const Skeleton = ({
   if (variant === "shimmer") {
     return (
       <div
-        className={`relative overflow-hidden rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 ${className}`}
+        className={`relative overflow-hidden rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-labelprimary dark:to-gray-800 ${className}`}
         style={style}
       >
         <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent viabgwhite/40 dark:viabgwhite/10 to-transparent" />
@@ -39,7 +39,7 @@ const Skeleton = ({
 
   return (
     <div
-      className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded ${className}`}
+      className={`animate-pulse bg-gray-200 dark:bg-labelprimary rounded ${className}`}
       style={style}
     />
   );
@@ -49,7 +49,7 @@ const Skeleton = ({
  * Stat Card Skeleton - Matches the StatCard component layout
  */
 export const StatCardSkeleton = () => (
-  <div className="bg-bgwhite dark:bg-[#111827] rounded-[20px] p-6 shadow-sm">
+  <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-28" />
@@ -237,7 +237,7 @@ export const MapChartSkeleton = () => (
  * GGR Stat Card Skeleton
  */
 export const GGRStatCardSkeleton = () => (
-  <div className="bg-bgwhite dark:bg-[#111827] rounded-[20px] p-6 shadow-sm">
+  <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-24" />

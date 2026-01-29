@@ -90,7 +90,7 @@ const ImageUpload = ({
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <label className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>
@@ -101,7 +101,7 @@ const ImageUpload = ({
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
+            className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
             disabled={isUploading}
           />
           {isUploading && (
@@ -112,7 +112,7 @@ const ImageUpload = ({
         </div>
       ) : (
         <div className="relative inline-block">
-          <div className="relative w-32 h-24 border rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+          <div className="relative w-32 h-24 border rounded-lg overflow-hidden bg-gray-100 dark:bg-labelprimary">
             <Image
               src={getImageSrc()}
               alt={label}

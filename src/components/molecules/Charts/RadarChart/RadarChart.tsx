@@ -48,7 +48,7 @@ const RadarChart = ({ config }: RadarChartProps) => {
     markers: { size: 0 },
     legend: {
       fontSize: "13px",
-      labels: { colors: ["#6b7280"] }, // gray-500
+      labels: { colors: ["#d1d5db"] }, // gray-500
       itemMargin: { vertical: 4, horizontal: 10 },
       markers: { offsetY: 1, offsetX: -4 },
     },

@@ -183,7 +183,7 @@ const CompanyOverview = () => {
           {/* Basic Information */}
           <div className="space-y-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.COMPANY_NAME}
               </div>
               <p className="text-gray-900 dark:text-sidebartext font-medium">
@@ -192,7 +192,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.SECTOR}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -205,7 +205,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.HEADQUARTERS}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -214,7 +214,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.EMPLOYEE_COUNT}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -226,7 +226,7 @@ const CompanyOverview = () => {
           {/* Contact & Website */}
           <div className="space-y-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.WEBSITE}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -246,7 +246,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.EMAIL}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -255,7 +255,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -264,7 +264,7 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.COUNTRY}
               </div>
               <p className="text-gray-900 dark:text-sidebartext">
@@ -280,14 +280,14 @@ const CompanyOverview = () => {
 
         {/* Services/Tags */}
         <div className="mt-6">
-          <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
             {STRING.SERVICES}
           </div>
           <div className="flex flex-wrap gap-2">
             {defaultValues.services?.map((service, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm dark:bg-gray-700 dark:text-gray-300"
+                className="px-3 py-1 bg-gray-100 text-labelprimary rounded-full text-sm dark:bg-labelprimary dark:text-darklabelprimary"
               >
                 {service}
               </span>
@@ -306,7 +306,7 @@ const CompanyOverview = () => {
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -322,7 +322,7 @@ const CompanyOverview = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

@@ -17,7 +17,7 @@ const UserTabs = ({ userId }: { userId: string }) => {
   ];
 
   return (
-    <div className="flex px-0 border-b border-gray-200 dark:border-darkbgprimary overflow-x-auto mb-6">
+    <div className="flex px-0 border-b border-bordergray200 dark:border-darkbgprimary overflow-x-auto mb-6">
       {userTabs.map((tab) => (
         <button
           key={tab.name}
@@ -25,7 +25,7 @@ const UserTabs = ({ userId }: { userId: string }) => {
           className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
             pathname.includes(tab.path)
               ? "text-bgpurple1 dark:text-sidebartext"
-              : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+              : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
           }`}
         >
           <span className="relative z-10">{tab.name}</span>

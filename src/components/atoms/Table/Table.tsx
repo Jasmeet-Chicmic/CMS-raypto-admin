@@ -39,7 +39,10 @@ function SortIcon({
 }) {
   if (sortKey !== currentSortKey) {
     return (
-      <ChevronsUpDown size={14} className="text-gray-300 dark:text-gray-600" />
+      <ChevronsUpDown
+        size={14}
+        className="text-darklabelprimary dark:text-gray-600"
+      />
     );
   }
   return direction === 1 ? (
@@ -79,25 +82,25 @@ export function Table<T>({
   return (
     <div
       className={
-        "bg-bgwhite dark:bg-[#111827] overflow-auto custom-scrollbar relative " +
+        "bg-bgwhite dark:bg-darkbgprimary overflow-auto custom-scrollbar relative " +
         (className || "")
       }
     >
-      <table className="w-full divide-y divide-[#F4F7FE] dark:bg-darkbgprimary">
+      <table className="w-full divide-y divide-bordercolor1 dark:bg-darkbgprimary">
         <thead className="bg-transparent">
           <tr>
             {!hideSelectCol && (
               <th
                 className={`px-6 py-4 text-left w-[60px] ${
                   hasFixedLeft
-                    ? "sticky left-0 z-20 bg-bgwhite dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-darkbgprimary"
+                    ? "sticky left-0 z-20 bg-bgwhite dark:bg-darkbgprimary border-r border-b border-bordergray200ordercolor1 dark:border-darkbgprimary"
                     : ""
                 }`}
               >
                 <div className="flex items-center justify-center">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 rounded-md border-[#F4F7FE] dark:border-darkbgprimary text-bgpurple1 focus:ring-bgpurple1 cursor-pointer transition-all"
+                    className="w-4 h-4 rounded-md border-b border-bordergray200ordercolor1 dark:border-darkbgprimary text-bgpurple1 focus:ring-bgpurple1 cursor-pointer transition-all"
                     checked={
                       !!selectedRows.length &&
                       !!data.length &&
@@ -120,9 +123,9 @@ export function Table<T>({
               const isFixedRight = column.fixed === "right";
 
               const stickyClass = isFixedLeft
-                ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-bordercolor1 dark:border-darkbordercolor1"
+                ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-b border-bordergray200ordercolor1 dark:border-darkbordercolor1"
                 : isFixedRight
-                  ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-bordercolor1 dark:border-darkbordercolor1"
+                  ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-b border-bordergray200ordercolor1 dark:border-darkbordercolor1"
                   : "";
 
               return (
@@ -166,7 +169,7 @@ export function Table<T>({
             })}
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#F4F7FE] dark:divide-gray-800">
+        <tbody className="divide-y divide-bordercolor1 dark:divide-gray-800">
           {(!data || data.length === 0) && !isLoading ? (
             <tr className="empty-row">
               <td
@@ -199,14 +202,14 @@ export function Table<T>({
                   <td
                     className={`px-6 py-4 text-center w-[60px] ${
                       hasFixedLeft
-                        ? "sticky left-0 z-20 bg-bgwhite dark:bg-[#111827] border-r border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
+                        ? "sticky left-0 z-20 bg-bgwhite dark:bg-darkbgprimary border-r border-b border-bordergray200ordercolor1 dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                         : ""
                     }`}
                   >
                     <div className="flex items-center justify-center">
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded-md border-gray-300 dark:border-gray-700 text-bgpurple1 focus:ring-bgpurple1 cursor-pointer"
+                        className="w-4 h-4 rounded-md border-darklabelprimary dark:border-labelprimary text-bgpurple1 focus:ring-bgpurple1 cursor-pointer"
                         checked={!!selectedRows?.includes(keyExtractor(item))}
                         onChange={(e) => {
                           e.stopPropagation();
@@ -242,9 +245,9 @@ export function Table<T>({
                   const isFixedRight = column.fixed === "right";
 
                   const stickyClass = isFixedLeft
-                    ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
+                    ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[4px_0_8px_-3px_rgba(0,0,0,0.1)] border-r border-b border-bordergray200ordercolor1 dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                     : isFixedRight
-                      ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-[#F4F7FE] dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
+                      ? "sticky z-10 bg-bgwhite dark:bg-darkbgprimary shadow-[-4px_0_8px_-3px_rgba(0,0,0,0.1)] border-l border-b border-bordergray200ordercolor1 dark:border-darkbgprimary group-hover:bg-gray-50 dark:group-hover:bg-darkbgprimary transition-colors"
                       : "";
 
                   return (
@@ -275,9 +278,9 @@ export function Table<T>({
         </tbody>
       </table>
       {isLoading && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bgbgwhite/60 dark:bg-[#111827]/60 backdrop-blur-sm transition-all">
+        <div className="absolute inset-0 z-50 flex items-center justify-center bgbgwhite/60 dark:bg-darkbgprimary/60 backdrop-blur-sm transition-all">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 border-4 border-bgpurple1 border-t-transparent rounded-full animate-spin shadow-lg shadow-indigo-500/20" />
+            <div className="w-10 h-10 border-4 border-b border-bordergray200gpurple1 border-t-transparent rounded-full animate-spin shadow-lg shadow-indigo-500/20" />
             <span className="text-[12px] font-bold text-bgpurple1 dark:text-sidebartext tracking-wider uppercase">
               Loading...
             </span>

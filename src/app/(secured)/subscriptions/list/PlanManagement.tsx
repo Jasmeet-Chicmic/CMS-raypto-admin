@@ -203,7 +203,7 @@ const PlanManagement = ({
           <SearchInput value={search} onChange={(e) => setSearch(e)} />
           <button
             onClick={handleCreatePlan}
-            className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-lg hover:bg-purple-700 transition-colors dark:bg-primarycolor dark:text-sidebartext"
+            className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors dark:bg-primarycolor dark:text-sidebartext"
           >
             <Plus size={18} />
             <span>Create New Plan</span>

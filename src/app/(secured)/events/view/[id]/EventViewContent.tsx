@@ -71,7 +71,7 @@ const EventViewContent = ({
     <div className="space-y-6">
       {/* Event Banner/Image */}
       {config.showBanner !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary overflow-hidden">
           <div className="relative h-64 md:h-80">
             <Image
               src={bannerImage}
@@ -81,10 +81,10 @@ const EventViewContent = ({
             />
             <div className="absolute top-4 right-4 flex gap-2">
               <button className="bgbgwhite/90 hover:bg-bgwhite dark:bg-darkbgprimary/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
-                <Download className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                <Download className="w-4 h-4 text-gray-600 dark:bordercolor1" />
               </button>
               <button className="bgbgwhite/90 hover:bg-bgwhite dark:bg-darkbgprimary/90 dark:hover:bg-gray-800 p-2 rounded-lg shadow-sm transition-colors">
-                <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                <ExternalLink className="w-4 h-4 text-gray-600 dark:bordercolor1" />
               </button>
             </div>
           </div>
@@ -93,12 +93,12 @@ const EventViewContent = ({
 
       {/* Description */}
       {config.showDescription !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.DESCRIPTION}
           </h2>
           <div className="prose dark:prose-invert max-w-none">
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-labelprimary dark:text-darklabelprimary leading-relaxed">
               {event.description || "No description provided for this event."}
             </p>
           </div>
@@ -107,7 +107,7 @@ const EventViewContent = ({
 
       {/* Tags */}
       {event.tags && event.tags.length > 0 && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             Tags
           </h2>
@@ -126,14 +126,14 @@ const EventViewContent = ({
 
       {/* Location */}
       {config.showLocation !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.LOCATION}
           </h2>
           <div className="flex items-start gap-3">
-            <MapPin className="w-5 h-5 text-gray-400 mt-0.5" />
+            <MapPin className="w-5 h-5 bordercolor1 mt-0.5" />
             <div>
-              <p className="text-gray-700 dark:text-gray-300 font-medium">
+              <p className="text-labelprimary dark:text-darklabelprimary font-medium">
                 {event.location || "Location not specified"}
               </p>
               {event.isOnline && event.meetingUrl && (
@@ -163,15 +163,15 @@ const EventViewContent = ({
 
       {/* Date & Time */}
       {config.showDateTime !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.DATE_TIME}
           </h2>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <Calendar className="w-5 h-5 text-gray-400" />
+              <Calendar className="w-5 h-5 bordercolor1" />
               <div>
-                <p className="text-gray-700 dark:text-gray-300 font-medium">
+                <p className="text-labelprimary dark:text-darklabelprimary font-medium">
                   {new Date(event.eventDate).toLocaleDateString("en-US", {
                     weekday: "long",
                     year: "numeric",
@@ -196,7 +196,7 @@ const EventViewContent = ({
 
       {/* Event Type & Pricing */}
       {config.showTypePricing !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.TYPE_PRICING}
           </h2>
@@ -213,7 +213,7 @@ const EventViewContent = ({
               </span>
               {event.type === EVENT_TYPE.PAID && event.price && (
                 <div className="flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-gray-400" />
+                  <DollarSign className="w-4 h-4 bordercolor1" />
                   <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                     ${event.price}
                   </span>
@@ -231,7 +231,7 @@ const EventViewContent = ({
 
       {/* Media Gallery */}
       {config.showMediaGallery !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.MEDIA_GALLERY}
           </h2>
@@ -255,13 +255,13 @@ const EventViewContent = ({
 
       {/* RSVP List */}
       {config.showRsvpList !== false && (
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.RSVP_LIST}
           </h2>
           <div className="flex items-center gap-2 mb-4">
-            <Users className="w-5 h-5 text-gray-400" />
-            <span className="text-gray-700 dark:text-gray-300 font-medium">
+            <Users className="w-5 h-5 bordercolor1" />
+            <span className="text-labelprimary dark:text-darklabelprimary font-medium">
               {event.rsvpCount} people registered
             </span>
           </div>
@@ -269,12 +269,12 @@ const EventViewContent = ({
             {rsvps.slice(0, 10).map((rsvp, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                className="flex items-center justify-between py-2 border-b border-bordergray200 bordergray100 dark:border-labelprimary last:border-b border-bordergray200-0"
               >
-                <span className="text-gray-700 dark:text-gray-300">
+                <span className="text-labelprimary dark:text-darklabelprimary">
                   {typeof rsvp === "string" ? rsvp : rsvp.name}
                 </span>
-                <span className="text-[0.875rem] text-sidebartext dark:text-gray-400">
+                <span className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                   {index + 1} day{index !== 0 ? "s" : ""} ago
                 </span>
               </div>

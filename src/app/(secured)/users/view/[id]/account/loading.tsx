@@ -12,7 +12,7 @@ const Loading = () => {
       <div className="bg-bgwhite rounded-lg shadow p-4 dark:bg-darkbgprimary dark:border-darkbordercolor1">
         <div className="relative">
           <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
-          <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full bg-gray-100 h-10" />
+          <Skeleton className="pl-10 pr-4 py-2 border bordergray200 rounded-lg w-full bg-gray-100 h-10" />
         </div>
         {/* Projects Table */}
         <div className="space-y-6 mt-6">

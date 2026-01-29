@@ -19,7 +19,7 @@ const page = async ({
   }
 
   return (
-    <div className="bg-bgwhite rounded-[24px] dark:bg-[#111827]">
+    <div className="bg-bgwhite rounded-[24px] dark:bg-darkbgprimary">
       <div className="p-6 rounded-[24px] dark:bg-darkbgprimary dark:border-darkbordercolor1">
         <SlideForm
           isEdit={true}

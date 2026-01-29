@@ -102,7 +102,7 @@ const ChatTranslationConfigForm = ({
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-bgwhite border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-labelprimary bg-bgwhite border border-darklabelprimary rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-labelprimary"
                   >
                     <X size={16} />
                     Cancel

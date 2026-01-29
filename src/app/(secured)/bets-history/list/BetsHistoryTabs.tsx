@@ -102,7 +102,7 @@ const BetsHistoryTabs = ({
               />
               <button
                 onClick={() => setIsFilterOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgblack rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
               >
                 <Menu size={18} />
                 <span>Filters</span>
@@ -112,7 +112,7 @@ const BetsHistoryTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-gray-200 dark:border-darkbgprimary">
+        <div className="flex px-6 border-b border-bordergray200 dark:border-darkbgprimary">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -120,7 +120,7 @@ const BetsHistoryTabs = ({
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 activeTab === tab.id
                   ? "text-bgpurple1 dark:text-sidebartext"
-                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>
@@ -146,7 +146,7 @@ const BetsHistoryTabs = ({
               router.push(`?${newParams.toString()}`);
               setIsFilterOpen(false);
             }}
-            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-labelprimary dark:text-darklabelprimary rounded-xl hover:bg-gray-200 dark:hover:bg-labelprimary transition-all border bordergray200 dark:border-labelprimary font-medium"
           >
             <RotateCcw size={18} />
             <span>Clear All Filters</span>
@@ -157,7 +157,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="date-range-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Date Range
             </label>
@@ -174,7 +174,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="game-type-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Game Type
             </label>
@@ -189,7 +189,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="currency-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Currency
             </label>
@@ -205,7 +205,7 @@ const BetsHistoryTabs = ({
             <div>
               <label
                 htmlFor="result-filter"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
               >
                 Result
               </label>

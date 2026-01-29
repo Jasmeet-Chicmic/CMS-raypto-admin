@@ -16,7 +16,7 @@ const FormLayout = ({
 }: FormLayoutProps) => {
   if (layout === FormLayoutType.WithCover) {
     return (
-      <div className="flex min-h-screen bg-bgwhite dark:bg-[#111827]">
+      <div className="flex min-h-screen bg-bgwhite dark:bg-darkbgprimary">
         <div className="hidden xl:flex w-full items-center justify-center bg-[#f8f7fa] relative xl:w-[66.66%] dark:bg-darkbgprimary">
           <Image
             src={authImg}

@@ -87,16 +87,16 @@ const CompanyTeamProfiles = () => {
       case TEAM_PROFILE_CONFIG.TEAM_ROLES.MEMBER:
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
       case TEAM_PROFILE_CONFIG.TEAM_ROLES.VIEWER:
-        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
     }
   };
 
   const getStatusColor = (status: string) => {
     return status === TEAM_PROFILE_CONFIG.TEAM_STATUS.ACTIVE
       ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-      : "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
+      : "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
   };
 
   const filteredMembers = teamMembers.filter((member) => {
@@ -116,7 +116,7 @@ const CompanyTeamProfiles = () => {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
+            className="px-3 py-2 border border-darklabelprimary rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -125,7 +125,7 @@ const CompanyTeamProfiles = () => {
           <select
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext"
+            className="px-3 py-2 border border-darklabelprimary rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admin</option>
@@ -137,15 +137,15 @@ const CompanyTeamProfiles = () => {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
             {teamMembers.length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:bordercolor1">
             Total Members
           </div>
         </div>
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-green-600">
             {
               teamMembers.filter(
@@ -153,9 +153,9 @@ const CompanyTeamProfiles = () => {
               ).length
             }
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Active</div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Active</div>
         </div>
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-red-600">
             {
               teamMembers.filter(
@@ -163,9 +163,9 @@ const CompanyTeamProfiles = () => {
               ).length
             }
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Admins</div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Admins</div>
         </div>
-        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-blue-600">
             {
               teamMembers.filter(
@@ -173,9 +173,7 @@ const CompanyTeamProfiles = () => {
               ).length
             }
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            Members
-          </div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Members</div>
         </div>
       </div>
 
@@ -184,7 +182,7 @@ const CompanyTeamProfiles = () => {
         {filteredMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-bgwhite dark:bg-darkbgprimary border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+            className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-labelprimary rounded-lg p-4"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
@@ -210,13 +208,13 @@ const CompanyTeamProfiles = () => {
                   <h4 className="font-semibold text-gray-900 dark:text-sidebartext">
                     {member.name}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 dark:bordercolor1">
                     {member.position}
                   </p>
-                  <p className="text-[0.875rem] text-sidebartext dark:text-gray-400">
+                  <p className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                     {member.email}
                   </p>
-                  <p className="text-[0.875rem] text-sidebartext dark:text-gray-400">
+                  <p className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                     Joined: {new Date(member.joinDate).toLocaleDateString()}
                   </p>
                 </div>
@@ -247,7 +245,7 @@ const CompanyTeamProfiles = () => {
 
         {filteredMembers.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No team members found.
             </p>
           </div>
@@ -256,7 +254,7 @@ const CompanyTeamProfiles = () => {
 
       {/* Role Legend */}
       <div className="mt-6 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
-        <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+        <h4 className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-3">
           Role Definitions
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-[0.875]">
@@ -266,7 +264,7 @@ const CompanyTeamProfiles = () => {
             >
               Admin
             </span>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 dark:bordercolor1">
               Full access to company settings and data
             </p>
           </div>
@@ -276,7 +274,7 @@ const CompanyTeamProfiles = () => {
             >
               Member
             </span>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 dark:bordercolor1">
               Can view and edit company information
             </p>
           </div>
@@ -286,7 +284,7 @@ const CompanyTeamProfiles = () => {
             >
               Viewer
             </span>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 dark:bordercolor1">
               Read-only access to company information
             </p>
           </div>

@@ -43,7 +43,7 @@ const ConfigTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-gray-200 dark:border-darkbgprimary">
+        <div className="flex px-6 border-b border-bordergray200 dark:border-darkbgprimary">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -51,7 +51,7 @@ const ConfigTabs = ({
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 currentTab === tab.id
                   ? "text-bgpurple1 dark:text-sidebartext"
-                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>

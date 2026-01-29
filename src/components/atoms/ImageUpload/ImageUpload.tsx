@@ -185,7 +185,7 @@ const ImageUpload = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
         >
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
@@ -204,10 +204,10 @@ const ImageUpload = ({
           relative overflow-hidden rounded-[20px] border-2 border-dashed transition-all duration-300 cursor-pointer group w-full text-left
           ${
             isDragging
-              ? "border-bgpurple1 bg-primarycolor/5 dark:bg-primarycolor/10"
+              ? "border-b border-bordergray200gpurple1 bg-primarycolor/5 dark:bg-primarycolor/10"
               : preview
                 ? "border-transparent"
-                : "border-gray-200 dark:border-darkbgprimary bg-gray-50/50 dark:bg-darkbgprimary/30 hover:border-bgpurple1/50 hover:bg-primarycolor/5 dark:hover:bg-primarycolor/10"
+                : "bordergray200 dark:border-darkbgprimary bg-gray-50/50 dark:bg-darkbgprimary/30 hover:border-b border-bordergray200gpurple1/50 hover:bg-primarycolor/5 dark:hover:bg-primarycolor/10"
           }
           ${disabled ? "opacity-50 cursor-not-allowed" : ""}
           ${previewClassName}
@@ -241,7 +241,7 @@ const ImageUpload = ({
                   type="button"
                   onClick={handleRemove}
                   disabled={isUploading || disabled}
-                  className="p-3 bgbgwhite/90 dark:bg-[#111827]/90 text-red-500 rounded-2xl hover:bg-red-500 hover:text-bgwhite transition-all shadow-xl backdrop-blur-md"
+                  className="p-3 bgbgwhite/90 dark:bg-darkbgprimary/90 text-red-500 rounded-2xl hover:bg-red-500 hover:text-bgwhite transition-all shadow-xl backdrop-blur-md"
                   title="Remove image"
                 >
                   <X size={20} />
@@ -250,7 +250,7 @@ const ImageUpload = ({
                   type="button"
                   onClick={handleClick}
                   disabled={isUploading || disabled}
-                  className="p-3 bg-primarycolor text-bgblack rounded-2xl shadow-xl hover:bg-primarycolor/90 transition-all"
+                  className="p-3 bg-primarycolor text-bgwhite rounded-2xl shadow-xl hover:bg-primarycolor/90 transition-all"
                   title="Change image"
                 >
                   <Upload size={20} />
@@ -260,7 +260,7 @@ const ImageUpload = ({
 
             {/* Loading overlay */}
             {isUploading && (
-              <div className="absolute inset-0 bgbgwhite/60 dark:bg-[#111827]/60 backdrop-blur-sm flex items-center justify-center z-20">
+              <div className="absolute inset-0 bgbgwhite/60 dark:bg-darkbgprimary/60 backdrop-blur-sm flex items-center justify-center z-20">
                 <div className="flex flex-col items-center gap-2">
                   <Loader2 size={32} className="text-bgpurple1 animate-spin" />
                   <span className="text-xs font-bold text-bgpurple1 uppercase tracking-wider">
@@ -272,7 +272,7 @@ const ImageUpload = ({
           </div>
         ) : (
           // Empty state
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bordercolor1 dark:text-gray-500 p-6">
             {isUploading ? (
               <div className="flex flex-col items-center gap-3">
                 <Loader2 size={40} className="text-bgpurple1 animate-spin" />
@@ -282,7 +282,7 @@ const ImageUpload = ({
               </div>
             ) : (
               <>
-                <div className="w-16 h-16 rounded-[20px] bg-bgwhite dark:bg-darkbgprimary flex items-center justify-center mb-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md">
+                <div className="w-16 h-16 rounded-[20px] bg-bgwhite dark:bg-darkbgprimary flex items-center justify-center mb-4 shadow-sm border border-bordergray100 dark:border-labelprimary transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md">
                   {isDragging ? (
                     <Upload size={28} className="text-bgpurple1" />
                   ) : (

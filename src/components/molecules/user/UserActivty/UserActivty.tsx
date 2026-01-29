@@ -88,7 +88,7 @@ const UserActivty = async ({ userId }: { userId: string }) => {
                       )}
                     </div>
                   )}
-                <p className="text-[0.875] text-gray-400 mt-1">
+                <p className="text-[0.875] bordercolor1 mt-1">
                   {getRelativeTime(activity.createdAt)}
                 </p>
               </div>

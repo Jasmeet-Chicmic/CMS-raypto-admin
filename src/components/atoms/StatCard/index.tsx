@@ -38,7 +38,7 @@ const StatCard: React.FC<
   return (
     <div
       key={index}
-      className="bg-bgwhite dark:bg-darkbgprimary dark:border-darkbordercolor1 border border-bordercolor1 rounded-[20px] p-6 transition-all duration-300 shadow-sm [&_svg]:transition-colors [&_svg]:duration-300"
+      className="bg-bgwhite dark:bg-darkbgprimary dark:border-darkbordercolor1 border border-b border-bordergray200ordercolor1 rounded-[20px] p-6 transition-all duration-300 shadow-sm [&_svg]:transition-colors [&_svg]:duration-300"
     >
       <div className="flex items-center justify-between">
         <div className="flex-1">

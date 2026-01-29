@@ -72,22 +72,22 @@ const AssignBadgeModal = ({
           <table className="min-w-full divide-y divide-gray-200 mt-4">
             <thead>
               <tr>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Name
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Image
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Type
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Action
                 </th>
                 <th className="px-4 py-2"></th>
               </tr>
             </thead>
-            <tbody className="bg-bgwhite divide-y divide-gray-200 dark:bg-[#111827] dark:divide-gray-800">
+            <tbody className="bg-bgwhite divide-y divide-gray-200 dark:bg-darkbgprimary dark:divide-gray-800">
               {badges.map((badge) => (
                 <tr key={badge._id}>
                   <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-sidebartext">

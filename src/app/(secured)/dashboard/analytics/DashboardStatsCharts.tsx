@@ -190,7 +190,7 @@ const DashboardStatsCharts = ({
       categories,
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
       },
@@ -198,7 +198,7 @@ const DashboardStatsCharts = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
         formatter: (value: number) => formatCurrency(value),
@@ -264,21 +264,21 @@ const DashboardStatsCharts = ({
           value={formatCurrency(data.totalProfit)}
           // subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-bgpurple1" />}
-          color="bg-[#F4F7FE] dark:bg-primarycolor"
+          color="bg-bordercolor1 dark:bg-primarycolor"
         /> */}
         {/* <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-bgpurple1" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-primarycolor"
+          iconBgColor="bg-bordercolor1 dark:bg-primarycolor"
         />
         <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-bgpurple1" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-primarycolor"
+          iconBgColor="bg-bordercolor1 dark:bg-primarycolor"
         /> */}
         {data.totalProfit && data.totalProfit.length > 0 && (
           <GGRStatCard
@@ -291,7 +291,7 @@ const DashboardStatsCharts = ({
 
       <div className="flex w-full gap-4 flex-col md:flex-row">
         {/* GGR Line Chart */}
-        <div className="flex-1 bg-bgwhite border border-bordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
@@ -317,7 +317,7 @@ const DashboardStatsCharts = ({
         </div>
 
         {/* Weekly Active Users Chart */}
-        <div className="flex-1 bg-bgwhite border border-bordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <WeeklyActiveUsersChart
             activityData={activityData}
             initialFromDate={initialFromDate}
@@ -328,7 +328,7 @@ const DashboardStatsCharts = ({
 
       {/* World Map Chart & Revenue per Game */}
       <div className="flex w-full gap-4 flex-col md:flex-row">
-        <div className="flex-1 bg-bgwhite border border-bordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
           <WorldMapChart
             data={countryData.map((item) => ({
               country: item.country,
@@ -336,7 +336,7 @@ const DashboardStatsCharts = ({
             }))}
           />
         </div>
-        <div className="flex-1 bg-bgwhite border border-bordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
           <RevenuePerGameChart />
         </div>
       </div>

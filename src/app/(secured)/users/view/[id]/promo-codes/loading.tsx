@@ -14,7 +14,7 @@ const Loading = () => {
           {["bg-blue-100", "bg-green-100", "bg-orange-100"].map((bg, id) => (
             <div
               key={`${baseId}-stat-${id}`}
-              className="bg-bgwhite p-6 rounded-lg shadow-lg border border-gray-200 dark:bg-darkbgprimary dark:border-darkbordercolor1"
+              className="bg-bgwhite p-6 rounded-lg shadow-lg border bordergray200 dark:bg-darkbgprimary dark:border-darkbordercolor1"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-full">
@@ -46,7 +46,7 @@ const Loading = () => {
                   {["Name", "Code", "Assigned On", "Actions"].map((_, id) => (
                     <th
                       key={`${baseId}-header-${id}`}
-                      className="px-4 py-3 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400"
+                      className="px-4 py-3 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:bordercolor1"
                     >
                       <Skeleton className="h-3 w-20" />
                     </th>
@@ -76,7 +76,7 @@ const Loading = () => {
           </div>
 
           {/* Pagination */}
-          <div className="bg-bgwhite px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-[#111827]">
+          <div className="bg-bgwhite px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-darkbgprimary">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />

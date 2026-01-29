@@ -93,7 +93,7 @@ const UserRevenuePerGameChart = ({
   console.log("data", data);
   return (
     <div
-      className={`flex-1 bg-bgwhite rounded-[20px] lg:w-1/2 p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
+      className={`flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px] lg:w-1/2 p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
     >
       <div className="flex flex-col lg:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="w-full lg:w-auto lg:flex-col">

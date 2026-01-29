@@ -81,7 +81,7 @@ const SubscriptionViewPage = async ({
         {/* Left: Plan Details (1/3) */}
         <div
           key={plan?._id}
-          className="md:w-1/3 w-full bg-bgwhite rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"
+          className="md:w-1/3 w-full bg-bgwhite rounded-lg shadow-sm border bordergray200 overflow-hidden hover:shadow-md transition-shadow dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"
         >
           {/* Plan Header */}
           <div

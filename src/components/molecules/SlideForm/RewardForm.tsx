@@ -62,19 +62,19 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
         {rewards.map((reward, index) => (
           <div
             key={index}
-            className="p-6 bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-200 dark:border-gray-700 rounded-2xl transition-all duration-300 hover:border-purple-200 dark:hover:border-purple-900/50"
+            className="p-6 bg-gray-50 dark:bg-darkbgprimary/40 border bordergray200 dark:border-labelprimary rounded-2xl transition-all duration-300 hover:border-purple-200 dark:hover:border-purple-900/50"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
               {/* Currency */}
               <div className="md:col-span-5">
                 <label
                   htmlFor={`reward-asset-${index}`}
-                  className="block text-xs font-bold text-sidebartext dark:text-gray-400 mb-2 uppercase"
+                  className="block text-xs font-bold text-sidebartext dark:bordercolor1 mb-2 uppercase"
                 >
                   Reward Asset
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none bordercolor1">
                     <Coins className="w-4 h-4" />
                   </div>
                   <select
@@ -87,7 +87,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         Number.parseInt(e.target.value),
                       )
                     }
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext appearance-none"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -102,12 +102,12 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
               <div className="md:col-span-4">
                 <label
                   htmlFor={`reward-value-${index}`}
-                  className="block text-xs font-bold text-sidebartext dark:text-gray-400 mb-2 uppercase"
+                  className="block text-xs font-bold text-sidebartext dark:bordercolor1 mb-2 uppercase"
                 >
                   Reward Value
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none bordercolor1">
                     <CreditCard className="w-4 h-4" />
                   </div>
                   <input
@@ -124,7 +124,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       )
                     }
                     placeholder="0.00"
-                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext"
                   />
                 </div>
               </div>
@@ -143,11 +143,11 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         e.target.checked,
                       )
                     }
-                    className="w-5 h-5 text-bgpurple1 border-gray-300 rounded-lg focus:ring-bgpurple1 dark:bg-gray-700 dark:border-gray-600 transition-colors"
+                    className="w-5 h-5 text-bgpurple1 border-darklabelprimary rounded-lg focus:ring-bgpurple1 dark:bg-labelprimary dark:border-gray-600 transition-colors"
                   />
                   <label
                     htmlFor={`withdrawable-${index}`}
-                    className="text-sm font-bold text-gray-600 dark:text-gray-400 cursor-pointer select-none"
+                    className="text-sm font-bold text-gray-600 dark:bordercolor1 cursor-pointer select-none"
                   >
                     Withdrawable
                   </label>

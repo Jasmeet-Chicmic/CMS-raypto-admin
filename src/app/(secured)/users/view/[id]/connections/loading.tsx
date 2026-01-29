@@ -11,7 +11,7 @@ const ConnectedAccountsLoading = () => {
       {Array.from(new Array(2)).map((_, sectionIdx) => (
         <div
           key={`${baseId}-section-${sectionIdx}`}
-          className="bg-bgwhite rounded-lg shadow-sm border border-gray-200 p-6 space-y-6 animate-pulse dark:bg-darkbgprimary dark:border-darkbordercolor1"
+          className="bg-bgwhite rounded-lg shadow-sm border bordergray200 p-6 space-y-6 animate-pulse dark:bg-darkbgprimary dark:border-darkbordercolor1"
         >
           {/* Header */}
           <div>

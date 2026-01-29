@@ -70,7 +70,7 @@ const SocialAccounts = ({
   };
 
   return (
-    <div className="bg-bgwhite rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
+    <div className="bg-bgwhite rounded-lg shadow-sm border bordergray200 p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-1 dark:text-sidebartext">
           Social Accounts

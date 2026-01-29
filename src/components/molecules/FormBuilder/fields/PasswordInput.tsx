@@ -55,9 +55,9 @@ export function PasswordField<T extends FieldValues>({
           aria-label={showPassword ? "Hide password" : "Show password"}
         >
           {showPassword ? (
-            <Eye className="h-5 w-5 text-gray-400" />
+            <Eye className="h-5 w-5 bordercolor1" />
           ) : (
-            <EyeOff className="h-5 w-5 text-gray-400" />
+            <EyeOff className="h-5 w-5 bordercolor1" />
           )}
         </button>
       </div>

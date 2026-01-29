@@ -210,7 +210,7 @@ export const transformTotalEarningsData = (data: TotalEarningsApiResponse) => ({
       bgColor: "bg-violet-100",
     },
     {
-      icon: <DollarSign className="text-gray-400" size={18} />,
+      icon: <DollarSign className="bordercolor1" size={18} />,
       label: "Total Sales",
       subLabel: "Refund",
       value: `$+${formatNumberValue(data.data.totalSales)}`,

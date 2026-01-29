@@ -5,7 +5,7 @@ import { formatCurrency } from "@/shared/utils";
 const REVENUE_COLOR = "#10B981";
 const LOSS_COLOR = "#EF4444";
 const WHITE_COLOR = "#ffffff";
-const LABEL_COLOR = "#A3AED0";
+const LABEL_COLOR = "#99a1af";
 
 const LABEL_STYLE = {
   colors: LABEL_COLOR,

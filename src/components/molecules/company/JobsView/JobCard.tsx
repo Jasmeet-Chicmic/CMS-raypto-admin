@@ -103,7 +103,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
       </div>
 
       {/* Description */}
-      <div className="text-sm text-gray-700 leading-relaxed">
+      <div className="text-sm text-labelprimary leading-relaxed">
         {job.description.length < 120 ? (
           job.description
         ) : expanded ? (

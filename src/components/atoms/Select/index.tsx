@@ -24,19 +24,26 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     control: (provided) => ({
       ...provided,
       minHeight: "36px",
-      border: "none",
+      borderColor: isDark ? "#1e2939" : "#E5E7EB",
+      borderWidth: "1px",
+      borderStyle: "solid",
       borderRadius: "10px",
-      backgroundColor: isDark ? "#1A1A1A" : "#FFFFFF",
+      backgroundColor: isDark ? "#000000" : "#FFFFFF",
       boxShadow: "none",
+      padding: "4px",
       cursor: "pointer",
+      transition: "all 0.2s ease-in-out",
+      "&:hover": {
+        borderColor: isDark ? "#1e2939" : "#E5E7EB",
+      },
     }),
     valueContainer: (provided) => ({
       ...provided,
-      padding: "2px 8px",
+      padding: "4px",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
       fontWeight: 500,
     }),
@@ -56,13 +63,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
-      color: isDark ? "#9CA3AF" : "#6B7280",
+      color: isDark ? "#9CA3AF" : "#d1d5db",
       padding: "6px 8px",
       transform: state.selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0)",
     }),
     clearIndicator: (provided) => ({
       ...provided,
-      color: isDark ? "#9CA3AF" : "#6B7280",
+      color: isDark ? "#9CA3AF" : "#d1d5db",
       padding: "8px",
       "&:hover": {
         color: "#EF4444",
@@ -139,13 +146,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
       padding: "12px",
     }),
     loadingMessage: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
     }),
   };

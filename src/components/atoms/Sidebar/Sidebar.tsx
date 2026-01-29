@@ -107,7 +107,7 @@ const Sidebar: React.FC = () => {
             className={cn(
               "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-hoverbg hover:text-sidebartext transition-all duration-200 group dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite sidebar-menu-item w-full text-left",
               isActive &&
-                "bg-primarycolor text-bgblack hover:bg-primarycolor hover:text-bgblack",
+                "bg-primarycolor text-bgwhite hover:bg-primarycolor hover:text-white",
             )}
             style={{ paddingLeft }}
             onClick={() => toggleExpand(item.label)}
@@ -116,12 +116,12 @@ const Sidebar: React.FC = () => {
               {Icon && (
                 <Icon
                   size={24}
-                  className={isActive ? "text-bgblack" : "text-sidebartext"}
+                  className={isActive ? "text-white" : "text-sidebartext"}
                 />
               )}
             </span>
             <span
-              className={`flex-1 text-[16px] font-medium ${isActive ? "text-bgblack" : "text-sidebartext dark:text-sidebartext"}`}
+              className={`flex-1 text-[16px] font-medium ${isActive ? "text-white" : "text-sidebartext dark:text-sidebartext"}`}
             >
               {t(item.label)}
             </span>
@@ -135,12 +135,12 @@ const Sidebar: React.FC = () => {
                 {expanded[item.label] ? (
                   <ChevronDown
                     size={16}
-                    className={isActive ? "text-bgblack" : "text-sidebartext"}
+                    className={isActive ? "text-white" : "text-sidebartext"}
                   />
                 ) : (
                   <ChevronRight
                     size={16}
-                    className={isActive ? "text-bgblack" : "text-sidebartext"}
+                    className={isActive ? "text-white" : "text-sidebartext"}
                   />
                 )}
               </div>

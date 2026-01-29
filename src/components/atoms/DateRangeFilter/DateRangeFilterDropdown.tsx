@@ -136,7 +136,7 @@ const DateRangeFilterDropdown = ({
       {/* Dropdown Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 border border-bordercolor1 dark:border-darkbordercolor1"
+        className="flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 border border-b border-bordergray200ordercolor1 dark:border-darkbordercolor1"
       >
         <svg
           className="w-5 h-5 text-darkbgprimary dark:text-bgwhite"
@@ -175,13 +175,13 @@ const DateRangeFilterDropdown = ({
 
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 p-4 bg-bgwhite dark:bg-[#111827] border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 min-w-[320px]">
+        <div className="absolute right-0 mt-2 p-4 bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-labelprimary rounded-lg shadow-lg z-50 min-w-[320px]">
           <div className="space-y-4">
             {/* From Date */}
             <div className="flex flex-col">
               <label
                 htmlFor="dropdown-from-date"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
               >
                 From Date
               </label>
@@ -191,7 +191,7 @@ const DateRangeFilterDropdown = ({
                 value={fromDate}
                 onChange={(e) => handleFromDateChange(e.target.value)}
                 max={today}
-                className="px-4 py-2.5 border border-bordercolor1 rounded-lg transition-all duration-200 dark:bg-darkbgprimary dark:border-bordercolor1 dark:text-sidebartext font-medium cursor-pointer"
+                className="px-4 py-2.5 border border-b border-bordergray200ordercolor1 rounded-lg transition-all duration-200 dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext font-medium cursor-pointer"
               />
             </div>
 
@@ -199,7 +199,7 @@ const DateRangeFilterDropdown = ({
             <div className="flex flex-col">
               <label
                 htmlFor="dropdown-to-date"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
               >
                 To Date
               </label>
@@ -211,10 +211,10 @@ const DateRangeFilterDropdown = ({
                 disabled={!fromDate}
                 min={fromDate}
                 max={getMaxToDate()}
-                className={`px-4 py-2.5 border border-bordercolor1 rounded-lg dark:bg-darkbgprimary dark:text-sidebartext font-medium transition-all duration-200 ${
+                className={`px-4 py-2.5 border border-b border-bordergray200ordercolor1 rounded-lg dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext font-medium transition-all duration-200 ${
                   !fromDate
-                    ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-bordercolor1 dark:border-bordercolor1"
-                    : "border-bordercolor1 cursor-pointer"
+                    ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-darkbgprimary border-b border-bordergray200ordercolor1 dark:border-darkbordercolor1"
+                    : "border-b border-bordergray200ordercolor1 cursor-pointer"
                 }`}
               />
             </div>
@@ -224,7 +224,7 @@ const DateRangeFilterDropdown = ({
               <button
                 onClick={handleApply}
                 disabled={!fromDate}
-                className={`flex-1 px-6 py-2.5 bg-primarycolor text-bgblack font-semibold rounded-lg hover:bg-primarycolor transition-all duration-200 ${
+                className={`flex-1 px-6 py-2.5 bg-primarycolor text-bgwhite font-semibold rounded-lg hover:bg-primarycolor transition-all duration-200 ${
                   !fromDate
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:scale-100"
@@ -235,7 +235,7 @@ const DateRangeFilterDropdown = ({
               {hasFilters && (
                 <button
                   onClick={handleClear}
-                  className="flex-1 px-6 py-2.5 border-2 border-bgprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgprimary transition-all duration-200 dark:border-primarycolor dark:text-primarycolor"
+                  className="flex-1 px-6 py-2.5 border-2 border-b border-bordergray200gprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgprimary transition-all duration-200 dark:border-primarycolor dark:text-primarycolor"
                 >
                   Clear
                 </button>

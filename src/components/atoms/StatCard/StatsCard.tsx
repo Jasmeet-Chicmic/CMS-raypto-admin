@@ -11,7 +11,7 @@ const StatsCard = (stat: StatsType, index: number) => {
   return (
     <div
       key={index}
-      className="bg-bgwhite p-6 rounded-lg shadow-sm border border-gray-200"
+      className="bg-bgwhite p-6 rounded-lg shadow-sm border bordergray200"
     >
       <div className="flex items-center justify-between mb-4">
         <div>

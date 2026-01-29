@@ -83,7 +83,7 @@ export const JobDropdown = ({ onAction }: DropdownProps) => {
                 setIsOpen(false);
               }}
             >
-              <Icon size={16} className="text-gray-700" />
+              <Icon size={16} className="text-labelprimary" />
               <span>{label}</span>
             </button>
           ))}

@@ -67,7 +67,7 @@ const GamePlayedUserChart = ({
 
   return (
     <div
-      className={`flex-1 bg-bgwhite rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
+      className={`flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
     >
       <div className="flex md:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="w-full">

@@ -116,7 +116,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
 
   if (currencyWiseConfigs.length === 0) {
     return (
-      <div className="p-6 text-center text-gray-500 dark:text-gray-400">
+      <div className="p-6 text-center text-gray-500 dark:bordercolor1">
         No reward configuration found
       </div>
     );
@@ -142,7 +142,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-bgwhite border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-labelprimary bg-bgwhite border border-darklabelprimary rounded-lg hover:bg-gray-50 dark:bg-darkbgprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-labelprimary"
                   >
                     <X size={16} />
                     Cancel
@@ -174,10 +174,10 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
             {fields.map((field, index) => (
               <div
                 key={field.id}
-                className="p-6 bg-bgwhite dark:bg-[#111827] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-darkbgprimary transition-all duration-300"
+                className="p-6 bg-bgwhite dark:bg-darkbgprimary rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-bordergray100 dark:border-darkbgprimary transition-all duration-300"
               >
-                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-darkbgprimary">
-                  <div className="p-3 bg-[#F4F7FE] dark:bg-primarycolor rounded-2xl">
+                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-bordergray200 bordergray100 dark:border-darkbgprimary">
+                  <div className="p-3 bg-bordercolor1 dark:bg-primarycolor rounded-2xl">
                     <Coins className="w-6 h-6 text-bgpurple1 dark:text-sidebartext" />
                   </div>
                   <div>
@@ -185,7 +185,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                       {CURRENCY_TYPE_NAMES[field.currency] ||
                         `Currency ${field.currency}`}
                     </h4>
-                    <p className="text-sm font-medium text-sidebartext dark:text-gray-400 mt-2">
+                    <p className="text-sm font-medium text-sidebartext dark:bordercolor1 mt-2">
                       Manage rewards and bonuses for this currency
                     </p>
                   </div>
@@ -195,7 +195,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                   {/* Login Reward Payout */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-bgpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
+                      <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-2xl border border-bordergray100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-b border-bordergray200gpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
                         <InputField<FormValues>
                           name={`currencyWiseConfigs.${index}.loginRewardPayout`}
                           label="Login Reward Payout"
@@ -209,8 +209,8 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-[10px] h-full border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:bordercolor1 uppercase tracking-widest">
                           Login Reward Payout
                         </div>
                         <div className="flex items-center gap-4">
@@ -232,7 +232,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                   {/* Deposit Bonus Percentage */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-bgpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
+                      <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-2xl border border-bordergray100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-b border-bordergray200gpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
                         <InputField<FormValues>
                           name={`currencyWiseConfigs.${index}.depositBonusPercentage`}
                           label="Deposit Bonus Percentage"
@@ -247,8 +247,8 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                         />
                       </div>
                     ) : (
-                      <div className="p-6 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:text-gray-400 uppercase tracking-widest">
+                      <div className="p-6 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                        <div className="block mb-4 text-xs font-bold text-sidebartext dark:bordercolor1 uppercase tracking-widest">
                           Deposit Bonus Percentage
                         </div>
                         <div className="flex items-center gap-4">

@@ -45,7 +45,7 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
   const ggrValue = selectedStat?.amount || 0;
 
   return (
-    <div className="bg-bgwhite border border-bordercolor1 shadow-sm dark:bg-darkbgprimary dark:border-darkbordercolor1 rounded-[20px] p-6 transition-all duration-300 [&_svg]:transition-colors [&_svg]:duration-300">
+    <div className="bg-bgwhite border border-b border-bordergray200ordercolor1 shadow-sm dark:bg-darkbgprimary dark:border-darkbordercolor1 rounded-[20px] p-6 transition-all duration-300 [&_svg]:transition-colors [&_svg]:duration-300">
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center justify-between gap-2">

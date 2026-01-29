@@ -172,7 +172,7 @@ const BadgeForm = ({
           <div>
             <label
               htmlFor="badge-image"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-labelprimary mb-1"
             >
               Badge Image
             </label>
@@ -198,7 +198,7 @@ const BadgeForm = ({
                     setImage(null);
                     setImagePreview("");
                   }}
-                  className="absolute -top-2 -right-2 bg-bgwhite text-gray-700 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-500 hover:text-bgwhite transition text-sm shadow"
+                  className="absolute -top-2 -right-2 bg-bgwhite text-labelprimary border rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-500 hover:text-bgwhite transition text-sm shadow"
                   title="Remove image"
                 >
                   &times;
@@ -233,7 +233,7 @@ const BadgeForm = ({
                           Number(e.target.value),
                         )
                       }
-                      className="w-full border rounded-md px-3 py-1 mt-1 focus:outline-none focus:ring focus:border-blue-300"
+                      className="w-full border rounded-md px-3 py-1 mt-1 focus:outline-none focus:ring focus:border-b border-bordergray200lue-300"
                     />
                   </div>
                 ))}
@@ -249,7 +249,7 @@ const BadgeForm = ({
               className={`px-5 py-2 rounded transition text-bgwhite ${
                 isFormValid
                   ? "bg-blue-600 hover:bg-blue-700"
-                  : "bg-gray-300 cursor-not-allowed"
+                  : "bg-darklabelprimary cursor-not-allowed"
               }`}
             >
               {isEdit ? "Update Badge" : "Create Badge"}

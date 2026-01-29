@@ -52,7 +52,7 @@ export function ColorField<T extends FieldValues>({
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                className="w-6 h-6 rounded-full cursor-pointer border border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+                className="w-6 h-6 rounded-full cursor-pointer border border-darklabelprimary hover:border-gray-400 transition-all duration-300 ease-in-out"
                 style={{ backgroundColor: field.value }}
                 onClick={() => setOpen(true)}
                 aria-label={`Select color for ${label}`}

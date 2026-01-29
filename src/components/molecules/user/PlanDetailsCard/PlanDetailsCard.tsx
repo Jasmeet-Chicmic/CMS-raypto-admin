@@ -60,7 +60,7 @@ const PlanDetailsCard = async ({
         </span>
       </div>
 
-      <ul className="text-sm text-gray-700 space-y-1 dark:text-sidebartext">
+      <ul className="text-sm text-labelprimary space-y-1 dark:text-sidebartext">
         {currentSubscription?.subscriptionPlan.features.map((feature) => (
           <li className="flex items-center gap-2" key={feature}>
             <span className="h-2 w-2 bg-gray-400 rounded-full"></span>

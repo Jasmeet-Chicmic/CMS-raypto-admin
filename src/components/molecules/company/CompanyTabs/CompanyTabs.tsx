@@ -25,12 +25,12 @@ const CompanyTabs = ({ companyId }: { companyId: string }) => {
   };
 
   return (
-    <div className="flex gap-4 border-b overflow-x-auto">
+    <div className="flex gap-4 border-b borderborder-b border-bordergray200 overflow-x-auto">
       {userTabs.map((tab) => (
         <button
           key={tab.name}
           onClick={() => router.push(tab.path)}
-          className={`px-4 py-2 text-sm font-medium border-b-2 cursor-pointer flex items-center space-x-2 ${
+          className={`px-4 py-2 text-sm font-medium border-b borderborder-b border-bordergray200 cursor-pointer flex items-center space-x-2 ${
             isActiveTab(tab.path)
               ? "text-primary border-primary"
               : "text-gray-500 border-transparent hover:text-primary"
@@ -38,7 +38,7 @@ const CompanyTabs = ({ companyId }: { companyId: string }) => {
           title={tab.description}
         >
           <span className="text-base">{tab.icon}</span>
-          <span className="dark:text-gray-300">{tab.name}</span>
+          <span className="dark:text-darklabelprimary">{tab.name}</span>
         </button>
       ))}
     </div>

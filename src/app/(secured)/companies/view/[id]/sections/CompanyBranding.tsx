@@ -117,11 +117,11 @@ const CompanyBranding = () => {
         <div className="space-y-6">
           {/* Logo */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Company Logo
             </div>
             <div className="flex items-center space-x-4">
-              <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+              <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 dark:bg-labelprimary">
                 <Image
                   src={defaultValues.logo}
                   alt="Company Logo"
@@ -131,7 +131,7 @@ const CompanyBranding = () => {
                 />
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600 dark:bordercolor1">
                   Company logo image
                 </p>
               </div>
@@ -140,10 +140,10 @@ const CompanyBranding = () => {
 
           {/* Cover Image */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Cover Image
             </div>
-            <div className="w-full h-32 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+            <div className="w-full h-32 rounded-lg overflow-hidden bg-gray-100 dark:bg-labelprimary">
               <Image
                 src={defaultValues.coverImage}
                 alt="Cover Image"
@@ -152,14 +152,14 @@ const CompanyBranding = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-sm text-gray-600 dark:bordercolor1 mt-2">
               Company cover image
             </p>
           </div>
 
           {/* Tagline */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Tagline
             </div>
             <p className="text-gray-900 dark:text-sidebartext italic">
@@ -179,7 +179,7 @@ const CompanyBranding = () => {
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -188,7 +188,7 @@ const CompanyBranding = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Logo Section */}
         <div>
-          <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+          <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-3">
             Company Logo
           </div>
           <div className="flex items-center space-x-4">
@@ -225,7 +225,7 @@ const CompanyBranding = () => {
                   </div>
                 </label>
                 {logoFile && (
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm text-gray-600 dark:bordercolor1">
                     {logoFile.name}
                   </span>
                 )}
@@ -239,7 +239,7 @@ const CompanyBranding = () => {
 
         {/* Cover Image Section */}
         <div>
-          <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+          <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-3">
             Cover Image
           </div>
           <div className="relative">
@@ -273,7 +273,7 @@ const CompanyBranding = () => {
                 </div>
               </label>
               {coverFile && (
-                <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                <span className="ml-2 text-sm text-gray-600 dark:bordercolor1">
                   {coverFile.name}
                 </span>
               )}
@@ -288,7 +288,7 @@ const CompanyBranding = () => {
         <div>
           <label
             htmlFor="company-tagline"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
           >
             Tagline
           </label>
@@ -303,7 +303,7 @@ const CompanyBranding = () => {
             })}
             rows={3}
             placeholder="Enter your company tagline..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-sidebartext resize-none"
+            className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext resize-none"
           />
           {errors.tagline && (
             <p className="text-red-500 text-[0.875] mt-1">
@@ -317,10 +317,10 @@ const CompanyBranding = () => {
 
         {/* Brand Guidelines */}
         <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
-          <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <h4 className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
             Brand Guidelines
           </h4>
-          <ul className="text-[0.875] text-gray-600 dark:text-gray-400 space-y-1">
+          <ul className="text-[0.875] text-gray-600 dark:bordercolor1 space-y-1">
             {COMPANY_BRANDING.BRAND_GUIDELINES.map((Guidelines, index) => (
               <li key={Guidelines + index}>
                 {index + 1}. {Guidelines}
@@ -334,7 +334,7 @@ const CompanyBranding = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

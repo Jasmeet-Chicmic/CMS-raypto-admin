@@ -14,7 +14,7 @@ const ApplicationsLoading = () => {
         <div className="flex items-center gap-2 w-72">
           <div className="relative w-full">
             <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
-            <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full h-10" />
+            <Skeleton className="pl-10 pr-4 py-2 border bordergray200 rounded-lg w-full h-10" />
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ const ApplicationsLoading = () => {
           </div>
 
           {/* Bottom Row: Rating, Location, Buttons */}
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-darkbgprimary">
+          <div className="flex items-center justify-between mt-4 pt-4 border-t bordergray200 dark:border-darkbgprimary">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1 text-gray-500">
                 {Array.from(new Array(5)).map((_, starId) => (
