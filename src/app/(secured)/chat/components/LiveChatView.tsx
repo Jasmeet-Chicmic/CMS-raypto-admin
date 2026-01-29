@@ -227,7 +227,7 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
               </div>
               <button
                 onClick={handleRefresh}
-                className={`p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-gray-700 text-[#4F46E5] dark:text-bgwhite transition-all ${isRefreshing ? "animate-spin" : ""}`}
+                className={`p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-gray-700 text-bgpurple1 dark:text-bgwhite transition-all ${isRefreshing ? "animate-spin" : ""}`}
                 disabled={isRefreshing}
                 title="Refresh messages"
               >
@@ -235,7 +235,7 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
               </button>
               <button
                 onClick={() => setIsRulesModalOpen(true)}
-                className="p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-darkbgprimary text-[#4F46E5] dark:text-bgwhite transition-all"
+                className="p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-darkbgprimary text-bgpurple1 dark:text-bgwhite transition-all"
                 title="Chat Rules"
               >
                 <Info size={18} />

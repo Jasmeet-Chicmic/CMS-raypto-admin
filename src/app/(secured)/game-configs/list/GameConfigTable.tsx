@@ -194,7 +194,7 @@ const GameConfigTable = ({
             {item.amountLimit.slice(0, 2).map((limit) => (
               <div
                 key={`${item._id}-${limit.currency}`}
-                className="flex flex-col px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-sm hover:border-[#4F46E5]/30 group min-w-[100px]"
+                className="flex flex-col px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-sm hover:border-bgpurple1/30 group min-w-[100px]"
               >
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-primarycolor" />
@@ -214,7 +214,7 @@ const GameConfigTable = ({
             {remainingCount > 0 && (
               <button
                 onClick={() => setSelectedBetLimitItem(item)}
-                className="flex items-center justify-center px-3 py-1.5 rounded-xl border border-dashed border-[#4F46E5]/30 dark:border-indigo-500/30 text-[12px] font-bold text-[#4F46E5] dark:text-indigo-400 bg-primarycolor/5 dark:bg-indigo-500/10 hover:bg-primarycolor/10 dark:hover:bg-indigo-500/20 cursor-pointer transition-all min-w-[80px]"
+                className="flex items-center justify-center px-3 py-1.5 rounded-xl border border-dashed border-bgpurple1/30 dark:border-indigo-500/30 text-[12px] font-bold text-bgpurple1 dark:text-indigo-400 bg-primarycolor/5 dark:bg-indigo-500/10 hover:bg-primarycolor/10 dark:hover:bg-indigo-500/20 cursor-pointer transition-all min-w-[80px]"
               >
                 +{remainingCount} More
               </button>
@@ -405,7 +405,7 @@ const GameConfigTable = ({
                   {selectedBetLimitItem.amountLimit.map((limit) => (
                     <div
                       key={`modal-${selectedBetLimitItem._id}-${limit.currency}`}
-                      className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-[#4F46E5]/30"
+                      className="flex flex-col px-4 py-3 rounded-xl bg-gray-50 dark:bg-darkbgprimary/40 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:border-bgpurple1/30"
                     >
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className="w-2 h-2 rounded-full bg-primarycolor" />

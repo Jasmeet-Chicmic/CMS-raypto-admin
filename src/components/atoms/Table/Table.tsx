@@ -43,9 +43,9 @@ function SortIcon({
     );
   }
   return direction === 1 ? (
-    <ChevronUp size={14} className="text-[#4F46E5]" />
+    <ChevronUp size={14} className="text-bgpurple1" />
   ) : (
-    <ChevronDown size={14} className="text-[#4F46E5]" />
+    <ChevronDown size={14} className="text-bgpurple1" />
   );
 }
 
@@ -97,7 +97,7 @@ export function Table<T>({
                 <div className="flex items-center justify-center">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 rounded-md border-[#F4F7FE] dark:border-darkbgprimary text-[#4F46E5] focus:ring-[#4F46E5] cursor-pointer transition-all"
+                    className="w-4 h-4 rounded-md border-[#F4F7FE] dark:border-darkbgprimary text-bgpurple1 focus:ring-bgpurple1 cursor-pointer transition-all"
                     checked={
                       !!selectedRows.length &&
                       !!data.length &&
@@ -206,7 +206,7 @@ export function Table<T>({
                     <div className="flex items-center justify-center">
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded-md border-gray-300 dark:border-gray-700 text-[#4F46E5] focus:ring-[#4F46E5] cursor-pointer"
+                        className="w-4 h-4 rounded-md border-gray-300 dark:border-gray-700 text-bgpurple1 focus:ring-bgpurple1 cursor-pointer"
                         checked={!!selectedRows?.includes(keyExtractor(item))}
                         onChange={(e) => {
                           e.stopPropagation();
@@ -277,8 +277,8 @@ export function Table<T>({
       {isLoading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bgbgwhite/60 dark:bg-[#111827]/60 backdrop-blur-sm transition-all">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 border-4 border-[#4F46E5] border-t-transparent rounded-full animate-spin shadow-lg shadow-indigo-500/20" />
-            <span className="text-[12px] font-bold text-[#4F46E5] dark:text-sidebartext tracking-wider uppercase">
+            <div className="w-10 h-10 border-4 border-bgpurple1 border-t-transparent rounded-full animate-spin shadow-lg shadow-indigo-500/20" />
+            <span className="text-[12px] font-bold text-bgpurple1 dark:text-sidebartext tracking-wider uppercase">
               Loading...
             </span>
           </div>

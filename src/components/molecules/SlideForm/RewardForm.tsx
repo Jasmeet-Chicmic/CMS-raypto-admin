@@ -87,7 +87,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         Number.parseInt(e.target.value),
                       )
                     }
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext appearance-none"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -124,7 +124,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       )
                     }
                     placeholder="0.00"
-                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
                   />
                 </div>
               </div>
@@ -143,7 +143,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         e.target.checked,
                       )
                     }
-                    className="w-5 h-5 text-[#4F46E5] border-gray-300 rounded-lg focus:ring-[#4F46E5] dark:bg-gray-700 dark:border-gray-600 transition-colors"
+                    className="w-5 h-5 text-bgpurple1 border-gray-300 rounded-lg focus:ring-bgpurple1 dark:bg-gray-700 dark:border-gray-600 transition-colors"
                   />
                   <label
                     htmlFor={`withdrawable-${index}`}

@@ -24,7 +24,7 @@ const UserTabs = ({ userId }: { userId: string }) => {
           onClick={() => router.push(tab.path, { scroll: false })}
           className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
             pathname.includes(tab.path)
-              ? "text-[#4F46E5] dark:text-sidebartext"
+              ? "text-bgpurple1 dark:text-sidebartext"
               : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
           }`}
         >

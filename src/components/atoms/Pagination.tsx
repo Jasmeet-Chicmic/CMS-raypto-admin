@@ -24,7 +24,7 @@ export const PageLabel = ({
     size="sm"
     className={`w-8 h-8 p-0 min-w-0 flex items-center justify-center transition-all ${
       page === currentPage
-        ? "shadow-sm shadow-[#4F46E5]/20"
+        ? "shadow-sm shadow-bgpurple1/20"
         : "text-textprimary bg-transparent hover:bg-gray-50 dark:text-sidebartext dark:hover:bg-gray-800"
     }`}
   >
@@ -65,7 +65,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <div className="relative">
             <select
               id="pageSize"
-              className="appearance-none border border-gray-100 rounded-[10px] px-3 py-1.5 text-sm bg-bgwhite text-textprimary font-bold outline-none hover:border-[#4F46E5] focus:border-[#4F46E5] cursor-pointer transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-gray-200 min-w-[70px]"
+              className="appearance-none border border-gray-100 rounded-[10px] px-3 py-1.5 text-sm bg-bgwhite text-textprimary font-bold outline-none hover:border-bgpurple1 focus:border-bgpurple1 cursor-pointer transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-gray-200 min-w-[70px]"
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
               disabled={totalItems === 0}
@@ -126,7 +126,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-[#4F46E5] bg-transparent hover:bg-gray-50 dark:text-sidebartext dark:hover:bg-gray-800 dark:hover:text-bgwhite"
+                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-sidebartext dark:hover:bg-gray-800 dark:hover:text-bgwhite"
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -135,7 +135,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-[#4F46E5] bg-transparent hover:bg-gray-50 dark:text-sidebartext dark:hover:bg-gray-800 dark:hover:text-bgwhite"
+                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-sidebartext dark:hover:bg-gray-800 dark:hover:text-bgwhite"
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>

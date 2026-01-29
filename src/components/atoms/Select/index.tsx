@@ -96,13 +96,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected
-        ? "#c4ff0e"
+        ? "#FF5722"
         : state.isFocused
           ? isDark
             ? "#374151"
             : "#F3F4F6"
           : "transparent",
-      color: state.isSelected ? "#000000" : isDark ? "#F9FAFB" : "#1A1A1A",
+      color: state.isSelected ? "#ffffff" : isDark ? "#F9FAFB" : "#1A1A1A",
       fontSize: "14px",
       fontWeight: state.isSelected ? 600 : 500,
       padding: "10px 12px",
@@ -118,13 +118,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: isDark ? "#1A1A1A" : "#c4ff0e",
+      backgroundColor: isDark ? "#1A1A1A" : "#FF5722",
       borderRadius: "6px",
       padding: "2px 4px",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: isDark ? "#F9FAFB" : "#c4ff0e",
+      color: isDark ? "#F9FAFB" : "#FF5722",
       fontSize: "13px",
       fontWeight: 500,
     }),
@@ -134,7 +134,7 @@ const Select = <OptionType, IsMulti extends boolean = false>(
       borderRadius: "4px",
       "&:hover": {
         backgroundColor: isDark ? "#4B5563" : "#C7D2FE",
-        color: isDark ? "#F9FAFB" : "#c4ff0e",
+        color: isDark ? "#F9FAFB" : "#FF5722",
       },
     }),
     noOptionsMessage: (provided) => ({

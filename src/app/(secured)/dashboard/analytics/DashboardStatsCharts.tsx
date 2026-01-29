@@ -240,14 +240,14 @@ const DashboardStatsCharts = ({
           title="Active Users"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-bgblack dark:text-bgblack" />}
+          icon={<Users className="w-6 h-6 text-white dark:text-white" />}
           color="bg-primarycolor dark:bg-primarycolor"
         />
         <StatCard
           title="Active Games"
           value={data.totalEnabledGames}
           // subtitle="Ongoing bets"
-          icon={<Activity className="w-6 h-6 text-bgwhite dark:text-bgblack" />}
+          icon={<Activity className="w-6 h-6 text-bgwhite dark:text-bgwhite" />}
           color="bg-bgblue dark:bg-bgblue"
         />
         <StatCard
@@ -255,7 +255,7 @@ const DashboardStatsCharts = ({
           value={formatCurrency(data.totalBetAmount24Hrs)}
           // subtitle="Last 24 hours"
           icon={
-            <TrendingUp className="w-6 h-6 text-bgwhite dark:text-bgblack" />
+            <TrendingUp className="w-6 h-6 text-bgwhite dark:text-bgwhite" />
           }
           color="bg-bgorange dark:bg-bgorange"
         />
@@ -263,21 +263,21 @@ const DashboardStatsCharts = ({
           title="Total Profit"
           value={formatCurrency(data.totalProfit)}
           // subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
           color="bg-[#F4F7FE] dark:bg-primarycolor"
         /> */}
         {/* <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
           iconBgColor="bg-[#F4F7FE] dark:bg-primarycolor"
         />
         <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
           iconBgColor="bg-[#F4F7FE] dark:bg-primarycolor"
         /> */}
         {data.totalProfit && data.totalProfit.length > 0 && (

@@ -165,7 +165,7 @@ const DateRangeFilter = ({
         {hasFilters && (
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 border-2 border-bgprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-[#4F46E5] dark:text-[#4F46E5]"
+            className="flex-1 px-4 py-2 border-2 border-bgprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-bgpurple1 dark:text-bgpurple1"
           >
             Clear
           </button>

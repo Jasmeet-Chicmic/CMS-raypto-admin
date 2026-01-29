@@ -121,7 +121,7 @@ const BonusBoxForm = ({
             type="text"
             value="Claim"
             readOnly
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext bg-gray-50 cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext bg-gray-50 cursor-not-allowed"
           />
         </div>
 
@@ -145,7 +145,7 @@ const BonusBoxForm = ({
                 handleFieldChange("expireAt", "");
               }
             }}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
           />
         </div>
 

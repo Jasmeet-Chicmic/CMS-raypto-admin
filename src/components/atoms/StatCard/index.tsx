@@ -43,7 +43,7 @@ const StatCard: React.FC<
       <div className="flex items-center justify-between">
         <div className="flex-1">
           {displayTitle && (
-            <p className="text-[0.875rem] font-medium text-[#364153] dark:text-[#D1D5D0] mb-0 group-hover:!text-bgwhite transition-colors duration-300">
+            <p className="text-[0.875rem] font-medium text-textparagraph dark:text-darktextparagraphlight mb-0 group-hover:!text-bgwhite transition-colors duration-300">
               {displayTitle}
             </p>
           )}
@@ -74,7 +74,7 @@ const StatCard: React.FC<
           <div
             className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
               displayColor || "bg-gray-100 dark:bg-darkbgprimary"
-            } group-hover:bg-bgwhite group-hover:text-[#4F46E5] [&_svg]:group-hover:!text-[#4F46E5]`}
+            } group-hover:bg-bgwhite group-hover:text-bgpurple1 [&_svg]:group-hover:!text-bgpurple1`}
           >
             {displayIcon}
           </div>

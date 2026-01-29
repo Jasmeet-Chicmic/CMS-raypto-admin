@@ -61,8 +61,10 @@ module.exports = {
         textparagraph: "#4a5565",
         textparagraphlight: "#99A1AF",
         textparagraphlight2: "#D1D1C6",
+        darktextparagraphlight: "#D1D5D0",
         // Border Colors
         bordercolor1: "#E5E7EB",
+        bordercolor2: "#374151",
         darkbordercolor1: "#1E2939",
       },
       fontSize: {

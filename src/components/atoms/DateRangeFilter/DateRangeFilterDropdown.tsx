@@ -191,7 +191,7 @@ const DateRangeFilterDropdown = ({
                 value={fromDate}
                 onChange={(e) => handleFromDateChange(e.target.value)}
                 max={today}
-                className="px-4 py-2.5 border border-darkbordercolor1 rounded-lg transition-all duration-200 dark:bg-darkbgprimary dark:border-[#4F46E540] dark:text-sidebartext font-medium cursor-pointer"
+                className="px-4 py-2.5 border border-bordercolor1 rounded-lg transition-all duration-200 dark:bg-darkbgprimary dark:border-bordercolor1 dark:text-sidebartext font-medium cursor-pointer"
               />
             </div>
 
@@ -211,10 +211,10 @@ const DateRangeFilterDropdown = ({
                 disabled={!fromDate}
                 min={fromDate}
                 max={getMaxToDate()}
-                className={`px-4 py-2.5 border border-darkbordercolor1 rounded-lg dark:bg-darkbgprimary dark:text-sidebartext font-medium transition-all duration-200 ${
+                className={`px-4 py-2.5 border border-bordercolor1 rounded-lg dark:bg-darkbgprimary dark:text-sidebartext font-medium transition-all duration-200 ${
                   !fromDate
-                    ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-gray-300 dark:border-gray-700"
-                    : "border-[#4F46E540] cursor-pointer"
+                    ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-bordercolor1 dark:border-bordercolor1"
+                    : "border-bordercolor1 cursor-pointer"
                 }`}
               />
             </div>

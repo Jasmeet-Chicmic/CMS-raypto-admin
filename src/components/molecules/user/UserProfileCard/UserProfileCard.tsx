@@ -23,7 +23,7 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
         <div className="flex flex-col items-center text-center mb-0">
           {/* Profile Image with Gradient Background */}
           <div className="relative mb-6">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#e8ecff] to-[#f4f7fe] dark:from-[#3311CC]/20 dark:to-[#4F46E5]/20 flex items-center justify-center p-1">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#e8ecff] to-[#f4f7fe] dark:from-[#3311CC]/20 dark:to-bgpurple1/20 flex items-center justify-center p-1">
               <Image
                 src={dummyProfile}
                 alt={firstName}
@@ -70,7 +70,7 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           {/* Wallet */}
           <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
             <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <WalletIcon className="w-4 h-4 text-[#4F46E5]" />
+              <WalletIcon className="w-4 h-4 text-bgpurple1" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">
@@ -85,7 +85,7 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           {/* Email */}
           <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
             <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <Mail className="w-4 h-4 text-[#4F46E5]" />
+              <Mail className="w-4 h-4 text-bgpurple1" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">
@@ -100,7 +100,7 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           {/* Phone */}
           <div className="flex items-center gap-3 p-3 bg-[#F4F7FE] dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
             <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <Phone className="w-4 h-4 text-[#4F46E5]" />
+              <Phone className="w-4 h-4 text-bgpurple1" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-semibold text-sidebartext dark:text-gray-400 uppercase tracking-wide">

@@ -178,7 +178,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
               >
                 <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-darkbgprimary">
                   <div className="p-3 bg-[#F4F7FE] dark:bg-primarycolor rounded-2xl">
-                    <Coins className="w-6 h-6 text-[#4F46E5] dark:text-sidebartext" />
+                    <Coins className="w-6 h-6 text-bgpurple1 dark:text-sidebartext" />
                   </div>
                   <div>
                     <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite leading-none">
@@ -195,7 +195,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                   {/* Login Reward Payout */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-bgpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
                         <InputField<FormValues>
                           name={`currencyWiseConfigs.${index}.loginRewardPayout`}
                           label="Login Reward Payout"
@@ -215,7 +215,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                         </div>
                         <div className="flex items-center gap-4">
                           <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Wallet className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
+                            <Wallet className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                           </div>
                           <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                             {currencyWiseConfigs[
@@ -232,7 +232,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                   {/* Deposit Bonus Percentage */}
                   <div className="group">
                     {isEditing ? (
-                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-[#4F46E5] focus-within:ring-1 focus-within:ring-[#4F46E5]">
+                      <div className="p-4 bg-[#F4F7FE] dark:bg-darkbgprimary/40 rounded-2xl border border-gray-100 dark:border-darkbgprimary transition-all duration-300 focus-within:border-bgpurple1 focus-within:ring-1 focus-within:ring-bgpurple1">
                         <InputField<FormValues>
                           name={`currencyWiseConfigs.${index}.depositBonusPercentage`}
                           label="Deposit Bonus Percentage"
@@ -253,7 +253,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                         </div>
                         <div className="flex items-center gap-4">
                           <div className="p-3 bg-bgwhite dark:bg-primarycolor rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                            <Percent className="w-5 h-5 text-[#4F46E5] dark:text-sidebartext" />
+                            <Percent className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                           </div>
                           <div className="flex items-baseline gap-1">
                             <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
@@ -262,7 +262,7 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                                 field.depositBonusPercentage ||
                                 0}
                             </span>
-                            <span className="text-xl font-bold text-[#4F46E5]">
+                            <span className="text-xl font-bold text-bgpurple1">
                               %
                             </span>
                           </div>

@@ -162,7 +162,7 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
 
     return (
       <div
-        className="text-textprimary dark:text-gray-300 text-sm break-all leading-relaxed font-medium [&_a]:text-[#4F46E5] dark:[&_a]:text-[#4F46E5] [&_a]:font-bold [&_a]:no-underline [&_a:hover]:underline [&_.user-reference]:text-[#4F46E5] dark:[&_.user-reference]:text-indigo-400"
+        className="text-textprimary dark:text-gray-300 text-sm break-all leading-relaxed font-medium [&_a]:text-bgpurple1 dark:[&_a]:text-bgpurple1 [&_a]:font-bold [&_a]:no-underline [&_a:hover]:underline [&_.user-reference]:text-bgpurple1 dark:[&_.user-reference]:text-indigo-400"
         dangerouslySetInnerHTML={{
           __html: message?.message || "",
         }}
@@ -203,7 +203,7 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
       <div className="flex items-start gap-4">
         {/* Avatar - Round with gradient and shadow */}
         <div className="relative flex-shrink-0">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#868CFF] to-[#4F46E5] flex items-center justify-center text-bgwhite font-bold text-sm shadow-lg shadow-indigo-500/20 overflow-hidden uppercase">
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#868CFF] to-bgpurple1 flex items-center justify-center text-bgwhite font-bold text-sm shadow-lg shadow-indigo-500/20 overflow-hidden uppercase">
             {getInitials(message?.senderUser?.name || message?.senderName)}
           </div>
           <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 borderbgwhite dark:border-darkbgprimary rounded-full shadow-sm"></div>

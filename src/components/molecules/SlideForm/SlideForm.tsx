@@ -215,7 +215,7 @@ const SlideForm = ({
                   onChange={(e) => setTitle(e.target.value)}
                   maxLength={100}
                   placeholder="Enter slide title"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-bgpurple1 transition-all dark:bg-darkbgprimary dark:border-gray-700 dark:text-sidebartext"
                 />
                 {errors.title && (
                   <p className="text-red-500 text-[0.875rem] mt-2 font-medium">

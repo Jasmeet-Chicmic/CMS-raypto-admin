@@ -204,10 +204,10 @@ const ImageUpload = ({
           relative overflow-hidden rounded-[20px] border-2 border-dashed transition-all duration-300 cursor-pointer group w-full text-left
           ${
             isDragging
-              ? "border-[#4F46E5] bg-primarycolor/5 dark:bg-primarycolor/10"
+              ? "border-bgpurple1 bg-primarycolor/5 dark:bg-primarycolor/10"
               : preview
                 ? "border-transparent"
-                : "border-gray-200 dark:border-darkbgprimary bg-gray-50/50 dark:bg-darkbgprimary/30 hover:border-[#4F46E5]/50 hover:bg-primarycolor/5 dark:hover:bg-primarycolor/10"
+                : "border-gray-200 dark:border-darkbgprimary bg-gray-50/50 dark:bg-darkbgprimary/30 hover:border-bgpurple1/50 hover:bg-primarycolor/5 dark:hover:bg-primarycolor/10"
           }
           ${disabled ? "opacity-50 cursor-not-allowed" : ""}
           ${previewClassName}
@@ -262,8 +262,8 @@ const ImageUpload = ({
             {isUploading && (
               <div className="absolute inset-0 bgbgwhite/60 dark:bg-[#111827]/60 backdrop-blur-sm flex items-center justify-center z-20">
                 <div className="flex flex-col items-center gap-2">
-                  <Loader2 size={32} className="text-[#4F46E5] animate-spin" />
-                  <span className="text-xs font-bold text-[#4F46E5] uppercase tracking-wider">
+                  <Loader2 size={32} className="text-bgpurple1 animate-spin" />
+                  <span className="text-xs font-bold text-bgpurple1 uppercase tracking-wider">
                     Uploading
                   </span>
                 </div>
@@ -275,8 +275,8 @@ const ImageUpload = ({
           <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-6">
             {isUploading ? (
               <div className="flex flex-col items-center gap-3">
-                <Loader2 size={40} className="text-[#4F46E5] animate-spin" />
-                <p className="text-sm font-bold text-[#4F46E5] uppercase tracking-wider">
+                <Loader2 size={40} className="text-bgpurple1 animate-spin" />
+                <p className="text-sm font-bold text-bgpurple1 uppercase tracking-wider">
                   Processing...
                 </p>
               </div>
@@ -284,11 +284,11 @@ const ImageUpload = ({
               <>
                 <div className="w-16 h-16 rounded-[20px] bg-bgwhite dark:bg-darkbgprimary flex items-center justify-center mb-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md">
                   {isDragging ? (
-                    <Upload size={28} className="text-[#4F46E5]" />
+                    <Upload size={28} className="text-bgpurple1" />
                   ) : (
                     <ImageIcon
                       size={28}
-                      className="text-[#4F46E5] opacity-60"
+                      className="text-bgpurple1 opacity-60"
                     />
                   )}
                 </div>
