@@ -42,20 +42,20 @@ const CustomModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/10 backdrop-blur-sm dark:bg-gray-900/50">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/10 backdrop-blur-sm dark:bg-[#111827]/50">
       <CheckClickOutside
         onClick={onClose}
         className={clsx("w-full", sizeClassMap[size], className)}
       >
         <div
-          className={`bg-white rounded-lg shadow-lg p-6 relative dark:bg-gray-900 dark:border-gray-800 ${className}`}
+          className={`bg-white rounded-lg shadow-lg p-6 relative dark:bg-[#1a1a1a] dark:border-[#1e2939] ${className}`}
           role="dialog"
           aria-modal="true"
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg dark:text-white"
+            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg dark:text-[#CCCFD1]"
             aria-label="Close"
           >
             ✕
@@ -63,7 +63,7 @@ const CustomModal = ({
 
           {/* Title */}
           {title && (
-            <h3 className="text-lg font-semibold mb-4 dark:text-white">
+            <h3 className="text-lg font-semibold mb-4 dark:text-[#CCCFD1]">
               {title}
             </h3>
           )}

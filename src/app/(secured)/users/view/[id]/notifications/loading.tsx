@@ -7,7 +7,7 @@ const NotificationsLoading = () => {
   const baseId = useId();
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 space-y-6 animate-pulse dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-white rounded-lg border border-gray-200 p-6 space-y-6 animate-pulse dark:bg-[#1a1a1a] dark:border-[#1e2939]">
       {/* Header */}
       <div>
         <Skeleton className="h-6 w-40 mb-2" />
@@ -16,7 +16,7 @@ const NotificationsLoading = () => {
       </div>
 
       {/* Table Header */}
-      <div className="grid grid-cols-4 gap-4 py-3 border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800">
+      <div className="grid grid-cols-4 gap-4 py-3 border-b border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         <Skeleton className="h-4 w-20" />
         <Skeleton className="h-4 w-12 mx-auto" />
         <Skeleton className="h-4 w-12 mx-auto" />
@@ -24,7 +24,7 @@ const NotificationsLoading = () => {
       </div>
 
       {/* Table Body */}
-      <div className="divide-y divide-gray-200 space-y-2 dark:bg-gray-900 dark:border-gray-800">
+      <div className="divide-y divide-gray-200 space-y-2 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         {Array.from(new Array(4)).map((_, rowId) => (
           <div
             key={`${baseId}-row-${rowId}`}
@@ -39,7 +39,7 @@ const NotificationsLoading = () => {
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-3 mt-6 dark:bg-gray-900 dark:border-gray-800">
+      <div className="flex gap-3 mt-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         <Skeleton className="h-10 w-32 rounded" />
         <Skeleton className="h-10 w-24 rounded" />
       </div>

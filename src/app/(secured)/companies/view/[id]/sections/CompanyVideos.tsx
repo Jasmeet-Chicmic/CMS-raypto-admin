@@ -97,7 +97,7 @@ const CompanyVideos = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
             Videos
           </h3>
           <button
@@ -119,7 +119,7 @@ const CompanyVideos = () => {
             {fields.map((video) => (
               <div
                 key={video.id}
-                className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4"
+                className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-4"
               >
                 <div className="aspect-video mb-4">
                   <iframe
@@ -129,7 +129,7 @@ const CompanyVideos = () => {
                     allowFullScreen
                   />
                 </div>
-                <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white mb-2">
+                <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff] mb-2">
                   {video.title}
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -146,7 +146,7 @@ const CompanyVideos = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           Videos
         </h3>
         <div className="flex space-x-2">
@@ -184,7 +184,7 @@ const CompanyVideos = () => {
             {fields.map((video, index) => (
               <div
                 key={video.id}
-                className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+                className="bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Video Preview */}
@@ -217,7 +217,7 @@ const CompanyVideos = () => {
                         {...register(`videos.${index}.title` as const, {
                           required: "Title is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.videos?.[index]?.title && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -244,7 +244,7 @@ const CompanyVideos = () => {
                           },
                         })}
                         placeholder="https://www.youtube.com/watch?v=..."
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.videos?.[index]?.url && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -271,7 +271,7 @@ const CompanyVideos = () => {
                           },
                         })}
                         placeholder="2:30"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.videos?.[index]?.duration && (
                         <p className="text-red-500 text-[0.875] mt-1">

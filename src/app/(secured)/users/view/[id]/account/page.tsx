@@ -31,7 +31,7 @@ const AccountPage = async ({
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow p-4 dark:bg-gray-900 dark:border-gray-800"></div>
+      <div className="bg-white rounded-lg shadow p-4 dark:bg-[#1a1a1a] dark:border-[#1e2939]"></div>
     </div>
   );
 };

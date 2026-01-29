@@ -52,9 +52,9 @@ const BonusBoxForm = ({
   }, [box.buttonText]);
 
   return (
-    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-[24px] p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#868CFF]/30">
-      <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-gray-800">
-        <h3 className="text-[1.125rem] font-bold text-[#1B2559] dark:text-white">
+    <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-[#1A1A1A] rounded-[24px] p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#868CFF]/30">
+      <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-[#1A1A1A]">
+        <h3 className="text-[1.125rem] font-bold text-[#1B2559] dark:text-[#CCCFD1]">
           Card {index + 1}
         </h3>
         {canRemove && (
@@ -121,7 +121,7 @@ const BonusBoxForm = ({
             type="text"
             value="Claim"
             readOnly
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-[#CCCFD1] bg-gray-50 cursor-not-allowed"
           />
         </div>
 
@@ -145,7 +145,7 @@ const BonusBoxForm = ({
                 handleFieldChange("expireAt", "");
               }
             }}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-[#CCCFD1]"
           />
         </div>
 

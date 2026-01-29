@@ -33,7 +33,7 @@ const ViewerCard = ({
         <div>
           <p className="font-semibold text-black">{name}</p>
           <p className="text-sm text-gray-700">{description}</p>
-          <p className="text-[0.875rem] text-[#A3AED0] mt-1">
+          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">
             Viewed {timeViewed}
           </p>
         </div>

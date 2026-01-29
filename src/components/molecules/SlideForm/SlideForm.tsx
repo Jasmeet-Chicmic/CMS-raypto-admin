@@ -171,13 +171,13 @@ const SlideForm = ({
     <>
       <div className="space-y-6 mt-0 w-full">
         {/* Header Section */}
-        <div className="bg-white dark:bg-gray-900">
+        <div className="bg-white dark:bg-[#111827]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
                 {isEdit ? "Edit Slide" : "Create New Slide"}
               </h1>
-              <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
                 {isEdit
                   ? "Modify existing slide content"
                   : "Add a new promotional slide"}
@@ -185,7 +185,7 @@ const SlideForm = ({
             </div>
             <button
               onClick={handleCancel}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-500 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-500 bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to List</span>
@@ -197,7 +197,7 @@ const SlideForm = ({
         <SlidePreview title={title} boxes={boxes} isProminent={!isEdit} />
 
         {/* Form Section - Below */}
-        <div className="bg-white dark:bg-gray-900 rounded-[24px] shadow-sm p-6 border border-gray-200 dark:border-gray-800">
+        <div className="bg-white dark:bg-[#111827] rounded-[24px] shadow-sm p-6 border border-gray-200 dark:border-[#1A1A1A]">
           <form onSubmit={handleSubmit}>
             {/* Title and Active Toggle - Same Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -215,7 +215,7 @@ const SlideForm = ({
                   onChange={(e) => setTitle(e.target.value)}
                   maxLength={100}
                   placeholder="Enter slide title"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-[#CCCFD1]"
                 />
                 {errors.title && (
                   <p className="text-red-500 text-[0.875rem] mt-2 font-medium">
@@ -230,7 +230,7 @@ const SlideForm = ({
               </div>
 
               <div className="flex items-center">
-                <div className="bg-[#F4F7FE] dark:bg-gray-800/50 border border-transparent dark:border-gray-700 rounded-xl p-5 w-full transition-all hover:shadow-md">
+                <div className="bg-[#F4F7FE] dark:bg-[#1A1A1A]/50 border border-transparent dark:border-gray-700 rounded-xl p-5 w-full transition-all hover:shadow-md">
                   <Switch
                     enabled={isActive}
                     onToggle={() => setIsActive(!isActive)}
@@ -242,12 +242,12 @@ const SlideForm = ({
 
             {/* Cards Section */}
             <div className="mb-6">
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200 dark:border-[#1A1A1A]">
                 <div>
-                  <h2 className="text-lg font-bold text-[#1B2559] dark:text-white">
+                  <h2 className="text-lg font-bold text-[#1B2559] dark:text-[#CCCFD1]">
                     Slider Cards
                   </h2>
-                  <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+                  <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
                     {boxes.length} of 4 cards added
                   </p>
                 </div>
@@ -255,7 +255,7 @@ const SlideForm = ({
                   <button
                     type="button"
                     onClick={handleAddBox}
-                    className="px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-purple-700 transition flex items-center gap-2"
+                    className="px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-lg hover:bg-purple-700 transition flex items-center gap-2"
                   >
                     <Plus className="w-4 h-4" />
                     Add Card
@@ -280,18 +280,18 @@ const SlideForm = ({
             </div>
 
             {/* Submit Buttons */}
-            <div className="flex gap-4 justify-end pt-0 dark:border-gray-800">
+            <div className="flex gap-4 justify-end pt-0 dark:border-[#1A1A1A]">
               <button
                 type="button"
                 onClick={handleCancel}
-                className="px-8 py-3 text-gray-500 font-semibold bg-gray-50 rounded-xl hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-300"
+                className="px-8 py-3 text-gray-500 font-semibold bg-gray-50 rounded-xl hover:bg-gray-100 dark:bg-[#1A1A1A] dark:hover:bg-gray-700 transition-all duration-300"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-[#4F46E5] text-white rounded-xl hover:bg-[#3311db] hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold"
+                className="px-8 py-3 bg-[#C4FF0E] text-[#000000] rounded-xl hover:bg-[#3311db] hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold"
               >
                 {isSubmitting
                   ? "Saving..."

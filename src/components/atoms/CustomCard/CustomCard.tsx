@@ -25,7 +25,7 @@ const CustomCard = ({
   const t = useTranslations("language");
   return (
     <div
-      className={`bg-white shadow-customsm rounded-[5px] py-[25px] w-full dark:bg-gray-900 ${className}`}
+      className={`bg-white shadow-customsm rounded-[5px] py-[25px] w-full dark:bg-[#111827] ${className}`}
     >
       {(title || subtitle) && (
         <div className="mb-[10px] px-[25px]">

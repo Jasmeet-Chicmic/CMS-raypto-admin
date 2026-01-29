@@ -24,14 +24,14 @@ const PlanDetailsCard = async ({
   console.log(currentSubscription, "ajsndjkansdjk");
   return (
     <div
-      className="border border-indigo-400 rounded-lg p-6 shadow-sm space-y-4 bg-white mt-3 dark:bg-gray-900 dark:border-gray-800"
+      className="border border-indigo-400 rounded-lg p-6 shadow-sm space-y-4 bg-white mt-3 dark:bg-[#1a1a1a] dark:border-[#1e2939]"
       style={{
         width: "100%",
         borderColor: currentSubscription?.subscriptionPlan.color,
       }}
     >
       <span
-        className="text-[0.875] font-medium bg-indigo-100 text-indigo-600 px-2 py-1 rounded dark:bg-gray-800 dark:text-white"
+        className="text-[0.875] font-medium bg-indigo-100 text-indigo-600 px-2 py-1 rounded dark:bg-[#1A1A1A] dark:text-[#CCCFD1]"
         style={{
           backgroundColor: currentSubscription?.subscriptionPlan.color + "30",
           color: currentSubscription?.subscriptionPlan.color,
@@ -41,7 +41,7 @@ const PlanDetailsCard = async ({
       </span>
 
       <div
-        className="text-indigo-600 text-4xl font-bold text-end dark:text-white"
+        className="text-indigo-600 text-4xl font-bold text-end dark:text-[#CCCFD1]"
         style={{
           color: currentSubscription?.subscriptionPlan.color,
         }}
@@ -51,7 +51,7 @@ const PlanDetailsCard = async ({
         SUBSCRIPTION_PURCHASE_TYPE.MONTHLY
           ? currentSubscription?.subscriptionPlan.monthlyPrice
           : currentSubscription?.subscriptionPlan.yearlyPrice}
-        <span className="text-base text-gray-600 font-medium dark:text-white">
+        <span className="text-base text-gray-600 font-medium dark:text-[#CCCFD1]">
           /
           {currentSubscription?.subscriptionPurchaseType ===
           SUBSCRIPTION_PURCHASE_TYPE.MONTHLY
@@ -60,7 +60,7 @@ const PlanDetailsCard = async ({
         </span>
       </div>
 
-      <ul className="text-sm text-gray-700 space-y-1 dark:text-white">
+      <ul className="text-sm text-gray-700 space-y-1 dark:text-[#CCCFD1]">
         {currentSubscription?.subscriptionPlan.features.map((feature) => (
           <li className="flex items-center gap-2" key={feature}>
             <span className="h-2 w-2 bg-gray-400 rounded-full"></span>
@@ -69,7 +69,7 @@ const PlanDetailsCard = async ({
         ))}
       </ul>
 
-      <div className="mt-4 text-sm text-gray-600 dark:text-white">
+      <div className="mt-4 text-sm text-gray-600 dark:text-[#CCCFD1]">
         <div className="flex justify-between mb-1 font-medium">
           <span>Days</span>
           <span>
@@ -106,7 +106,7 @@ const PlanDetailsCard = async ({
           ></div>
         </div>
 
-        <p className="mt-1 text-[0.875rem] text-[#A3AED0] dark:text-white">
+        <p className="mt-1 text-[0.875rem] text-[#CCCFD1] dark:text-[#CCCFD1]">
           {differenceInDays(
             new Date(currentSubscription?.endDate || ""),
             new Date(),

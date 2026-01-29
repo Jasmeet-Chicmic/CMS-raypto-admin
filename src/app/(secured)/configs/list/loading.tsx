@@ -7,8 +7,8 @@ export default function ConfigsLoading() {
 
   return (
     <div className="space-y-6 mt-[20px]">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-900 dark:border-gray-800 animate-pulse">
-        <div className="p-6 dark:border-gray-800">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939] animate-pulse">
+        <div className="p-6 dark:border-[#1A1A1A]">
           <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-32 mb-2"></div>
           <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-48"></div>
         </div>

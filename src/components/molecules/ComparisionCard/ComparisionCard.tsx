@@ -26,7 +26,7 @@ export default function ComparisonCard({
 }: Props) {
   const totalPercent = items.reduce((sum, i) => sum + i.percent, 0);
   return (
-    <div className="rounded-[5px] shadow-customsm bg-white p-[25px] w-full max-w-sm dark:bg-gray-900">
+    <div className="rounded-[5px] shadow-customsm bg-white p-[25px] w-full max-w-sm dark:bg-[#111827]">
       <div className="flex justify-between items-center mb-0">
         <div className="text-subtitle text-gray-500 dark:text-gray-400">
           {title}
@@ -68,7 +68,7 @@ export default function ComparisonCard({
               <div key={`vs_${i + 1}`}>
                 <div className="flex flex-col items-center justify-center h-32 gap-[3px]">
                   <div className="w-px h-6 bg-gray-300"></div>
-                  <div className="rounded-full bg-gray-100 text-muted text-content w-[28px] h-[28px] text-center flex justify-center items-center dark:bg-gray-800 dark:text-gray-400">
+                  <div className="rounded-full bg-gray-100 text-muted text-content w-[28px] h-[28px] text-center flex justify-center items-center dark:bg-[#1A1A1A] dark:text-gray-400">
                     VS
                   </div>
                   <div className="w-px h-6 bg-gray-300"></div>
@@ -79,7 +79,7 @@ export default function ComparisonCard({
         ))}
       </div>
 
-      <div className="flex h-2 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="flex h-2 rounded-full overflow-hidden bg-gray-100 dark:bg-[#1A1A1A]">
         {items.map((item, i) => (
           <div
             key={i}

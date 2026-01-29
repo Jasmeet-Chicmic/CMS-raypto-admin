@@ -91,7 +91,7 @@ export const JobDropdown = ({ onAction }: DropdownProps) => {
           <div className="px-4 pt-2 pb-3">
             <label
               htmlFor="invite-search"
-              className="text-[0.875rem] text-[#A3AED0] mb-1 block"
+              className="text-[0.875rem] text-[#CCCFD1] mb-1 block"
             >
               Invite someone
             </label>

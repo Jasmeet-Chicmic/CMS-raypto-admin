@@ -46,10 +46,10 @@ const EditUserModal = ({
     <CustomModal isOpen={isOpen} onClose={onClose} size="2xl">
       {/* Heading and Description */}
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           Edit User Information
         </h2>
-        <p className="text-sm text-gray-500 dark:text-white">
+        <p className="text-sm text-gray-500 dark:text-[#CCCFD1]">
           Updating user details will receive a privacy audit.
         </p>
       </div>

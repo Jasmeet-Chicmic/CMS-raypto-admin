@@ -131,7 +131,7 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
               }
             }}
             onKeyDown={handleKeyDown}
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-900 border border-indigo-500 rounded-xl text-gray-900 dark:text-white text-sm outline-none shadow-sm transition-all"
+            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#111827] border border-indigo-500 rounded-xl text-gray-900 dark:text-[#CCCFD1] text-sm outline-none shadow-sm transition-all"
             maxLength={MAX_CHARACTERS}
             placeholder="Edit your message..."
           />
@@ -145,7 +145,7 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
               <span>Save</span>
             </button>
             <button
-              className="px-3 py-1.5 flex items-center gap-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg text-[12px] font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-[0.98]"
+              className="px-3 py-1.5 flex items-center gap-1.5 bg-gray-100 dark:bg-[#1A1A1A] text-gray-600 dark:text-gray-400 rounded-lg text-[12px] font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-[0.98]"
               onClick={() => {
                 onCancelEdit();
                 setEditText(message?.message || "");
@@ -171,13 +171,13 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
   };
 
   return (
-    <div className="relative border-gray-400/20 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/30 rounded-[16px] p-4 group hover:bg-white dark:hover:bg-gray-800 transition-all border hover:border-indigo-500/10 hover:shadow-xl hover:shadow-indigo-500/5">
+    <div className="relative border-gray-400/20 dark:border-gray-700 bg-gray-50/50 dark:bg-[#1A1A1A]/30 rounded-[16px] p-4 group hover:bg-white dark:hover:bg-gray-800 transition-all border hover:border-indigo-500/10 hover:shadow-xl hover:shadow-indigo-500/5">
       {/* 3-dot menu at top right */}
       {!isEditing && (
         <div className="absolute top-3 right-3">
           <button
             ref={menuButtonRef}
-            className="p-1.5 dark:text-[#ffffff] rounded-lg opacity-0 group-hover:opacity-100 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 text-gray-400 hover:text-[#1B2559] dark:hover:text-white transition-all shadow-sm"
+            className="p-1.5 dark:text-[#ffffff] rounded-lg opacity-0 group-hover:opacity-100 bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-700 text-gray-400 hover:text-[#1B2559] dark:hover:text-white transition-all shadow-sm"
             onClick={() => setShowMenu(!showMenu)}
             title="Options"
           >
@@ -186,7 +186,7 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
           {showMenu && (
             <div
               ref={menuRef}
-              className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl py-1.5 min-w-[140px] z-20 shadow-xl animate-in zoom-in-95 duration-100"
+              className="absolute top-full right-0 mt-2 bg-white dark:bg-[#111827] border border-gray-100 dark:border-[#1A1A1A] rounded-xl py-1.5 min-w-[140px] z-20 shadow-xl animate-in zoom-in-95 duration-100"
             >
               <button
                 className="flex items-center gap-2.5 w-full px-3 py-2 text-red-500 dark:text-red-400 text-sm font-bold hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors text-left whitespace-nowrap"
@@ -206,16 +206,16 @@ const AdminChatMessage: React.FC<AdminChatMessageProps> = ({
           <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#868CFF] to-[#4F46E5] flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-indigo-500/20 overflow-hidden uppercase">
             {getInitials(message?.senderUser?.name || message?.senderName)}
           </div>
-          <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full shadow-sm"></div>
+          <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-[#1A1A1A] rounded-full shadow-sm"></div>
         </div>
 
         {/* Message content */}
         <div className="flex flex-col gap-1 flex-1 min-w-0">
           <div className="flex items-baseline gap-2">
-            <span className="text-[#1B2559] dark:text-white font-bold text-sm">
+            <span className="text-[#1B2559] dark:text-[#CCCFD1] font-bold text-sm">
               {displayName}
             </span>
-            <span className="text-[11px] font-medium text-[#A3AED0] dark:text-gray-500">
+            <span className="text-[11px] font-medium text-[#CCCFD1] dark:text-gray-500">
               {/* If message.createdAt exists, could format it here */}
             </span>
           </div>

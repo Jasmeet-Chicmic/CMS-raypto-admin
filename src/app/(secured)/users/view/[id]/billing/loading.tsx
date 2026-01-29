@@ -8,16 +8,16 @@ const Loading = () => {
 
   return (
     <div>
-      <div className="bg-white rounded-lg shadow p-6 space-y-6 animate-pulse dark:bg-gray-900 dark:border-gray-800">
+      <div className="bg-white rounded-lg shadow p-6 space-y-6 animate-pulse dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         <div className="flex items-center justify-between">
           <Skeleton className="h-6 w-40" />
           <Skeleton className="h-10 w-32 rounded" />
         </div>
-        <div className="space-y-4 dark:bg-gray-900 dark:border-gray-800">
+        <div className="space-y-4 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
           {Array.from(new Array(3)).map((_, id) => (
             <div
               key={`${baseId}-card-${id}`}
-              className="flex items-center justify-between border rounded px-4 py-3 dark:bg-gray-900 dark:border-gray-800"
+              className="flex items-center justify-between border rounded px-4 py-3 dark:bg-[#1a1a1a] dark:border-[#1e2939]"
             >
               <div className="flex items-center gap-4">
                 <Skeleton className="h-10 w-16 rounded" />
@@ -40,7 +40,7 @@ const Loading = () => {
           ))}
         </div>
       </div>
-      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800 dark:text-white animate-pulse">
+      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] dark:text-[#CCCFD1] animate-pulse">
         {/* Header */}
         <div className="flex items-center justify-between">
           <Skeleton className="h-5 w-32" />

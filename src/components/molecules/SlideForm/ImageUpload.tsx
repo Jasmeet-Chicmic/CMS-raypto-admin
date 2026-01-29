@@ -101,11 +101,11 @@ const ImageUpload = ({
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
             disabled={isUploading}
           />
           {isUploading && (
-            <div className="absolute inset-0 bg-white/70 dark:bg-gray-800/70 flex items-center justify-center rounded-md">
+            <div className="absolute inset-0 bg-white/70 dark:bg-[#1A1A1A]/70 flex items-center justify-center rounded-md">
               <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
@@ -120,7 +120,7 @@ const ImageUpload = ({
               className="object-cover"
             />
             {isUploading && (
-              <div className="absolute inset-0 bg-white/70 dark:bg-gray-800/70 flex items-center justify-center">
+              <div className="absolute inset-0 bg-white/70 dark:bg-[#1A1A1A]/70 flex items-center justify-center">
                 <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
               </div>
             )}

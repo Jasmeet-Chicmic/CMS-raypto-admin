@@ -10,7 +10,7 @@ const Switch: React.FC<ToggleSwitchProps> = ({ enabled, onToggle, label }) => {
   return (
     <div className="flex items-center gap-3">
       {label && (
-        <span className="text-sm font-medium dark:text-white">{label}</span>
+        <span className="text-sm font-medium dark:text-[#CCCFD1]">{label}</span>
       )}
       <button
         onClick={onToggle}

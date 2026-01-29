@@ -46,7 +46,7 @@ const BadgesPage = async ({
           <StatsCard {...stat} key={stat.title} index={index} />
         ))}
       </div>
-      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+      <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] dark:text-[#CCCFD1]">
         <BadgeTable
           data={userBadges?.data.data}
           userId={id}

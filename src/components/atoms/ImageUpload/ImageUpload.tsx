@@ -204,10 +204,10 @@ const ImageUpload = ({
           relative overflow-hidden rounded-[20px] border-2 border-dashed transition-all duration-300 cursor-pointer group w-full text-left
           ${
             isDragging
-              ? "border-[#4F46E5] bg-[#4F46E5]/5 dark:bg-[#4F46E5]/10"
+              ? "border-[#4F46E5] bg-[#C4FF0E]/5 dark:bg-[#C4FF0E]/10"
               : preview
                 ? "border-transparent"
-                : "border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/30 hover:border-[#4F46E5]/50 hover:bg-[#4F46E5]/5 dark:hover:bg-[#4F46E5]/10"
+                : "border-gray-200 dark:border-[#1A1A1A] bg-gray-50/50 dark:bg-[#1A1A1A]/30 hover:border-[#4F46E5]/50 hover:bg-[#C4FF0E]/5 dark:hover:bg-[#C4FF0E]/10"
           }
           ${disabled ? "opacity-50 cursor-not-allowed" : ""}
           ${previewClassName}
@@ -241,7 +241,7 @@ const ImageUpload = ({
                   type="button"
                   onClick={handleRemove}
                   disabled={isUploading || disabled}
-                  className="p-3 bg-white/90 dark:bg-gray-900/90 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white transition-all shadow-xl backdrop-blur-md"
+                  className="p-3 bg-white/90 dark:bg-[#111827]/90 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white transition-all shadow-xl backdrop-blur-md"
                   title="Remove image"
                 >
                   <X size={20} />
@@ -250,7 +250,7 @@ const ImageUpload = ({
                   type="button"
                   onClick={handleClick}
                   disabled={isUploading || disabled}
-                  className="p-3 bg-[#4F46E5] text-white rounded-2xl shadow-xl hover:bg-[#4F46E5]/90 transition-all"
+                  className="p-3 bg-[#C4FF0E] text-[#000000] rounded-2xl shadow-xl hover:bg-[#C4FF0E]/90 transition-all"
                   title="Change image"
                 >
                   <Upload size={20} />
@@ -260,7 +260,7 @@ const ImageUpload = ({
 
             {/* Loading overlay */}
             {isUploading && (
-              <div className="absolute inset-0 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm flex items-center justify-center z-20">
+              <div className="absolute inset-0 bg-white/60 dark:bg-[#111827]/60 backdrop-blur-sm flex items-center justify-center z-20">
                 <div className="flex flex-col items-center gap-2">
                   <Loader2 size={32} className="text-[#4F46E5] animate-spin" />
                   <span className="text-xs font-bold text-[#4F46E5] uppercase tracking-wider">
@@ -282,7 +282,7 @@ const ImageUpload = ({
               </div>
             ) : (
               <>
-                <div className="w-16 h-16 rounded-[20px] bg-white dark:bg-gray-800 flex items-center justify-center mb-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md">
+                <div className="w-16 h-16 rounded-[20px] bg-white dark:bg-[#1A1A1A] flex items-center justify-center mb-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md">
                   {isDragging ? (
                     <Upload size={28} className="text-[#4F46E5]" />
                   ) : (
@@ -296,7 +296,7 @@ const ImageUpload = ({
                   <p className="text-sm font-bold text-[#1B2559] dark:text-gray-200 mb-1">
                     {isDragging ? "Drop to upload" : placeholder}
                   </p>
-                  <p className="text-[12px] font-medium text-[#A3AED0] dark:text-gray-500">
+                  <p className="text-[12px] font-medium text-[#CCCFD1] dark:text-gray-500">
                     Supports JPG, PNG, GIF (Max {maxSize}MB)
                   </p>
                 </div>

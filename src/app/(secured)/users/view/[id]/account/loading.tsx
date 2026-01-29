@@ -9,14 +9,14 @@ const Loading = () => {
   return (
     <div className="space-y-6 animate-pulse">
       {/* Search Bar */}
-      <div className="bg-white rounded-lg shadow p-4 dark:bg-gray-900 dark:border-gray-800">
+      <div className="bg-white rounded-lg shadow p-4 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         <div className="relative">
           <Skeleton className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
           <Skeleton className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full bg-gray-100 h-10" />
         </div>
         {/* Projects Table */}
         <div className="space-y-6 mt-6">
-          <div className="bg-white overflow-auto shadow-sm dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-white overflow-auto shadow-sm dark:bg-[#1a1a1a] dark:border-[#1e2939]">
             <table className="min-w-full divide-y">
               <thead className="bg-white">
                 <tr>
@@ -68,7 +68,7 @@ const Loading = () => {
             </table>
           </div>
           {/* Projects Pagination */}
-          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-[#1a1a1a] dark:border-[#1e2939]">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />
@@ -91,9 +91,9 @@ const Loading = () => {
         </div>
       </div>
       {/* Invoices Table */}
-      <div className="bg-white rounded-xl shadow-sm p-6 dark:bg-gray-900 dark:border-gray-800">
+      <div className="bg-white rounded-xl shadow-sm p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
         <div className="space-y-6">
-          <div className="bg-white overflow-auto shadow-sm dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-white overflow-auto shadow-sm dark:bg-[#1a1a1a] dark:border-[#1e2939]">
             <table className="min-w-full divide-y">
               <thead className="bg-white">
                 <tr>
@@ -121,7 +121,7 @@ const Loading = () => {
             </table>
           </div>
           {/* Invoices Pagination */}
-          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-[#1a1a1a] dark:border-[#1e2939]">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />

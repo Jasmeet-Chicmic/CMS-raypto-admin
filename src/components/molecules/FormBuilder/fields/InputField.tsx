@@ -45,7 +45,10 @@ export function InputField<T extends FieldValues>({
 
   return (
     <div className={`mb-4 ${width} ${className}`}>
-      <label htmlFor={name} className="block mb-1 font-medium dark:text-white">
+      <label
+        htmlFor={name}
+        className="block mb-1 font-medium dark:text-[#CCCFD1]"
+      >
         {label}
       </label>
       <input
@@ -54,7 +57,7 @@ export function InputField<T extends FieldValues>({
         placeholder={placeholder}
         {...register(name, validation)}
         onChange={handleChange}
-        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 text-black dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 text-black dark:bg-[#1a1a1a] dark:border-[#1e2939] dark:text-[#CCCFD1]"
       />
       {fieldError && (
         <span className="text-red-500 text-[0.875] mt-1">

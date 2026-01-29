@@ -87,16 +87,16 @@ const CompanyTeamProfiles = () => {
       case TEAM_PROFILE_CONFIG.TEAM_ROLES.MEMBER:
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
       case TEAM_PROFILE_CONFIG.TEAM_ROLES.VIEWER:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
     }
   };
 
   const getStatusColor = (status: string) => {
     return status === TEAM_PROFILE_CONFIG.TEAM_STATUS.ACTIVE
       ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-      : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+      : "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
   };
 
   const filteredMembers = teamMembers.filter((member) => {
@@ -109,14 +109,14 @@ const CompanyTeamProfiles = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           Team Profiles
         </h3>
         <div className="flex space-x-2">
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -125,7 +125,7 @@ const CompanyTeamProfiles = () => {
           <select
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admin</option>
@@ -137,15 +137,15 @@ const CompanyTeamProfiles = () => {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
             {teamMembers.length}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">
             Total Members
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-green-600">
             {
               teamMembers.filter(
@@ -155,7 +155,7 @@ const CompanyTeamProfiles = () => {
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Active</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-red-600">
             {
               teamMembers.filter(
@@ -165,7 +165,7 @@ const CompanyTeamProfiles = () => {
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Admins</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-[#1A1A1A] rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="text-2xl font-bold text-blue-600">
             {
               teamMembers.filter(
@@ -184,7 +184,7 @@ const CompanyTeamProfiles = () => {
         {filteredMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+            className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
@@ -207,16 +207,16 @@ const CompanyTeamProfiles = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <h4 className="font-semibold text-gray-900 dark:text-[#CCCFD1]">
                     {member.name}
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     {member.position}
                   </p>
-                  <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                  <p className="text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
                     {member.email}
                   </p>
-                  <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                  <p className="text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
                     Joined: {new Date(member.joinDate).toLocaleDateString()}
                   </p>
                 </div>
@@ -255,7 +255,7 @@ const CompanyTeamProfiles = () => {
       </div>
 
       {/* Role Legend */}
-      <div className="mt-6 bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+      <div className="mt-6 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-4">
         <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
           Role Definitions
         </h4>

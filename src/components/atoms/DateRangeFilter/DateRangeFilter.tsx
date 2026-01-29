@@ -126,7 +126,7 @@ const DateRangeFilter = ({
             value={fromDate}
             onChange={(e) => handleFromDateChange(e.target.value)}
             max={today}
-            className="w-full px-3 py-2.5 border-2 border-[#4F46E540] rounded-lg focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] hover:border-[#4F46E5] transition-all duration-200 dark:bg-gray-800 dark:border-[#4F46E540] dark:text-white font-medium cursor-pointer"
+            className="w-full px-3 py-2.5 border-2 border-[#4F46E540] rounded-lg focus:ring-0 transition-all duration-200 dark:bg-[#1A1A1A] dark:border-[#4F46E540] dark:text-[#CCCFD1] font-medium cursor-pointer"
           />
         </div>
         <div className="flex flex-col flex-1">
@@ -144,10 +144,10 @@ const DateRangeFilter = ({
             disabled={!fromDate}
             min={fromDate}
             max={getMaxToDate()}
-            className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-[#4F46E5] dark:bg-gray-800 dark:text-white font-medium transition-all duration-200 ${
+            className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-0 transition-all duration-200 ${
               !fromDate
-                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700"
-                : "border-[#4F46E540] focus:border-[#4F46E5] hover:border-[#4F46E5] cursor-pointer"
+                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#111827] border-gray-300 dark:border-gray-700"
+                : "border-[#4F46E540] focus:border-0 cursor-pointer"
             }`}
           />
         </div>
@@ -156,7 +156,7 @@ const DateRangeFilter = ({
         <button
           onClick={handleApply}
           disabled={!fromDate}
-          className={`flex-1 px-4 py-2 bg-[#4F46E5] text-white font-semibold rounded-lg hover:bg-[#3311DD] transition-all duration-200 ${
+          className={`flex-1 px-4 py-2 bg-[#C4FF0E] text-[#000000] font-semibold rounded-lg hover:bg-[#0D0D0D] transition-all duration-200 ${
             !fromDate ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -165,7 +165,7 @@ const DateRangeFilter = ({
         {hasFilters && (
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 border-2 border-[#4F46E5] text-[#4F46E5] font-semibold rounded-lg hover:bg-[#4F46E5] hover:text-white transition-all duration-200 dark:border-[#4F46E5] dark:text-[#4F46E5]"
+            className="flex-1 px-4 py-2 border-2 border-[#0D0D0D] text-[#0D0D0D] font-semibold rounded-lg hover:bg-[#C4FF0E] hover:text-white transition-all duration-200 dark:border-[#4F46E5] dark:text-[#4F46E5]"
           >
             Clear
           </button>

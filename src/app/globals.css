@@ -50,7 +50,7 @@
     color: var(--text-blue-600);
   }
 
-  .bg-[#4F46E5] {
+  .bg-[#C4FF0E] {
     background-color: var(--lightpurple);
   }
 
@@ -106,12 +106,12 @@ input {
   white-space: nowrap;
 }
 
-.swiper-pagination-bullets > span {
+.swiper-pagination-bullets>span {
   background-color: var(--bg-white-800);
   margin: 0px !important;
 }
 
-.swiper-pagination-bullets > span.active {
+.swiper-pagination-bullets>span.active {
   background-color: var(--background);
 }
 
@@ -213,18 +213,18 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4f46e5;
+  background: #262626;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3311cc;
+  background: #161515;
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #4f46e5 transparent;
+  scrollbar-color: #262626 transparent;
 }
 
 .preview-main-content {

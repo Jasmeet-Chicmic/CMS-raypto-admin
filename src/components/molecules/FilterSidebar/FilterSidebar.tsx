@@ -33,14 +33,14 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl z-[110] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-[#111827] shadow-2xl z-[110] transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-800">
-            <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#1A1A1A]">
+            <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
               {title}
             </h2>
             <button
@@ -58,7 +58,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+            <div className="px-6 py-4 border-t border-gray-200 dark:border-[#1A1A1A] bg-gray-50 dark:bg-[#1A1A1A]/50">
               {footer}
             </div>
           )}

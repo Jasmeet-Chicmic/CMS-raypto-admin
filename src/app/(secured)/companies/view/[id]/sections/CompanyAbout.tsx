@@ -103,7 +103,7 @@ const CompanyAbout = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
             About the Company
           </h3>
           <button
@@ -120,7 +120,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.MISSION}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-[#CCCFD1]">
               {defaultValues.mission}
             </p>
           </div>
@@ -130,7 +130,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.VISION}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-[#CCCFD1]">
               {defaultValues.vision}
             </p>
           </div>
@@ -140,7 +140,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.CORE_VALUES}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-[#CCCFD1]">
               {defaultValues.coreValues}
             </p>
           </div>
@@ -150,7 +150,7 @@ const CompanyAbout = () => {
             <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {STRING.COMPANY_BIO}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-[#CCCFD1]">
               {defaultValues.companyBio}
             </p>
           </div>
@@ -162,7 +162,7 @@ const CompanyAbout = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           About the Company
         </h3>
         <button

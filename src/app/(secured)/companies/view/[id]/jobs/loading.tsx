@@ -21,7 +21,7 @@ const JobsLoading = () => {
       {Array.from(new Array(2)).map((_, id) => (
         <div
           key={`${baseId}-job-${id}`}
-          className="bg-white p-5 rounded-xl border space-y-3 shadow-sm dark:bg-gray-900 dark:border-gray-800"
+          className="bg-white p-5 rounded-xl border space-y-3 shadow-sm dark:bg-[#1a1a1a] dark:border-[#1e2939]"
         >
           {/* Title and Menu */}
           <div className="flex justify-between items-start">

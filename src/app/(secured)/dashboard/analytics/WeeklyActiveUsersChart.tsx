@@ -128,14 +128,14 @@ const WeeklyActiveUsersChart = ({
   ];
 
   return (
-    <div className="bg-white rounded-lg p-0 dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-white rounded-lg p-0 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
       <div className="flex gap-4 mb-4 justify-between flex-col xl:flex-row">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+            <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
               Active Users
             </h3>
-            <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+            <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
               Active users per day
             </p>
           </div>

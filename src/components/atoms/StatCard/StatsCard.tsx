@@ -27,7 +27,7 @@ const StatsCard = (stat: StatsType, index: number) => {
               {stat.change}
             </span>
           </div>
-          <p className="text-[0.875rem] text-[#A3AED0] mt-1">{stat.subtitle}</p>
+          <p className="text-[0.875rem] text-[#CCCFD1] mt-1">{stat.subtitle}</p>
         </div>
         <div className={`p-3 rounded-lg ${stat.color}`}>{stat.icon}</div>
       </div>

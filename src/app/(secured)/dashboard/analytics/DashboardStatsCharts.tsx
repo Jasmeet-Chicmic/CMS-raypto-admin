@@ -175,7 +175,7 @@ const DashboardStatsCharts = ({
         colorStops: [
           {
             offset: 0,
-            color: "#4F46E5",
+            color: "#FF6900",
             opacity: 1,
           },
           {
@@ -204,11 +204,11 @@ const DashboardStatsCharts = ({
         formatter: (value: number) => formatCurrency(value),
       },
     },
-    colors: ["#4F46E5"],
+    colors: ["#FF6900"],
     markers: {
       size: 5,
-      colors: ["#4F46E5"],
-      strokeColors: "#4F46E5",
+      colors: ["#FF6900"],
+      strokeColors: "#FF6900",
       strokeWidth: 2,
     },
     tooltip: {
@@ -241,63 +241,67 @@ const DashboardStatsCharts = ({
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
           icon={
-            <Users className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
+            <Users className="w-6 h-6 text-[#000000] dark:text-[#000000]" />
           }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          color="bg-[#C4FF0E] dark:bg-[#C4FF0E]"
         />
         <StatCard
           title="Active Games"
           value={data.totalEnabledGames}
           // subtitle="Ongoing bets"
           icon={
-            <Activity className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
+            <Activity className="w-6 h-6 text-[#ffffff] dark:text-[#000000]" />
           }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          color="bg-[#155DFC] dark:bg-[#155DFC]"
         />
         <StatCard
           title="Total Bets (24h)"
           value={formatCurrency(data.totalBetAmount24Hrs)}
           // subtitle="Last 24 hours"
           icon={
-            <TrendingUp className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
+            <TrendingUp className="w-6 h-6 text-[#ffffff] dark:text-[#000000]" />
           }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          color="bg-[#FF5722] dark:bg-[#FF5722]"
         />
         {/* <StatCard
           title="Total Profit"
           value={formatCurrency(data.totalProfit)}
           // subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          color="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          color="bg-[#F4F7FE] dark:bg-[#C4FF0E]"
         /> */}
         {/* <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          iconBgColor="bg-[#F4F7FE] dark:bg-[#C4FF0E]"
         />
         <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
           icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          iconBgColor="bg-[#F4F7FE] dark:bg-[#C4FF0E]"
         /> */}
         {data.totalProfit && data.totalProfit.length > 0 && (
-          <GGRStatCard stats={data.totalProfit} title="Total Profit" />
+          <GGRStatCard
+            stats={data.totalProfit}
+            title="Total Profit"
+            color="bg-[#9810FA]"
+          />
         )}
       </div>
 
       <div className="flex w-full gap-4 flex-col md:flex-row">
         {/* GGR Line Chart */}
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="flex-1 bg-white border border-[#E5E7EB] rounded-[20px]  p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
                 Gross Gaming Revenue
               </h3>
-              <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
                 Revenue by currency
               </p>
             </div>
@@ -317,7 +321,7 @@ const DashboardStatsCharts = ({
         </div>
 
         {/* Weekly Active Users Chart */}
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="flex-1 bg-white border border-[#E5E7EB] rounded-[20px]  p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
           <WeeklyActiveUsersChart
             activityData={activityData}
             initialFromDate={initialFromDate}
@@ -328,7 +332,7 @@ const DashboardStatsCharts = ({
 
       {/* World Map Chart & Revenue per Game */}
       <div className="flex w-full gap-4 flex-col md:flex-row">
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800 w-full md:w-1/2">
+        <div className="flex-1 bg-white border border-[#E5E7EB] rounded-[20px]  p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] w-full md:w-1/2">
           <WorldMapChart
             data={countryData.map((item) => ({
               country: item.country,
@@ -336,7 +340,7 @@ const DashboardStatsCharts = ({
             }))}
           />
         </div>
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800 w-full md:w-1/2">
+        <div className="flex-1 bg-white border border-[#E5E7EB] rounded-[20px]  p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] w-full md:w-1/2">
           <RevenuePerGameChart />
         </div>
       </div>

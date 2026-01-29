@@ -122,7 +122,7 @@ const CompanyAwards = () => {
       case "workplace":
         return "bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
     }
   };
 
@@ -130,7 +130,7 @@ const CompanyAwards = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
             Achievements Section
           </h3>
           <button
@@ -152,13 +152,13 @@ const CompanyAwards = () => {
             {fields.map((award) => (
               <div
                 key={award.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                        <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
                           {award.title}
                         </h4>
                         <span
@@ -195,13 +195,13 @@ const CompanyAwards = () => {
         )}
 
         {/* Awards Summary */}
-        <div className="mt-8 bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+        <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
             Awards Summary
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
                 {fields.length}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -245,7 +245,7 @@ const CompanyAwards = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           Achievements Section
         </h3>
         <div className="flex space-x-2">
@@ -283,7 +283,7 @@ const CompanyAwards = () => {
             {fields.map((award, index) => (
               <div
                 key={award.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
@@ -301,7 +301,7 @@ const CompanyAwards = () => {
                           {...register(`awards.${index}.title` as const, {
                             required: "Award title is required",
                           })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
                         />
                         {errors.awards?.[index]?.title && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -323,7 +323,7 @@ const CompanyAwards = () => {
                             {...register(`awards.${index}.year` as const, {
                               required: "Year is required",
                             })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
                           />
                           {errors.awards?.[index]?.year && (
                             <p className="text-red-500 text-[0.875] mt-1">
@@ -344,7 +344,7 @@ const CompanyAwards = () => {
                             {...register(`awards.${index}.category` as const, {
                               required: "Category is required",
                             })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
                           />
                           {errors.awards?.[index]?.category && (
                             <p className="text-red-500 text-[0.875] mt-1">
@@ -369,7 +369,7 @@ const CompanyAwards = () => {
                               required: "Awarding organization is required",
                             },
                           )}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
                         />
                         {errors.awards?.[index]?.awardingOrganization && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -398,7 +398,7 @@ const CompanyAwards = () => {
                             },
                           })}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm resize-none"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm resize-none"
                         />
                         {errors.awards?.[index]?.description && (
                           <p className="text-red-500 text-[0.875] mt-1">
@@ -418,7 +418,7 @@ const CompanyAwards = () => {
                           type="url"
                           {...register(`awards.${index}.badgeImage` as const)}
                           placeholder="https://example.com/badge.png"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1] text-sm"
                         />
                         {errors.awards?.[index]?.badgeImage && (
                           <p className="text-red-500 text-[0.875] mt-1">

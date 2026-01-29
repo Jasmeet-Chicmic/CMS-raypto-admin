@@ -42,8 +42,8 @@ const UserLayout = async ({
       title: "Total Bet Count",
       value: statsData?.totalBetCount || 0,
       subtitle: "All time bets",
-      icon: <Gamepad2 className="w-6 h-6 text-white dark:text-white" />,
-      color: "bg-[#4F46E5] dark:bg-[#4F46E5]",
+      icon: <Gamepad2 className="w-6 h-6 text-white dark:text-[#CCCFD1]" />,
+      color: "bg-[#C4FF0E] dark:bg-[#C4FF0E]",
     },
     // {
     //   title: "Total Bet Amount",
@@ -56,8 +56,8 @@ const UserLayout = async ({
       title: "Unique Games Played",
       value: statsData?.uniqueGamesPlayed || 0,
       subtitle: "Different games",
-      icon: <TrendingUp className="w-6 h-6 text-white dark:text-white" />,
-      color: "bg-[#4F46E5] dark:bg-[#4F46E5]",
+      icon: <TrendingUp className="w-6 h-6 text-white dark:text-[#CCCFD1]" />,
+      color: "bg-[#C4FF0E] dark:bg-[#C4FF0E]",
     },
     // {
     //   title: "Referral Earned Amount",

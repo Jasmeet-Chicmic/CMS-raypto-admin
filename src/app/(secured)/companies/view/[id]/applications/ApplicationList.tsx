@@ -89,7 +89,7 @@ const ApplicationList = ({
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[0.875rem] text-[#A3AED0] font-medium">
+              <span className="text-[0.875rem] text-[#CCCFD1] font-medium">
                 Resume
               </span>
               <Button
@@ -142,7 +142,7 @@ const ApplicationList = ({
 
           {/* Matching Skills */}
           <div className="mt-2">
-            <div className="text-[0.875rem] text-[#A3AED0] font-medium mb-1">
+            <div className="text-[0.875rem] text-[#CCCFD1] font-medium mb-1">
               Matching skills
             </div>
             <div className="flex flex-wrap gap-2">
@@ -179,7 +179,7 @@ const ApplicationList = ({
                 </span>
               </div>
               {/* Location (placeholder) */}
-              <span className="text-[0.875rem] text-[#A3AED0]">• London</span>
+              <span className="text-[0.875rem] text-[#CCCFD1]">• London</span>
             </div>
             <div className="flex gap-2">
               <Button
@@ -211,7 +211,7 @@ const ApplicationList = ({
             }}
             containerClassName="flex space-x-2 items-center paginationWrapper"
             pageClassName="rounded"
-            activeClassName="text-black font-bold dark:text-white"
+            activeClassName="text-black font-bold dark:text-[#CCCFD1]"
             previousLabel={
               <Button variant="ghost" size="sm">
                 <ChevronLeft className="w-4 h-4" />

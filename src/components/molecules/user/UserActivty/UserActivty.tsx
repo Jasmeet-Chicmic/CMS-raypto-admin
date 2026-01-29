@@ -62,7 +62,7 @@ const UserActivty = async ({ userId }: { userId: string }) => {
                       <p className="text-sm font-medium">
                         {activity.client?.name}
                       </p>
-                      {/* <p className="text-[0.875rem] text-[#A3AED0]">
+                      {/* <p className="text-[0.875rem] text-[#CCCFD1]">
                         {activity.user.role}
                       </p> */}
                     </div>

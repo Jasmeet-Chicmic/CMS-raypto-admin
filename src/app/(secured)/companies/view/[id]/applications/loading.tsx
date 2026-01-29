@@ -23,7 +23,7 @@ const ApplicationsLoading = () => {
       {Array.from(new Array(2)).map((_, id) => (
         <div
           key={`${baseId}-app-${id}`}
-          className="bg-white border rounded-2xl p-6 shadow flex flex-col gap-4 relative dark:bg-gray-900 dark:border-gray-800"
+          className="bg-white border rounded-2xl p-6 shadow flex flex-col gap-4 relative dark:bg-[#1a1a1a] dark:border-[#1e2939]"
         >
           {/* Top Row: Avatar, Name, Resume, Menu */}
           <div className="flex items-center gap-4">
@@ -63,7 +63,7 @@ const ApplicationsLoading = () => {
           </div>
 
           {/* Bottom Row: Rating, Location, Buttons */}
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-[#1A1A1A]">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1 text-gray-500">
                 {Array.from(new Array(5)).map((_, starId) => (

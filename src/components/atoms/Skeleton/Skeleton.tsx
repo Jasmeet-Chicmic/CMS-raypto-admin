@@ -49,7 +49,7 @@ const Skeleton = ({
  * Stat Card Skeleton - Matches the StatCard component layout
  */
 export const StatCardSkeleton = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 shadow-sm">
+  <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-28" />
@@ -67,7 +67,7 @@ export const StatCardSkeleton = () => (
 export const ChartCardSkeleton = ({ height = 400 }: { height?: number }) => {
   const baseId = useId();
   return (
-    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
       <div className="flex items-center justify-between mb-6">
         <div className="space-y-2">
           <Skeleton className="h-7 w-48" />
@@ -100,7 +100,7 @@ export const ChartCardSkeleton = ({ height = 400 }: { height?: number }) => {
  * Area Chart Skeleton - With gradient wave effect
  */
 export const AreaChartSkeleton = ({ height = 400 }: { height?: number }) => (
-  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
     <div className="flex items-center justify-between mb-6">
       <div className="space-y-2">
         <Skeleton className="h-7 w-48" />
@@ -149,7 +149,7 @@ export const HorizontalBarChartSkeleton = ({
 }) => {
   const baseId = useId();
   return (
-    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="space-y-2">
           <Skeleton className="h-7 w-44" />
@@ -183,7 +183,7 @@ export const HorizontalBarChartSkeleton = ({
  * World Map Chart Skeleton
  */
 export const MapChartSkeleton = () => (
-  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800 w-full">
+  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] w-full">
     <div className="flex items-center justify-between mb-6">
       <div className="space-y-2">
         <Skeleton className="h-7 w-40" />
@@ -237,7 +237,7 @@ export const MapChartSkeleton = () => (
  * GGR Stat Card Skeleton
  */
 export const GGRStatCardSkeleton = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 shadow-sm">
+  <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-24" />

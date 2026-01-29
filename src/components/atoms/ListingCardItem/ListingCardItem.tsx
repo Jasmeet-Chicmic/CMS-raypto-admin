@@ -39,7 +39,7 @@ const ListingCardItem = ({ item, listingCardType }: ListingCardItemProps) => {
           <p className="text-sm font-medium text-gray-900 dark:text-gray-400">
             {item.name}
           </p>
-          <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[0.875rem] text-[#CCCFD1] dark:text-gray-400">
             {item.subTitle}
           </p>
         </div>

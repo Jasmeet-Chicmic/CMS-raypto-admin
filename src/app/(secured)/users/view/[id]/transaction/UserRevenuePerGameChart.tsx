@@ -93,14 +93,14 @@ const UserRevenuePerGameChart = ({
   console.log("data", data);
   return (
     <div
-      className={`flex-1 bg-white rounded-[20px] lg:w-1/2 p-6 dark:bg-gray-900 dark:border-gray-800 ${className}`}
+      className={`flex-1 bg-white rounded-[20px] lg:w-1/2 p-6 dark:bg-[#1a1a1a] dark:border-[#1e2939] ${className}`}
     >
       <div className="flex flex-col lg:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="w-full lg:w-auto lg:flex-col">
-          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
             Revenue per Game
           </h3>
-          <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
             Total: {formatCurrency(totalRevenue)}
           </p>
         </div>

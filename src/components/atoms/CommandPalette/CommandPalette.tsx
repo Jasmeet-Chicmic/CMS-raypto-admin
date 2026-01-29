@@ -143,7 +143,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       onClick={onClose}
       aria-label="Close command palette"
     >
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-gray-800">
+      <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-[#1A1A1A]">
         {/* Search Input */}
         <div className="flex items-center px-4 py-3 border-b border-gray-200">
           <Search className="text-gray-400 mr-3" size={20} />
@@ -153,10 +153,10 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             placeholder="Type a command or search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 outline-none text-gray-900 placeholder-gray-500 bg-transparent py-2 px-3 rounded-lg mr-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+            className="flex-1 outline-none text-gray-900 placeholder-gray-500 bg-transparent py-2 px-3 rounded-lg mr-2 dark:bg-[#1A1A1A] dark:text-[#CCCFD1] dark:placeholder-gray-400"
           />
           <div className="flex items-center space-x-1 text-[0.875] text-gray-400">
-            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] dark:bg-gray-700 dark:text-[#CCCFD1]">
               ESC
             </kbd>
           </div>
@@ -165,13 +165,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
         {/* Commands List */}
         <div className="overflow-y-auto max-h-96">
           {Object.keys(groupedCommands).length === 0 ? (
-            <div className="px-4 py-8 text-center text-gray-500 dark:text-white">
+            <div className="px-4 py-8 text-center text-gray-500 dark:text-[#CCCFD1]">
               <Search
-                className="mx-auto mb-3 text-gray-300 dark:text-white"
+                className="mx-auto mb-3 text-gray-300 dark:text-[#CCCFD1]"
                 size={48}
               />
-              <p className="text-gray-500 dark:text-white">No commands found</p>
-              <p className="text-sm text-gray-500 dark:text-white">
+              <p className="text-gray-500 dark:text-[#CCCFD1]">
+                No commands found
+              </p>
+              <p className="text-sm text-gray-500 dark:text-[#CCCFD1]">
                 Try searching for something else
               </p>
             </div>
@@ -179,7 +181,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             Object.entries(groupedCommands).map(
               ([category, categoryCommands]) => (
                 <div key={category}>
-                  <div className="px-4 py-2 text-[0.875] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100 dark:bg-gray-700 dark:text-white">
+                  <div className="px-4 py-2 text-[0.875] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100 dark:bg-gray-700 dark:text-[#CCCFD1]">
                     {category}
                   </div>
                   {categoryCommands.map((command) => {
@@ -205,7 +207,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
-                            className={`font-medium text-gray-900 dark:text-white`}
+                            className={`font-medium text-gray-900 dark:text-[#CCCFD1]`}
                           >
                             {command.title}
                           </div>
@@ -217,7 +219,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                         </div>
                         {command.shortcut && (
                           <div className="ml-3">
-                            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] text-gray-600 dark:bg-gray-700 dark:text-white">
+                            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] text-gray-600 dark:bg-gray-700 dark:text-[#CCCFD1]">
                               {command.shortcut}
                             </kbd>
                           </div>
@@ -233,22 +235,22 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
 
         {/* Footer */}
         <div className="px-4 py-3 border-t border-gray-200 bg-gray-50 dark:bg-gray-700">
-          <div className="flex items-center justify-between text-[0.875rem] text-[#A3AED0] dark:text-white">
+          <div className="flex items-center justify-between text-[0.875rem] text-[#CCCFD1] dark:text-[#CCCFD1]">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-[#CCCFD1]">
                   ↑↓
                 </kbd>
                 <span>Navigate</span>
               </div>
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-[#CCCFD1]">
                   ↵
                 </kbd>
                 <span>Select</span>
               </div>
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-[#CCCFD1]">
                   ESC
                 </kbd>
                 <span>Close</span>

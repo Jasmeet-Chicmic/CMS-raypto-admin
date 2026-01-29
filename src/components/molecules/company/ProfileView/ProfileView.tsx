@@ -9,7 +9,7 @@ const ProfileView = ({ count }: ProfileViewProps) => {
     <div className="bg-white p-6 rounded shadow flex justify-between items-center">
       <div className="flex flex-col">
         <div className="text-sm text-gray-500">Total company profile views</div>
-        <div className="text-[0.875rem] text-[#A3AED0]">
+        <div className="text-[0.875rem] text-[#CCCFD1]">
           Your company’s reach and influence across Black Rise
         </div>
       </div>

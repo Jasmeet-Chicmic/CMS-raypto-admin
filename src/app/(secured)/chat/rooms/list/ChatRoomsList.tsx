@@ -107,7 +107,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
       field: "name",
       title: "Name",
       render: (data) => (
-        <span className="font-medium text-gray-900 dark:text-white">
+        <span className="font-medium text-gray-900 dark:text-[#CCCFD1]">
           {data?.name ?? ""}
         </span>
       ),
@@ -130,7 +130,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
 
         if (data?.logoURL && isValidUrl(data.logoURL)) {
           return (
-            <div className="w-10 h-10 relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+            <div className="w-10 h-10 relative rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1A1A1A]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={data.logoURL}
@@ -259,11 +259,11 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
   }, [currentPage, pageSize, sortKey, sortDirection, searchParams, router]);
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-[24px] shadow-sm">
+    <div className="flex flex-col h-full bg-white dark:bg-[#111827] rounded-[24px] shadow-sm">
       {/* Header */}
       <div className="px-6 py-2 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-          <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
             {CHAT_STRINGS.CHAT_ROOMS}
           </h2>
           <div className="flex flex-wrap items-center gap-4">
@@ -272,7 +272,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
               placeholder={CHAT_STRINGS.SEARCH_ROOMS}
             />
 
-            <div className="flex items-center gap-4 bg-gray-50 dark:bg-gray-800/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-4 bg-gray-50 dark:bg-[#1A1A1A]/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Translation:
@@ -306,7 +306,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
               <button
                 onClick={handleSaveConfig}
                 disabled={isConfigSaving}
-                className="p-2 bg-[#4F46E5] text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+                className="p-2 bg-[#C4FF0E] text-[#000000] rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
                 title="Save Translation Settings"
               >
                 {isConfigSaving ? (
@@ -318,7 +318,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
             </div>
 
             <button
-              className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-lg hover:bg-purple-700 transition-colors"
               onClick={() => setModal({ open: true, type: MODAL_TYPE.CREATE })}
             >
               <Plus size={18} />

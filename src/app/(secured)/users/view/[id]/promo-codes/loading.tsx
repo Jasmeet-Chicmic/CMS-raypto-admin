@@ -14,7 +14,7 @@ const Loading = () => {
           {["bg-blue-100", "bg-green-100", "bg-orange-100"].map((bg, id) => (
             <div
               key={`${baseId}-stat-${id}`}
-              className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 dark:bg-gray-900 dark:border-gray-800"
+              className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 dark:bg-[#1a1a1a] dark:border-[#1e2939]"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-full">
@@ -32,16 +32,16 @@ const Loading = () => {
         </div>
 
         {/* Assigned Promo Codes Header */}
-        <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
           <div className="flex items-center justify-between">
             <Skeleton className="h-5 w-40" />
             <Skeleton className="h-8 w-40" />
           </div>
 
           {/* Table */}
-          <div className="bg-white overflow-auto shadow-sm dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-white overflow-auto shadow-sm dark:bg-[#1a1a1a] dark:border-[#1e2939]">
             <table className="min-w-full divide-y">
-              <thead className="bg-white dark:bg-gray-800">
+              <thead className="bg-white dark:bg-[#1A1A1A]">
                 <tr>
                   {["Name", "Code", "Assigned On", "Actions"].map((_, id) => (
                     <th
@@ -76,7 +76,7 @@ const Loading = () => {
           </div>
 
           {/* Pagination */}
-          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-gray-900">
+          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-[#111827]">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />

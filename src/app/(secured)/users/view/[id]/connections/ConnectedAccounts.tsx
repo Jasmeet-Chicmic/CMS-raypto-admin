@@ -56,12 +56,12 @@ const ConnectedAccounts = ({
     });
   };
   return (
-    <div className="bg-white p-6 rounded-xl border space-y-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-white p-6 rounded-xl border space-y-6 dark:bg-[#1a1a1a] dark:border-[#1e2939]">
       <div>
-        <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+        <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
           Connected Accounts
         </h2>
-        <p className="text-sm text-gray-500 dark:text-white">
+        <p className="text-sm text-gray-500 dark:text-[#CCCFD1]">
           Display content from your connected accounts on your site
         </p>
       </div>
@@ -73,15 +73,15 @@ const ConnectedAccounts = ({
             <div key={acc.type} className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
                 <div
-                  className={`w-10 h-10 rounded-md flex items-center justify-center text-white font-semibold text-sm dark:text-white ${ui.color}`}
+                  className={`w-10 h-10 rounded-md flex items-center justify-center text-white font-semibold text-sm dark:text-[#CCCFD1] ${ui.color}`}
                 >
                   {ui.iconText}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 dark:text-[#CCCFD1]">
                     {ui.name}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-white">
+                  <p className="text-sm text-gray-500 dark:text-[#CCCFD1]">
                     {ui.description}
                   </p>
                 </div>
@@ -95,7 +95,7 @@ const ConnectedAccounts = ({
                   className="sr-only peer"
                   disabled={isLoading}
                 />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-blue-600 relative transition-all duration-200 dark:bg-gray-800">
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-blue-600 relative transition-all duration-200 dark:bg-[#1A1A1A]">
                   <div
                     className={`absolute left-[2px] top-[2px] bg-white w-5 h-5 rounded-full transition-transform duration-200 ${
                       acc.isConnected ? "translate-x-full" : ""

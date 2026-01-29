@@ -226,7 +226,7 @@ const EventView = ({
   const quickActions = getQuickActions();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#111827]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Section */}
         {mergedConfig.layout.showHeader && <EventViewHeader event={event} />}
@@ -260,7 +260,7 @@ const EventView = ({
 
         {/* Admin Actions Panel - Inside the page */}
         {mergedConfig.layout.showActions && actionButtons.length > 0 && (
-          <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="mt-8 bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Admin Actions
             </h2>

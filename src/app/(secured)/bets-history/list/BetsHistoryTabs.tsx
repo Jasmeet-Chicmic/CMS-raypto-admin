@@ -84,14 +84,14 @@ const BetsHistoryTabs = ({
   return (
     <div>
       {/* Header with Tabs */}
-      <div className="bg-white rounded-t-[12px] dark:bg-gray-900 dark:border-gray-800">
-        <div className="p-6 dark:border-gray-800">
+      <div className="bg-white rounded-t-[12px] dark:bg-[#1a1a1a] dark:border-[#1e2939]">
+        <div className="p-6 dark:border-[#1A1A1A]">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             <div>
-              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
                 Bets History
               </h2>
-              {/* <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              {/* <p className="text-[14px] font-medium text-[#4a5565] dark:text-[#99a1af]">
                 View all game bets and their results
               </p> */}
             </div>
@@ -102,7 +102,7 @@ const BetsHistoryTabs = ({
               />
               <button
                 onClick={() => setIsFilterOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                className="flex items-center space-x-2 px-4 py-2 bg-[#C4FF0E] text-[#000000] rounded-[8px] hover:bg-[#0D0D0D] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
               >
                 <Menu size={18} />
                 <span>Filters</span>
@@ -112,20 +112,20 @@ const BetsHistoryTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex px-6 border-b border-gray-200 dark:border-[#1A1A1A]">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => handleTabChange(tab.id)}
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 activeTab === tab.id
-                  ? "text-[#4F46E5] dark:text-white"
-                  : "text-[#A3AED0] hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  ? "text-[#4F46E5] dark:text-[#CCCFD1]"
+                  : "text-[#CCCFD1] hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#4F46E5] rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#C4FF0E] rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
               )}
             </button>
           ))}
@@ -146,7 +146,7 @@ const BetsHistoryTabs = ({
               router.push(`?${newParams.toString()}`);
               setIsFilterOpen(false);
             }}
-            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-[#1A1A1A] text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
           >
             <RotateCcw size={18} />
             <span>Clear All Filters</span>

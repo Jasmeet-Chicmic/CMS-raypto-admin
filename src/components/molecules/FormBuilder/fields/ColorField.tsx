@@ -38,7 +38,10 @@ export function ColorField<T extends FieldValues>({
   const [open, setOpen] = useState(false);
   return (
     <div className={`mb-4 ${width} ${className}`}>
-      <label htmlFor={name} className="block mb-1 font-medium dark:text-white">
+      <label
+        htmlFor={name}
+        className="block mb-1 font-medium dark:text-[#CCCFD1]"
+      >
         {label}
       </label>
       <Controller

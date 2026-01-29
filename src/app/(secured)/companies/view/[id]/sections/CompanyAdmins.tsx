@@ -101,7 +101,7 @@ const CompanyAdmins = () => {
       case "Viewer":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
     }
   };
 
@@ -110,9 +110,9 @@ const CompanyAdmins = () => {
       case "Active":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
       case "Inactive":
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-[#111827]/20 dark:text-gray-400";
     }
   };
 
@@ -120,7 +120,7 @@ const CompanyAdmins = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
             Company Admins & Roles
           </h3>
           <button
@@ -142,7 +142,7 @@ const CompanyAdmins = () => {
             {fields.map((admin) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
@@ -156,7 +156,7 @@ const CompanyAdmins = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                      <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-[#ffffff]">
                         {admin.name}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -183,13 +183,13 @@ const CompanyAdmins = () => {
         )}
 
         {/* Admin Summary */}
-        <div className="mt-8 bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+        <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-lg p-6">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-[#CCCFD1] mb-4">
             Admin Summary
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="text-2xl font-bold text-gray-900 dark:text-[#CCCFD1]">
                 {fields.length}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -229,7 +229,7 @@ const CompanyAdmins = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-[#CCCFD1]">
           Company Admins & Roles
         </h3>
         <div className="flex space-x-2">
@@ -267,7 +267,7 @@ const CompanyAdmins = () => {
             {fields.map((admin, index) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-700 rounded-lg p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Admin Info */}
@@ -285,7 +285,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.name` as const, {
                           required: "Name is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.admins?.[index]?.name && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -311,7 +311,7 @@ const CompanyAdmins = () => {
                             message: "Please enter a valid email address",
                           },
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.admins?.[index]?.email && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -332,7 +332,7 @@ const CompanyAdmins = () => {
                         type="url"
                         {...register(`admins.${index}.profileImage` as const)}
                         placeholder="https://example.com/profile.jpg"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       />
                       {errors.admins?.[index]?.profileImage && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -356,7 +356,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.role` as const, {
                           required: "Role is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       >
                         <option value="Super Admin">Super Admin</option>
                         <option value="Editor">Editor</option>
@@ -381,7 +381,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.status` as const, {
                           required: "Status is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-[#CCCFD1]"
                       >
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
