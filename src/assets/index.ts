@@ -15,6 +15,7 @@ import companyLogo from "./img/companyLogo.jpg";
 import companyCover from "./img/companyCover.jpg";
 import RayptoLogo from "./img/full-logo.png";
 import RayptoLogoDark from "./img/full-logo2.png";
+import flagPlaceholder from "./img/flag-placeholder.svg";
 export {
   authImg,
   authBg,
@@ -31,4 +32,5 @@ export {
   companyCover,
   RayptoLogo,
   RayptoLogoDark,
+  flagPlaceholder,
 };
