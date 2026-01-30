@@ -65,32 +65,32 @@ const AssignBadgeModal = ({
       </Button>
       <CustomModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div>
-          <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-sidebartext mb-4">
             Assign Badge
           </h2>
           <SearchInput value={search} onChange={setSearch} />
           <table className="min-w-full divide-y divide-gray-200 mt-4">
             <thead>
               <tr>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Name
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Image
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Type
                 </th>
-                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">
+                <th className="px-4 py-2 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-darklabelprimary">
                   Action
                 </th>
                 <th className="px-4 py-2"></th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-900 dark:divide-gray-800">
+            <tbody className="bg-bgwhite divide-y divide-gray-200 dark:bg-darkbgprimary dark:divide-gray-800">
               {badges.map((badge) => (
                 <tr key={badge._id}>
-                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-white">
+                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-sidebartext">
                     {badge.name}
                   </td>
                   <td className="px-4 py-2">
@@ -104,7 +104,7 @@ const AssignBadgeModal = ({
                       />
                     )}
                   </td>
-                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-white">
+                  <td className="px-4 py-2 text-sm font-semibold text-gray-800 dark:text-sidebartext">
                     {badge.type}
                   </td>
                   <td className="px-4 py-2">
@@ -129,7 +129,7 @@ const AssignBadgeModal = ({
                 onPageChange={(selected) => setCurrentPage(selected.selected)}
                 containerClassName="flex space-x-2 items-center paginationWrapper"
                 pageClassName="rounded"
-                activeClassName="text-black font-bold dark:text-white"
+                activeClassName="textbgblack font-bold dark:text-sidebartext"
                 previousLabel={
                   <Button variant="ghost" size="sm">
                     <ChevronLeft className="w-4 h-4" />

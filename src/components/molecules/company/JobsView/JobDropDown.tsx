@@ -73,7 +73,7 @@ export const JobDropdown = ({ onAction }: DropdownProps) => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-64 bg-white border rounded-lg shadow-lg text-sm py-2">
+        <div className="absolute right-0 z-10 mt-2 w-64 bg-bgwhite border rounded-lg shadow-lg text-sm py-2">
           {actions.map(({ icon: Icon, label, action }) => (
             <button
               key={label}
@@ -83,7 +83,7 @@ export const JobDropdown = ({ onAction }: DropdownProps) => {
                 setIsOpen(false);
               }}
             >
-              <Icon size={16} className="text-gray-700" />
+              <Icon size={16} className="text-labelprimary" />
               <span>{label}</span>
             </button>
           ))}
@@ -91,7 +91,7 @@ export const JobDropdown = ({ onAction }: DropdownProps) => {
           <div className="px-4 pt-2 pb-3">
             <label
               htmlFor="invite-search"
-              className="text-[0.875rem] text-[#A3AED0] mb-1 block"
+              className="text-[0.875rem] text-sidebartext mb-1 block"
             >
               Invite someone
             </label>

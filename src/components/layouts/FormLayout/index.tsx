@@ -16,8 +16,8 @@ const FormLayout = ({
 }: FormLayoutProps) => {
   if (layout === FormLayoutType.WithCover) {
     return (
-      <div className="flex min-h-screen bg-white dark:bg-gray-900">
-        <div className="hidden xl:flex w-full items-center justify-center bg-[#f8f7fa] relative xl:w-[66.66%] dark:bg-gray-800">
+      <div className="flex min-h-screen bg-bgwhite dark:bg-darkbgprimary">
+        <div className="hidden xl:flex w-full items-center justify-center bg-[#f8f7fa] relative xl:w-[66.66%] dark:bg-darkbgprimary">
           <Image
             src={authImg}
             alt="Authentication illustration"
@@ -35,8 +35,8 @@ const FormLayout = ({
           />
         </div>
 
-        <div className="flex w-full items-center justify-center p-[24px] sm:p-[48px] xl:w-[33.33%] dark:bg-gray-900 dark:border-gray-800 dark:text-white">
-          <div className="w-full max-w-[400px] mx-auto mt-[50px] dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+        <div className="flex w-full items-center justify-center p-[24px] sm:p-[48px] xl:w-[33.33%] dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
+          <div className="w-full max-w-[400px] mx-auto mt-[50px] dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
             {children}
           </div>
         </div>
@@ -45,8 +45,8 @@ const FormLayout = ({
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+    <div className="min-h-screen flex items-center justify-center bg-lightbgbase dark:bg-darkbgbase">
+      <div className="bg-bgwhite p-6 rounded-lg shadow-md w-full max-w-md dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
         {children}
       </div>
     </div>

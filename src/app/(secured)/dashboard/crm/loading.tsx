@@ -14,7 +14,7 @@ export default function DashboardSkeleton() {
           {Array.from(new Array(2)).map((_, id) => (
             <div
               key={`${baseId}-order-${id}`}
-              className="bg-white shadow-customsm rounded-[5px] py-[25px] px-[20px] w-full dark:bg-gray-900"
+              className="bg-bgwhite shadow-customsm rounded-[5px] py-[25px] px-[20px] w-full dark:bg-darkbgprimary"
             >
               <div className="mb-[10px]">
                 <Skeleton className="h-6 w-24 mb-2" />
@@ -34,7 +34,7 @@ export default function DashboardSkeleton() {
           {Array.from(new Array(2)).map((_, id) => (
             <div
               key={`${baseId}-profit-${id}`}
-              className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-gray-900"
+              className="bg-bgwhite rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-darkbgprimary"
             >
               <Skeleton className="rounded-lg mb-4 w-11 h-11" />
               <Skeleton className="h-5 w-24 mb-1" />
@@ -46,7 +46,7 @@ export default function DashboardSkeleton() {
 
           {/* Revenue Growth */}
           <div className="col-span-full md:col-span-2 h-full">
-            <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-gray-900">
+            <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-darkbgprimary">
               <div className="flex justify-between items-start">
                 <div>
                   <Skeleton className="h-6 w-32 mb-2" />
@@ -76,7 +76,7 @@ export default function DashboardSkeleton() {
 
           {/* Project Title */}
           <div className="col-span-full md:col-span-2 h-full">
-            <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-gray-900">
+            <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-darkbgprimary">
               <div className="flex justify-between items-start">
                 <Skeleton className="h-6 w-32" />
                 <Skeleton className="w-8 h-8 rounded-full" />
@@ -108,7 +108,7 @@ export default function DashboardSkeleton() {
           {/* Sales by Countries, Sales, Top Transactions */}
           <div className="col-span-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-[10px]">
             {/* Sales by Countries */}
-            <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-gray-900">
+            <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-darkbgprimary">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <Skeleton className="h-6 w-32 mb-2" />
@@ -135,7 +135,7 @@ export default function DashboardSkeleton() {
               </div>
             </div>
             {/* Sales (Radar/Chart) */}
-            <div className="bg-white shadow-customsm rounded-[5px] p-[25px] w-full dark:bg-gray-900">
+            <div className="bg-bgwhite shadow-customsm rounded-[5px] p-[25px] w-full dark:bg-darkbgprimary">
               <div className="mb-[10px]">
                 <Skeleton className="h-6 w-24 mb-2" />
                 <Skeleton className="h-4 w-16" />
@@ -143,7 +143,7 @@ export default function DashboardSkeleton() {
               <Skeleton className="h-[357px] w-full mx-auto rounded" />
             </div>
             {/* Top Transactions */}
-            <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-gray-900">
+            <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-darkbgprimary">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <Skeleton className="h-6 w-32 mb-2" />

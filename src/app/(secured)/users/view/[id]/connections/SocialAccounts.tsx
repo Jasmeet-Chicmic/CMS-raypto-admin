@@ -70,17 +70,17 @@ const SocialAccounts = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-bgwhite rounded-lg shadow-sm border bordergray200 p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-1 dark:text-white">
+        <h2 className="text-lg font-semibold text-gray-900 mb-1 dark:text-sidebartext">
           Social Accounts
         </h2>
-        <p className="text-sm text-gray-600 dark:text-white">
+        <p className="text-sm text-gray-600 dark:text-sidebartext">
           Display content from social accounts on your site
         </p>
       </div>
 
-      <div className="space-y-4 dark:bg-gray-900 dark:border-gray-800">
+      <div className="space-y-4 dark:bg-darkbgprimary dark:border-darkbordercolor1">
         {accounts.map((account, idx) => {
           const info = SOCIAL_TYPE_MAP[account.type];
           const isConnected = !!account.link;
@@ -88,24 +88,24 @@ const SocialAccounts = ({
           return (
             <div
               key={idx}
-              className="flex items-center justify-between py-2 dark:bg-gray-900 dark:border-gray-800"
+              className="flex items-center justify-between py-2 dark:bg-darkbgprimary dark:border-darkbordercolor1"
             >
               {/* Left Side */}
               <div className="flex items-center space-x-3">
                 <div
-                  className={`w-8 h-8 rounded-lg p-1.5 dark:text-white ${info.color}`}
+                  className={`w-8 h-8 rounded-lg p-1.5 dark:text-sidebartext ${info.color}`}
                 >
                   <div className="w-full h-full rounded-sm flex items-center justify-center">
-                    <span className="text-[0.875] font-bold text-white dark:text-white">
+                    <span className="text-[0.875] font-bold text-bgwhite dark:text-sidebartext">
                       {info.iconText}
                     </span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white">
+                  <h3 className="font-medium text-gray-900 dark:text-sidebartext">
                     {info.name}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-white">
+                  <p className="text-sm text-gray-500 dark:text-sidebartext">
                     {account.link || "Not Connected"}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ const SocialAccounts = ({
                 <button
                   onClick={() => handleDisconnect(account.type)}
                   disabled={isLoading}
-                  className="text-sm px-3 py-1.5 bg-red-100 text-red-700 rounded-md hover:bg-red-200 flex items-center space-x-2 disabled:opacity-50 dark:bg-red-900 dark:text-white"
+                  className="text-sm px-3 py-1.5 bg-red-100 text-red-700 rounded-md hover:bg-red-200 flex items-center space-x-2 disabled:opacity-50 dark:bg-red-900 dark:text-sidebartext"
                 >
                   <Link2Off size={14} />
                 </button>
@@ -124,7 +124,7 @@ const SocialAccounts = ({
                 <button
                   onClick={() => handleConnect(account.type)}
                   disabled={isLoading}
-                  className="text-sm px-3 py-1.5 bg-green-100 text-green-700 rounded-md hover:bg-green-200 flex items-center space-x-2 disabled:opacity-50 dark:bg-green-900 dark:text-white"
+                  className="text-sm px-3 py-1.5 bg-green-100 text-green-700 rounded-md hover:bg-green-200 flex items-center space-x-2 disabled:opacity-50 dark:bg-green-900 dark:text-sidebartext"
                 >
                   <Link size={14} />
                 </button>

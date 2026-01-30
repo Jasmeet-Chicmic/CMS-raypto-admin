@@ -129,7 +129,7 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
           >
             {CHAT_STRINGS.ROOM_NAME} <span className="text-red-500">*</span>
           </label>
@@ -140,7 +140,7 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
             value={formData.name}
             onChange={handleChange}
             placeholder={CHAT_STRINGS.ENTER_ROOM_NAME}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+            className="w-full px-4 py-2 border border-darklabelprimary rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-darkbgprimary dark:border-gray-600 dark:text-sidebartext"
             required
           />
         </div>
@@ -163,14 +163,14 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+            className="px-4 py-2 bg-gray-200 text-labelprimary rounded-lg hover:bg-darklabelprimary transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:hover:bg-gray-600"
             disabled={isLoading}
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
             disabled={isLoading}
           >
             {isLoading ? "Saving..." : isEdit ? "Update" : "Create"}

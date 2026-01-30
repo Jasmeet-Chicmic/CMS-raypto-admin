@@ -12,7 +12,7 @@ export default function NotFound() {
       </p>
       <Link
         href={ROUTES.DASHBOARD_ANALYTICS}
-        className="mt-6 inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        className="mt-6 inline-block px-6 py-2 bg-blue-600 text-bgwhite rounded hover:bg-blue-700 transition"
       >
         Go Home
       </Link>

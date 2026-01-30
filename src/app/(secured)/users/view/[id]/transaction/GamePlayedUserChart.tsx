@@ -67,14 +67,14 @@ const GamePlayedUserChart = ({
 
   return (
     <div
-      className={`flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800 ${className}`}
+      className={`flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 ${className}`}
     >
       <div className="flex md:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="w-full">
-          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
             Games Played
           </h3>
-          <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
             Number of games played over time
           </p>
         </div>

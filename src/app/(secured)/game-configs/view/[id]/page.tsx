@@ -40,15 +40,15 @@ const GameConfigViewPage = async ({
       title: "Total Bet Count",
       value: statsData ? statsData.totalBetCount : "0",
       subtitle: "All time bets",
-      icon: <Hash className="w-6 h-6 text-[#4F46E5] dark:text-white" />,
-      color: "bg-[#F4F7FE] dark:bg-[#4F46E5]",
+      icon: <Hash className="w-6 h-6 text-bgpurple1 dark:text-sidebartext" />,
+      color: "bg-bordercolor1 dark:bg-primarycolor",
     },
     {
       title: "Total Users",
       value: statsData ? formatCurrency(statsData.totalUsers) : "0",
       subtitle: "All time",
-      icon: <Hash className="w-6 h-6 text-[#4318FF] dark:text-white" />,
-      color: "bg-[#F4F7FE]  dark:bg-[#4F46E5]",
+      icon: <Hash className="w-6 h-6 text-[#4318FF] dark:text-sidebartext" />,
+      color: "bg-bordercolor1  dark:bg-primarycolor",
     },
   ];
 

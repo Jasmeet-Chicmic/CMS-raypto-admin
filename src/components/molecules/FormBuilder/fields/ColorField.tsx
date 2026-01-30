@@ -38,7 +38,10 @@ export function ColorField<T extends FieldValues>({
   const [open, setOpen] = useState(false);
   return (
     <div className={`mb-4 ${width} ${className}`}>
-      <label htmlFor={name} className="block mb-1 font-medium dark:text-white">
+      <label
+        htmlFor={name}
+        className="block mb-1 font-medium dark:text-sidebartext"
+      >
         {label}
       </label>
       <Controller
@@ -49,7 +52,7 @@ export function ColorField<T extends FieldValues>({
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                className="w-6 h-6 rounded-full cursor-pointer border border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+                className="w-6 h-6 rounded-full cursor-pointer border border-darklabelprimary hover:border-gray-400 transition-all duration-300 ease-in-out"
                 style={{ backgroundColor: field.value }}
                 onClick={() => setOpen(true)}
                 aria-label={`Select color for ${label}`}

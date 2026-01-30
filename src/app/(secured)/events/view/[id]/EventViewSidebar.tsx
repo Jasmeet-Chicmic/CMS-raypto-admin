@@ -78,14 +78,14 @@ const EventViewSidebar = ({
     <div className="space-y-6">
       {/* RSVP Stats */}
       {config.showRsvpStats !== false && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.RSVP_STATS}
           </h2>
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-gray-600 dark:bordercolor1">
                 Total RSVPs
               </span>
               <span className="font-semibold text-gray-900 dark:text-gray-100">
@@ -94,7 +94,7 @@ const EventViewSidebar = ({
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-gray-600 dark:bordercolor1">
                 Verified Users
               </span>
               <span className="font-semibold text-green-600 dark:text-green-400">
@@ -103,7 +103,7 @@ const EventViewSidebar = ({
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-gray-600 dark:bordercolor1">
                 Unverified Users
               </span>
               <span className="font-semibold text-yellow-600 dark:text-yellow-400">
@@ -124,7 +124,7 @@ const EventViewSidebar = ({
                   className="flex items-center justify-between py-2"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                    <span className="text-sm text-labelprimary dark:text-darklabelprimary">
                       {rsvp.name}
                     </span>
                     {rsvp.isVerified ? (
@@ -138,7 +138,7 @@ const EventViewSidebar = ({
                       </span>
                     )}
                   </div>
-                  <span className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                  <span className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                     {new Date(rsvp.joinedAt).toLocaleDateString()}
                   </span>
                 </div>
@@ -150,7 +150,7 @@ const EventViewSidebar = ({
 
       {/* Abuse Reports */}
       {config.showAbuseReports !== false && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.ABUSE_REPORTS}
           </h2>
@@ -182,7 +182,7 @@ const EventViewSidebar = ({
                       {report.comments.map((comment, commentIndex) => (
                         <p
                           key={commentIndex}
-                          className="text-sm text-gray-600 dark:text-gray-400"
+                          className="text-sm text-gray-600 dark:bordercolor1"
                         >
                           • {comment}
                         </p>
@@ -198,7 +198,7 @@ const EventViewSidebar = ({
               <p className="text-green-600 dark:text-green-400 font-medium">
                 No reports
               </p>
-              <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 This event has no abuse reports
               </p>
             </div>
@@ -208,7 +208,7 @@ const EventViewSidebar = ({
 
       {/* Moderator Notes */}
       {config.showModeratorNotes !== false && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.MODERATOR_NOTES}
           </h2>
@@ -219,13 +219,13 @@ const EventViewSidebar = ({
                 value={moderatorNotes}
                 onChange={(e) => onModeratorNotesChange?.(e.target.value)}
                 placeholder="Add internal notes about this event (e.g., 'Reviewed on 1st Aug by Sam, no issues found.')"
-                className="w-full h-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 resize-none"
+                className="w-full h-32 px-3 py-2 border border-darklabelprimary dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-labelprimary dark:text-gray-100 resize-none"
               />
               <div className="absolute bottom-2 right-2">
                 <button
                   onClick={handleSaveNotes}
                   disabled={isSavingNotes}
-                  className="flex items-center gap-2 px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white text-sm rounded transition-colors"
+                  className="flex items-center gap-2 px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-bgwhite text-sm rounded transition-colors"
                 >
                   <Save className="w-4 h-4" />
                   {isSavingNotes ? "Saving..." : "Save"}
@@ -233,7 +233,7 @@ const EventViewSidebar = ({
               </div>
             </div>
 
-            <div className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+            <div className="text-[0.875rem] text-sidebartext dark:bordercolor1">
               <p>• Notes are only visible to moderators</p>
               <p>• Use for internal communication and review tracking</p>
             </div>
@@ -243,7 +243,7 @@ const EventViewSidebar = ({
 
       {/* Quick Actions */}
       {config.showQuickActions !== false && quickActions.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
             {SECTION_TITLES.QUICK_ACTIONS}
           </h2>
@@ -253,14 +253,14 @@ const EventViewSidebar = ({
               <button
                 key={action.key}
                 onClick={action.onClick}
-                className="w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 dark:hover:bg-labelprimary rounded-lg transition-colors"
               >
                 <div className="w-5 h-5 text-blue-500" />
                 <div>
                   <p className="font-medium text-gray-900 dark:text-gray-100">
                     {action.label}
                   </p>
-                  <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+                  <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                     {action.description}
                   </p>
                 </div>

@@ -122,21 +122,21 @@ export default function TotalEarningCard({
   };
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-gray-900">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-darkbgprimary">
       {/* Header */}
       <div className="flex justify-between items-start mb-2">
-        <h3 className="text-title text-gray-800 dark:text-gray-400">{title}</h3>
+        <h3 className="text-title text-gray-800 dark:bordercolor1">{title}</h3>
         <DropdownMenu options={LISTING_OPTIONS} onSelect={onMenuSelect} />
       </div>
 
       {/* Percentage */}
       <div className="flex items-center gap-2 mb-4">
-        <div className="text-heading text-gray-800 dark:text-gray-400">
+        <div className="text-heading text-gray-800 dark:bordercolor1">
           {percentage}%
         </div>
         <div
           className={clsx(
-            "text-content inline-flex items-center gap-1 dark:text-gray-400",
+            "text-content inline-flex items-center gap-1 dark:bordercolor1",
             change >= 0 ? "text-green-500" : "text-red-500",
           )}
         >
@@ -168,18 +168,18 @@ export default function TotalEarningCard({
                 {item.icon}
               </div>
               <div>
-                <div className="font-medium text-gray-700 dark:text-gray-400">
+                <div className="font-medium text-labelprimary dark:bordercolor1">
                   {item.label}
                 </div>
-                <div className="text-[0.875] text-gray-400 dark:text-gray-400">
+                <div className="text-[0.875] bordercolor1 dark:bordercolor1">
                   {item.subLabel}
                 </div>
               </div>
             </div>
             <div
               className={clsx(
-                "font-semibold dark:text-gray-400",
-                item.valueColor || "text-gray-800 dark:text-gray-400",
+                "font-semibold dark:bordercolor1",
+                item.valueColor || "text-gray-800 dark:bordercolor1",
               )}
             >
               {item.value}

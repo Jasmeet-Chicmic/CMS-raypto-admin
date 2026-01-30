@@ -9,9 +9,9 @@ export default function Loading() {
   return (
     <main className="flex-1 overflow-y-auto">
       <div className="space-y-6 mt-[20px]">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-900 dark:border-gray-800">
+        <div className="bg-bgwhite rounded-lg shadow-sm border bordergray200 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           {/* Header Skeleton */}
-          <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+          <div className="p-6 border-b border-bordergray200 dark:border-labelprimary">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <Skeleton className="w-10 h-10 rounded-lg" />
@@ -39,7 +39,7 @@ export default function Loading() {
 
             {/* Status Toggles Skeleton */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-4 border border-gray-200 rounded-lg dark:border-gray-700">
+              <div className="p-4 border bordergray200 rounded-lg dark:border-labelprimary">
                 <div className="flex items-center justify-between">
                   <div>
                     <Skeleton className="h-5 w-20 mb-2" />
@@ -48,7 +48,7 @@ export default function Loading() {
                   <Skeleton className="h-6 w-11 rounded-full" />
                 </div>
               </div>
-              <div className="p-4 border border-gray-200 rounded-lg dark:border-gray-700">
+              <div className="p-4 border bordergray200 rounded-lg dark:border-labelprimary">
                 <div className="flex items-center justify-between">
                   <div>
                     <Skeleton className="h-5 w-32 mb-2" />
@@ -65,7 +65,7 @@ export default function Loading() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
+                    <tr className="border-b border-bordergray200 dark:border-labelprimary">
                       <th className="py-3 px-4">
                         <Skeleton className="h-4 w-20" />
                       </th>
@@ -81,7 +81,7 @@ export default function Loading() {
                     {Array.from(new Array(6)).map((_, id) => (
                       <tr
                         key={`${baseId}-row-${id}`}
-                        className="border-b border-gray-100 dark:border-gray-800"
+                        className="border-b border-bordergray200 bordergray100 dark:border-darkbgprimary"
                       >
                         <td className="py-3 px-4">
                           <Skeleton className="h-6 w-16 rounded-full" />
@@ -101,7 +101,7 @@ export default function Loading() {
           </div>
 
           {/* Footer Skeleton */}
-          <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-4">
+          <div className="p-6 border-t bordergray200 dark:border-labelprimary flex justify-end gap-4">
             <Skeleton className="h-10 w-24 rounded-lg" />
             <Skeleton className="h-10 w-32 rounded-lg" />
           </div>

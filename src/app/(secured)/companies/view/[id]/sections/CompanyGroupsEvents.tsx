@@ -95,7 +95,7 @@ const CompanyGroupsEvents = () => {
       case "initiative":
         return "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
     }
   };
 
@@ -104,13 +104,13 @@ const CompanyGroupsEvents = () => {
       case "active":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
       case "inactive":
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
       case "upcoming":
         return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400";
       case "completed":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
     }
   };
 
@@ -136,14 +136,14 @@ const CompanyGroupsEvents = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Groups / Events / Initiatives
         </h3>
         <div className="flex space-x-2">
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-3 py-2 border border-darklabelprimary rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Types</option>
             <option value="event">Events</option>
@@ -153,7 +153,7 @@ const CompanyGroupsEvents = () => {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-3 py-2 border border-darklabelprimary rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -166,31 +166,31 @@ const CompanyGroupsEvents = () => {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
+          <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
             {groupsEvents.length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:bordercolor1">
             Total Items
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-blue-600">
             {groupsEvents.filter((item) => item.type === "event").length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Events</div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Events</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-green-600">
             {groupsEvents.filter((item) => item.type === "group").length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Groups</div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Groups</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-purple-600">
             {groupsEvents.filter((item) => item.type === "initiative").length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:bordercolor1">
             Initiatives
           </div>
         </div>
@@ -201,14 +201,14 @@ const CompanyGroupsEvents = () => {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+            className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-labelprimary rounded-lg p-6"
           >
             <div className="flex items-start justify-between">
               <div className="flex items-start space-x-4">
                 <div className="text-2xl">{getTypeIcon(item.type)}</div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-2">
-                    <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                    <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                       {item.name}
                     </h4>
                     <span
@@ -223,10 +223,10 @@ const CompanyGroupsEvents = () => {
                         item.status.slice(1)}
                     </span>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                  <p className="text-labelprimary dark:text-darklabelprimary text-sm mb-3">
                     {item.description}
                   </p>
-                  <div className="flex items-center space-x-4 text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                  <div className="flex items-center space-x-4 text-[0.875rem] text-sidebartext dark:bordercolor1">
                     <span>📅 {new Date(item.date).toLocaleDateString()}</span>
                     <span>👥 {item.participants} participants</span>
                     <span>🏷️ {item.category}</span>
@@ -234,10 +234,10 @@ const CompanyGroupsEvents = () => {
                 </div>
               </div>
               <div className="flex space-x-2">
-                <button className="px-3 py-1 text-[0.875] font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors">
+                <button className="px-3 py-1 text-[0.875] font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors">
                   View Details
                 </button>
-                <button className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-white transition-colors">
+                <button className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-bgwhite transition-colors">
                   Edit
                 </button>
               </div>
@@ -247,19 +247,19 @@ const CompanyGroupsEvents = () => {
 
         {filteredItems.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">No items found.</p>
+            <p className="text-gray-500 dark:bordercolor1">No items found.</p>
           </div>
         )}
       </div>
 
       {/* Summary by Type */}
-      <div className="mt-8 bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-        <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+      <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+        <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
           Summary by Type
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h5 className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Events
             </h5>
             <div className="space-y-2">
@@ -299,7 +299,7 @@ const CompanyGroupsEvents = () => {
             </div>
           </div>
           <div>
-            <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h5 className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Groups
             </h5>
             <div className="space-y-2">
@@ -328,7 +328,7 @@ const CompanyGroupsEvents = () => {
             </div>
           </div>
           <div>
-            <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h5 className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               Initiatives
             </h5>
             <div className="space-y-2">

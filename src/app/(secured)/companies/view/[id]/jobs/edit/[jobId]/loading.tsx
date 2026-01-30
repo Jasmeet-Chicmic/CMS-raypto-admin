@@ -7,7 +7,7 @@ const EditJobLoading = () => {
   const baseId = useId();
 
   return (
-    <div className="space-y-6 bg-white dark:bg-gray-900 p-4 rounded-lg animate-pulse">
+    <div className="space-y-6 bg-bgwhite dark:bg-darkbgprimary p-4 rounded-lg animate-pulse">
       <Skeleton className="h-8 w-32" /> {/* Edit Job Title */}
       <div className="space-y-6">
         {/* Title */}

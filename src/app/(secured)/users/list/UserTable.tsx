@@ -219,10 +219,10 @@ const UserTable = ({
                 navigator.clipboard.writeText(email);
                 toast.success("Email copied to clipboard");
               }}
-              className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="p-1 rounded hover:bg-gray-100 dark:hover:bg-labelprimary transition-colors"
               title="Copy email"
             >
-              <Copy size={14} className="text-gray-500 dark:text-gray-400" />
+              <Copy size={14} className="text-gray-500 dark:bordercolor1" />
             </button>
           </div>
         );
@@ -355,7 +355,7 @@ const UserTable = ({
                 scroll: false,
               });
             }}
-            className="text-gray-500 hover:text-blue-600 transition-colors dark:text-white"
+            className="text-gray-500 hover:text-blue-600 transition-colors dark:text-sidebartext"
             title="View"
           >
             <Eye size={18} />
@@ -427,8 +427,8 @@ const UserTable = ({
       },
       header: (
         <>
-          <div className="bg-white px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-gray-900 dark:border-gray-800">
-            <div className="dark:border-gray-800">
+          <div className="bg-bgwhite px-6 pt-7 pb-3 rounded-[20px_20px_0_0] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+            <div className="dark:border-darkbgprimary">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                 <div>
                   <h2 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY}`}>
@@ -442,7 +442,7 @@ const UserTable = ({
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
                   >
                     <Menu size={18} />
                     <span>Filters</span>
@@ -462,7 +462,7 @@ const UserTable = ({
                   router.push(pathname);
                   setIsFilterOpen(false);
                 }}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-labelprimary dark:text-darklabelprimary rounded-xl hover:bg-gray-200 dark:hover:bg-labelprimary transition-all border bordergray200 dark:border-labelprimary font-medium"
               >
                 <RotateCcw size={18} />
                 <span>Clear All Filters</span>
@@ -473,7 +473,7 @@ const UserTable = ({
               <div>
                 <label
                   htmlFor="user-status-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   User Status
                 </label>
@@ -536,7 +536,7 @@ const UserTable = ({
               <div>
                 <label
                   htmlFor="joined-at-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Joined At
                 </label>
@@ -544,7 +544,7 @@ const UserTable = ({
                   id="joined-at-filter"
                   type="date"
                   max={new Date().toISOString().split("T")[0]}
-                  className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:text-gray-300 transition-all"
+                  className="w-full px-4 py-2.5 border border-darklabelprimary dark:border-labelprimary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-darkbgprimary dark:text-darklabelprimary transition-all"
                   onChange={(e) => {
                     const val = e.target.value;
                     const newParams = new URLSearchParams(
@@ -564,7 +564,7 @@ const UserTable = ({
               <div>
                 <label
                   htmlFor="currency-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Currency
                 </label>

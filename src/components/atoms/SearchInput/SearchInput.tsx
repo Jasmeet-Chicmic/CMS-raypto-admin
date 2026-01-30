@@ -16,7 +16,7 @@ const SearchInput = ({
   return (
     <div className={`relative rounded-[8px] ${className}`}>
       <Search
-        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#1b2559] dark:text-gray-400"
+        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-textprimary dark:text-secondary"
         size={18}
       />
       <input
@@ -24,7 +24,7 @@ const SearchInput = ({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="pr-10 pl-4 py-2 border border-[#f4f7fe] rounded-lg w-full dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+        className="pr-10 px-4 py-3 w-full dark:border-darkbordercolor1 border border-b border-bordergray200ordercolor1 placeholder:text-[#8F9BBA] bg-bgwhite dark:bg-darkbgprimary rounded-[10px] focus:outline-none transition-all duration-200 textbgblack"
       />
     </div>
   );

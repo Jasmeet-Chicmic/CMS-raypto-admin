@@ -43,7 +43,7 @@ const DateField = <T extends FieldValues>({
       {label && (
         <label
           htmlFor={name}
-          className="block mb-1 font-medium dark:text-white"
+          className="block mb-1 font-medium dark:text-sidebartext"
         >
           {label}
         </label>
@@ -54,7 +54,7 @@ const DateField = <T extends FieldValues>({
         placeholder={placeholder}
         {...register(name, validation)}
         onChange={handleChange}
-        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
       />
       {fieldError && (
         <p className="text-red-500 text-[0.875] mt-1">

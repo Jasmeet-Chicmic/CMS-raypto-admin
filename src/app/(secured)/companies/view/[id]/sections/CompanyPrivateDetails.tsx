@@ -129,12 +129,12 @@ const CompanyPrivateDetails = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Private Details (Admin Only)
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -162,24 +162,24 @@ const CompanyPrivateDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Financial Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-gray-900 dark:text-white">
+            <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
               Financial Information
             </h4>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.REVENUE}
               </div>
-              <p className="text-gray-900 dark:text-white font-medium">
+              <p className="text-gray-900 dark:text-sidebartext font-medium">
                 {defaultValues.revenue}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.TURNOVER}
               </div>
-              <p className="text-gray-900 dark:text-white font-medium">
+              <p className="text-gray-900 dark:text-sidebartext font-medium">
                 {defaultValues.turnover}
               </p>
             </div>
@@ -187,24 +187,24 @@ const CompanyPrivateDetails = () => {
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-gray-900 dark:text-white">
+            <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
               Contact Information
             </h4>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT_EMAIL}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.contactEmail}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT_PHONE}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.contactPhone}
               </p>
             </div>
@@ -213,25 +213,25 @@ const CompanyPrivateDetails = () => {
 
         {/* Dates */}
         <div className="mt-6 space-y-4">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-white">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext">
             Important Dates
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CREATED_DATE}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {new Date(defaultValues.createdDate).toLocaleDateString()}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.LAST_UPDATED}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {new Date(defaultValues.lastUpdated).toLocaleDateString()}
               </p>
             </div>
@@ -240,11 +240,11 @@ const CompanyPrivateDetails = () => {
 
         {/* Notes */}
         <div className="mt-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
             {STRING.NOTES}
           </h4>
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-            <p className="text-gray-700 dark:text-gray-300">
+          <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-4">
+            <p className="text-labelprimary dark:text-darklabelprimary">
               {defaultValues.notes}
             </p>
           </div>
@@ -256,12 +256,12 @@ const CompanyPrivateDetails = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Private Details (Admin Only)
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -296,7 +296,7 @@ const CompanyPrivateDetails = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

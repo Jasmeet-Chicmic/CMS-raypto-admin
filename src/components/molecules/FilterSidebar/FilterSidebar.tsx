@@ -24,7 +24,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
       {isOpen && (
         <button
           type="button"
-          className="fixed inset-0 bg-black/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
+          className="fixed inset-0 bgbgblack/30 z-[100] backdrop-blur-sm transition-opacity cursor-default"
           onClick={onClose}
           aria-label="Close filter sidebar"
           tabIndex={-1}
@@ -33,19 +33,19 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl z-[110] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 h-full w-full max-w-md bg-bgwhite dark:bg-darkbgprimary shadow-2xl z-[110] transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-800">
-            <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-bordergray200 dark:border-darkbgprimary">
+            <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
               {title}
             </h2>
             <button
               onClick={onClose}
-              className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 bordercolor1 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <X size={20} />
             </button>
@@ -58,7 +58,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+            <div className="px-6 py-4 border-t bordergray200 dark:border-darkbgprimary bg-gray-50 dark:bg-darkbgprimary/50">
               {footer}
             </div>
           )}

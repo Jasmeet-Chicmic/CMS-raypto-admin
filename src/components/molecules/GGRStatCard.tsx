@@ -14,6 +14,7 @@ interface CurrencyGGR {
 interface GGRStatCardProps {
   stats: CurrencyGGR[];
   title?: string;
+  color?: string;
 }
 
 interface CurrencyOption {
@@ -24,6 +25,7 @@ interface CurrencyOption {
 const GGRStatCard: React.FC<GGRStatCardProps> = ({
   stats,
   title = "Gross Gaming Revenue",
+  color = "bg-bgpurple",
 }) => {
   const currencyOptions: CurrencyOption[] = useMemo(
     () =>
@@ -43,22 +45,22 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
   const ggrValue = selectedStat?.amount || 0;
 
   return (
-    <div className="bg-white group dark:bg-gray-900 rounded-[20px] p-6 transition-all duration-300 hover:bg-gradient-to-r from-[#868CFF] to-[#4F46E5] hover:shadow-lg hover:shadow-indigo-500/30 [&_svg]:transition-colors [&_svg]:duration-300">
+    <div className="bg-bgwhite border border-b border-bordergray200ordercolor1 shadow-sm dark:bg-darkbgprimary dark:border-darkbordercolor1 rounded-[20px] p-6 transition-all duration-300 [&_svg]:transition-colors [&_svg]:duration-300">
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-[0.875rem] font-medium text-[#A3AED0] dark:text-gray-400 mb-0 group-hover:!text-white transition-colors duration-300">
+            <p className="text-[0.875rem] font-medium text-[#364153] dark:text-[#D1D5D0] mb-0 group-hover:!text-bgwhite transition-colors duration-300">
               {title}
             </p>
           </div>
 
           <div className="flex items-baseline gap-2">
-            <h3 className="text-[1.75rem] font-bold text-[#1B2559] dark:text-white group-hover:!text-white transition-colors duration-300">
+            <h3 className="text-[1.75rem] font-bold text-darkbordercolor1 dark:text-bgwhite group-hover:!text-bgwhite transition-colors duration-300">
               {formatCurrency(ggrValue)}
             </h3>
           </div>
 
-          <p className="text-[0.8rem] font-medium text-[#A3AED0] dark:text-gray-400 mb-0 group-hover:!text-white transition-colors duration-300">
+          <p className="text-[0.8rem] font-medium text-textparagraphlight dark:text-textparagraphlight mb-0 group-hover:!text-bgwhite transition-colors duration-300">
             {selectedOption?.label || "Selected currency"} GGR
           </p>
         </div>
@@ -79,7 +81,7 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
           </div>
 
           <div
-            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 bg-[#4F46E5] text-[#ffffff] dark:bg-[#4F46E5] group-hover:bg-white group-hover:text-[#4F46E5] [&_svg]:group-hover:!text-[#4F46E5]`}
+            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${color} text-bgwhite group-hover:bg-bgwhite [&_svg]:group-hover:!text-bgpurple1`}
           >
             <TrendingUp className="w-6 h-6" />
           </div>

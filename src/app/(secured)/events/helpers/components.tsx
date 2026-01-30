@@ -16,11 +16,11 @@ export const EventStatusBadge = ({ status }: { status: EVENT_STATUS }) => {
       case EVENT_STATUS.REJECTED:
         return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
       case EVENT_STATUS.DELETED:
-        return "bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300";
+        return "bg-gray-100 text-labelprimary dark:bg-darkbgprimary dark:text-darklabelprimary";
       case EVENT_STATUS.FLAGGED:
         return "bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300";
       default:
-        return "bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300";
+        return "bg-gray-100 text-labelprimary dark:bg-darkbgprimary dark:text-darklabelprimary";
     }
   };
 
@@ -44,7 +44,7 @@ export const TrustLevelBadge = ({ level }: { level: TRUST_LEVEL }) => {
       case TRUST_LEVEL.LOW:
         return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
       default:
-        return "bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300";
+        return "bg-gray-100 text-labelprimary dark:bg-darkbgprimary dark:text-darklabelprimary";
     }
   };
 

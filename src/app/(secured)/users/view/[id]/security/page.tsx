@@ -22,19 +22,19 @@ const SecurityPage = async ({
   console.log(data, "ds,fld");
   return (
     <>
-      <div className="bg-white rounded-lg shadow p-4 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+      <div className="bg-bgwhite rounded-lg shadow p-4 dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
         Change Password
         <ChangePasswordForm userId={id} />
       </div>
-      <div className="bg-white shadow rounded-lg overflow-hidden dark:bg-gray-900 dark:border-gray-800 dark:text-white">
-        <div className="px-6 py-4 border-b">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+      <div className="bg-bgwhite shadow rounded-lg overflow-hidden dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
+        <div className="px-6 py-4 border-b border-bordergray200">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-sidebartext">
             Recent Devices
           </h3>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm text-left text-gray-600 dark:text-white">
-            <thead className="bg-white border-b text-[0.875rem] text-[#A3AED0] uppercase dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+          <table className="min-w-full text-sm text-left text-gray-600 dark:text-sidebartext">
+            <thead className="bg-bgwhite border-b border-bordergray200 text-[0.875rem] text-sidebartext uppercase dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
               <tr>
                 <th className="px-6 py-3">Browser</th>
                 <th className="px-6 py-3">Device</th>
@@ -45,7 +45,7 @@ const SecurityPage = async ({
             <tbody>
               {data?.data?.data?.map((item) => (
                 <tr
-                  className="border-b hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900 dark:text-white"
+                  className="border-b border-bordergray200 hover:bg-gray-50 dark:border-darkbgprimary dark:hover:bg-gray-900 dark:text-sidebartext"
                   key={item?._id}
                 >
                   <td className="px-6 py-4 flex items-center gap-2">

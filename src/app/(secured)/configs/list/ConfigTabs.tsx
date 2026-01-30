@@ -28,14 +28,14 @@ const ConfigTabs = ({
   return (
     <div>
       {/* Header with Tabs */}
-      <div className="bg-white rounded-t-[12px] dark:bg-gray-900 dark:border-gray-800">
-        <div className="p-6 dark:border-gray-800">
+      <div className="bg-bgwhite rounded-t-[12px] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+        <div className="p-6 dark:border-darkbgprimary">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             <div>
-              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                 Configurations
               </h2>
-              {/* <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              {/* <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 Manage system configurations and settings
               </p> */}
             </div>
@@ -43,20 +43,20 @@ const ConfigTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex px-6 border-b border-bordergray200 dark:border-darkbgprimary">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setCurrentTab(tab.id)}
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 currentTab === tab.id
-                  ? "text-[#4F46E5] dark:text-white"
-                  : "text-[#A3AED0] hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  ? "text-bgpurple1 dark:text-sidebartext"
+                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>
               {currentTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#4F46E5] rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primarycolor rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
               )}
             </button>
           ))}
@@ -64,7 +64,7 @@ const ConfigTabs = ({
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-b-[20px] dark:bg-gray-900 dark:border-gray-800">
+      <div className="bg-bgwhite rounded-b-[20px] dark:bg-darkbgprimary dark:border-darkbordercolor1">
         {currentTab === "rewards" && (
           <RewardConfigForm initialConfig={rewardConfig} />
         )}

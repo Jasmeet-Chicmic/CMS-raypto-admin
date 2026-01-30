@@ -37,7 +37,7 @@ type AvatarFallbackProps = {
 
 export function AvatarFallback({ children }: AvatarFallbackProps) {
   return (
-    <div className="flex items-center justify-center w-full h-full bg-gray-300 text-sm font-medium text-white">
+    <div className="flex items-center justify-center w-full h-full bg-darklabelprimary text-sm font-medium text-bgwhite">
       {children}
     </div>
   );

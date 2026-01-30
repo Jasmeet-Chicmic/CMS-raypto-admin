@@ -69,10 +69,10 @@ export default function PaymentMethods({ cards, id }: Props) {
   };
   return (
     <>
-      <div className="bg-white rounded-lg shadow p-6  space-y-6 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+      <div className="bg-bgwhite rounded-lg shadow p-6  space-y-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-sidebartext">
             Payment Methods
           </h2>
           <Button
@@ -92,11 +92,11 @@ export default function PaymentMethods({ cards, id }: Props) {
               <div className="flex items-center gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-medium text-gray-800 dark:text-white">
+                    <p className="font-medium text-gray-800 dark:text-sidebartext">
                       {card.cardHolderName}
                     </p>
                   </div>
-                  <p className="text-gray-600 text-sm tracking-widest dark:text-white">
+                  <p className="text-gray-600 text-sm tracking-widest dark:text-sidebartext">
                     **** **** **** {card.cardNumberLast4Digits}
                   </p>
                 </div>
@@ -112,7 +112,7 @@ export default function PaymentMethods({ cards, id }: Props) {
                     Delete
                   </button>
                 </div>
-                <p className="text-[0.875rem] text-[#A3AED0] dark:text-white">
+                <p className="text-[0.875rem] text-sidebartext dark:text-sidebartext">
                   Card expires at {Number(card.cardExpiryMonth) + 1}/
                   {Number(card.cardExpiryYear) - 2000}
                 </p>
@@ -126,10 +126,10 @@ export default function PaymentMethods({ cards, id }: Props) {
         onClose={() => setModal({ open: false })}
       >
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Add New Card
           </h2>
-          <p className="text-sm text-gray-500 dark:text-white">
+          <p className="text-sm text-gray-500 dark:text-sidebartext">
             Add new card to complete payment
           </p>
         </div>

@@ -97,7 +97,7 @@ const TransactionPage = async ({
       {/* Transaction Stats Chart */}
 
       {/* Transaction Table */}
-      <div className="bg-white rounded-[20px] dark:bg-gray-900 dark:border-gray-800 w-full">
+      <div className="bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px] dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full">
         <TransactionTable
           data={data?.data?.data || []}
           count={data?.data?.count || 0}

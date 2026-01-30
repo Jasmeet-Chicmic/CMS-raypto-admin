@@ -101,7 +101,7 @@ const CompanyAdmins = () => {
       case "Viewer":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
     }
   };
 
@@ -110,9 +110,9 @@ const CompanyAdmins = () => {
       case "Active":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
       case "Inactive":
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800 dark:bg-darkbgprimary/20 dark:bordercolor1";
     }
   };
 
@@ -120,12 +120,12 @@ const CompanyAdmins = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Company Admins & Roles
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -133,7 +133,7 @@ const CompanyAdmins = () => {
 
         {fields.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No admins added yet.
             </p>
           </div>
@@ -142,11 +142,11 @@ const CompanyAdmins = () => {
             {fields.map((admin) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-labelprimary rounded-lg p-4"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700">
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 dark:bg-labelprimary">
                       <Image
                         src={admin.profileImage || "/images/users/default.jpg"}
                         alt={admin.name}
@@ -156,10 +156,10 @@ const CompanyAdmins = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                      <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                         {admin.name}
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-600 dark:bordercolor1">
                         {admin.email}
                       </p>
                     </div>
@@ -183,16 +183,16 @@ const CompanyAdmins = () => {
         )}
 
         {/* Admin Summary */}
-        <div className="mt-8 bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-          <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+        <div className="mt-8 bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
+          <h4 className="text-lg font-medium text-gray-900 dark:text-sidebartext mb-4">
             Admin Summary
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
                 {fields.length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-gray-600 dark:bordercolor1">
                 Total Admins
               </div>
             </div>
@@ -200,7 +200,7 @@ const CompanyAdmins = () => {
               <div className="text-2xl font-bold text-red-600">
                 {fields.filter((a) => a.role === "Super Admin").length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-gray-600 dark:bordercolor1">
                 Super Admins
               </div>
             </div>
@@ -208,7 +208,7 @@ const CompanyAdmins = () => {
               <div className="text-2xl font-bold text-blue-600">
                 {fields.filter((a) => a.role === "Editor").length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-gray-600 dark:bordercolor1">
                 Editors
               </div>
             </div>
@@ -216,7 +216,7 @@ const CompanyAdmins = () => {
               <div className="text-2xl font-bold text-green-600">
                 {fields.filter((a) => a.status === "Active").length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-gray-600 dark:bordercolor1">
                 Active Users
               </div>
             </div>
@@ -229,19 +229,19 @@ const CompanyAdmins = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Company Admins & Roles
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addAdmin}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Admin
           </button>
           <button
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>
@@ -251,13 +251,13 @@ const CompanyAdmins = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {fields.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No admins added yet.
             </p>
             <button
               type="button"
               onClick={addAdmin}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Admin
             </button>
@@ -267,7 +267,7 @@ const CompanyAdmins = () => {
             {fields.map((admin, index) => (
               <div
                 key={admin.id}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+                className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-labelprimary rounded-lg p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Admin Info */}
@@ -275,7 +275,7 @@ const CompanyAdmins = () => {
                     <div>
                       <label
                         htmlFor={`admin-name-${index}`}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Name
                       </label>
@@ -285,7 +285,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.name` as const, {
                           required: "Name is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.name && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -297,7 +297,7 @@ const CompanyAdmins = () => {
                     <div>
                       <label
                         htmlFor={`admin-email-${index}`}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Email
                       </label>
@@ -311,7 +311,7 @@ const CompanyAdmins = () => {
                             message: "Please enter a valid email address",
                           },
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.email && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -323,7 +323,7 @@ const CompanyAdmins = () => {
                     <div>
                       <label
                         htmlFor={`admin-profile-image-${index}`}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Profile Image URL
                       </label>
@@ -332,7 +332,7 @@ const CompanyAdmins = () => {
                         type="url"
                         {...register(`admins.${index}.profileImage` as const)}
                         placeholder="https://example.com/profile.jpg"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.admins?.[index]?.profileImage && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -347,7 +347,7 @@ const CompanyAdmins = () => {
                     <div>
                       <label
                         htmlFor={`admin-role-${index}`}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Role
                       </label>
@@ -356,7 +356,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.role` as const, {
                           required: "Role is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       >
                         <option value="Super Admin">Super Admin</option>
                         <option value="Editor">Editor</option>
@@ -372,7 +372,7 @@ const CompanyAdmins = () => {
                     <div>
                       <label
                         htmlFor={`admin-status-${index}`}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Status
                       </label>
@@ -381,7 +381,7 @@ const CompanyAdmins = () => {
                         {...register(`admins.${index}.status` as const, {
                           required: "Status is required",
                         })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       >
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
@@ -397,7 +397,7 @@ const CompanyAdmins = () => {
                       <button
                         type="button"
                         onClick={() => remove(index)}
-                        className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                        className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                       >
                         Remove Admin
                       </button>
@@ -414,13 +414,13 @@ const CompanyAdmins = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

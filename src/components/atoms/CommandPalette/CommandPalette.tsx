@@ -139,24 +139,24 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
   return (
     <button
       type="button"
-      className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999] flex items-center justify-center cursor-default"
+      className="fixed inset-0 bgbgblack bg-opacity-50 backdrop-blur-sm z-[9999] flex items-center justify-center cursor-default"
       onClick={onClose}
       aria-label="Close command palette"
     >
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-gray-800">
+      <div className="bg-bgwhite rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[70vh] overflow-hidden dark:bg-darkbgprimary">
         {/* Search Input */}
-        <div className="flex items-center px-4 py-3 border-b border-gray-200">
-          <Search className="text-gray-400 mr-3" size={20} />
+        <div className="flex items-center px-4 py-3 border-b border-bordergray200">
+          <Search className="bordercolor1 mr-3" size={20} />
           <input
             ref={inputRef}
             type="text"
             placeholder="Type a command or search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 outline-none text-gray-900 placeholder-gray-500 bg-transparent py-2 px-3 rounded-lg mr-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+            className="flex-1 outline-none text-gray-900 placeholder-gray-500 bg-transparent py-2 px-3 rounded-lg mr-2 dark:bg-darkbgprimary dark:text-sidebartext dark:placeholder-gray-400"
           />
-          <div className="flex items-center space-x-1 text-[0.875] text-gray-400">
-            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+          <div className="flex items-center space-x-1 text-[0.875] bordercolor1">
+            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] dark:bg-labelprimary dark:text-sidebartext">
               ESC
             </kbd>
           </div>
@@ -165,13 +165,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
         {/* Commands List */}
         <div className="overflow-y-auto max-h-96">
           {Object.keys(groupedCommands).length === 0 ? (
-            <div className="px-4 py-8 text-center text-gray-500 dark:text-white">
+            <div className="px-4 py-8 text-center text-gray-500 dark:text-sidebartext">
               <Search
-                className="mx-auto mb-3 text-gray-300 dark:text-white"
+                className="mx-auto mb-3 text-darklabelprimary dark:text-sidebartext"
                 size={48}
               />
-              <p className="text-gray-500 dark:text-white">No commands found</p>
-              <p className="text-sm text-gray-500 dark:text-white">
+              <p className="text-gray-500 dark:text-sidebartext">
+                No commands found
+              </p>
+              <p className="text-sm text-gray-500 dark:text-sidebartext">
                 Try searching for something else
               </p>
             </div>
@@ -179,7 +181,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             Object.entries(groupedCommands).map(
               ([category, categoryCommands]) => (
                 <div key={category}>
-                  <div className="px-4 py-2 text-[0.875] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100 dark:bg-gray-700 dark:text-white">
+                  <div className="px-4 py-2 text-[0.875] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-bordergray200 bordergray100 dark:bg-labelprimary dark:text-sidebartext">
                     {category}
                   </div>
                   {categoryCommands.map((command) => {
@@ -189,35 +191,35 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                       <button
                         type="button"
                         key={command.id}
-                        className={`flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 w-full text-left`}
+                        className={`flex items-center px-4 py-3 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-labelprimary w-full text-left`}
                         onClick={() => {
                           command.action();
                           onClose();
                         }}
                         onMouseEnter={() => setSelectedIndex(globalIndex)}
                       >
-                        <div className={`mr-3  "text-gray-400"`}>
+                        <div className={`mr-3  "bordercolor1"`}>
                           {Icon ? (
-                            <Icon size={20} className="text-gray-400" />
+                            <Icon size={20} className="bordercolor1" />
                           ) : (
-                            <Circle size={10} className="text-gray-400 mr-2" />
+                            <Circle size={10} className="bordercolor1 mr-2" />
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
-                            className={`font-medium text-gray-900 dark:text-white`}
+                            className={`font-medium text-gray-900 dark:text-sidebartext`}
                           >
                             {command.title}
                           </div>
                           {command.subtitle && (
-                            <div className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            <div className="text-sm text-gray-500 truncate dark:bordercolor1">
                               {command.subtitle}
                             </div>
                           )}
                         </div>
                         {command.shortcut && (
                           <div className="ml-3">
-                            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] text-gray-600 dark:bg-gray-700 dark:text-white">
+                            <kbd className="px-2 py-1 bg-gray-100 rounded text-[0.875] text-gray-600 dark:bg-labelprimary dark:text-sidebartext">
                               {command.shortcut}
                             </kbd>
                           </div>
@@ -232,23 +234,23 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-3 border-t border-gray-200 bg-gray-50 dark:bg-gray-700">
-          <div className="flex items-center justify-between text-[0.875rem] text-[#A3AED0] dark:text-white">
+        <div className="px-4 py-3 border-t bordergray200 bg-gray-50 dark:bg-labelprimary">
+          <div className="flex items-center justify-between text-[0.875rem] text-sidebartext dark:text-sidebartext">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-bgwhite border border-darklabelprimary rounded text-[0.875] dark:bg-labelprimary dark:text-sidebartext">
                   ↑↓
                 </kbd>
                 <span>Navigate</span>
               </div>
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-bgwhite border border-darklabelprimary rounded text-[0.875] dark:bg-labelprimary dark:text-sidebartext">
                   ↵
                 </kbd>
                 <span>Select</span>
               </div>
               <div className="flex items-center space-x-1">
-                <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded text-[0.875] dark:bg-gray-700 dark:text-white">
+                <kbd className="px-1.5 py-0.5 bg-bgwhite border border-darklabelprimary rounded text-[0.875] dark:bg-labelprimary dark:text-sidebartext">
                   ESC
                 </kbd>
                 <span>Close</span>

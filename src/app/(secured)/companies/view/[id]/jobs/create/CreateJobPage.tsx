@@ -169,7 +169,7 @@ const CreateJobPage = ({ job }: { job?: Job }) => {
     });
   };
   return (
-    <div className="space-y-6 bg-white p-4 rounded-lg">
+    <div className="space-y-6 bg-bgwhite p-4 rounded-lg">
       <h1 className="text-2xl font-bold">{job?._id ? "Edit" : "Create"} Job</h1>
       <FormBuilder
         formConfig={formConfig}

@@ -167,20 +167,20 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-[20px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-gray-100 dark:border-gray-800 transition-all duration-300">
+    <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-bordergray100 dark:border-darkbgprimary transition-all duration-300">
       {/* Header */}
-      <div className="p-8 border-b border-gray-100 dark:border-gray-800">
+      <div className="p-8 border-b border-bordergray200 bordergray100 dark:border-darkbgprimary">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-5 w-full">
             <Link
               href={ROUTES.GAME_CONFIGS_LIST}
-              className="p-3 bg-[#F4F7FE] dark:bg-gray-800 text-[#4F46E5] rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="p-3 bg-bordercolor1 dark:bg-darkbgprimary text-bgpurple1 rounded-2xl hover:bg-gray-100 dark:hover:bg-labelprimary transition-colors"
             >
               <ArrowLeft className="w-6 h-6" />
             </Link>
             <div className="w-full">
               <div className="flex items-center gap-3">
-                <h1 className="text-[2rem] font-bold text-[#1B2559] dark:text-white leading-none">
+                <h1 className="text-[2rem] font-bold text-textprimary dark:text-sidebartext leading-none">
                   {gameConfig.name}
                 </h1>
                 <span
@@ -193,7 +193,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                   {gameConfig.isEnabled ? "Enabled" : "Disabled"}
                 </span>
               </div>
-              <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400 mt-2">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight mt-2">
                 {GAME_TYPE_NAMES[gameConfig.type] || `Type ${gameConfig.type}`}{" "}
                 • Created {formatDate(gameConfig.createdAt)} • ID:{" "}
                 {gameConfig._id}
@@ -207,7 +207,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                 <button
                   type="button"
                   onClick={handleCancelEdit}
-                  className="flex items-center gap-2 px-5 py-2.5 text-sm whitespace-nowrap font-bold text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-700 transition-all"
+                  className="flex items-center gap-2 px-5 py-2.5 text-sm whitespace-nowrap font-bold text-labelprimary bg-bgwhite border bordergray200 rounded-xl hover:bg-gray-50 dark:bg-darkbgprimary dark:text-darklabelprimary dark:border-labelprimary dark:hover:bg-labelprimary transition-all"
                 >
                   <X size={18} />
                   Cancel
@@ -218,8 +218,8 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                   disabled={isSubmitting || !isDirty}
                   className={`flex items-center gap-2 whitespace-nowrap px-6 py-2.5 text-sm font-bold rounded-xl transition-all shadow-lg ${
                     isDirty
-                      ? "bg-[#4F46E5] text-white hover:bg-[#3311CC] shadow-indigo-200 dark:shadow-none"
-                      : "bg-gray-300 text-gray-500 cursor-not-allowed dark:bg-gray-700"
+                      ? "bg-primarycolor text-bgwhite hover:bg-[#3311CC] shadow-indigo-200 dark:shadow-none"
+                      : "bg-darklabelprimary text-gray-500 cursor-not-allowed dark:bg-labelprimary"
                   }`}
                 >
                   <Save size={18} />
@@ -230,7 +230,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
               <button
                 type="button"
                 onClick={() => setEditMode(true)}
-                className="flex items-center whitespace-nowrap gap-2 px-6 py-2.5 text-sm font-bold text-white bg-[#4F46E5] rounded-xl hover:bg-[#3311CC] transition-all shadow-lg shadow-indigo-100 dark:shadow-none"
+                className="flex items-center whitespace-nowrap gap-2 px-6 py-2.5 text-sm font-bold text-bgwhite bg-primarycolor rounded-xl hover:bg-[#3311CC] transition-all shadow-lg shadow-indigo-100 dark:shadow-none"
               >
                 <Pencil size={18} />
                 <span className="flex flex-nowrap">Edit Configuration</span>
@@ -245,12 +245,12 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
           <div className="p-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-8">
               {/* Basic Info */}
-              <div className="w-full xl:w-full p-6 bg-[#F4F7FE] dark:bg-gray-800/40 rounded-[20px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200/50 dark:border-gray-700/50">
-                  <div className="p-2 bg-white dark:bg-[#4F46E5] rounded-lg shadow-sm">
-                    <Gamepad2 className="w-5 h-5 text-[#4F46E5] dark:text-white" />
+              <div className="p-6 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-[20px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-bordergray200/50 dark:border-labelprimary/50">
+                  <div className="p-2 bg-bgwhite dark:bg-primarycolor rounded-lg shadow-sm">
+                    <Gamepad2 className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                   </div>
-                  <h3 className="text-lg font-bold text-[#1B2559] dark:text-white">
+                  <h3 className="text-lg font-bold text-textprimary dark:text-sidebartext">
                     Basic Information
                   </h3>
                 </div>
@@ -407,10 +407,10 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
             {/* Amount Limits */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-[#F4F7FE] dark:bg-[#4F46E5] rounded-lg">
-                  <Coins className="w-5 h-5 text-[#4F46E5] dark:text-white" />
+                <div className="p-2 bg-bordercolor1 dark:bg-primarycolor rounded-lg">
+                  <Coins className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1B2559] dark:text-white">
+                <h3 className="text-xl font-bold text-textprimary dark:text-sidebartext">
                   Bet Limits by Currency
                 </h3>
               </div>
@@ -419,15 +419,15 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                 {fields.map((field, index) => (
                   <div
                     key={field.id}
-                    className="p-6 bg-white dark:bg-gray-800 rounded-[20px] shadow-[0_0_15px_0_rgba(0,0,0,0.03)] border border-gray-100 dark:border-transparent transition-all duration-300 hover:shadow-xl"
+                    className="p-6 bg-bgwhite dark:bg-darkbgprimary rounded-[20px] shadow-[0_0_15px_0_rgba(0,0,0,0.03)] border border-bordergray100 dark:border-transparent transition-all duration-300 hover:shadow-xl"
                   >
-                    <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-50 dark:border-gray-700">
+                    <div className="flex items-center justify-between mb-6 pb-4 border-b border-bordergray200 border-gray-50 dark:border-labelprimary">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#f4f7fe] dark:bg-gray-700 flex items-center justify-center font-bold text-[#4F46E5] dark:text-white">
+                        <div className="w-10 h-10 rounded-full bg-bordercolor1 dark:bg-labelprimary flex items-center justify-center font-bold text-bgpurple1 dark:text-sidebartext">
                           {CURRENCY_TYPE_NAMES[field.currency]?.charAt(0) ||
                             "$"}
                         </div>
-                        <span className="text-lg font-bold text-[#1B2559] dark:text-white">
+                        <span className="text-lg font-bold text-textprimary dark:text-sidebartext">
                           {CURRENCY_TYPE_NAMES[field.currency] ||
                             `Currency ${field.currency}`}
                         </span>
@@ -438,7 +438,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                       {/* Max Bet Amount */}
                       <div className="group/field">
                         {editMode ? (
-                          <div className="p-4 bg-[ #F 4F7FE] dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
+                          <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/50 rounded-2xl border border-bordergray100 dark:border-darkbgprimary focus-within:border-b border-bordergray200gpurple1 transition-all">
                             <InputField<FormValues>
                               name={`amountLimit.${index}.maxBetAmount`}
                               label="Max Bet Amount"
@@ -451,13 +451,13 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                             />
                           </div>
                         ) : (
-                          <div className="p-4 bg-[#F4F7FE] dark:bg-gray-900/50 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all">
-                            <div className="block mb-2 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                          <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/50 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all">
+                            <div className="block mb-2 text-xs font-bold text-sidebartext dark:bordercolor1 uppercase tracking-widest">
                               Max Bet Amount
                             </div>
                             <div className="flex items-center gap-3">
-                              <Wallet className="w-5 h-5 text-[#4F46E5]" />
-                              <span className="text-lg font-bold text-[#1B2559] dark:text-white">
+                              <Wallet className="w-5 h-5 text-bgpurple1" />
+                              <span className="text-lg font-bold text-textprimary dark:text-sidebartext">
                                 {formatCurrency(
                                   watchedValues.amountLimit?.[index]
                                     ?.maxBetAmount || 0,
@@ -471,7 +471,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                       {/* Max Profit */}
                       <div className="group/field">
                         {editMode ? (
-                          <div className="p-4 bg-[#F4F7FE] dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
+                          <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/50 rounded-2xl border border-bordergray100 dark:border-darkbgprimary focus-within:border-b border-bordergray200gpurple1 transition-all">
                             <InputField<FormValues>
                               name={`amountLimit.${index}.maxProfit`}
                               label="Max Profit"
@@ -484,13 +484,13 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                             />
                           </div>
                         ) : (
-                          <div className="p-4 bg-[#F4F7FE] dark:bg-gray-900/50 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all">
-                            <div className="block mb-2 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                          <div className="p-4 bg-bordercolor1 dark:bg-darkbgprimary/50 rounded-2xl border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all">
+                            <div className="block mb-2 text-xs font-bold text-sidebartext dark:bordercolor1 uppercase tracking-widest">
                               Max Profit
                             </div>
                             <div className="flex items-center gap-3">
-                              <TrendingUp className="w-5 h-5 text-[#4F46E5]" />
-                              <span className="text-lg font-bold text-[#1B2559] dark:text-white">
+                              <TrendingUp className="w-5 h-5 text-bgpurple1" />
+                              <span className="text-lg font-bold text-textprimary dark:text-sidebartext">
                                 {formatCurrency(
                                   watchedValues.amountLimit?.[index]
                                     ?.maxProfit || 0,

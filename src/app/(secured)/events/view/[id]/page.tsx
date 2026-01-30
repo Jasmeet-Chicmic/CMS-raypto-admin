@@ -20,12 +20,12 @@ const EventViewPage = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-darkbgprimary flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             Event Not Found
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:bordercolor1">
             The event you&apos;re looking for doesn&apos;t exist or has been
             removed.
           </p>

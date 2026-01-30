@@ -8,7 +8,7 @@ interface FollowCompanyListProps {
 
 const FollowCompanyList = ({ companies }: FollowCompanyListProps) => {
   return (
-    <div className="bg-white p-6 rounded shadow space-y-4">
+    <div className="bg-bgwhite p-6 rounded shadow space-y-4">
       <div className="flex-col justify-between items-center">
         <h3 className="text-lg font-semibold">Following companies</h3>
         <div className="text-sm">Companies following your page.</div>

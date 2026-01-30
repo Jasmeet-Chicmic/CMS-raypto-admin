@@ -25,22 +25,22 @@ const CustomCard = ({
   const t = useTranslations("language");
   return (
     <div
-      className={`bg-white shadow-customsm rounded-[5px] py-[25px] w-full dark:bg-gray-900 ${className}`}
+      className={`bg-bgwhite shadow-customsm rounded-[5px] py-[25px] w-full dark:bg-darkbgprimary ${className}`}
     >
       {(title || subtitle) && (
         <div className="mb-[10px] px-[25px]">
           {title && (
-            <h2 className="text-title text-gray-800 mb-[12px] dark:text-gray-400">
+            <h2 className="text-title text-gray-800 mb-[12px] dark:bordercolor1">
               {t(title)}
             </h2>
           )}
           {subtitle && (
-            <p className="text-subtitle text-gray-500 dark:text-gray-400">
+            <p className="text-subtitle text-gray-500 dark:bordercolor1">
               {t(subtitle)}
             </p>
           )}
           {totalValue && (
-            <h2 className="text-subheading text-gray-800 dark:text-gray-400">
+            <h2 className="text-subheading text-gray-800 dark:bordercolor1">
               {totalValue}
             </h2>
           )}
@@ -52,12 +52,12 @@ const CustomCard = ({
       {(value || change) && (
         <div className="flex items-center justify-between mt-4 px-6">
           {value && (
-            <p className="text-2xl font-bold text-gray-800 dark:text-gray-400">
+            <p className="text-2xl font-bold text-gray-800 dark:bordercolor1">
               {value}
             </p>
           )}
           {change && (
-            <p className={`text-sm ${changeColor} dark:text-gray-400`}>
+            <p className={`text-sm ${changeColor} dark:bordercolor1`}>
               {change}
             </p>
           )}

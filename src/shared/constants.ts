@@ -823,5 +823,5 @@ export const STATUS_COLOR_MAP: Record<ENTITY_STATUS, string> = {
   [ENTITY_STATUS.PENDING]: "bg-yellow-100 text-yellow-800",
   [ENTITY_STATUS.REJECTED]: "bg-red-100 text-red-800",
   [ENTITY_STATUS.ARCHIVED]: "bg-gray-100 text-gray-800",
-  [ENTITY_STATUS.DELETED]: "bg-gray-300 text-gray-800",
+  [ENTITY_STATUS.DELETED]: "bg-darklabelprimary text-gray-800",
 };

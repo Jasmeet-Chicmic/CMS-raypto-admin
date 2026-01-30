@@ -20,7 +20,7 @@ const ConnectionPage = async ({
   const socialAccountsData = data.data.users[0].socialAccounts || [];
   const connectedAccountsData = data.data.users[0].connectedAccounts || [];
   return (
-    <div className="min-h-screen bg-gray-50 py-8 dark:bg-gray-800 dark:text-white">
+    <div className="min-h-screen bg-gray-50 py-8 dark:bg-darkbgprimary dark:text-sidebartext">
       <div className="max-w-4xl mx-auto space-y-8">
         <ConnectedAccounts
           initialConnectedAccountData={connectedAccountsData}

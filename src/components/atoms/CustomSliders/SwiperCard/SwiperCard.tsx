@@ -31,15 +31,15 @@ const SwiperCard = ({
   console.log("<><><><><><>", data);
   const t = useTranslations("language");
   return (
-    <div className="rounded-[5px] overflow-hidden shadow-md relative bg-gradient-to-br from-indigo-500 to-purple-500 text-black p-[24px] pb-[10px]">
+    <div className="rounded-[5px] overflow-hidden shadow-md relative bg-gradient-to-br from-indigo-500 to-purple-500 textbgblack p-[24px] pb-[10px]">
       {/* Dots Pagination */}
       <div className="absolute !top-[22px] !right-[20px] !left-[unset] !w-fit h-fit z-10 swiper-pagination swiper-pagination-bullets !flex gap-2" />
 
       {/* Header */}
       {customHeader ?? (
         <div className="p-0">
-          <h2 className="text-white text-title">{t(title)}</h2>
-          <p className="!text-white text-content">{t(subtitle)}</p>
+          <h2 className="text-bgwhite text-title">{t(title)}</h2>
+          <p className="!text-bgwhite text-content">{t(subtitle)}</p>
         </div>
       )}
 
@@ -61,14 +61,16 @@ const SwiperCard = ({
               >
                 {/* Left: Textual Info */}
                 <div className="flex flex-col gap-4 justify-end">
-                  <h3 className="text-white text-subtitle">{t(slide.title)}</h3>
+                  <h3 className="text-bgwhite text-subtitle">
+                    {t(slide.title)}
+                  </h3>
                   <div className="grid grid-cols-2 gap-[20px]">
                     {Object.entries(slide.details).map(([key, value]) => (
                       <div key={key} className="flex items-center gap-[10px]">
-                        <div className="bg-[rgba(0,0,0,0.2)] min-w-[40px] text-center text-white rounded-[5px] px-2 py-1 text-[0.875] font-semibold">
+                        <div className="bg-[rgba(0,0,0,0.2)] min-w-[40px] text-center text-bgwhite rounded-[5px] px-2 py-1 text-[0.875] font-semibold">
                           {value}
                         </div>
-                        <span className="text-sm text-white truncate">
+                        <span className="text-sm text-bgwhite truncate">
                           {t(key)}
                         </span>
                       </div>

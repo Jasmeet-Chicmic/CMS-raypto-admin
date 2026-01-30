@@ -85,16 +85,16 @@ const TransactionsManagement = async ({ searchParams }: PageProps) => {
         ))}
       </div>
       <div className="overflow-x-auto">
-        <div className="bg-white rounded-t-lg shadow-sm border border-gray-200 dark:bg-gray-900 dark:border-gray-800">
+        <div className="bg-bgwhite rounded-t-lg shadow-sm border bordergray200 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           {/* Filters Section */}
-          <div className="p-6 dark:border-gray-800">
+          <div className="p-6 dark:border-darkbgprimary">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
               <div className="flex items-center space-x-4">
                 <SearchToolbar
                   initialQuery={searchString || ""}
                   placeholder="Search Transactions"
                 />
-                <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 border bordergray200 rounded-lg hover:bg-gray-50">
                   <Download size={18} />
                   <span>Export</span>
                 </button>

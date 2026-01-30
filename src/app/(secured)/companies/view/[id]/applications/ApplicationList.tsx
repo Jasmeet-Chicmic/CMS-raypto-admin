@@ -67,7 +67,7 @@ const ApplicationList = ({
       {applications.map((application) => (
         <div
           key={application?._id}
-          className="bg-white border rounded-2xl p-6 shadow flex flex-col gap-4 relative"
+          className="bg-bgwhite border rounded-2xl p-6 shadow flex flex-col gap-4 relative"
         >
           {/* Header: Avatar, Name, Role, Resume */}
           <div className="flex items-center gap-4">
@@ -84,12 +84,12 @@ const ApplicationList = ({
               )}
             </Avatar>
             <div className="flex flex-col flex-1">
-              <div className="font-semibold text-base text-black">
+              <div className="font-semibold text-base textbgblack">
                 {application?.user?.name}
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[0.875rem] text-[#A3AED0] font-medium">
+              <span className="text-[0.875rem] text-sidebartext font-medium">
                 Resume
               </span>
               <Button
@@ -125,14 +125,14 @@ const ApplicationList = ({
             <span className="text-sm text-gray-500 font-medium">
               Applied for
             </span>
-            <div className="font-semibold text-lg text-black">
+            <div className="font-semibold text-lg textbgblack">
               {application?.job?.title}
             </div>
           </div>
 
           {/* Cover Letter */}
           <div className="mt-2">
-            <div className="font-semibold text-black text-base mb-1">
+            <div className="font-semibold textbgblack text-base mb-1">
               Cover letter
             </div>
             <div className="text-sm text-gray-500">
@@ -142,7 +142,7 @@ const ApplicationList = ({
 
           {/* Matching Skills */}
           <div className="mt-2">
-            <div className="text-[0.875rem] text-[#A3AED0] font-medium mb-1">
+            <div className="text-[0.875rem] text-sidebartext font-medium mb-1">
               Matching skills
             </div>
             <div className="flex flex-wrap gap-2">
@@ -156,7 +156,7 @@ const ApplicationList = ({
                   </span>
                 ))
               ) : (
-                <span className="text-[0.875] text-gray-400">
+                <span className="text-[0.875] bordercolor1">
                   No skills listed
                 </span>
               )}
@@ -179,7 +179,7 @@ const ApplicationList = ({
                 </span>
               </div>
               {/* Location (placeholder) */}
-              <span className="text-[0.875rem] text-[#A3AED0]">• London</span>
+              <span className="text-[0.875rem] text-sidebartext">• London</span>
             </div>
             <div className="flex gap-2">
               <Button
@@ -211,7 +211,7 @@ const ApplicationList = ({
             }}
             containerClassName="flex space-x-2 items-center paginationWrapper"
             pageClassName="rounded"
-            activeClassName="text-black font-bold dark:text-white"
+            activeClassName="textbgblack font-bold dark:text-sidebartext"
             previousLabel={
               <Button variant="ghost" size="sm">
                 <ChevronLeft className="w-4 h-4" />

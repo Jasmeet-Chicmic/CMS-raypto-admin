@@ -14,7 +14,7 @@ const Loading = () => {
           {["bg-blue-100", "bg-green-100", "bg-orange-100"].map((bg, id) => (
             <div
               key={`${baseId}-stat-${id}`}
-              className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 dark:bg-gray-900 dark:border-gray-800"
+              className="bg-bgwhite p-6 rounded-lg shadow-lg border bordergray200 dark:bg-darkbgprimary dark:border-darkbordercolor1"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-full">
@@ -32,21 +32,21 @@ const Loading = () => {
         </div>
 
         {/* Assigned Promo Codes Header */}
-        <div className="bg-white rounded-lg shadow p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="bg-bgwhite rounded-lg shadow p-6 space-y-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <div className="flex items-center justify-between">
             <Skeleton className="h-5 w-40" />
             <Skeleton className="h-8 w-40" />
           </div>
 
           {/* Table */}
-          <div className="bg-white overflow-auto shadow-sm dark:bg-gray-900 dark:border-gray-800">
+          <div className="bg-bgwhite overflow-auto shadow-sm dark:bg-darkbgprimary dark:border-darkbordercolor1">
             <table className="min-w-full divide-y">
-              <thead className="bg-white dark:bg-gray-800">
+              <thead className="bg-bgwhite dark:bg-darkbgprimary">
                 <tr>
                   {["Name", "Code", "Assigned On", "Actions"].map((_, id) => (
                     <th
                       key={`${baseId}-header-${id}`}
-                      className="px-4 py-3 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400"
+                      className="px-4 py-3 text-left text-[0.875] font-medium text-gray-500 uppercase tracking-wider dark:bordercolor1"
                     >
                       <Skeleton className="h-3 w-20" />
                     </th>
@@ -76,7 +76,7 @@ const Loading = () => {
           </div>
 
           {/* Pagination */}
-          <div className="bg-white px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-gray-900">
+          <div className="bg-bgwhite px-6 py-4 rounded-b-xl flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t dark:bg-darkbgprimary">
             <div className="flex items-center space-x-2">
               <Skeleton className="h-8 w-24" />
               <Skeleton className="h-8 w-32" />

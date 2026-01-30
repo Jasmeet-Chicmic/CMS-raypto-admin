@@ -53,9 +53,9 @@ const BonusBoxForm = ({
   }, [box.buttonText, handleFieldChange]);
 
   return (
-    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-[24px] p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#868CFF]/30">
-      <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-gray-800">
-        <h3 className="text-[1.125rem] font-bold text-[#1B2559] dark:text-white">
+    <div className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-darkbgprimary rounded-[24px] p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#868CFF]/30">
+      <div className="flex justify-between items-center mb-6 pb-4 border-b border-bordergray200 dark:border-darkbgprimary">
+        <h3 className="text-[1.125rem] font-bold text-textprimary dark:text-sidebartext">
           Card {index + 1}
         </h3>
         {canRemove && (
@@ -113,7 +113,7 @@ const BonusBoxForm = ({
         <div>
           <label
             htmlFor={`button-text-${index}`}
-            className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-semibold text-labelprimary dark:text-darklabelprimary mb-2"
           >
             Button Text
           </label>
@@ -122,7 +122,7 @@ const BonusBoxForm = ({
             type="text"
             value="Claim"
             readOnly
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 cursor-not-allowed"
+            className="w-full px-4 py-2.5 border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext bg-gray-50 cursor-not-allowed"
           />
           <div className="mt-4">
             <Switch
@@ -139,7 +139,7 @@ const BonusBoxForm = ({
         <div>
           <label
             htmlFor={`expiry-date-${index}`}
-            className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-semibold text-labelprimary dark:text-darklabelprimary mb-2"
           >
             Expiry Date & Time (Optional)
           </label>
@@ -155,7 +155,7 @@ const BonusBoxForm = ({
                 handleFieldChange("expireAt", "");
               }
             }}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+            className="w-full px-4 py-2.5 border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext"
           />
         </div>
 
@@ -163,7 +163,7 @@ const BonusBoxForm = ({
         <div>
           <label
             htmlFor={`position-${index}`}
-            className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-semibold text-labelprimary dark:text-darklabelprimary mb-2"
           >
             Position
           </label>

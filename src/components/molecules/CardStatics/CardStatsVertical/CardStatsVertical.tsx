@@ -29,7 +29,7 @@ const CardStatsVertical = ({
   return (
     <div
       className={clsx(
-        "bg-white rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-gray-900",
+        "bg-bgwhite rounded-xl shadow-sm p-4 flex flex-col items-start dark:bg-darkbgprimary",
         className,
       )}
     >
@@ -44,15 +44,15 @@ const CardStatsVertical = ({
         </div>
       )}
 
-      <h3 className="text-title text-gray-800 dark:text-gray-400 mb-1">
+      <h3 className="text-title text-gray-800 dark:bordercolor1 mb-1">
         {title}
       </h3>
       {subtitle && (
-        <p className="text-subtitle text-gray-500 dark:text-gray-400 mb-1">
+        <p className="text-subtitle text-gray-500 dark:bordercolor1 mb-1">
           {subtitle}
         </p>
       )}
-      <p className="text-xl font-bold text-gray-700 dark:text-gray-400 mb-4">
+      <p className="text-xl font-bold text-labelprimary dark:bordercolor1 mb-4">
         {stats}
       </p>
 

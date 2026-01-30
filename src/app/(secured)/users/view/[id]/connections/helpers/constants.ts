@@ -19,13 +19,13 @@ export const CONNECTED_ACCOUNT_UI_MAP = {
     name: "Github",
     description: "Manage your Git repositories",
     iconText: "#",
-    color: "bg-black",
+    color: "bgbgblack",
   },
   [CONNECTED_ACCOUNTS.MAILCHIMP]: {
     name: "Mailchimp",
     description: "Email marketing service",
     iconText: "M",
-    color: "bg-yellow-400 text-black",
+    color: "bg-yellow-400 textbgblack",
   },
   [CONNECTED_ACCOUNTS.ASANA]: {
     name: "Asana",
@@ -45,7 +45,7 @@ export const SOCIAL_TYPE_MAP: Record<SOCIAL_ACCOUNTS, SocialInfo> = {
   [SOCIAL_ACCOUNTS.TWITTER]: {
     name: "Twitter",
     description: "Connect your Twitter (X) account",
-    color: "bg-black",
+    color: "bgbgblack",
     iconText: "𝕏",
   },
   [SOCIAL_ACCOUNTS.LINKEDIN]: {

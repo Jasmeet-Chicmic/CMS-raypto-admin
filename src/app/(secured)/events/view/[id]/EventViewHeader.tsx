@@ -13,7 +13,7 @@ interface EventViewHeaderProps {
 
 const EventViewHeader = ({ event }: EventViewHeaderProps) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
         {/* Left side - Title and Status */}
         <div className="flex-1">
@@ -30,7 +30,7 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
           </div>
 
           {/* Event ID */}
-          <div className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400 mb-4">
+          <div className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight mb-4">
             Event ID: #{event._id}
           </div>
         </div>
@@ -39,8 +39,8 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
         <div className="flex flex-col gap-3 lg:items-end">
           {/* Created By */}
           <div className="flex items-center gap-2">
-            <User className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+            <User className="w-4 h-4 bordercolor1" />
+            <span className="text-sm text-gray-600 dark:text-darklabelprimary">
               Created by:
             </span>
             <Link
@@ -58,8 +58,8 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
 
           {/* Created Date */}
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+            <Calendar className="w-4 h-4 bordercolor1" />
+            <span className="text-sm text-gray-600 dark:text-darklabelprimary">
               Created:
             </span>
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
@@ -70,8 +70,8 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
 
           {/* Updated Date */}
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+            <Calendar className="w-4 h-4 bordercolor1" />
+            <span className="text-sm text-gray-600 dark:text-darklabelprimary">
               Updated:
             </span>
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
@@ -82,8 +82,8 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
 
           {/* Event Date */}
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+            <Clock className="w-4 h-4 bordercolor1" />
+            <span className="text-sm text-gray-600 dark:text-darklabelprimary">
               Event Date:
             </span>
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
@@ -95,7 +95,7 @@ const EventViewHeader = ({ event }: EventViewHeaderProps) => {
           {/* Creator Email */}
           {event.createdBy.email && (
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600 dark:text-gray-300">
+              <span className="text-sm text-gray-600 dark:text-darklabelprimary">
                 Email:
               </span>
               <span className="text-sm font-medium text-gray-900 dark:text-gray-100">

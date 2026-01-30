@@ -84,14 +84,14 @@ const BetsHistoryTabs = ({
   return (
     <div>
       {/* Header with Tabs */}
-      <div className="bg-white rounded-t-[12px] dark:bg-gray-900 dark:border-gray-800">
-        <div className="p-6 dark:border-gray-800">
+      <div className="bg-bgwhite rounded-t-[12px] dark:bg-darkbgprimary dark:border-darkbordercolor1">
+        <div className="p-6 dark:border-darkbgprimary">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             <div>
-              <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                 Bets History
               </h2>
-              {/* <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              {/* <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 View all game bets and their results
               </p> */}
             </div>
@@ -102,7 +102,7 @@ const BetsHistoryTabs = ({
               />
               <button
                 onClick={() => setIsFilterOpen(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
               >
                 <Menu size={18} />
                 <span>Filters</span>
@@ -112,20 +112,20 @@ const BetsHistoryTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex px-6 border-b border-bordergray200 dark:border-darkbgprimary">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => handleTabChange(tab.id)}
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 activeTab === tab.id
-                  ? "text-[#4F46E5] dark:text-white"
-                  : "text-[#A3AED0] hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  ? "text-bgpurple1 dark:text-sidebartext"
+                  : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#4F46E5] rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primarycolor rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
               )}
             </button>
           ))}
@@ -146,7 +146,7 @@ const BetsHistoryTabs = ({
               router.push(`?${newParams.toString()}`);
               setIsFilterOpen(false);
             }}
-            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-labelprimary dark:text-darklabelprimary rounded-xl hover:bg-gray-200 dark:hover:bg-labelprimary transition-all border bordergray200 dark:border-labelprimary font-medium"
           >
             <RotateCcw size={18} />
             <span>Clear All Filters</span>
@@ -157,7 +157,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="date-range-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Date Range
             </label>
@@ -174,7 +174,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="game-type-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Game Type
             </label>
@@ -189,7 +189,7 @@ const BetsHistoryTabs = ({
           <div>
             <label
               htmlFor="currency-filter"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
             >
               Currency
             </label>
@@ -205,7 +205,7 @@ const BetsHistoryTabs = ({
             <div>
               <label
                 htmlFor="result-filter"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
               >
                 Result
               </label>

@@ -116,7 +116,7 @@ const DateRangeFilter = ({
         <div className="flex flex-col flex-1">
           <label
             htmlFor={id ? `${id}-from` : undefined}
-            className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
           >
             From Date
           </label>
@@ -126,13 +126,13 @@ const DateRangeFilter = ({
             value={fromDate}
             onChange={(e) => handleFromDateChange(e.target.value)}
             max={today}
-            className="w-full px-3 py-2.5 border-2 border-[#4F46E540] rounded-lg focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] hover:border-[#4F46E5] transition-all duration-200 dark:bg-gray-800 dark:border-[#4F46E540] dark:text-white font-medium cursor-pointer"
+            className="w-full px-3 py-2.5 border-2 border-[#4F46E540] rounded-lg focus:ring-0 transition-all duration-200 dark:bg-darkbgprimary dark:border-[#4F46E540] dark:text-sidebartext font-medium cursor-pointer"
           />
         </div>
         <div className="flex flex-col flex-1">
           <label
             htmlFor={id ? `${id}-to` : undefined}
-            className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-1"
           >
             To Date
           </label>
@@ -144,10 +144,10 @@ const DateRangeFilter = ({
             disabled={!fromDate}
             min={fromDate}
             max={getMaxToDate()}
-            className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-[#4F46E5] dark:bg-gray-800 dark:text-white font-medium transition-all duration-200 ${
+            className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-0 transition-all duration-200 ${
               !fromDate
-                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700"
-                : "border-[#4F46E540] focus:border-[#4F46E5] hover:border-[#4F46E5] cursor-pointer"
+                ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-darkbgprimary border-darklabelprimary dark:border-labelprimary"
+                : "border-[#4F46E540] focus:border-0 cursor-pointer"
             }`}
           />
         </div>
@@ -156,7 +156,7 @@ const DateRangeFilter = ({
         <button
           onClick={handleApply}
           disabled={!fromDate}
-          className={`flex-1 px-4 py-2 bg-[#4F46E5] text-white font-semibold rounded-lg hover:bg-[#3311DD] transition-all duration-200 ${
+          className={`flex-1 px-4 py-2 bg-primarycolor text-bgwhite font-semibold rounded-lg hover:bg-bgprimary transition-all duration-200 ${
             !fromDate ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -165,7 +165,7 @@ const DateRangeFilter = ({
         {hasFilters && (
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 border-2 border-[#4F46E5] text-[#4F46E5] font-semibold rounded-lg hover:bg-[#4F46E5] hover:text-white transition-all duration-200 dark:border-[#4F46E5] dark:text-[#4F46E5]"
+            className="flex-1 px-4 py-2 border-2 border-b border-bordergray200gprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-b border-bordergray200gpurple1 dark:text-bgpurple1"
           >
             Clear
           </button>

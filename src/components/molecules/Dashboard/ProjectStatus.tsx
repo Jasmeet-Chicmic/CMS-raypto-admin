@@ -81,11 +81,11 @@ const ProjectStatusCard = () => {
   ];
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-gray-900">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-darkbgprimary">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-title font-semibold text-gray-800 dark:text-gray-400">
+          <h2 className="text-title font-semibold text-gray-800 dark:bordercolor1">
             {"Project Title"}
           </h2>
         </div>
@@ -97,15 +97,17 @@ const ProjectStatusCard = () => {
             <DollarSign size={16} className="text-orange-500" />
           </div>
           <div className="ml-3">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-400">
+            <h3 className="text-lg font-semibold text-gray-900 dark:bordercolor1 dark:text-bgwhite">
               $4,3742
             </h3>
-            <p className="text-[0.875] text-gray-400 dark:text-gray-400">
+            <p className="text-[0.875] bordercolor1 dark:bordercolor1 dark:text-bgwhite">
               Your Earnings
             </p>
           </div>
         </div>
-        <span className="text-green-500 text-sm font-semibold">+10.2%</span>
+        <span className="text-green-500 text-sm font-semibold dark:text-bgwhite">
+          +10.2%
+        </span>
       </div>
       <div className="h-28">
         <ReactApexcharts
@@ -118,14 +120,18 @@ const ProjectStatusCard = () => {
       </div>
       <div className="mt-4 space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500 font-medium">Donates</span>
-          <span className="text-gray-900">
+          <span className="text-gray-500 font-medium dark:text-bgwhite">
+            Donates
+          </span>
+          <span className="text-gray-900 dark:text-bgwhite">
             $756.26 <span className="text-red-500 ml-1">-139.34</span>
           </span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500 font-medium">Podcasts</span>
-          <span className="text-gray-900">
+          <span className="text-gray-500 font-medium dark:text-bgwhite">
+            Podcasts
+          </span>
+          <span className="text-gray-900 dark:text-bgwhite">
             $2,207.03 <span className="text-green-500 ml-1">+576.24</span>
           </span>
         </div>

@@ -124,14 +124,14 @@ export default function EarningReportCard({
   };
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-gray-900">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm p-[25px] w-full h-full dark:bg-darkbgprimary">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-title font-semibold text-gray-800 dark:text-gray-400">
+          <h2 className="text-title font-semibold text-gray-800 dark:bordercolor1">
             {title}
           </h2>
-          <p className="text-subtitle text-gray-500 dark:text-gray-400">
+          <p className="text-subtitle text-gray-500 dark:bordercolor1">
             {subtitle}
           </p>
         </div>
@@ -142,7 +142,7 @@ export default function EarningReportCard({
       <div className="flex items-center justify-between 2xl:gap-[50px] gap-[30px]">
         <div className="pr-[15px]">
           <div className="flex items-center gap-2 mb-[10px]">
-            <div className="text-heading text-gray-900 dark:text-gray-400">
+            <div className="text-heading text-gray-900 dark:bordercolor1">
               $468
             </div>
             {type === "analytics" && (
@@ -156,7 +156,7 @@ export default function EarningReportCard({
               +4.2%
             </span>
           ) : (
-            <span className="text-content leading-[16px] block text-gray-400 dark:text-gray-400">
+            <span className="text-content leading-[16px] block bordercolor1 dark:bordercolor1">
               You informed of this week compared to last week
             </span>
           )}
@@ -176,7 +176,7 @@ export default function EarningReportCard({
       </div>
       {/* Stats */}
       {stats && stats.length > 0 && (
-        <div className="mt-1 border border-bggray rounded-[5px] p-[20px] text-content flex gap-[15px]">
+        <div className="mt-1 border border-b border-bordergray200ggray rounded-[5px] p-[20px] text-content flex gap-[15px]">
           {stats.map((item, i) => (
             <div className="w-[33%]" key={i}>
               <div className="flex items-center gap-[10px] text-subtitle text-menucolor font-medium mb-1">
@@ -185,10 +185,10 @@ export default function EarningReportCard({
                 </span>
                 {item.label}
               </div>
-              <div className="font-semibold text-gray-800 mb-1 text-subheading dark:text-gray-400">
+              <div className="font-semibold text-gray-800 mb-1 text-subheading dark:bordercolor1">
                 {item.value}
               </div>
-              <div className="w-[75%] h-1 bg-gray-200 rounded dark:bg-gray-800">
+              <div className="w-[75%] h-1 bg-gray-200 rounded dark:bg-darkbgprimary">
                 <div
                   className={`${item.barColor} h-1 rounded`}
                   style={{ width: "75%" }}

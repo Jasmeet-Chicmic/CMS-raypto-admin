@@ -66,10 +66,10 @@ const SubscriptionViewPage = async ({
   ];
   return (
     <div className="mt-[20px]">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
         Subscription Plan
       </h1>
-      <p className="text-gray-600 dark:text-white">
+      <p className="text-gray-600 dark:text-sidebartext">
         View and manage subscribers for this subscription plan
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-3">
@@ -81,28 +81,30 @@ const SubscriptionViewPage = async ({
         {/* Left: Plan Details (1/3) */}
         <div
           key={plan?._id}
-          className="md:w-1/3 w-full bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+          className="md:w-1/3 w-full bg-bgwhite rounded-lg shadow-sm border bordergray200 overflow-hidden hover:shadow-md transition-shadow dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"
         >
           {/* Plan Header */}
           <div
-            className={`p-4 text-white bg-gray-500 dark:bg-gray-800 dark:text-white`}
+            className={`p-4 text-bgwhite bg-gray-500 dark:bg-darkbgprimary dark:text-sidebartext`}
             style={{ backgroundColor: plan?.color }}
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
-                <h3 className="font-semibold text-lg dark:text-white">
+                <h3 className="font-semibold text-lg dark:text-sidebartext">
                   {plan?.name}
                 </h3>
               </div>
             </div>
             {plan?.monthlyPrice === 0 && plan?.yearlyPrice === 0 ? (
               <div className="flex items-baseline space-x-1">
-                <span className="text-3xl font-bold dark:text-white">Free</span>
+                <span className="text-3xl font-bold dark:text-sidebartext">
+                  Free
+                </span>
               </div>
             ) : (
               <div className="flex items-baseline space-x-1">
                 {plan?.monthlyPrice !== undefined && (
-                  <span className="text-3xl font-bold dark:text-white">
+                  <span className="text-3xl font-bold dark:text-sidebartext">
                     {plan?.monthlyPrice === 0
                       ? "Free"
                       : `$${plan?.monthlyPrice}`}
@@ -112,7 +114,7 @@ const SubscriptionViewPage = async ({
                   </span>
                 )}
                 {plan?.yearlyPrice !== undefined && (
-                  <span className="text-3xl font-bold dark:text-white">
+                  <span className="text-3xl font-bold dark:text-sidebartext">
                     {plan?.yearlyPrice === 0 ? "Free" : `$${plan?.yearlyPrice}`}
                     {plan?.yearlyPrice > 0 && (
                       <span className="text-sm opacity-80">/yearly</span>
@@ -125,20 +127,20 @@ const SubscriptionViewPage = async ({
 
           {/* Plan Content */}
           <div className="p-4">
-            <p className="text-gray-600 text-sm mb-4 dark:text-white">
+            <p className="text-gray-600 text-sm mb-4 dark:text-sidebartext">
               {plan?.description}
             </p>
 
             {/* Features */}
             <div className="mb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-2 dark:text-white">
+              <h4 className="text-sm font-medium text-gray-900 mb-2 dark:text-sidebartext">
                 Features
               </h4>
               <ul className="space-y-1">
                 {plan?.features.slice(0, 3).map((feature, index) => (
                   <li
                     key={index}
-                    className="flex items-center text-sm text-gray-600 dark:text-white"
+                    className="flex items-center text-sm text-gray-600 dark:text-sidebartext"
                   >
                     <Check
                       size={14}
@@ -148,7 +150,7 @@ const SubscriptionViewPage = async ({
                   </li>
                 ))}
                 {plan?.features.length > 3 && (
-                  <li className="text-sm text-gray-500 dark:text-white">
+                  <li className="text-sm text-gray-500 dark:text-sidebartext">
                     +{plan?.features.length - 3} more features
                   </li>
                 )}
@@ -157,7 +159,7 @@ const SubscriptionViewPage = async ({
 
             {/* Status */}
             <div className="flex items-center justify-between mb-4">
-              <span className="text-sm text-gray-600 dark:text-white">
+              <span className="text-sm text-gray-600 dark:text-sidebartext">
                 Status
               </span>
               <div className="flex items-center space-x-2">

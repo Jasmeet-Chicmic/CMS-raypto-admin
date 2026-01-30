@@ -24,31 +24,38 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     control: (provided) => ({
       ...provided,
       minHeight: "36px",
-      border: "none",
+      borderColor: isDark ? "#1e2939" : "#E5E7EB",
+      borderWidth: "1px",
+      borderStyle: "solid",
       borderRadius: "10px",
-      backgroundColor: isDark ? "#1F2937" : "#FFFFFF",
+      backgroundColor: isDark ? "#000000" : "#FFFFFF",
       boxShadow: "none",
+      padding: "4px",
       cursor: "pointer",
+      transition: "all 0.2s ease-in-out",
+      "&:hover": {
+        borderColor: isDark ? "#1e2939" : "#E5E7EB",
+      },
     }),
     valueContainer: (provided) => ({
       ...provided,
-      padding: "2px 8px",
+      padding: "4px",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
       fontWeight: 500,
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: isDark ? "#F9FAFB" : "#1F2937",
+      color: isDark ? "#F9FAFB" : "#1A1A1A",
       fontSize: "14px",
       fontWeight: 500,
     }),
     input: (provided) => ({
       ...provided,
-      color: isDark ? "#F9FAFB" : "#1F2937",
+      color: isDark ? "#F9FAFB" : "#1A1A1A",
       fontSize: "14px",
     }),
     indicatorSeparator: () => ({
@@ -56,13 +63,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
-      color: isDark ? "#9CA3AF" : "#6B7280",
+      color: isDark ? "#9CA3AF" : "#d1d5db",
       padding: "6px 8px",
       transform: state.selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0)",
     }),
     clearIndicator: (provided) => ({
       ...provided,
-      color: isDark ? "#9CA3AF" : "#6B7280",
+      color: isDark ? "#9CA3AF" : "#d1d5db",
       padding: "8px",
       "&:hover": {
         color: "#EF4444",
@@ -70,7 +77,7 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: isDark ? "#1F2937" : "#FFFFFF",
+      backgroundColor: isDark ? "#1A1A1A" : "#FFFFFF",
       border: `1px solid ${isDark ? "#374151" : "#E5E7EB"}`,
       borderRadius: "12px",
       boxShadow: isDark
@@ -96,13 +103,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected
-        ? "#4F46E5"
+        ? "#c4ff0e"
         : state.isFocused
           ? isDark
             ? "#374151"
             : "#F3F4F6"
           : "transparent",
-      color: state.isSelected ? "#FFFFFF" : isDark ? "#F9FAFB" : "#1F2937",
+      color: state.isSelected ? "#000000" : isDark ? "#F9FAFB" : "#1A1A1A",
       fontSize: "14px",
       fontWeight: state.isSelected ? 600 : 500,
       padding: "10px 12px",
@@ -118,13 +125,13 @@ const Select = <OptionType, IsMulti extends boolean = false>(
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: isDark ? "#374151" : "#EEF2FF",
+      backgroundColor: isDark ? "#1A1A1A" : "#c4ff0e",
       borderRadius: "6px",
       padding: "2px 4px",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: isDark ? "#F9FAFB" : "#4F46E5",
+      color: isDark ? "#F9FAFB" : "#c4ff0e",
       fontSize: "13px",
       fontWeight: 500,
     }),
@@ -134,18 +141,18 @@ const Select = <OptionType, IsMulti extends boolean = false>(
       borderRadius: "4px",
       "&:hover": {
         backgroundColor: isDark ? "#4B5563" : "#C7D2FE",
-        color: isDark ? "#F9FAFB" : "#4F46E5",
+        color: isDark ? "#F9FAFB" : "#c4ff0e",
       },
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
       padding: "12px",
     }),
     loadingMessage: (provided) => ({
       ...provided,
-      color: isDark ? "#6B7280" : "#9CA3AF",
+      color: isDark ? "#d1d5db" : "#9CA3AF",
       fontSize: "14px",
     }),
   };

@@ -11,7 +11,7 @@ const StatsCard = (stat: StatsType, index: number) => {
   return (
     <div
       key={index}
-      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+      className="bg-bgwhite p-6 rounded-lg shadow-sm border bordergray200"
     >
       <div className="flex items-center justify-between mb-4">
         <div>
@@ -27,7 +27,9 @@ const StatsCard = (stat: StatsType, index: number) => {
               {stat.change}
             </span>
           </div>
-          <p className="text-[0.875rem] text-[#A3AED0] mt-1">{stat.subtitle}</p>
+          <p className="text-[0.875rem] text-sidebartext mt-1">
+            {stat.subtitle}
+          </p>
         </div>
         <div className={`p-3 rounded-lg ${stat.color}`}>{stat.icon}</div>
       </div>

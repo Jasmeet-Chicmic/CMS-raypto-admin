@@ -79,24 +79,24 @@ const Sidebar: React.FC = () => {
           <Link
             href={item.path}
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-[#f4f7fe] hover:text-[#a3aed0] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white",
+              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-hoverbg hover:text-sidebartext dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite",
               isActive &&
-                "bg-[#EEF2FF] active:bg-[#EEF2FF] dark:bg-[#EEF2FF] sub-menu-item-active hover:text-white dark:hover:bg-[#d5dcf1]",
+                "bg-hoverbg active:bg-hoverbg sub-menu-item-active hover:text-bgwhite dark:bg-secondarycolor dark:hover:bg-secondarycolor",
             )}
             style={{ paddingLeft }}
             onClick={() => setIsOpen(false)}
           >
             <span
               className={`mr-3 list-item-icon transition-transform duration-200 w-[10px] h-[10px] rounded-full
-                ${isActive ? "bg-[#4F46E5] dark:bg-[#4F46E5]" : "border-none dark:border-none"}`}
+                ${isActive ? "bg-bgwhite dark:bg-bgwhite" : "border-none dark:border-none"}`}
             ></span>
             <span
-              className={`flex-1 list-item-text text-[16px] font-medium ${isActive ? "text-[#4F46E5]" : "text-[#A3AED0] dark:text-white"}`}
+              className={`flex-1 list-item-text text-[16px] font-medium ${isActive ? "text-bgwhite" : "text-textparagraphlight2 dark:text-textparagraphlight2"}`}
             >
               {t(item.label)}
             </span>
             {item.badge && (
-              <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-red-500 text-white">
+              <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-bgblue text-bgwhite">
                 {item.badge}
               </span>
             )}
@@ -105,9 +105,9 @@ const Sidebar: React.FC = () => {
           <button
             type="button"
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-[#f4f7fe] hover:text-[#a3aed0] transition-all duration-200 group dark:text-white dark:hover:bg-gray-700 dark:hover:text-white sidebar-menu-item w-full text-left",
+              "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-hoverbg hover:text-sidebartext transition-all duration-200 group dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite sidebar-menu-item w-full text-left",
               isActive &&
-                "bg-[#4F46E5] text-white hover:bg-[#4F46E5] hover:text-white",
+                "bg-darkhoverbgprimary text-bgwhite hover:bg-darkhoverbgprimary hover:text-white",
             )}
             style={{ paddingLeft }}
             onClick={() => toggleExpand(item.label)}
@@ -116,17 +116,17 @@ const Sidebar: React.FC = () => {
               {Icon && (
                 <Icon
                   size={24}
-                  className={isActive ? "text-white" : "text-[#A3AED0]"}
+                  className={isActive ? "text-white" : "text-sidebartext"}
                 />
               )}
             </span>
             <span
-              className={`flex-1 text-[16px] font-medium ${isActive ? "text-white" : "text-[#A3AED0] dark:text-white"}`}
+              className={`flex-1 text-[16px] font-medium ${isActive ? "text-white" : "text-sidebartext dark:text-sidebartext"}`}
             >
               {t(item.label)}
             </span>
             {item.badge && (
-              <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-red-500 text-white">
+              <span className="ml-2 px-2 py-1 text-[0.875rem] font-bold rounded-full bg-bgblue text-bgwhite">
                 {item.badge}
               </span>
             )}
@@ -135,12 +135,12 @@ const Sidebar: React.FC = () => {
                 {expanded[item.label] ? (
                   <ChevronDown
                     size={16}
-                    className={isActive ? "text-white" : "text-gray-400"}
+                    className={isActive ? "text-white" : "text-sidebartext"}
                   />
                 ) : (
                   <ChevronRight
                     size={16}
-                    className={isActive ? "text-white" : "text-gray-400"}
+                    className={isActive ? "text-white" : "text-sidebartext"}
                   />
                 )}
               </div>
@@ -161,7 +161,7 @@ const Sidebar: React.FC = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-white shadow-lg lg:hidden hover:bg-gray-50 transition-colors duration-200"
+        className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-bgwhite shadow-lg lg:hidden hover:bg-gray-50 transition-colors duration-200"
       >
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
@@ -170,7 +170,7 @@ const Sidebar: React.FC = () => {
       {isOpen && (
         <button
           type="button"
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 cursor-default"
+          className="fixed inset-0 bgbgblack bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 cursor-default"
           onClick={toggleSidebar}
           aria-label="Close sidebar"
           tabIndex={-1}
@@ -180,17 +180,17 @@ const Sidebar: React.FC = () => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-40 h-full w-72 transform transition-all duration-300 ease-in-out bg-white dark:bg-gray-900",
+          "fixed top-0 left-0 z-40 h-full w-72 transform transition-all duration-300 ease-in-out bg-bgprimary dark:bg-darkbgprimary",
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         )}
       >
         {/* Logo */}
-        <div className="p-[40px_36px_28px] border-b-[1px] border-[#E5E7EB] dark:border-gray-700">
+        <div className="p-[20px_26px_18px]">
           <div className="flex items-center justify-start">
             {/* <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <Zap size={20} className="text-white" />
+              <Zap size={20} className="text-bgwhite" />
             </div>
-            <h1 className="text-xl font-bold text-black dark:text-white">
+            <h1 className="text-xl font-bold textbgblack dark:text-sidebartext">
               Raypto
             </h1> */}
             <Image src={RayptoLogo.src} width={164} height={52} alt="logo" />

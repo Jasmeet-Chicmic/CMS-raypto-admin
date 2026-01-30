@@ -7,10 +7,10 @@ export default function Loading() {
   const baseId = useId();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-darkbgprimary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Skeleton */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
               <div className="flex items-start gap-4 mb-4">
@@ -62,7 +62,7 @@ export default function Loading() {
           {/* Left Column Skeleton */}
           <div className="lg:col-span-2 space-y-6">
             {/* Banner Skeleton */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary overflow-hidden">
               <div className="relative h-64 md:h-80">
                 <Skeleton className="w-full h-full" />
                 <div className="absolute top-4 right-4 flex gap-2">
@@ -73,7 +73,7 @@ export default function Loading() {
             </div>
 
             {/* Description */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-32 mb-4" />
               <div className="space-y-3">
                 <Skeleton className="h-4 w-full" />
@@ -83,7 +83,7 @@ export default function Loading() {
             </div>
 
             {/* Tags */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-16 mb-4" />
               <div className="flex flex-wrap gap-2">
                 <Skeleton className="h-6 w-20 rounded-full" />
@@ -93,7 +93,7 @@ export default function Loading() {
             </div>
 
             {/* Location */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-24 mb-4" />
               <div className="flex items-start gap-3">
                 <Skeleton className="w-5 h-5 rounded" />
@@ -105,7 +105,7 @@ export default function Loading() {
             </div>
 
             {/* Date & Time */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-32 mb-4" />
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -119,7 +119,7 @@ export default function Loading() {
             </div>
 
             {/* Type & Pricing */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-36 mb-4" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
@@ -140,7 +140,7 @@ export default function Loading() {
             </div>
 
             {/* Media Gallery */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-32 mb-4" />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Array.from(new Array(6)).map((_, id) => (
@@ -157,7 +157,7 @@ export default function Loading() {
             </div>
 
             {/* RSVP List */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-24 mb-4" />
               <div className="space-y-3">
                 {Array.from(new Array(5)).map((_, id) => (
@@ -176,7 +176,7 @@ export default function Loading() {
           {/* Right Column Skeleton */}
           <div className="lg:col-span-1 space-y-6">
             {/* RSVP Stats */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-24 mb-4" />
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -195,13 +195,13 @@ export default function Loading() {
             </div>
 
             {/* Abuse Reports */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-28 mb-4" />
               <div className="space-y-3">
                 {Array.from(new Array(3)).map((_, id) => (
                   <div
                     key={`${baseId}-report-${id}`}
-                    className="border border-gray-200 dark:border-gray-600 rounded-lg p-3"
+                    className="border bordergray200 dark:border-gray-600 rounded-lg p-3"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <Skeleton className="h-4 w-20" />
@@ -214,7 +214,7 @@ export default function Loading() {
             </div>
 
             {/* Moderator Notes */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-32 mb-4" />
               <div className="space-y-3">
                 <Skeleton className="h-20 w-full" />
@@ -225,13 +225,13 @@ export default function Loading() {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
               <Skeleton className="h-6 w-28 mb-4" />
               <div className="space-y-3">
                 {Array.from(new Array(4)).map((_, id) => (
                   <div
                     key={`${baseId}-action-${id}`}
-                    className="flex items-center gap-3 p-3 border border-gray-200 dark:border-gray-600 rounded-lg"
+                    className="flex items-center gap-3 p-3 border bordergray200 dark:border-gray-600 rounded-lg"
                   >
                     <Skeleton className="w-5 h-5 rounded" />
                     <div className="flex-1">
@@ -247,7 +247,7 @@ export default function Loading() {
       </div>
 
       {/* Admin Actions Panel Skeleton */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-bgwhite dark:bg-darkbgprimary border-t bordergray200 dark:border-labelprimary shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">

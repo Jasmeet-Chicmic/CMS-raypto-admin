@@ -86,10 +86,10 @@ const PlanModal = ({
     <CustomModal isOpen={isOpen} onClose={onClose} size="2xl">
       {/* Heading and Description */}
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           {mode === "create" ? "Create Plan" : "Edit Plan"}
         </h2>
-        <p className="text-sm text-gray-500 dark:text-white">
+        <p className="text-sm text-gray-500 dark:text-sidebartext">
           {mode === "create"
             ? "Create a new subscription plan for your users"
             : "Edit the details of an existing plan"}

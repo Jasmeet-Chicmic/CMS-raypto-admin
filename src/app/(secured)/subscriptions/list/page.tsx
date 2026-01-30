@@ -62,10 +62,10 @@ const PlansListPage = async ({
 
   return (
     <div className=" mt-[20px]">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
         Subscription Plans
       </h1>
-      <p className="text-gray-600 dark:text-white">
+      <p className="text-gray-600 dark:text-sidebartext">
         Create and manage subscription plans for your users
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-3">

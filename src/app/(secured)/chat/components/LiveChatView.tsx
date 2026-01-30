@@ -180,7 +180,7 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
         <img
           src={option.logoURL}
           alt={option.label}
-          className="w-5 h-5 rounded-full object-cover bg-black"
+          className="w-5 h-5 rounded-full object-cover bgbgblack"
         />
       )}
       <span className="font-semibold">{option.label}</span>
@@ -190,15 +190,15 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
   return (
     <div className="flex flex-col h-full bg-transparent">
       {/* Main Chat Container */}
-      <div className="flex-1 flex flex-col bg-white dark:bg-gray-900 rounded-[20px] overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
+      <div className="flex-1 flex flex-col bg-bgwhite dark:bg-darkbgprimary rounded-[20px] overflow-hidden shadow-sm border border-bordergray100 dark:border-darkbordercolor1">
         {/* Header - Room Selector */}
-        <div className="flex-shrink-0 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-6 py-4">
+        <div className="flex-shrink-0 bg-bgwhite dark:bg-darkbgprimary border-b border-bordergray100 dark:border-darkbordercolor1 px-6 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4 flex-1">
-              <h2 className="text-xl font-bold text-[#1B2559] dark:text-white hidden sm:block">
+              <h2 className="text-xl font-bold text-textprimary dark:text-sidebartext hidden sm:block">
                 Live Chat
               </h2>
-              <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 hidden sm:block"></div>
+              <div className="w-px h-6 bg-gray-200 dark:bg-labelprimary hidden sm:block"></div>
               <Select
                 options={roomOptions}
                 value={
@@ -218,16 +218,16 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
             </div>
             <div className="flex items-center gap-3">
               <div className="flex flex-row items-center mr-2">
-                <span className="text-[0.875rem] font-medium text-[#121213] dark:text-gray-400">
+                <span className="text-[0.875rem] font-medium text-[#121213] dark:bordercolor1">
                   Messages
                 </span>
-                <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-red-500 text-white">
+                <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-bgblue text-bgwhite">
                   {totalCount.toLocaleString()}
                 </span>
               </div>
               <button
                 onClick={handleRefresh}
-                className={`p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#4F46E5] dark:text-[#4F46E5] transition-all ${isRefreshing ? "animate-spin" : ""}`}
+                className={`p-2.5 rounded-xl bg-bordercolor1 dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-labelprimary text-bgpurple1 dark:text-bgwhite transition-all ${isRefreshing ? "animate-spin" : ""}`}
                 disabled={isRefreshing}
                 title="Refresh messages"
               >
@@ -235,7 +235,7 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
               </button>
               <button
                 onClick={() => setIsRulesModalOpen(true)}
-                className="p-2.5 rounded-xl bg-[#F4F7FE] dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#4F46E5] dark:text-[#4F46E5] transition-all"
+                className="p-2.5 rounded-xl bg-bordercolor1 dark:bg-darkbgprimary hover:bg-gray-200 dark:hover:bg-darkbgprimary text-bgpurple1 dark:text-bgwhite transition-all"
                 title="Chat Rules"
               >
                 <Info size={18} />
@@ -245,14 +245,14 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
         </div>
 
         {/* Date/Time Sub-header */}
-        <div className="flex items-center justify-between px-6 py-2 bg-gray-50/50 dark:bg-gray-800/20 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 py-2 bg-gray-50/50 dark:bg-darkbgprimary/20 border-b border-bordergray200 bordergray100 dark:border-darkbgprimary">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-[12px] font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-wider">
+            <span className="text-[12px] font-bold text-sidebartext dark:bordercolor1 uppercase tracking-wider">
               {format(new Date(), "MMMM yyyy")}
             </span>
           </div>
-          <span className="text-[12px] font-medium text-[#A3AED0] dark:text-gray-400">
+          <span className="text-[12px] font-medium text-sidebartext dark:bordercolor1">
             {format(new Date(), "EEEE, h:mm a")}
           </span>
         </div>
@@ -260,24 +260,24 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
         {/* Messages Area */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 overflow-y-auto px-6 py-6 bg-transparent [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 dark:[&::-webkit-scrollbar-thumb]:bg-gray-700 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-indigo-500 transition-colors"
+          className="flex-1 overflow-y-auto px-6 py-6 bg-transparent [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 dark:[&::-webkit-scrollbar-thumb]:bg-labelprimary [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-indigo-500 transition-colors"
         >
           {isRefreshing ? (
             <div className="flex flex-col items-center justify-center h-full gap-3">
               <div className="w-10 h-10 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
-              <div className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              <div className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 Loading messages...
               </div>
             </div>
           ) : sortedMessages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center p-8">
-              <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4">
-                <Info size={32} className="text-gray-400" />
+              <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-darkbgprimary flex items-center justify-center mb-4">
+                <Info size={32} className="bordercolor1" />
               </div>
-              <p className="text-[#1B2559] dark:text-white font-bold text-lg mb-1">
+              <p className="text-textprimary dark:text-sidebartext font-bold text-lg mb-1">
                 No Messages Yet
               </p>
-              <p className="text-[#A3AED0] dark:text-gray-400 max-w-[250px]">
+              <p className="text-sidebartext dark:bordercolor1 max-w-[250px]">
                 {CHAT_STRINGS.NO_MESSAGES}
               </p>
             </div>
@@ -314,20 +314,20 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
 
       {/* Chat Rules Modal */}
       {isRulesModalOpen && (
-        <div className="fixed inset-0 bg-[#1B2559]/30 backdrop-blur-sm flex items-center justify-center z-[100] transition-all">
-          <div className="bg-white dark:bg-gray-900 rounded-[24px] max-w-lg w-full mx-4 max-h-[85vh] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800">
-            <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800">
+        <div className="fixed inset-0 bg-textprimary/30 backdrop-blur-sm flex items-center justify-center z-[100] transition-all">
+          <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[24px] max-w-lg w-full mx-4 max-h-[85vh] overflow-hidden shadow-2xl border-bordergray100 dark:border-darkbgprimary">
+            <div className="flex items-center justify-between p-6 border-b border-bordergray200 dark:border-darkbgprimary">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center">
                   <span className="text-xl">📜</span>
                 </div>
-                <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                   Chat Rules
                 </h2>
               </div>
               <button
                 onClick={() => setIsRulesModalOpen(false)}
-                className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 dark:text-gray-500 transition-colors"
+                className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 bordercolor1 dark:text-gray-500 transition-colors"
                 title="Close"
               >
                 <X size={20} />
@@ -338,22 +338,22 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
                 {CHAT_RULES.map((rule, index) => (
                   <div
                     key={index}
-                    className="flex gap-4 p-3 rounded-2xl bg-gray-50/50 dark:bg-gray-800/30 border border-transparent hover:border-indigo-500/20 transition-all hover:bg-white dark:hover:bg-gray-800 group"
+                    className="flex gap-4 p-3 rounded-2xl bg-gray-50/50 dark:bg-darkbgprimary/30 border border-transparent hover:border-indigo-500/20 transition-all hover:bg-bgwhite dark:hover:bg-gray-800 group"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-bgwhite transition-colors">
                       {index + 1}
                     </div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-sm font-medium text-gray-600 dark:text-darklabelprimary leading-relaxed">
                       {rule}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="p-6 bg-gray-50 dark:bg-gray-800/50 text-center">
+            <div className="p-6 bg-gray-50 dark:bg-darkbgprimary/50 text-center">
               <button
                 onClick={() => setIsRulesModalOpen(false)}
-                className="w-full py-3 rounded-2xl bg-[#4F46E5] text-white font-bold hover:bg-[#3311DB] transition-all shadow-lg shadow-indigo-500/20 active:scale-[0.98]"
+                className="w-full py-3 rounded-2xl bg-primarycolor text-bgwhite font-bold hover:bg-[#3311DB] transition-all shadow-lg shadow-indigo-500/20 active:scale-[0.98]"
               >
                 I Understand
               </button>

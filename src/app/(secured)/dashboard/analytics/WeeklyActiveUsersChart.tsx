@@ -56,7 +56,7 @@ const WeeklyActiveUsersChart = ({
       categories: activityCategories,
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#c4ff0e",
           fontFamily: "inherit",
           fontSize: "12px",
         },
@@ -71,7 +71,7 @@ const WeeklyActiveUsersChart = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#c4ff0e",
           fontFamily: "inherit",
         },
         formatter: (value: number) => Math.round(value).toString(),
@@ -89,7 +89,7 @@ const WeeklyActiveUsersChart = ({
         colorStops: [
           {
             offset: 0,
-            color: "#4F46E5",
+            color: "#c4ff0e",
             opacity: 1,
           },
           {
@@ -115,7 +115,7 @@ const WeeklyActiveUsersChart = ({
       offsetY: -20,
       style: {
         fontSize: "12px",
-        colors: ["#A3AED0"],
+        colors: ["#99a1af"],
       },
     },
   };
@@ -128,14 +128,14 @@ const WeeklyActiveUsersChart = ({
   ];
 
   return (
-    <div className="bg-white rounded-lg p-0 dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-bgwhite rounded-lg p-0 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex gap-4 mb-4 justify-between flex-col xl:flex-row">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+            <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
               Active Users
             </h3>
-            <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+            <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
               Active users per day
             </p>
           </div>

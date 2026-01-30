@@ -20,7 +20,7 @@ const Skeleton = ({
   if (variant === "pulse") {
     return (
       <div
-        className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded ${className}`}
+        className={`animate-pulse bg-gray-200 dark:bg-labelprimary rounded ${className}`}
         style={style}
       />
     );
@@ -29,17 +29,17 @@ const Skeleton = ({
   if (variant === "shimmer") {
     return (
       <div
-        className={`relative overflow-hidden rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 ${className}`}
+        className={`relative overflow-hidden rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-labelprimary dark:to-gray-800 ${className}`}
         style={style}
       >
-        <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent" />
+        <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent viabgwhite/40 dark:viabgwhite/10 to-transparent" />
       </div>
     );
   }
 
   return (
     <div
-      className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded ${className}`}
+      className={`animate-pulse bg-gray-200 dark:bg-labelprimary rounded ${className}`}
       style={style}
     />
   );
@@ -49,7 +49,7 @@ const Skeleton = ({
  * Stat Card Skeleton - Matches the StatCard component layout
  */
 export const StatCardSkeleton = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 shadow-sm">
+  <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-28" />
@@ -67,7 +67,7 @@ export const StatCardSkeleton = () => (
 export const ChartCardSkeleton = ({ height = 400 }: { height?: number }) => {
   const baseId = useId();
   return (
-    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex-1 bg-bgwhite rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex items-center justify-between mb-6">
         <div className="space-y-2">
           <Skeleton className="h-7 w-48" />
@@ -100,7 +100,7 @@ export const ChartCardSkeleton = ({ height = 400 }: { height?: number }) => {
  * Area Chart Skeleton - With gradient wave effect
  */
 export const AreaChartSkeleton = ({ height = 400 }: { height?: number }) => (
-  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+  <div className="flex-1 bg-bgwhite rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
     <div className="flex items-center justify-between mb-6">
       <div className="space-y-2">
         <Skeleton className="h-7 w-48" />
@@ -149,7 +149,7 @@ export const HorizontalBarChartSkeleton = ({
 }) => {
   const baseId = useId();
   return (
-    <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex-1 bg-bgwhite rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
         <div className="space-y-2">
           <Skeleton className="h-7 w-44" />
@@ -183,7 +183,7 @@ export const HorizontalBarChartSkeleton = ({
  * World Map Chart Skeleton
  */
 export const MapChartSkeleton = () => (
-  <div className="flex-1 bg-white rounded-[20px] p-6 dark:bg-gray-900 dark:border-gray-800 w-full">
+  <div className="flex-1 bg-bgwhite rounded-[20px] p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full">
     <div className="flex items-center justify-between mb-6">
       <div className="space-y-2">
         <Skeleton className="h-7 w-40" />
@@ -237,7 +237,7 @@ export const MapChartSkeleton = () => (
  * GGR Stat Card Skeleton
  */
 export const GGRStatCardSkeleton = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 shadow-sm">
+  <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] p-6 shadow-sm">
     <div className="flex items-center justify-between">
       <div className="flex-1 space-y-3">
         <Skeleton className="h-4 w-24" />

@@ -83,7 +83,7 @@ const TransactionStatsChart = ({
       categories,
       labels: {
         style: {
-          colors: "#a3aed0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
       },
@@ -91,7 +91,7 @@ const TransactionStatsChart = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#a3aed0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
         formatter: (value: number) => formatCurrency(value),
@@ -138,7 +138,7 @@ const TransactionStatsChart = ({
       position: "top",
       horizontalAlign: "right",
       labels: {
-        colors: "#a3aed0",
+        colors: "#99a1af",
       },
       show: true,
     },
@@ -157,10 +157,10 @@ const TransactionStatsChart = ({
   };
 
   return (
-    <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center justify-start w-full">
-          <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white w-full">
+          <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite w-full">
             Transaction Statistics
           </h3>
         </div>
@@ -195,13 +195,13 @@ const TransactionStatsChart = ({
         <div className="flex gap-4 text-sm">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-green-500"></span>
-            <span className="text-gray-600 dark:text-gray-400">
+            <span className="text-gray-600 dark:bordercolor1">
               Earned: {formatCurrency(totalEarned)}
             </span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-red-500"></span>
-            <span className="text-gray-600 dark:text-gray-400">
+            <span className="text-gray-600 dark:bordercolor1">
               Spent: {formatCurrency(totalSpent)}
             </span>
           </div>

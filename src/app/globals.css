@@ -33,34 +33,22 @@
   .rounded-20 {
     border-radius: var(--radius-20);
   }
-
-  /* .rounded-lg {
-    border-radius: var(--rounded-lg);
+  .lightbgbase {
   }
-
-  .to-purple-500 {
-    background: var(--lightpurple);
+  .darkbgbase {
   }
-
-  .from-purple-600 {
-    background: var(--lightpurple);
+  .bgwhite {
   }
-
-  .text-blue-600 {
-    color: var(--text-blue-600);
+  .bgblack {
   }
-
-  .bg-[#4F46E5] {
-    background-color: var(--lightpurple);
+  .bgpriamry {
   }
-
-  .from-purple-500 {
-    background: var(--to-blue-600);
+  .darkbgpriamry {
   }
-
-  .to-blue-600 {
-    background: var(--from-purple-500);
-  } */
+  .primarycolor {
+  }
+  .sidebartext {
+  }
 }
 
 body {
@@ -170,32 +158,32 @@ input {
 }
 
 /* .sidebar-menu-item:hover span {
-  color: #a3aed0 !important;
+  color: #99a1af !important;
 }
 
 .sidebar-menu-item:hover span svg,
 .sidebar-menu-item:hover div svg {
-  stroke: #a3aed0 !important;
+  stroke: #99a1af !important;
 }
 
 .sub-menu-item span {
-  color: #A3AED0;
+  color: #99a1af;
 }
 
 .sub-menu-item .list-item {
-  color: #A3AED0;
+  color: #99a1af;
 }
 
 .sub-menu-item .list-item-icon {
-  border-color: #A3AED0;
+  border-color: #99a1af;
 }
 
 .sub-menu-item-active span {
-  color: #a3aed0;
+  color: #99a1af;
 }
 
 .sub-menu-item-active .list-item-icon {
-  border-color: #a3aed0;
+  border-color: #99a1af;
 } */
 
 /* Custom Scrollbar Styles */
@@ -213,18 +201,18 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4f46e5;
+  background: #262626;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3311cc;
+  background: #161515;
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #4f46e5 transparent;
+  scrollbar-color: #262626 transparent;
 }
 
 .preview-main-content {

@@ -284,18 +284,18 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
   return (
     <div className="flex flex-col h-[calc(100vh-120px)] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       {/* Header */}
-      <div className="flex-shrink-0 bg-gray-800 border-b border-gray-700 px-4 py-3">
+      <div className="flex-shrink-0 bg-gray-800 border-b border-bordergray200 border-labelprimary px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Link
               href={ROUTES.CHAT_ROOMS_LIST}
-              className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+              className="p-2 hover:bg-labelprimary rounded-lg transition-colors"
             >
-              <ArrowLeft size={18} className="text-gray-300" />
+              <ArrowLeft size={18} className="text-darklabelprimary" />
             </Link>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-white font-medium">
+              <span className="text-bgwhite font-medium">
                 {chatRoomName || "Chat Room"}
               </span>
             </div>
@@ -307,18 +307,18 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-gray-800/50 [&::-webkit-scrollbar-thumb]:bg-green-500 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-green-600">
         {groupedMessages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
-            <p className="text-gray-400">{CHAT_STRINGS.NO_MESSAGES}</p>
+            <p className="bordercolor1">{CHAT_STRINGS.NO_MESSAGES}</p>
           </div>
         ) : (
           groupedMessages.map((group, groupIndex) => (
             <div key={groupIndex} className="space-y-4">
               {/* Date Separator */}
               <div className="flex items-center justify-between py-2">
-                <div className="flex-1 border-t border-gray-700"></div>
-                <span className="px-4 text-[0.875] text-gray-400 font-medium">
+                <div className="flex-1 border-t border-labelprimary"></div>
+                <span className="px-4 text-[0.875] bordercolor1 font-medium">
                   {formatDateSeparator(group.date)}
                 </span>
-                <div className="flex-1 border-t border-gray-700"></div>
+                <div className="flex-1 border-t border-labelprimary"></div>
               </div>
 
               {/* Messages */}
@@ -333,7 +333,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                 >
                   {/* Avatar */}
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-semibold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-bgwhite font-semibold text-sm">
                       {getInitials(message.senderName)}
                     </div>
                   </div>
@@ -341,7 +341,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                   {/* Message Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center space-x-2 mb-1">
-                      <span className="text-white font-semibold text-sm">
+                      <span className="text-bgwhite font-semibold text-sm">
                         {message.senderName || "Unknown"}:
                       </span>
                       {hoveredMessageId === message._id && (
@@ -353,10 +353,10 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                                 message: message.message,
                               })
                             }
-                            className="p-1 hover:bg-gray-700 rounded transition-colors"
+                            className="p-1 hover:bg-labelprimary rounded transition-colors"
                             title="Edit"
                           >
-                            <Pencil size={14} className="text-gray-400" />
+                            <Pencil size={14} className="bordercolor1" />
                           </button>
                           <button
                             onClick={() =>
@@ -365,7 +365,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                                 messageId: message._id,
                               })
                             }
-                            className="p-1 hover:bg-gray-700 rounded transition-colors"
+                            className="p-1 hover:bg-labelprimary rounded transition-colors"
                             title="Delete"
                           >
                             <Trash2 size={14} className="text-red-400" />
@@ -393,7 +393,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                               setEditingMessage(null);
                             }
                           }}
-                          className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                          className="flex-1 px-3 py-2 bg-labelprimary border border-gray-600 rounded-lg text-bgwhite placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                           autoFocus
                         />
                         <button
@@ -402,18 +402,18 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
                           disabled={isLoading || !editingMessage.message.trim()}
                           title="Save"
                         >
-                          <Check size={16} className="text-white" />
+                          <Check size={16} className="text-bgwhite" />
                         </button>
                         <button
                           onClick={() => setEditingMessage(null)}
-                          className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
+                          className="p-2 bg-labelprimary hover:bg-gray-600 rounded-lg transition-colors"
                           title="Cancel"
                         >
-                          <X size={16} className="text-gray-300" />
+                          <X size={16} className="text-darklabelprimary" />
                         </button>
                       </div>
                     ) : (
-                      <div className="bg-gray-800 rounded-lg px-4 py-3 border border-gray-700">
+                      <div className="bg-gray-800 rounded-lg px-4 py-3 border border-labelprimary">
                         <p className="text-gray-100 text-sm break-words">
                           {highlightText(message.message)}
                         </p>
@@ -430,7 +430,7 @@ const ChatMessagesView: React.FC<ChatMessagesViewProps> = ({
 
       {/* Pagination */}
       {messagesData?.data?.count > pageSize && (
-        <div className="flex-shrink-0 border-t border-gray-700 bg-gray-800 px-4 py-3">
+        <div className="flex-shrink-0 border-t border-labelprimary bg-gray-800 px-4 py-3">
           <Pagination
             totalItems={messagesData?.data?.count || 0}
             currentPage={currentPage}

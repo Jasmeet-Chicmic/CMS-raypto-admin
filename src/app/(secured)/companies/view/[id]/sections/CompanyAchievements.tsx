@@ -175,12 +175,12 @@ const CompanyAchievements = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Achievements
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -188,7 +188,7 @@ const CompanyAchievements = () => {
 
         {fields.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No achievements added yet.
             </p>
           </div>
@@ -221,7 +221,9 @@ const CompanyAchievements = () => {
                       key={index}
                       onClick={() => setCurrentIndex(index)}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentIndex ? "bg-primary" : "bg-gray-300"
+                        index === currentIndex
+                          ? "bg-primary"
+                          : "bg-darklabelprimary"
                       }`}
                     />
                   ))}
@@ -248,7 +250,7 @@ const CompanyAchievements = () => {
             )}
 
             {/* Achievement Display */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Image */}
                 <div className="relative">
@@ -264,26 +266,26 @@ const CompanyAchievements = () => {
                 {/* Content */}
                 <div className="space-y-4">
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                       Title
                     </div>
-                    <h4 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+                    <h4 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                       {currentAchievement?.title}
                     </h4>
                   </div>
 
                   <div className="flex space-x-4">
                     <div>
-                      <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                         Year
                       </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                      <span className="text-sm text-gray-600 dark:bordercolor1">
                         {currentAchievement?.year}
                       </span>
                     </div>
 
                     <div>
-                      <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                         Category
                       </div>
                       <span className="px-2 py-1 bg-primary/10 text-primary rounded-full text-[0.875] font-medium">
@@ -293,10 +295,10 @@ const CompanyAchievements = () => {
                   </div>
 
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                       Description
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="text-labelprimary dark:text-darklabelprimary leading-relaxed">
                       {currentAchievement?.description}
                     </p>
                   </div>
@@ -312,19 +314,19 @@ const CompanyAchievements = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Achievements
         </h3>
         <div className="flex space-x-2">
           <button
             onClick={addAchievement}
-            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
           >
             Add Achievement
           </button>
           <button
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>
@@ -334,13 +336,13 @@ const CompanyAchievements = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {fields.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No achievements added yet.
             </p>
             <button
               type="button"
               onClick={addAchievement}
-              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
             >
               Add Your First Achievement
             </button>
@@ -376,7 +378,9 @@ const CompanyAchievements = () => {
                       type="button"
                       onClick={() => setCurrentIndex(index)}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentIndex ? "bg-primary" : "bg-gray-300"
+                        index === currentIndex
+                          ? "bg-primary"
+                          : "bg-darklabelprimary"
                       }`}
                     />
                   ))}
@@ -404,7 +408,7 @@ const CompanyAchievements = () => {
             )}
 
             {/* Achievement Form */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 dark:bg-darkbgprimary rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Image Upload */}
                 <div className="space-y-4">
@@ -423,7 +427,7 @@ const CompanyAchievements = () => {
                           onClick={() =>
                             removeImage(currentAchievement?.id || "")
                           }
-                          className="bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                          className="bg-red-500 text-bgwhite rounded-full p-1 hover:bg-red-600 transition-colors"
                         >
                           <svg
                             className="w-4 h-4"
@@ -447,7 +451,7 @@ const CompanyAchievements = () => {
                     <div className="space-y-2">
                       <label
                         htmlFor="achievement-image-upload"
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary"
                       >
                         Achievement Image
                       </label>
@@ -459,10 +463,10 @@ const CompanyAchievements = () => {
                           onChange={(e) =>
                             handleImageUpload(currentAchievement?.id || "", e)
                           }
-                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-white hover:file:bg-primary-dark transition-colors"
+                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-bgwhite hover:file:bg-primary-dark transition-colors"
                         />
                       </div>
-                      <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                      <p className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                         Supported formats: JPG, PNG, GIF. Max size: 5MB
                       </p>
                     </div>
@@ -474,7 +478,7 @@ const CompanyAchievements = () => {
                   <div>
                     <label
                       htmlFor="achievement-title"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                     >
                       Title
                     </label>
@@ -487,7 +491,7 @@ const CompanyAchievements = () => {
                           required: "Title is required",
                         },
                       )}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                     />
                     {errors.achievements?.[currentIndex]?.title && (
                       <p className="text-red-500 text-[0.875] mt-1">
@@ -500,7 +504,7 @@ const CompanyAchievements = () => {
                     <div>
                       <label
                         htmlFor="achievement-year"
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Year
                       </label>
@@ -513,7 +517,7 @@ const CompanyAchievements = () => {
                             required: "Year is required",
                           },
                         )}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.achievements?.[currentIndex]?.year && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -525,7 +529,7 @@ const CompanyAchievements = () => {
                     <div>
                       <label
                         htmlFor="achievement-category"
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                       >
                         Category
                       </label>
@@ -538,7 +542,7 @@ const CompanyAchievements = () => {
                             required: "Category is required",
                           },
                         )}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
                       />
                       {errors.achievements?.[currentIndex]?.category && (
                         <p className="text-red-500 text-[0.875] mt-1">
@@ -551,7 +555,7 @@ const CompanyAchievements = () => {
                   <div>
                     <label
                       htmlFor="achievement-description"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                     >
                       Description (max 500 characters)
                     </label>
@@ -569,7 +573,7 @@ const CompanyAchievements = () => {
                         },
                       )}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white resize-none"
+                      className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext resize-none"
                     />
                     {errors.achievements?.[currentIndex]?.description && (
                       <p className="text-red-500 text-[0.875] mt-1">
@@ -584,7 +588,7 @@ const CompanyAchievements = () => {
                   <button
                     type="button"
                     onClick={() => remove(currentIndex)}
-                    className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                   >
                     Remove Achievement
                   </button>
@@ -599,13 +603,13 @@ const CompanyAchievements = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-bgwhite bg-primary border border-primary rounded-md hover:bg-primary-dark transition-colors"
           >
             Save Changes
           </button>

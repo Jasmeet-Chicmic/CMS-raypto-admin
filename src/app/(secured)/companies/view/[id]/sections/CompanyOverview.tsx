@@ -168,12 +168,12 @@ const CompanyOverview = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             Company Overview
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -183,19 +183,19 @@ const CompanyOverview = () => {
           {/* Basic Information */}
           <div className="space-y-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.COMPANY_NAME}
               </div>
-              <p className="text-gray-900 dark:text-white font-medium">
+              <p className="text-gray-900 dark:text-sidebartext font-medium">
                 {defaultValues.companyName}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.SECTOR}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {
                   INDUSTRY_SECTOR_NAMES[
                     defaultValues.sector as unknown as keyof typeof INDUSTRY_SECTOR_NAMES
@@ -205,19 +205,19 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.HEADQUARTERS}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.headquarters}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.EMPLOYEE_COUNT}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.employeeCount} employees
               </p>
             </div>
@@ -226,10 +226,10 @@ const CompanyOverview = () => {
           {/* Contact & Website */}
           <div className="space-y-4">
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.WEBSITE}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.website ? (
                   <a
                     href={defaultValues.website}
@@ -246,28 +246,28 @@ const CompanyOverview = () => {
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.EMAIL}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.email}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.CONTACT}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {defaultValues.contactNumber}
               </p>
             </div>
 
             <div>
-              <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
                 {STRING.COUNTRY}
               </div>
-              <p className="text-gray-900 dark:text-white">
+              <p className="text-gray-900 dark:text-sidebartext">
                 {
                   COUNTRY_NAMES[
                     defaultValues.country as unknown as keyof typeof COUNTRY_NAMES
@@ -280,14 +280,14 @@ const CompanyOverview = () => {
 
         {/* Services/Tags */}
         <div className="mt-6">
-          <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
             {STRING.SERVICES}
           </div>
           <div className="flex flex-wrap gap-2">
             {defaultValues.services?.map((service, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm dark:bg-gray-700 dark:text-gray-300"
+                className="px-3 py-1 bg-gray-100 text-labelprimary rounded-full text-sm dark:bg-labelprimary dark:text-darklabelprimary"
               >
                 {service}
               </span>
@@ -301,12 +301,12 @@ const CompanyOverview = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Company Overview
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -322,7 +322,7 @@ const CompanyOverview = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

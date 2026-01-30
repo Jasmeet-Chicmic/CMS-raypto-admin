@@ -24,8 +24,8 @@ export const PageLabel = ({
     size="sm"
     className={`w-8 h-8 p-0 min-w-0 flex items-center justify-center transition-all ${
       page === currentPage
-        ? "shadow-sm shadow-[#4F46E5]/20"
-        : "text-[#1b2559] bg-transparent hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+        ? "shadow-sm shadow-bgpurple1/20"
+        : "text-textprimary bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800"
     }`}
   >
     {page}
@@ -52,31 +52,31 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="bg-white px-6 py-5 rounded-b-[20px] flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t border-[#f4f7fe] dark:bg-gray-900 dark:border-gray-800">
+    <div className="bg-bgwhite px-6 py-5 rounded-b-[20px] flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 border-t border-b border-bordergray200ordercolor1 dark:bg-darkbgprimary dark:border-darkbordercolor1">
       <div className="flex items-center space-x-6">
         {/* Page size selector */}
         <div className="flex items-center space-x-3">
           <label
             htmlFor="pageSize"
-            className="text-sm font-semibold text-[#A3AED0] dark:text-gray-400"
+            className="text-sm font-semibold text-textprimary dark:text-secondary"
           >
             Show
           </label>
           <div className="relative">
             <select
               id="pageSize"
-              className="appearance-none border border-gray-100 rounded-[10px] px-3 py-1.5 text-sm bg-white text-[#1B2559] font-bold outline-none hover:border-[#4F46E5] focus:border-[#4F46E5] cursor-pointer transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 min-w-[70px]"
+              className="appearance-none border border-bordergray100 rounded-[10px] px-3 py-1.5 text-sm bg-bgwhite text-textprimary font-medium outline-none hover:border-[#5f5f5f] focus:border-transparent cursor-pointer transition-all dark:bg-darkbgprimary dark:border-[#5f5f5f] min-w-[70px] dark:text-white"
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
               disabled={totalItems === 0}
             >
               {[10, 20, 50, 100].map((size) => (
-                <option key={size} value={size}>
+                <option className="dark:text-white" key={size} value={size}>
                   {size}
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#1B2559] dark:text-gray-400">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-textprimary dark:text-secondary">
               <svg
                 className="fill-current h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,21 +89,21 @@ const Pagination: React.FC<PaginationProps> = ({
         </div>
         {/* Show count info */}
         {totalItems === 0 ? (
-          <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[0.875rem] text-textprimary dark:text-textparagraphlight">
             No {title} to display
           </p>
         ) : (
-          <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[0.875rem] text-textprimary dark:text-textparagraphlight">
             Showing{" "}
-            <span className="font-bold text-[#A3AED0] dark:text-gray-200">
+            <span className="font-bold text-textprimary dark:text-textparagraphlight">
               {(currentPage - 1) * pageSize + 1}
             </span>{" "}
             to{" "}
-            <span className="font-bold text-[#A3AED0] dark:text-gray-200">
+            <span className="font-bold text-textprimary dark:text-textparagraphlight">
               {Math.min(currentPage * pageSize, totalItems)}
             </span>{" "}
             of{" "}
-            <span className="font-bold text-[#A3AED0] dark:text-gray-200">
+            <span className="font-bold text-textprimary dark:text-textparagraphlight">
               {totalItems}
             </span>{" "}
             {title}
@@ -126,7 +126,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-[#4F46E5] bg-transparent hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800 dark:hover:text-white"
+                className="w-8 h-8 p-0 min-w-0 bordercolor1 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800 dark:hover:text-bgwhite"
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -135,7 +135,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 text-gray-400 hover:text-[#4F46E5] bg-transparent hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800 dark:hover:text-white"
+                className="w-8 h-8 p-0 min-w-0 bordercolor1 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800 dark:hover:text-bgwhite"
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>
@@ -143,18 +143,18 @@ const Pagination: React.FC<PaginationProps> = ({
             pageLabelBuilder={(page) => (
               <PageLabel page={page} currentPage={currentPage} />
             )}
-            breakLabel={<span className="text-gray-400 px-1">...</span>}
+            breakLabel={<span className="bordercolor1 px-1">...</span>}
             marginPagesDisplayed={1}
             pageRangeDisplayed={3}
           />
 
           {/* Jump to page */}
-          <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-800 p-1 rounded-[10px] border border-gray-100 dark:border-gray-700">
+          <div className="flex items-center space-x-2 bg-gray-50 dark:bg-darkbgprimary p-1 rounded-[10px] border border-bordergray100 dark:border-labelprimary">
             <input
               type="number"
               min={1}
               max={totalPages}
-              className="w-16 bg-transparent border-none px-2 py-1 text-sm font-bold text-[#1B2559] dark:text-gray-200 outline-none placeholder:font-medium placeholder:text-gray-400"
+              className="w-16 bg-transparent border-none px-2 py-1 text-sm font-bold text-textprimary dark:text-gray-200 outline-none placeholder:font-medium placeholder:bordercolor1"
               placeholder="Page"
               value={inputPage}
               onChange={(e) => setInputPage(e.target.value)}
@@ -164,7 +164,7 @@ const Pagination: React.FC<PaginationProps> = ({
               size="sm"
               onClick={handleJump}
               disabled={!inputPage}
-              className="h-[28px] rounded-[8px] px-3 text-[0.875] font-bold bg-[#4F46E5] hover:bg-[#3311DD]"
+              className="h-[28px] rounded-[8px] px-3 text-[0.875] font-bold bg-primarycolor hover:bg-bgprimary"
             >
               Go
             </Button>

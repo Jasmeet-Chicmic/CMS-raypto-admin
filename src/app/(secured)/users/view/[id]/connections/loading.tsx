@@ -11,7 +11,7 @@ const ConnectedAccountsLoading = () => {
       {Array.from(new Array(2)).map((_, sectionIdx) => (
         <div
           key={`${baseId}-section-${sectionIdx}`}
-          className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-6 animate-pulse dark:bg-gray-900 dark:border-gray-800"
+          className="bg-bgwhite rounded-lg shadow-sm border bordergray200 p-6 space-y-6 animate-pulse dark:bg-darkbgprimary dark:border-darkbordercolor1"
         >
           {/* Header */}
           <div>
@@ -20,7 +20,7 @@ const ConnectedAccountsLoading = () => {
           </div>
 
           {/* Account Rows */}
-          <div className="space-y-4 dark:bg-gray-900 dark:border-gray-800">
+          <div className="space-y-4 dark:bg-darkbgprimary dark:border-darkbordercolor1">
             {Array.from(new Array(4)).map((_, index) => (
               <div
                 key={`${baseId}-section-${sectionIdx}-account-${index}`}

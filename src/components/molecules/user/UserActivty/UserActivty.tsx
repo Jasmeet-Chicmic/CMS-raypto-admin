@@ -16,7 +16,7 @@ const UserActivty = async ({ userId }: { userId: string }) => {
   });
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-bgwhite rounded-xl shadow-sm p-6">
       <h2 className="text-lg font-semibold mb-6">User Activity Timeline</h2>
       <div className="space-y-10">
         {data?.data?.data.map((activity) => {
@@ -62,7 +62,7 @@ const UserActivty = async ({ userId }: { userId: string }) => {
                       <p className="text-sm font-medium">
                         {activity.client?.name}
                       </p>
-                      {/* <p className="text-[0.875rem] text-[#A3AED0]">
+                      {/* <p className="text-[0.875rem] text-sidebartext">
                         {activity.user.role}
                       </p> */}
                     </div>
@@ -75,20 +75,20 @@ const UserActivty = async ({ userId }: { userId: string }) => {
                       {activity.teamMembers?.slice(0, 3).map((item, idx) => (
                         <Avatar
                           key={idx}
-                          className="w-8 h-8 border-2 border-white"
+                          className="w-8 h-8 border-2 borderbgwhite"
                         >
                           <AvatarImage src={item?.profilePicture} />
                           <AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                       ))}
                       {activity.teamMembers?.length > 3 && (
-                        <div className="w-8 h-8 rounded-full bg-gray-200 text-sm flex items-center justify-center border-2 border-white">
+                        <div className="w-8 h-8 rounded-full bg-gray-200 text-sm flex items-center justify-center border-2 borderbgwhite">
                           +{activity.teamMembers?.length - 3}
                         </div>
                       )}
                     </div>
                   )}
-                <p className="text-[0.875] text-gray-400 mt-1">
+                <p className="text-[0.875] bordercolor1 mt-1">
                   {getRelativeTime(activity.createdAt)}
                 </p>
               </div>

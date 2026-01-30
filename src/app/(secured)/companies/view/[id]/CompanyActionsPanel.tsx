@@ -79,21 +79,21 @@ const CompanyActionsPanel = ({
 
     switch (variant) {
       case "primary":
-        return `${baseClasses} bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700`;
+        return `${baseClasses} bg-blue-600 text-bgwhite hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700`;
       case "danger":
-        return `${baseClasses} bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700`;
+        return `${baseClasses} bg-red-600 text-bgwhite hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700`;
       case "warning":
-        return `${baseClasses} bg-yellow-600 text-white hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-700`;
+        return `${baseClasses} bg-yellow-600 text-bgwhite hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-700`;
       case "success":
-        return `${baseClasses} bg-green-600 text-white hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700`;
+        return `${baseClasses} bg-green-600 text-bgwhite hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700`;
       default:
-        return `${baseClasses} bg-gray-600 text-white hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700`;
+        return `${baseClasses} bg-gray-600 text-bgwhite hover:bg-labelprimary dark:bg-gray-600 dark:hover:bg-labelprimary`;
     }
   };
 
   return (
     <>
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+      <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm border bordergray200 dark:border-labelprimary p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
             Admin Actions
@@ -104,7 +104,7 @@ const CompanyActionsPanel = ({
           {/* Company Status Info */}
           <div className="flex items-center gap-6 text-sm">
             <div>
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-gray-600 dark:bordercolor1">
                 Company Status:
               </span>
               <span
@@ -116,7 +116,7 @@ const CompanyActionsPanel = ({
               </span>
             </div>
             <div>
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-gray-600 dark:bordercolor1">
                 Verification:
               </span>
               <span className="ml-2 font-medium text-green-600 dark:text-green-400">
@@ -124,7 +124,7 @@ const CompanyActionsPanel = ({
               </span>
             </div>
             <div>
-              <span className="text-gray-600 dark:text-gray-400">Flags:</span>
+              <span className="text-gray-600 dark:bordercolor1">Flags:</span>
               <span className="ml-2 font-medium text-red-600 dark:text-red-400">
                 {company.flagsCount || 0}
               </span>
@@ -239,8 +239,8 @@ const CompanyActionsPanel = ({
 
             {/* Loading Indicator */}
             {isLoading && (
-              <div className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400">
-                <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+              <div className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:bordercolor1">
+                <div className="w-4 h-4 border-2 border-b border-bordergray200lue-600 border-t-transparent rounded-full animate-spin" />
                 Processing...
               </div>
             )}

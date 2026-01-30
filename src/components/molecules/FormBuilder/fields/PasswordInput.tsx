@@ -34,7 +34,10 @@ export function PasswordField<T extends FieldValues>({
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className={`mb-4 ${width} ${className}`}>
-      <label htmlFor={name} className="block mb-1 font-medium dark:text-white">
+      <label
+        htmlFor={name}
+        className="block mb-1 font-medium dark:text-sidebartext"
+      >
         {label}
       </label>
       <div className="mt-1 relative">
@@ -43,7 +46,7 @@ export function PasswordField<T extends FieldValues>({
           id={name}
           placeholder={placeholder}
           {...register(name, validation)}
-          className="w-full px-3 pr-10 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 text-black dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+          className="w-full px-3 pr-10 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 textbgblack dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"
         />
         <button
           type="button"
@@ -52,9 +55,9 @@ export function PasswordField<T extends FieldValues>({
           aria-label={showPassword ? "Hide password" : "Show password"}
         >
           {showPassword ? (
-            <Eye className="h-5 w-5 text-gray-400" />
+            <Eye className="h-5 w-5 bordercolor1" />
           ) : (
-            <EyeOff className="h-5 w-5 text-gray-400" />
+            <EyeOff className="h-5 w-5 bordercolor1" />
           )}
         </button>
       </div>

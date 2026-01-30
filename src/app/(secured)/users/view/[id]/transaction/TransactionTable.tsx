@@ -187,7 +187,7 @@ const TransactionTable = ({
       },
       header: (
         <>
-          <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+          <div className="p-4 border-b borderborder-b border-bordergray200 dark:border-darkbgprimary">
             <div className="flex flex-col lg:flex-row gap-6 justify-between items-center">
               <h3 className={`text-[1.5rem] font-bold ${TEXT_PRIMARY_DARK}`}>
                 Transaction Statistics
@@ -195,7 +195,7 @@ const TransactionTable = ({
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setIsFilterOpen(true)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-[8px] hover:bg-[#3311DD] transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                  className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 focus:outline-none focus:ring-0 font-medium group"
                 >
                   <Menu size={18} />
                   <span>Filters</span>
@@ -214,7 +214,7 @@ const TransactionTable = ({
                   router.replace(window.location.pathname);
                   handleFilterClear();
                 }}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 font-medium"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-100 dark:bg-darkbgprimary text-labelprimary dark:text-darklabelprimary rounded-xl hover:bg-gray-200 dark:hover:bg-labelprimary transition-all border bordergray200 dark:border-labelprimary font-medium"
               >
                 <RotateCcw size={18} />
                 <span>Clear All Filters</span>
@@ -225,7 +225,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="date-range-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Date Range
                 </label>
@@ -241,7 +241,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="currency-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Currency
                 </label>
@@ -256,7 +256,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="status-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Status
                 </label>
@@ -271,7 +271,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="type-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Type
                 </label>
@@ -286,7 +286,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="game-type-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Game
                 </label>
@@ -301,7 +301,7 @@ const TransactionTable = ({
               <div>
                 <label
                   htmlFor="result-filter"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2"
                 >
                   Result
                 </label>

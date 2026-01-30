@@ -138,14 +138,14 @@ export default function SupportTrackerCard({
   };
 
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-gray-900">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-darkbgprimary">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-title font-semibold text-gray-800 dark:text-gray-400">
+          <h2 className="text-title font-semibold text-gray-800 dark:bordercolor1">
             {title}
           </h2>
-          <p className="text-subtitle text-gray-500 dark:text-gray-400">
+          <p className="text-subtitle text-gray-500 dark:bordercolor1">
             {subtitle}
           </p>
         </div>
@@ -155,10 +155,10 @@ export default function SupportTrackerCard({
       <div className="flex items-center justify-between mt-[40px]">
         {/* Left */}
         <div className="p-0">
-          <div className="text-heading text-gray-800 mb-1 dark:text-gray-400">
+          <div className="text-heading text-gray-800 mb-1 dark:bordercolor1">
             {totalCount}
           </div>
-          <p className="text-subtitle text-gray-400 mb-6 dark:text-gray-400">
+          <p className="text-subtitle bordercolor1 mb-6 dark:bordercolor1">
             Total Tickets
           </p>
 
@@ -166,7 +166,7 @@ export default function SupportTrackerCard({
           <div className="space-y-4 text-sm">
             {stats.map((item, id) => (
               <div
-                className="flex items-center gap-[20px] text-gray-500 dark:text-gray-400"
+                className="flex items-center gap-[20px] text-gray-500 dark:bordercolor1"
                 key={`${baseId}-stat-${id}`}
               >
                 <span
@@ -175,10 +175,10 @@ export default function SupportTrackerCard({
                   {item.icon}
                 </span>
                 <div className="flex flex-col gap-[0px]">
-                  <span className="text-subtitle text-gray-800 dark:text-gray-400">
+                  <span className="text-subtitle text-gray-800 dark:bordercolor1">
                     {item.label}
                   </span>
-                  <span className="font-medium text-content dark:text-gray-400">
+                  <span className="font-medium text-content dark:bordercolor1">
                     {item.value}
                   </span>
                 </div>

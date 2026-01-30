@@ -103,12 +103,12 @@ const CompanyAbout = () => {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
             About the Company
           </h3>
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-primary hover:text-bgwhite transition-colors"
           >
             Edit
           </button>
@@ -117,40 +117,40 @@ const CompanyAbout = () => {
         <div className="space-y-6">
           {/* Mission */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               {STRING.MISSION}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.mission}
             </p>
           </div>
 
           {/* Vision */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               {STRING.VISION}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.vision}
             </p>
           </div>
 
           {/* Core Values */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               {STRING.CORE_VALUES}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.coreValues}
             </p>
           </div>
 
           {/* Company Bio */}
           <div>
-            <div className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <div className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
               {STRING.COMPANY_BIO}
             </div>
-            <p className="text-gray-900 dark:text-white">
+            <p className="text-gray-900 dark:text-sidebartext">
               {defaultValues.companyBio}
             </p>
           </div>
@@ -162,12 +162,12 @@ const CompanyAbout = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           About the Company
         </h3>
         <button
           onClick={handleCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -183,7 +183,7 @@ const CompanyAbout = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+            className="px-4 py-2 text-sm font-medium text-labelprimary bg-gray-100 border border-darklabelprimary rounded-md hover:bg-gray-200 transition-colors dark:bg-labelprimary dark:text-darklabelprimary dark:border-gray-600 dark:hover:bg-gray-600"
           >
             Cancel
           </button>

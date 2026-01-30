@@ -68,7 +68,7 @@ const CompanyTestimonials = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <svg
         key={i}
-        className={`w-4 h-4 ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
+        className={`w-4 h-4 ${i < rating ? "text-yellow-400" : "text-darklabelprimary"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -80,11 +80,11 @@ const CompanyTestimonials = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-sidebartext">
           Testimonials
         </h3>
         <div className="flex space-x-2">
-          <select className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+          <select className="px-3 py-2 border border-darklabelprimary rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext">
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
             <option value="approved">Approved</option>
@@ -98,7 +98,7 @@ const CompanyTestimonials = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+            className="border bordergray200 dark:border-labelprimary rounded-lg p-6"
           >
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center space-x-3">
@@ -115,10 +115,10 @@ const CompanyTestimonials = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <h4 className="font-semibold text-gray-900 dark:text-sidebartext">
                     {testimonial.author}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 dark:bordercolor1">
                     {testimonial.position} at {testimonial.company}
                   </p>
                   <div className="flex items-center space-x-1 mt-1">
@@ -135,14 +135,14 @@ const CompanyTestimonials = () => {
                     .toUpperCase() +
                     ENTITY_STATUS_LABELS[testimonial.status].slice(1)}
                 </span>
-                <span className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+                <span className="text-[0.875rem] text-sidebartext dark:bordercolor1">
                   {new Date(testimonial.date).toLocaleDateString()}
                 </span>
               </div>
             </div>
 
             <div className="mb-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-labelprimary dark:text-darklabelprimary leading-relaxed">
                 {`${testimonial.content}`}
               </p>
             </div>
@@ -155,7 +155,7 @@ const CompanyTestimonials = () => {
                     onClick={() =>
                       updateStatus(testimonial.id, ENTITY_STATUS.APPROVED)
                     }
-                    className="px-3 py-1 text-[0.875] font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
                   >
                     Approve
                   </button>
@@ -163,7 +163,7 @@ const CompanyTestimonials = () => {
                     onClick={() =>
                       updateStatus(testimonial.id, ENTITY_STATUS.REJECTED)
                     }
-                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                   >
                     Reject
                   </button>
@@ -171,7 +171,7 @@ const CompanyTestimonials = () => {
                     onClick={() =>
                       updateStatus(testimonial.id, ENTITY_STATUS.FLAGGED)
                     }
-                    className="px-3 py-1 text-[0.875] font-medium text-orange-600 border border-orange-600 rounded-md hover:bg-orange-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-orange-600 border border-orange-600 rounded-md hover:bg-orange-600 hover:text-bgwhite transition-colors"
                   >
                     Flag
                   </button>
@@ -183,7 +183,7 @@ const CompanyTestimonials = () => {
                     onClick={() =>
                       updateStatus(testimonial.id, ENTITY_STATUS.APPROVED)
                     }
-                    className="px-3 py-1 text-[0.875] font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-bgwhite transition-colors"
                   >
                     Approve
                   </button>
@@ -191,7 +191,7 @@ const CompanyTestimonials = () => {
                     onClick={() =>
                       updateStatus(testimonial.id, ENTITY_STATUS.REJECTED)
                     }
-                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors"
+                    className="px-3 py-1 text-[0.875] font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-bgwhite transition-colors"
                   >
                     Reject
                   </button>
@@ -203,7 +203,7 @@ const CompanyTestimonials = () => {
                   onClick={() =>
                     updateStatus(testimonial.id, ENTITY_STATUS.PENDING)
                   }
-                  className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-white transition-colors"
+                  className="px-3 py-1 text-[0.875] font-medium text-gray-600 border border-gray-600 rounded-md hover:bg-gray-600 hover:text-bgwhite transition-colors"
                 >
                   Reset to Pending
                 </button>
@@ -214,7 +214,7 @@ const CompanyTestimonials = () => {
 
         {testimonials.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:bordercolor1">
               No testimonials found.
             </p>
           </div>
@@ -223,24 +223,24 @@ const CompanyTestimonials = () => {
 
       {/* Statistics */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
+          <div className="text-2xl font-bold text-gray-900 dark:text-sidebartext">
             {testimonials.length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Total</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-green-600">
             {
               testimonials.filter((t) => t.status === ENTITY_STATUS.APPROVED)
                 .length
             }
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:bordercolor1">
             Approved
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-yellow-600">
             {
               testimonials.filter((t) => t.status === ENTITY_STATUS.PENDING)
@@ -248,18 +248,16 @@ const CompanyTestimonials = () => {
             }
             s
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            Pending
-          </div>
+          <div className="text-sm text-gray-600 dark:bordercolor1">Pending</div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-4 border bordergray200 dark:border-labelprimary">
           <div className="text-2xl font-bold text-red-600">
             {
               testimonials.filter((t) => t.status === ENTITY_STATUS.REJECTED)
                 .length
             }
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:bordercolor1">
             Rejected
           </div>
         </div>

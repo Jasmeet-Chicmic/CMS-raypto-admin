@@ -36,10 +36,10 @@ const ListingCardItem = ({ item, listingCardType }: ListingCardItemProps) => {
       <div className="ml-4 flex justify-between items-center w-full flex-wrap gap-y-2">
         {/* Text Section */}
         <div className="flex flex-col">
-          <p className="text-sm font-medium text-gray-900 dark:text-gray-400">
+          <p className="text-sm font-medium text-gray-900 dark:bordercolor1">
             {item.name}
           </p>
-          <p className="text-[0.875rem] text-[#A3AED0] dark:text-gray-400">
+          <p className="text-[0.875rem] text-sidebartext dark:bordercolor1">
             {item.subTitle}
           </p>
         </div>
@@ -47,7 +47,7 @@ const ListingCardItem = ({ item, listingCardType }: ListingCardItemProps) => {
         {/* Trend Section */}
         {listingCardType === LISTING_CARD_TYPES.SALES && (
           <div
-            className={`flex items-center text-sm font-medium ${item.isNegative ? "text-red-600" : "text-green-600"} dark:text-gray-400`}
+            className={`flex items-center text-sm font-medium ${item.isNegative ? "text-red-600" : "text-green-600"} dark:bordercolor1`}
           >
             <span className="mr-1">
               {item.isNegative ? <ChevronDown /> : <ChevronUp />}
@@ -58,7 +58,7 @@ const ListingCardItem = ({ item, listingCardType }: ListingCardItemProps) => {
 
         {listingCardType === LISTING_CARD_TYPES.TRANSACTION && (
           <div
-            className={`flex items-center text-sm font-medium ${item.isNegative ? "text-red-600" : "text-green-600"} dark:text-gray-400`}
+            className={`flex items-center text-sm font-medium ${item.isNegative ? "text-red-600" : "text-green-600"} dark:bordercolor1`}
           >
             {item.isNegative ? "-" : "+"}
             {item.price}

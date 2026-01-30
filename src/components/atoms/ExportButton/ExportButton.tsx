@@ -48,17 +48,17 @@ const ExportButton = ({
         Export
       </Button>
       {showOptions && (
-        <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 rounded-md shadow-lg border border-gray-200 dark:border-gray-800 z-50">
+        <div className="absolute right-0 mt-2 w-32 bg-bgwhite dark:bg-darkbgprimary rounded-md shadow-lg border bordergray200 dark:border-darkbgprimary z-50">
           <div className="py-1">
             <button
               onClick={() => handleFormatSelect("excel")}
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="w-full text-left px-4 py-2 text-sm text-labelprimary dark:text-darklabelprimary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               Excel
             </button>
             <button
               onClick={() => handleFormatSelect("csv")}
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="w-full text-left px-4 py-2 text-sm text-labelprimary dark:text-darklabelprimary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               CSV
             </button>

@@ -52,7 +52,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
     }
   };
   return (
-    <div className="bg-white p-5 rounded-xl border space-y-3 shadow-sm">
+    <div className="bg-bgwhite p-5 rounded-xl border space-y-3 shadow-sm">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
               className="w-12 h-12 rounded object-cover"
             />
           ) : (
-            <div className="bg-[#592C16] text-white w-12 h-12 rounded flex items-center justify-center font-bold text-lg uppercase">
+            <div className="bg-[#592C16] text-bgwhite w-12 h-12 rounded flex items-center justify-center font-bold text-lg uppercase">
               {job.companyName?.slice(0, 2) || "NA"}
             </div>
           )} */}
@@ -95,7 +95,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
         {job.skills.map((skill, idx) => (
           <span
             key={idx}
-            className="bg-white px-3 py-1 text-sm border rounded-full text-[#592C16]"
+            className="bg-bgwhite px-3 py-1 text-sm border rounded-full text-[#592C16]"
           >
             {skill}
           </span>
@@ -103,7 +103,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
       </div>
 
       {/* Description */}
-      <div className="text-sm text-gray-700 leading-relaxed">
+      <div className="text-sm text-labelprimary leading-relaxed">
         {job.description.length < 120 ? (
           job.description
         ) : expanded ? (
@@ -132,7 +132,7 @@ export const JobCard = ({ job, companyId, handleDelete }: JobCardProps) => {
       {/* Actions */}
       <div className="flex gap-3">
         <button
-          className="bg-[#592C16] text-white px-4 py-2 text-sm rounded-md"
+          className="bg-[#592C16] text-bgwhite px-4 py-2 text-sm rounded-md"
           onClick={() =>
             router.push(
               `/companies/view/${companyId}/applications?jobId=${job._id}`,

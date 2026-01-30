@@ -90,7 +90,7 @@ const ImageUpload = ({
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <label className="block text-sm font-medium text-labelprimary dark:text-darklabelprimary mb-2">
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>
@@ -101,18 +101,18 @@ const ImageUpload = ({
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border border-darklabelprimary rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-labelprimary dark:border-gray-600 dark:text-sidebartext"
             disabled={isUploading}
           />
           {isUploading && (
-            <div className="absolute inset-0 bg-white/70 dark:bg-gray-800/70 flex items-center justify-center rounded-md">
+            <div className="absolute inset-0 bgbgwhite/70 dark:bg-darkbgprimary/70 flex items-center justify-center rounded-md">
               <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
         </div>
       ) : (
         <div className="relative inline-block">
-          <div className="relative w-32 h-24 border rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+          <div className="relative w-32 h-24 border rounded-lg overflow-hidden bg-gray-100 dark:bg-labelprimary">
             <Image
               src={getImageSrc()}
               alt={label}
@@ -120,7 +120,7 @@ const ImageUpload = ({
               className="object-cover"
             />
             {isUploading && (
-              <div className="absolute inset-0 bg-white/70 dark:bg-gray-800/70 flex items-center justify-center">
+              <div className="absolute inset-0 bgbgwhite/70 dark:bg-darkbgprimary/70 flex items-center justify-center">
                 <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
               </div>
             )}
@@ -129,7 +129,7 @@ const ImageUpload = ({
             type="button"
             onClick={handleRemove}
             disabled={isUploading}
-            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition text-sm shadow disabled:opacity-50"
+            className="absolute -top-2 -right-2 bg-red-500 text-bgwhite rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition text-sm shadow disabled:opacity-50"
             title="Remove image"
           >
             ×

@@ -32,13 +32,13 @@ const DropdownMenu = ({ options, onSelect }: DropdownMenuProps) => {
         onClick={() => setOpen(!open)}
         className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200 transition dark:hover:bg-gray-800"
       >
-        <EllipsisVertical className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+        <EllipsisVertical className="w-5 h-5 text-gray-500 dark:bordercolor1" />
       </button>
 
       {/* Dropdown content */}
       {open && (
-        <div className="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg border border-gray-100 z-10 dark:bg-gray-900 dark:border-gray-800">
-          <ul className="py-1 text-sm text-gray-700 dark:text-gray-400">
+        <div className="absolute right-0 mt-2 w-36 bg-bgwhite rounded shadow-lg border border-bordergray100 z-10 dark:bg-darkbgprimary dark:border-darkbordercolor1">
+          <ul className="py-1 text-sm text-labelprimary dark:bordercolor1">
             {options.map((option) => (
               <li key={option.value}>
                 <button

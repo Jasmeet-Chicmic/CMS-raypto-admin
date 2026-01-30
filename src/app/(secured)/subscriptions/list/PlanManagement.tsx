@@ -129,7 +129,7 @@ const PlanManagement = ({
       field: "monthlyPrice",
       title: "Monthly Price",
       render: (plan) => (
-        <span className="text-sm text-gray-600 dark:text-white">
+        <span className="text-sm text-gray-600 dark:text-sidebartext">
           ${plan.monthlyPrice}
         </span>
       ),
@@ -140,7 +140,7 @@ const PlanManagement = ({
       field: "yearlyPrice",
       title: "Yearly Price",
       render: (plan) => (
-        <span className="text-sm text-gray-600 dark:text-white">
+        <span className="text-sm text-gray-600 dark:text-sidebartext">
           ${plan.yearlyPrice}
         </span>
       ),
@@ -192,10 +192,10 @@ const PlanManagement = ({
     <div>
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+          <h2 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
             All Plans
           </h2>
-          <p className="text-sm text-gray-600 dark:text-white">
+          <p className="text-sm text-gray-600 dark:text-sidebartext">
             Manage your subscription plans
           </p>
         </div>
@@ -203,7 +203,7 @@ const PlanManagement = ({
           <SearchInput value={search} onChange={(e) => setSearch(e)} />
           <button
             onClick={handleCreatePlan}
-            className="flex items-center space-x-2 px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-purple-700 transition-colors dark:bg-[#4F46E5] dark:text-white"
+            className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors dark:bg-primarycolor dark:text-sidebartext"
           >
             <Plus size={18} />
             <span>Create New Plan</span>

@@ -175,7 +175,7 @@ const DashboardStatsCharts = ({
         colorStops: [
           {
             offset: 0,
-            color: "#4F46E5",
+            color: "#c4ff0e",
             opacity: 1,
           },
           {
@@ -190,7 +190,7 @@ const DashboardStatsCharts = ({
       categories,
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
       },
@@ -198,17 +198,17 @@ const DashboardStatsCharts = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#A3AED0",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
         formatter: (value: number) => formatCurrency(value),
       },
     },
-    colors: ["#4F46E5"],
+    colors: ["#c4ff0e"],
     markers: {
       size: 5,
-      colors: ["#4F46E5"],
-      strokeColors: "#4F46E5",
+      colors: ["#c4ff0e"],
+      strokeColors: "#c4ff0e",
       strokeWidth: 2,
     },
     tooltip: {
@@ -240,64 +240,64 @@ const DashboardStatsCharts = ({
           title="Active Users"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={
-            <Users className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
-          }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          icon={<Users className="w-6 h-6 text-white dark:text-black" />}
+          color="bg-primarycolor dark:bg-secondarycolor"
         />
         <StatCard
           title="Active Games"
           value={data.totalEnabledGames}
           // subtitle="Ongoing bets"
-          icon={
-            <Activity className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
-          }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          icon={<Activity className="w-6 h-6 text-bgwhite dark:text-bgwhite" />}
+          color="bg-bgblue dark:bg-bgblue"
         />
         <StatCard
           title="Total Bets (24h)"
           value={formatCurrency(data.totalBetAmount24Hrs)}
           // subtitle="Last 24 hours"
           icon={
-            <TrendingUp className="w-6 h-6 text-[#ffffff] dark:text-[#ffffff]" />
+            <TrendingUp className="w-6 h-6 text-bgwhite dark:text-bgwhite" />
           }
-          color="bg-[#4F46E5] dark:bg-[#4F46E5]"
+          color="bg-bgorange dark:bg-bgorange"
         />
         {/* <StatCard
           title="Total Profit"
           value={formatCurrency(data.totalProfit)}
           // subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          color="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
+          color="bg-bordercolor1 dark:bg-primarycolor"
         /> */}
         {/* <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
+          iconBgColor="bg-bordercolor1 dark:bg-primarycolor"
         />
         <StatCard
           title="Dummy State"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-[#4F46E5]" />}
-          iconBgColor="bg-[#F4F7FE] dark:bg-[#4F46E5]"
+          icon={<Users className="w-6 h-6 text-bgpurple1" />}
+          iconBgColor="bg-bordercolor1 dark:bg-primarycolor"
         /> */}
         {data.totalProfit && data.totalProfit.length > 0 && (
-          <GGRStatCard stats={data.totalProfit} title="Total Profit" />
+          <GGRStatCard
+            stats={data.totalProfit}
+            title="Total Profit"
+            color="bg-bgpurple"
+          />
         )}
       </div>
 
       <div className="flex w-full gap-4 flex-col md:flex-row">
         {/* GGR Line Chart */}
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-[1.5rem] font-bold text-[#1B2559] dark:text-white">
+              <h3 className="text-[1.5rem] font-bold text-textprimary dark:text-bgwhite">
                 Gross Gaming Revenue
               </h3>
-              <p className="text-[14px] font-medium text-[#A3AED0] dark:text-gray-400">
+              <p className="text-[14px] font-medium text-textparagraph dark:text-textparagraphlight">
                 Revenue by currency
               </p>
             </div>
@@ -317,7 +317,7 @@ const DashboardStatsCharts = ({
         </div>
 
         {/* Weekly Active Users Chart */}
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1">
           <WeeklyActiveUsersChart
             activityData={activityData}
             initialFromDate={initialFromDate}
@@ -328,7 +328,7 @@ const DashboardStatsCharts = ({
 
       {/* World Map Chart & Revenue per Game */}
       <div className="flex w-full gap-4 flex-col md:flex-row">
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800 w-full md:w-1/2">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
           <WorldMapChart
             data={countryData.map((item) => ({
               country: item.country,
@@ -336,7 +336,7 @@ const DashboardStatsCharts = ({
             }))}
           />
         </div>
-        <div className="flex-1 bg-white rounded-[20px]  p-6 dark:bg-gray-900 dark:border-gray-800 w-full md:w-1/2">
+        <div className="flex-1 bg-bgwhite border border-b border-bordergray200ordercolor1 rounded-[20px]  p-6 dark:bg-darkbgprimary dark:border-darkbordercolor1 w-full md:w-1/2">
           <RevenuePerGameChart />
         </div>
       </div>

@@ -65,7 +65,7 @@ const BadgeTable = ({
       field: "badge",
       render: (value) => (
         <div>
-          <h4 className="text-sm font-semibold text-gray-800 dark:text-white">
+          <h4 className="text-sm font-semibold text-gray-800 dark:text-sidebartext">
             {value.badge.name}
           </h4>
         </div>
@@ -75,7 +75,7 @@ const BadgeTable = ({
     //   title: "Type",
     //   field: "badge",
     //   render: (value) => (
-    //     <div className="text-sm font-semibold text-gray-800 dark:text-white">
+    //     <div className="text-sm font-semibold text-gray-800 dark:text-sidebartext">
     //       {value.badge.type}
     //     </div>
     //   ),
@@ -100,7 +100,7 @@ const BadgeTable = ({
             height={32}
           />
         ) : (
-          <span className="text-gray-400 text-sm italic">No image</span>
+          <span className="bordercolor1 text-sm italic">No image</span>
         ),
     },
     {
@@ -136,7 +136,7 @@ const BadgeTable = ({
   return (
     <>
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-sidebartext">
           Assigned Badges
         </h2>
         <AssignBadgeModal

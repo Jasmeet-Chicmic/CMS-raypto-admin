@@ -40,15 +40,15 @@ const ListingCard = ({
     router.push(`?${newParams.toString()}`);
   };
   return (
-    <div className="bg-white rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-gray-900">
+    <div className="bg-bgwhite rounded-[5px] shadow-customsm w-full flex flex-col p-[25px] dark:bg-darkbgprimary">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-title text-gray-800 dark:text-gray-400">
+          <h2 className="text-title text-gray-800 dark:bordercolor1">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-subtitle text-gray-500 dark:text-gray-400">
+            <p className="text-subtitle text-gray-500 dark:bordercolor1">
               {subtitle}
             </p>
           )}

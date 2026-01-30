@@ -9,7 +9,7 @@ const Loading = () => {
   return (
     <div className="space-y-6 animate-pulse">
       {/* Change Password Card */}
-      <div className="bg-white rounded-lg shadow p-4 dark:bg-gray-900 dark:border-gray-800">
+      <div className="bg-bgwhite rounded-lg shadow p-4 dark:bg-darkbgprimary dark:border-darkbordercolor1">
         <Skeleton className="h-6 w-40 mb-4" />
         <div className="bg-orange-100 rounded-lg shadow p-4 mb-4">
           <div className="flex justify-end">
@@ -39,13 +39,13 @@ const Loading = () => {
         </form>
       </div>
       {/* Recent Devices Card */}
-      <div className="bg-white shadow rounded-lg overflow-hidden dark:bg-gray-900 dark:border-gray-800">
-        <div className="px-6 py-4 border-b">
+      <div className="bg-bgwhite shadow rounded-lg overflow-hidden dark:bg-darkbgprimary dark:border-darkbordercolor1">
+        <div className="px-6 py-4 border-b border-bordergray200">
           <Skeleton className="h-6 w-40" />
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm text-left text-gray-600">
-            <thead className="bg-white border-b text-[0.875rem] text-[#A3AED0] uppercase">
+            <thead className="bg-bgwhite border-b border-bordergray200 text-[0.875rem] text-sidebartext uppercase">
               <tr>
                 {["Browser", "Device", "Location", "Recent Activities"].map(
                   (col, id) => (

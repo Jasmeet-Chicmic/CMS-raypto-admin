@@ -20,7 +20,7 @@ const SubscriptionPlansLoading = () => {
           {Array.from(new Array(4)).map((_, i) => (
             <div
               key={`${baseId}-stat-${i}`}
-              className="bg-white p-6 rounded-lg shadow-lg border border-gray-200"
+              className="bg-bgwhite p-6 rounded-lg shadow-lg border bordergray200"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-full">
@@ -49,7 +49,7 @@ const SubscriptionPlansLoading = () => {
           {Array.from(new Array(4)).map((_, i) => (
             <div
               key={`${baseId}-plan-${i}`}
-              className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+              className="bg-bgwhite rounded-lg shadow-sm border bordergray200 overflow-hidden"
             >
               <div className="p-4 bg-gray-200">
                 <Skeleton className="h-6 w-24 mb-2" />
