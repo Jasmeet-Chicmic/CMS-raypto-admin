@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  Bell,
-  Grid3X3,
   Languages,
   LogOut,
   Moon,
@@ -29,10 +27,10 @@ const Header = () => {
   const router = useRouter();
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [notificationCount] = useState(3);
-  const [showNotifications, setShowNotifications] = useState(false);
+  // const [notificationCount] = useState(3);
+  // const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+  // const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState<string>();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -171,12 +169,12 @@ const Header = () => {
           </button>
 
           {/* App Grid */}
-          <button className="p-2 text-gray-600 focus:ring-0 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200 dark:bordercolor1 dark:hover:text-gray-100 dark:hover:bg-labelprimary">
+          {/* <button className="p-2 text-gray-600 focus:ring-0 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200 dark:bordercolor1 dark:hover:text-gray-100 dark:hover:bg-labelprimary">
             <Grid3X3 size={18} />
-          </button>
+          </button> */}
 
           {/* Notifications */}
-          <CheckClickOutside onClick={() => setShowNotifications(false)}>
+          {/* <CheckClickOutside onClick={() => setShowNotifications(false)}>
             <div className="relative">
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
@@ -240,7 +238,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-          </CheckClickOutside>
+          </CheckClickOutside> */}
           {/* User Menu */}
           <CheckClickOutside onClick={() => setShowUserMenu(false)}>
             <div className="relative">

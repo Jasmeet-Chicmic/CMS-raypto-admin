@@ -6,14 +6,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { RayptoLogo } from "@/assets";
+import { RayptoLogo, RayptoLogoDark } from "@/assets";
 import { cn } from "@/shared/utils";
 
 import { NavItem, navItems } from "./helpers/constants";
+import { useTheme } from "next-themes";
+import { THEME_TYPE } from "@/shared/constants";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const { resolvedTheme } = useTheme();
   const pathname = usePathname();
   const t = useTranslations("language");
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -80,23 +83,29 @@ const Sidebar: React.FC = () => {
           <Link
             href={item.path}
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-hoverbg hover:text-sidebartext dark:hover:bg-sidebarhoverbgcolor dark:hover:text-sidebarlinkhovercolor",
-              isActive &&
-                "bg-secondarycolor active:bg-secondarycolor sub-menu-item-active hover:text-bgwhite dark:bg-secondarycolor dark:hover:bg-secondarycolor",
+              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group",
+              isActive
+                ? "  sub-menu-item-active"
+                : "hover:bg-none hover:text-sidebartext dark:hover:bg-none dark:hover:text-sidebarlinkhovercolor",
             )}
             style={{ paddingLeft }}
             onClick={() => setIsOpen(false)}
           >
             <span
-              className={`mr-3 list-item-icon transition-transform duration-200 w-[10px] h-[10px] rounded-full ${isActive ? "bg-bgblack dark:bg-bgblack" : "border-none dark:border-none"}`}
+              className={`mr-3 list-item-icon transition-transform duration-200 w-[10px] h-[10px] rounded-full ${isActive ? "bg-primarycolor dark:bg-secondarycolor" : "border-none bg-sidebarlinkcolor "}`}
             ></span>
             <span
-              className={`flex-1 list-item-text text-[16px] font-medium ${isActive ? "text-bgblack" : "text-sidebarlinkcolor dark:text-sidebarlinkcolor"}`}
+              className={cn(
+                "flex-1 list-item-text text-[16px] font-medium transition-colors duration-200",
+                isActive
+                  ? "text-primarycolor hover:text-primarycolor dark:text-secondarycolor dark:hover:text-secondarycolor"
+                  : "text-sidebarlinkcolor hover:text-sidebartext dark:text-sidebarlinkcolor dark:hover:text-sidebarlinkhovercolor",
+              )}
             >
               {t(item.label)}
             </span>
             {item.badge && (
-              <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-bgblue text-bgblack">
+              <span className="ml-2 px-2 py-1 text-[0.875] font-bold rounded-full bg-bgblue text-white">
                 {item.badge}
               </span>
             )}
@@ -105,9 +114,9 @@ const Sidebar: React.FC = () => {
           <button
             type="button"
             className={cn(
-              "group flex items-center px-3 py-3 rounded-[5px] cursor-pointer sidebar-menu-item w-full text-left transition-all duration-200 hover:bg-hoverbg dark:hover:bg-sidebarhoverbgcolor",
+              "group flex items-center px-3 py-3 rounded-[5px] cursor-pointer sidebar-menu-item w-full text-left transition-all duration-200 hover:bg-none dark:hover:bg-none",
               isActive &&
-                "bg-transparent hover:bg-sidebarhoverbgcolor dark:hover:bg-sidebarhoverbgcolor",
+                "bg-transparent hover:bg-sidebarhoverbgcolor dark:hover:bg-none",
             )}
             style={{ paddingLeft }}
             onClick={() => toggleExpand(item.label)}
@@ -118,7 +127,9 @@ const Sidebar: React.FC = () => {
                   size={24}
                   className={cn(
                     "transition-colors duration-200",
-                    isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                    isActive
+                      ? "text-primarycolor dark:text-secondarycolor"
+                      : "text-sidebarlinkcolor",
                     "group-hover:text-white",
                   )}
                 />
@@ -127,17 +138,19 @@ const Sidebar: React.FC = () => {
             <span
               className={cn(
                 "flex-1 text-[16px] font-medium transition-colors duration-200",
-                isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                isActive
+                  ? "text-primarycolor dark:text-secondarycolor"
+                  : "text-sidebarlinkcolor",
                 "group-hover:text-white",
               )}
             >
               {t(item.label)}
             </span>
-            {item.badge && (
+            {/* {item.badge && (
               <span className="ml-2 px-2 py-1 text-[0.875rem] font-bold rounded-full bg-bgblue text-bgwhite">
                 {item.badge}
               </span>
-            )}
+            )} */}
             {isExpandable && (
               <div className="ml-2 transition-transform duration-200">
                 {expanded[item.label] ? (
@@ -146,7 +159,7 @@ const Sidebar: React.FC = () => {
                     className={cn(
                       "transition-colors duration-200",
                       isActive
-                        ? "text-secondarycolor"
+                        ? "text-primarycolor dark:text-secondarycolor"
                         : "text-sidebarlinkcolor",
                       "group-hover:text-white",
                     )}
@@ -157,7 +170,7 @@ const Sidebar: React.FC = () => {
                     className={cn(
                       "transition-colors duration-200",
                       isActive
-                        ? "text-secondarycolor"
+                        ? "text-primarycolor dark:text-secondarycolor"
                         : "text-sidebarlinkcolor",
                       "group-hover:text-white",
                     )}
@@ -213,7 +226,17 @@ const Sidebar: React.FC = () => {
             <h1 className="text-xl font-bold textbgblack dark:text-sidebartext">
               Raypto
             </h1> */}
-            <Image src={RayptoLogo.src} width={164} height={52} alt="logo" />
+            <Image
+              src={
+                resolvedTheme === THEME_TYPE.DARK
+                  ? RayptoLogo.src
+                  : RayptoLogoDark.src
+              }
+              width={164}
+              height={52}
+              alt="logo"
+              className="max-h-20 max-w-max"
+            />
           </div>
         </div>
 

@@ -300,14 +300,14 @@ const UserTable = ({
             <div
               className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${TEXT_SIZE_SM} font-bold transition-all duration-200 border cursor-pointer ${
                 item.status === USER_BLOCK_STATUS.ACTIVE
-                  ? "bg-green-50 text-green-600 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800"
+                  ? "bg-primarycolor/10 text-primarycolor border-primarycolor/20 dark:bg-secondarycolor/10 dark:text-secondarycolor dark:border-secondarycolor/10"
                   : "bg-red-50 text-red-600 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800"
               }`}
             >
               <div
                 className={`w-1.5 h-1.5 rounded-full ${
                   item.status === USER_BLOCK_STATUS.ACTIVE
-                    ? "bg-green-500"
+                    ? "bg-primarycolor dark:bg-secondarycolor"
                     : "bg-red-500"
                 }`}
               />
@@ -319,7 +319,7 @@ const UserTable = ({
             {
               label: (
                 <div className="flex items-center gap-2 py-1">
-                  <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <div className="w-2 h-2 rounded-full bg-primarycolor dark:bg-secondarycolor" />
                   <span className="font-medium">Active</span>
                 </div>
               ),

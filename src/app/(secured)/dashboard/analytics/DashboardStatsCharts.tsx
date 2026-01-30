@@ -182,17 +182,17 @@ const DashboardStatsCharts = ({
           title="Active Games"
           value={data.totalEnabledGames}
           // subtitle="Ongoing bets"
-          icon={<Activity className="w-6 h-6 text-bgwhite dark:text-bgwhite" />}
-          color="bg-bgblue dark:bg-bgblue"
+          icon={<Activity className="w-6 h-6 text-bgwhite dark:text-bgblack" />}
+          color="bg-primarycolor dark:bg-secondarycolor"
         />
         <StatCard
           title="Total Bets (24h)"
           value={formatCurrency(data.totalBetAmount24Hrs)}
           // subtitle="Last 24 hours"
           icon={
-            <TrendingUp className="w-6 h-6 text-bgwhite dark:text-bgwhite" />
+            <TrendingUp className="w-6 h-6 text-bgwhite dark:text-bgblack" />
           }
-          color="bg-bgorange dark:bg-bgorange"
+          color="bg-primarycolor dark:bg-secondarycolor"
         />
         {/* <StatCard
           title="Total Profit"
@@ -219,7 +219,7 @@ const DashboardStatsCharts = ({
           <GGRStatCard
             stats={data.totalProfit}
             title="Total Profit"
-            color="bg-bgpurple"
+            color="bg-primarycolor dark:bg-secondarycolor"
           />
         )}
       </div>

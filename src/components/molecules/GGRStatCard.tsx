@@ -25,7 +25,7 @@ interface CurrencyOption {
 const GGRStatCard: React.FC<GGRStatCardProps> = ({
   stats,
   title = "Gross Gaming Revenue",
-  color = "bg-bgpurple",
+  color = "bg-primarycolor dark:bg-secondarycolor",
 }) => {
   const currencyOptions: CurrencyOption[] = useMemo(
     () =>
@@ -55,7 +55,7 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
           </div>
           <div className="flex flex-col">
             <div
-              className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${color} text-bgwhite group-hover:bg-bgwhite [&_svg]:group-hover:!text-bgpurple1`}
+              className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${color} text-bgwhite dark:text-bgblack group-hover:bg-bgwhite [&_svg]:group-hover:!text-bgpurple1`}
             >
               <TrendingUp className="w-6 h-6" />
             </div>

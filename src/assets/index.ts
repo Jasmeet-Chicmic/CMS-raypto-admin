@@ -14,7 +14,7 @@ import dummyProfile from "./img/dummyProfile.png";
 import companyLogo from "./img/companyLogo.jpg";
 import companyCover from "./img/companyCover.jpg";
 import RayptoLogo from "./img/full-logo.png";
-
+import RayptoLogoDark from "./img/full-logo2.png";
 export {
   authImg,
   authBg,
@@ -30,4 +30,5 @@ export {
   companyLogo,
   companyCover,
   RayptoLogo,
+  RayptoLogoDark,
 };
