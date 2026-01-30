@@ -65,7 +65,7 @@ const WorldMapChart = ({ data }: WorldMapChartProps) => {
           richInteraction={true}
           backgroundColor={"transparent"}
           borderColor={"white"}
-          color={"#4F46E5"} // Using the primary purple-blue color
+          color={"#c4ff0e"} // Using the primary purple-blue color
           tooltipBgColor={"#1f2937"}
           title=""
           valueSuffix=" users"

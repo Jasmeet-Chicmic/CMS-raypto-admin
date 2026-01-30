@@ -81,7 +81,7 @@ const Sidebar: React.FC = () => {
             className={cn(
               "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-hoverbg hover:text-sidebartext dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite",
               isActive &&
-                "bg-hoverbg active:bg-hoverbg dark:bg-darkhoverbgprimary sub-menu-item-active hover:text-bgwhite dark:hover:bg-darkhoverbgprimary",
+                "bg-hoverbg active:bg-hoverbg sub-menu-item-active hover:text-bgwhite dark:bg-secondarycolor dark:hover:bg-secondarycolor",
             )}
             style={{ paddingLeft }}
             onClick={() => setIsOpen(false)}
@@ -107,7 +107,7 @@ const Sidebar: React.FC = () => {
             className={cn(
               "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-hoverbg hover:text-sidebartext transition-all duration-200 group dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite sidebar-menu-item w-full text-left",
               isActive &&
-                "bg-primarycolor text-bgwhite hover:bg-primarycolor hover:text-white",
+                "bg-darkhoverbgprimary text-bgwhite hover:bg-darkhoverbgprimary hover:text-white",
             )}
             style={{ paddingLeft }}
             onClick={() => toggleExpand(item.label)}

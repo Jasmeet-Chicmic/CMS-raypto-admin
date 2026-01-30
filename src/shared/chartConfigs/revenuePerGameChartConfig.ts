@@ -2,7 +2,7 @@ import { ApexOptions } from "apexcharts";
 import { formatCurrency } from "@/shared/utils";
 
 // Chart constants
-const REVENUE_COLOR = "#10B981";
+const REVENUE_COLOR = "#c4ff0e";
 const LOSS_COLOR = "#EF4444";
 const WHITE_COLOR = "#ffffff";
 const LABEL_COLOR = "#99a1af";

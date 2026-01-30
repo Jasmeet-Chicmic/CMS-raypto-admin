@@ -47,8 +47,8 @@ module.exports = {
         bgblack: "#000000",
         bgprimary: "#0D0D0D",
         darkbgprimary: "#1A1A1A",
-        // primarycolor: "#C4FF0E",
         primarycolor: "#FF5722",
+        secondarycolor: "#C4FF0E",
         sidebartext: "#CCCFD1",
         darkhoverbgprimary: "#262626",
         bgblue: "#155DFC",
@@ -62,6 +62,13 @@ module.exports = {
         textparagraphlight: "#99A1AF",
         textparagraphlight2: "#D1D1C6",
         darktextparagraphlight: "#D1D5D0",
+        // Sidebar Links
+        sidebarlinkcolor: "#8b92A0",
+        sidebarlinkhovercolor: "#ffffff",
+        sidebarlinkactivecolor: "#000000",
+        sidebarbgcolor: "#8b92A0",
+        sidebarhoverbgcolor: "#1a1a1a",
+        sidebaractivebgcolor: "#c4ff0e",
         // Label Colors
         labelprimary: "#374151",
         darklabelprimary: "#d1d5db",

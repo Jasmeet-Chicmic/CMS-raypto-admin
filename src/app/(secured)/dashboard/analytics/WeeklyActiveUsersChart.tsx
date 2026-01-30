@@ -56,7 +56,7 @@ const WeeklyActiveUsersChart = ({
       categories: activityCategories,
       labels: {
         style: {
-          colors: "#99a1af",
+          colors: "#c4ff0e",
           fontFamily: "inherit",
           fontSize: "12px",
         },
@@ -71,7 +71,7 @@ const WeeklyActiveUsersChart = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#99a1af",
+          colors: "#c4ff0e",
           fontFamily: "inherit",
         },
         formatter: (value: number) => Math.round(value).toString(),
@@ -89,7 +89,7 @@ const WeeklyActiveUsersChart = ({
         colorStops: [
           {
             offset: 0,
-            color: "#4F46E5",
+            color: "#c4ff0e",
             opacity: 1,
           },
           {

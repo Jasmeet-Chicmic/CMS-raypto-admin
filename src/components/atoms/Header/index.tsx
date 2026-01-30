@@ -248,8 +248,10 @@ const Header = () => {
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded-lg focus:ring-0 transition-colors duration-200 dark:bordercolor1 dark:hover:text-gray-100 dark:hover:bg-labelprimary focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0"
               >
-                <div className="w-8 h-8 bg-primarycolor rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold">JD</span>
+                <div className="w-8 h-8 bg-primarycolor dark:bg-secondarycolor rounded-full flex items-center justify-center">
+                  <span className="text-white dark:text-black text-sm font-semibold">
+                    JD
+                  </span>
                 </div>
               </button>
               {showUserMenu && (

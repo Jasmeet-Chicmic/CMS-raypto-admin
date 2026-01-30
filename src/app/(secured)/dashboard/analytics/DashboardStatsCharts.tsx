@@ -175,7 +175,7 @@ const DashboardStatsCharts = ({
         colorStops: [
           {
             offset: 0,
-            color: "#FF6900",
+            color: "#c4ff0e",
             opacity: 1,
           },
           {
@@ -204,11 +204,11 @@ const DashboardStatsCharts = ({
         formatter: (value: number) => formatCurrency(value),
       },
     },
-    colors: ["#FF6900"],
+    colors: ["#c4ff0e"],
     markers: {
       size: 5,
-      colors: ["#FF6900"],
-      strokeColors: "#FF6900",
+      colors: ["#c4ff0e"],
+      strokeColors: "#c4ff0e",
       strokeWidth: 2,
     },
     tooltip: {
@@ -240,8 +240,8 @@ const DashboardStatsCharts = ({
           title="Active Users"
           value={data.activeUsers.toLocaleString()}
           subtitle="Last 24 hours"
-          icon={<Users className="w-6 h-6 text-white dark:text-white" />}
-          color="bg-primarycolor dark:bg-primarycolor"
+          icon={<Users className="w-6 h-6 text-white dark:text-black" />}
+          color="bg-primarycolor dark:bg-secondarycolor"
         />
         <StatCard
           title="Active Games"
