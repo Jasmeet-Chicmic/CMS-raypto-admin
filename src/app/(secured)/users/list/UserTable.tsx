@@ -355,7 +355,7 @@ const UserTable = ({
                 scroll: false,
               });
             }}
-            className="text-gray-500 hover:text-blue-600 transition-colors dark:text-sidebartext"
+            className="text-gray-500 hover:text-primarycolor dark:hover:text-secondarycolor transition-colors dark:text-sidebartext"
             title="View"
           >
             <Eye size={18} />
@@ -364,7 +364,7 @@ const UserTable = ({
             onClick={() =>
               setModal({ open: true, data: data, type: MODAL_TYPE.LOGOUT })
             }
-            className="text-gray-500 hover:text-red-600 transition-colors dark:text-red-600"
+            className="text-gray-500 hover:text-primarycolor dark:hover:text-secondarycolor"
             title="Logout User"
           >
             <LogOut size={18} />

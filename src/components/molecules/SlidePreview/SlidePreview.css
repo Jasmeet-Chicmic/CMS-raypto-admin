@@ -25,8 +25,8 @@
 }
 
 :is(.dark) .preview-toggle {
-  background: #1f293710;
-  border-color: #1f2937;
+  background: #c3ff0e0a;
+  border-color: #c3ff0e0a;
 }
 
 .preview-toggle button {
@@ -43,13 +43,13 @@
 
 .preview-toggle button.active {
   background: white;
-  color: #4f46e5;
+  color: #ff5722;
   box-shadow: 0 4px 12px rgba(67, 24, 255, 0.1);
 }
 
 :is(.dark) .preview-toggle button.active {
-  background: #1b2559;
-  color: #707eae;
+  background: #c4ff0e;
+  color: #212220;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -195,7 +195,7 @@
 
 /* CTA Button - Indigo theme */
 .preview-button {
-  background: #4f46e5;
+  background: #ff5722;
   color: white;
   border: none;
   padding: 12px 28px;
@@ -208,6 +208,11 @@
   text-align: center;
   box-shadow: 0 10px 20px rgba(67, 24, 255, 0.2);
   transition: all 0.3s ease;
+}
+
+:is(.dark) .preview-button {
+  background: #c4ff0e;
+  color: #212220;
 }
 
 .preview-button:hover {
@@ -242,12 +247,13 @@
   font-weight: 700;
   margin-bottom: 16px;
   padding-left: 12px;
-  border-left: 4px solid #4f46e5;
+  border-left: 4px solid #ff5722;
   line-height: 1.2;
 }
 
 :is(.dark) .preview-title {
   color: #ffffff;
+  border-left: 4px solid #c4ff0e;
 }
 
 /* Mobile Carousel Styles */
@@ -309,7 +315,7 @@
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  color: #4f46e5;
+  color: #c4ff0e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -326,7 +332,7 @@
 }
 
 .carousel-arrow:hover {
-  background: #4f46e5;
+  background: #c4ff0e;
   color: white;
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 8px 20px rgba(67, 24, 255, 0.3);
@@ -360,7 +366,7 @@
 
 .carousel-dot.active {
   width: 24px;
-  background: #4f46e5;
+  background: #c4ff0e;
 }
 
 :is(.dark) .carousel-dot.active {

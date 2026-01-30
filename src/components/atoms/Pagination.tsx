@@ -25,7 +25,7 @@ export const PageLabel = ({
     className={`w-8 h-8 p-0 min-w-0 flex items-center justify-center transition-all ${
       page === currentPage
         ? "shadow-sm shadow-bgpurple1/20"
-        : "text-textprimary bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800"
+        : "text-black bg-primarycolor/5 dark:text-white dark:bg-secondarycolor/5 dark:text-bgwhite/50 hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10"
     }`}
   >
     {page}
@@ -126,7 +126,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 bordercolor1 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800 dark:hover:text-bgwhite"
+                className="w-8 h-8 p-0 min-w-0 text-black bg-primarycolor/5 dark:text-white dark:bg-secondarycolor/5 dark:text-bgwhite/50 hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10"
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -135,7 +135,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-8 h-8 p-0 min-w-0 bordercolor1 hover:text-bgpurple1 bg-transparent hover:bg-gray-50 dark:text-textprimary dark:hover:bg-gray-800 dark:hover:text-bgwhite"
+                className="w-8 h-8 p-0 min-w-0 text-black bg-primarycolor/5 dark:text-white dark:bg-secondarycolor/5 dark:text-bgwhite/50 hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10"
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>

@@ -49,6 +49,8 @@ module.exports = {
         darkbgprimary: "#1A1A1A",
         primarycolor: "#FF5722",
         secondarycolor: "#C4FF0E",
+        primaryhover: "#ff5f17",
+        secondaryhover: "#a4ff0c",
         sidebartext: "#CCCFD1",
         darkhoverbgprimary: "#262626",
         bgblue: "#155DFC",
@@ -67,7 +69,7 @@ module.exports = {
         sidebarlinkhovercolor: "#ffffff",
         sidebarlinkactivecolor: "#000000",
         sidebarbgcolor: "#8b92A0",
-        sidebarhoverbgcolor: "#1a1a1a",
+        sidebarhoverbgcolor: "#272727",
         sidebaractivebgcolor: "#c4ff0e",
         // Label Colors
         labelprimary: "#374151",
