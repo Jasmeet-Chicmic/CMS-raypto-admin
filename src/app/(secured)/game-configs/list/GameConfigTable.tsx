@@ -179,19 +179,19 @@ const GameConfigTable = ({
               void handleStatusUpdate(item._id, { isEnabled: true }),
             disabled: item.isEnabled,
           },
-            {
-              label: (
-                <div className="flex items-center gap-2 py-1">
-                  <div className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="font-medium">{STRING.DISABLED}</span>
-                </div>
-              ),
-              onClick: () =>
-                void handleStatusUpdate(item._id, { isEnabled: false }),
-              disabled: !item.isEnabled,
-            },
-          ]}
-          />
+          {
+            label: (
+              <div className="flex items-center gap-2 py-1">
+                <div className="w-2 h-2 rounded-full bg-red-500" />
+                <span className="font-medium">{STRING.DISABLED}</span>
+              </div>
+            ),
+            onClick: () =>
+              void handleStatusUpdate(item._id, { isEnabled: false }),
+            disabled: !item.isEnabled,
+          },
+        ]}
+      />
     )),
     createSortableColumn("isMaintenance", "Maintenance", (item) => (
       <CustomMenu
