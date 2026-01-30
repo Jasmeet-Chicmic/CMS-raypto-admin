@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useTheme } from "next-themes";
+import { THEME_TYPE, CHART_COLORS } from "@/shared/constants";
 import { formatCurrency } from "@/shared/utils";
 import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { fetchRevenuePerGameAction, RevenuePerGameItem } from "@/api/dashboard";
@@ -30,6 +32,8 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyOption>(
     CURRENCY_OPTIONS[0],
   );
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === THEME_TYPE.DARK;
   const [data, setData] = useState<RevenuePerGameItem[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -66,8 +70,12 @@ const RevenuePerGameChart = ({ className = "" }: RevenuePerGameChartProps) => {
 
   // Use shared chart configuration
   const chartOptions = useMemo(
-    () => getRevenuePerGameChartOptions(categories),
-    [categories],
+    () =>
+      getRevenuePerGameChartOptions(
+        categories,
+        isDark ? CHART_COLORS.SECONDARY : CHART_COLORS.PRIMARY,
+      ),
+    [categories, isDark],
   );
   const series = useMemo(
     () => getRevenuePerGameSeries(positiveRevenue, negativeRevenue),

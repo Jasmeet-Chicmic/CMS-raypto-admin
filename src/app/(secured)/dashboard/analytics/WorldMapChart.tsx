@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
+import { useTheme } from "next-themes";
+import { THEME_TYPE, CHART_COLORS } from "@/shared/constants";
 
 // Dynamically import WorldMap to avoid SSR issues
 const WorldMap = dynamic(
@@ -26,6 +28,7 @@ interface WorldMapChartProps {
 }
 
 const WorldMapChart = ({ data }: WorldMapChartProps) => {
+  const { resolvedTheme } = useTheme();
   const stylingFunction = (context: StyleContext) => {
     // Calculate max value from data if available, otherwise use a default
     const maxValue =
@@ -50,6 +53,14 @@ const WorldMapChart = ({ data }: WorldMapChartProps) => {
     (item) => item.country !== "EP" && item.country !== "WO",
   );
 
+  const chartColor = useMemo(
+    () =>
+      resolvedTheme === THEME_TYPE.DARK
+        ? CHART_COLORS.SECONDARY
+        : CHART_COLORS.PRIMARY,
+    [resolvedTheme],
+  );
+
   return (
     <div className="bg-bgwhite dark:bg-darkbgprimary rounded-lg p-0 dark:border-darkbordercolor1 w-full h-full">
       <div className="mb-4">
@@ -65,7 +76,7 @@ const WorldMapChart = ({ data }: WorldMapChartProps) => {
           richInteraction={true}
           backgroundColor={"transparent"}
           borderColor={"white"}
-          color={"#c4ff0e"} // Using the primary purple-blue color
+          color={chartColor} // Using the primary purple-blue color
           tooltipBgColor={"#1f2937"}
           title=""
           valueSuffix=" users"

@@ -1,8 +1,11 @@
 "use client";
 
+import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
+import { useTheme } from "next-themes";
 import DateRangeFilterDropdown from "@/components/atoms/DateRangeFilter/DateRangeFilterDropdown";
+import { THEME_TYPE, CHART_COLORS } from "@/shared/constants";
 
 const ReactApexCharts = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -24,6 +27,7 @@ const WeeklyActiveUsersChart = ({
   initialFromDate = "",
   initialToDate = "",
 }: WeeklyActiveUsersChartProps) => {
+  const { resolvedTheme } = useTheme();
   // Prepare data for Activity chart (Weekly Active Users)
   const activityCategories = activityData.map((item) => {
     const date = new Date(item.date);
@@ -35,6 +39,14 @@ const WeeklyActiveUsersChart = ({
   });
 
   const activityChartData = activityData.map((item) => item.activeUsers);
+
+  const chartColor = useMemo(
+    () =>
+      resolvedTheme === THEME_TYPE.DARK
+        ? CHART_COLORS.SECONDARY
+        : CHART_COLORS.PRIMARY,
+    [resolvedTheme],
+  );
 
   // Activity Bar Chart options
   const activityChartOptions: ApexOptions = {
@@ -56,7 +68,7 @@ const WeeklyActiveUsersChart = ({
       categories: activityCategories,
       labels: {
         style: {
-          colors: "#c4ff0e",
+          colors: "#99a1af",
           fontFamily: "inherit",
           fontSize: "12px",
         },
@@ -71,13 +83,13 @@ const WeeklyActiveUsersChart = ({
     yaxis: {
       labels: {
         style: {
-          colors: "#c4ff0e",
+          colors: "#99a1af",
           fontFamily: "inherit",
         },
         formatter: (value: number) => Math.round(value).toString(),
       },
     },
-    colors: ["#4F46E5"],
+    colors: [chartColor],
     fill: {
       type: "gradient",
       gradient: {
@@ -89,7 +101,7 @@ const WeeklyActiveUsersChart = ({
         colorStops: [
           {
             offset: 0,
-            color: "#c4ff0e",
+            color: chartColor,
             opacity: 1,
           },
           {
