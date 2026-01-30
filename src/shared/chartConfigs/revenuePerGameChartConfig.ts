@@ -1,8 +1,8 @@
 import { ApexOptions } from "apexcharts";
 import { formatCurrency } from "@/shared/utils";
-
+import { CHART_COLORS } from "@/shared/constants";
 // Chart constants
-const LOSS_COLOR = "#EF4444";
+const LOSS_COLOR = CHART_COLORS.SPENT;
 const WHITE_COLOR = "#ffffff";
 const LABEL_COLOR = "#99a1af";
 
