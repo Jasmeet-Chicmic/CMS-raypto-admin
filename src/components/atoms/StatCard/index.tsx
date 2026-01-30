@@ -49,7 +49,7 @@ const StatCard: React.FC<
               </p>
             )}
           </div>
-          <div className="flex"> 
+          <div className="flex">
             {displayIcon && (
               <div
                 className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${

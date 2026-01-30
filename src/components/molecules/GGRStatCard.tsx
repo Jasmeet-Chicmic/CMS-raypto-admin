@@ -64,7 +64,7 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
         <div className="flex w-full items-center justify-between">
           <div className="flex items-start flex-col justify-between">
             <h3 className="text-[1.75rem] font-bold text-darkbordercolor1 dark:text-bgwhite group-hover:!text-bgwhite transition-colors duration-300">
-                {formatCurrency(ggrValue)}
+              {formatCurrency(ggrValue)}
             </h3>
             <p className="text-[0.8rem] font-medium text-textparagraphlight dark:text-textparagraphlight mb-0 group-hover:!text-bgwhite transition-colors duration-300">
               {selectedOption?.label || "Selected currency"} GGR
@@ -83,7 +83,7 @@ const GGRStatCard: React.FC<GGRStatCardProps> = ({
                 placeholder="Currency"
                 classNamePrefix="react-select"
               />
-            </div>  
+            </div>
           </div>
         </div>
       </div>
