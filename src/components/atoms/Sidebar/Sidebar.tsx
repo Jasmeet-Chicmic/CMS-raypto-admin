@@ -119,7 +119,7 @@ const Sidebar: React.FC = () => {
                   className={cn(
                     "transition-colors duration-200",
                     isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
-                    "group-hover:text-white"
+                    "group-hover:text-white",
                   )}
                 />
               )}
@@ -128,7 +128,7 @@ const Sidebar: React.FC = () => {
               className={cn(
                 "flex-1 text-[16px] font-medium transition-colors duration-200",
                 isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
-                "group-hover:text-white"
+                "group-hover:text-white",
               )}
             >
               {t(item.label)}
@@ -145,8 +145,10 @@ const Sidebar: React.FC = () => {
                     size={16}
                     className={cn(
                       "transition-colors duration-200",
-                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
-                      "group-hover:text-white"
+                      isActive
+                        ? "text-secondarycolor"
+                        : "text-sidebarlinkcolor",
+                      "group-hover:text-white",
                     )}
                   />
                 ) : (
@@ -154,8 +156,10 @@ const Sidebar: React.FC = () => {
                     size={16}
                     className={cn(
                       "transition-colors duration-200",
-                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
-                      "group-hover:text-white"
+                      isActive
+                        ? "text-secondarycolor"
+                        : "text-sidebarlinkcolor",
+                      "group-hover:text-white",
                     )}
                   />
                 )}

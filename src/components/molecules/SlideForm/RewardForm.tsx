@@ -63,7 +63,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
         {rewards.map((reward, index) => (
           <div
             key={index}
-            className="p-6 bg-gray-50 dark:bg-darkbgprimary/40 border bordergray200 dark:border-labelprimary rounded-2xl transition-all duration-300 hover:border-purple-200 dark:hover:border-purple-900/50"
+            className="p-6 bg-gray-50 dark:bg-darkbgsecondary border border-bordercolor1 dark:border-bordercolor2 rounded-2xl transition-all duration-300 hover:border-primarycolor/30 dark:hover:border-secondarycolor/30"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
               {/* Currency */}
@@ -129,7 +129,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       )
                     }
                     placeholder="0.00"
-                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-bordercolor1 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondarycolor/20 dark:focus-within:ring-secondarycolor/20 focus:border-primarycolor dark:focus:border-secondarycolor transition-all dark:bg-darkbgprimary dark:border-bordercolor2 dark:text-sidebartext"
                   />
                 </div>
               </div>
@@ -148,7 +148,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                         e.target.checked,
                       )
                     }
-                    className="w-5 h-5 text-bgpurple1 border-darklabelprimary rounded-lg focus:ring-bgpurple1 dark:bg-labelprimary dark:border-gray-600 transition-colors"
+                    className="w-5 h-5 text-primarycolor dark:text-secondarycolor border-bordercolor1 dark:border-bordercolor2 rounded-lg focus:ring-primarycolor dark:focus:ring-secondarycolor dark:bg-darkbgprimary transition-colors"
                   />
                   <label
                     htmlFor={`withdrawable-${index}`}

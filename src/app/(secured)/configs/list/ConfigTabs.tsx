@@ -43,20 +43,20 @@ const ConfigTabs = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex px-6 border-b border-bordergray200 dark:border-darkbgprimary">
+        <div className="flex px-6 border-b border-bordercolor1 dark:border-bordercolor2/80">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setCurrentTab(tab.id)}
               className={`relative px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                 currentTab === tab.id
-                  ? "text-bgpurple1 dark:text-sidebartext"
+                  ? "text-primarycolor dark:text-secondarycolor"
                   : "text-sidebartext hover:text-gray-600 dark:text-gray-500 dark:hover:text-darklabelprimary"
               }`}
             >
               <span className="relative z-10">{tab.label}</span>
               {currentTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primarycolor rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primarycolor dark:bg-secondarycolor rounded-t-full shadow-[0_-1px_10px_rgba(67,24,255,0.3)]" />
               )}
             </button>
           ))}
