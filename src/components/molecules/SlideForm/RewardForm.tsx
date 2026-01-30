@@ -70,12 +70,12 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
               <div className="md:col-span-5">
                 <label
                   htmlFor={`reward-asset-${index}`}
-                  className="block text-xs font-bold text-sidebartext dark:bordercolor1 mb-2 uppercase"
+                  className="block text-xs font-bold text-textparagraph dark:text-sidebartext mb-2 uppercase"
                 >
                   Reward Asset
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none bordercolor1">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-sidebartext">
                     <Coins className="w-4 h-4" />
                   </div>
                   <select
@@ -89,7 +89,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       );
                       handleRewardChange(index, "amount", "0");
                     }}
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-primarycolor transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white appearance-none"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-bordercolor1 rounded-xl focus:outline-none focus:ring-2 focus:ring-primarycolor/20 dark:focus:ring-secondarycolor/20 focus:border-primarycolor dark:focus:border-secondarycolor transition-all dark:bg-darkbgprimary dark:border-bordercolor2 dark:text-sidebartext appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -104,12 +104,12 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
               <div className="md:col-span-4">
                 <label
                   htmlFor={`reward-value-${index}`}
-                  className="block text-xs font-bold text-sidebartext dark:bordercolor1 mb-2 uppercase"
+                  className="block text-xs font-bold text-textparagraph dark:text-sidebartext mb-2 uppercase"
                 >
                   Reward Value
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none bordercolor1">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-sidebartext">
                     <CreditCard className="w-4 h-4" />
                   </div>
                   <input
@@ -129,7 +129,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       )
                     }
                     placeholder="0.00"
-                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-bordercolor1 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondarycolor/20 dark:focus-within:ring-secondarycolor/20 focus:border-primarycolor dark:focus:border-secondarycolor transition-all dark:bg-darkbgprimary dark:border-bordercolor2 dark:text-sidebartext"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-bold border border-bordercolor1 rounded-xl focus:outline-none focus:ring-2 focus:ring-primarycolor/20 dark:focus:ring-secondarycolor/20 focus:border-primarycolor dark:focus:border-secondarycolor transition-all dark:bg-darkbgprimary dark:border-bordercolor2 dark:text-sidebartext"
                   />
                 </div>
               </div>
@@ -152,7 +152,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                   />
                   <label
                     htmlFor={`withdrawable-${index}`}
-                    className="text-sm font-bold text-gray-600 dark:bordercolor1 cursor-pointer select-none"
+                    className="text-sm font-bold text-textparagraph dark:text-sidebartext cursor-pointer select-none"
                   >
                     Withdrawable
                   </label>

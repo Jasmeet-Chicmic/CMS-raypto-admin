@@ -18,12 +18,12 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
 
   return (
     <>
-      <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] md:w-[400px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-bordergray100 dark:border-darkbgprimary transition-all duration-300 p-8 w-full">
+      <div className="bg-bgwhite dark:bg-darkbgprimary rounded-[20px] md:w-[400px] shadow-[0_0_10px_0_rgba(0,0,0,0.025)] border border-bordercolor1 dark:border-darkbordercolor1 transition-all duration-300 p-8 w-full">
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center mb-0">
           {/* Profile Image with Gradient Background */}
           <div className="relative mb-6">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#e8ecff] to-bordercolor1 dark:from-[#3311CC]/20 dark:to-bgpurple1/20 flex items-center justify-center p-1">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primarycolor/10 to-secondarycolor/10 dark:from-secondarycolor/20 dark:to-primarycolor/20 flex items-center justify-center p-1">
               <Image
                 src={dummyProfile}
                 alt={firstName}
@@ -35,12 +35,12 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
           </div>
 
           {/* Name */}
-          <h3 className="text-[2rem] font-bold text-[#2B3674] dark:text-sidebartext mb-2">
+          <h3 className="text-[2rem] font-bold text-textprimary dark:text-sidebartext mb-2">
             {name || walletTruncate(wallet)}
           </h3>
 
           {/* Location - using wallet as location placeholder */}
-          <div className="flex items-center gap-1 text-sidebartext dark:bordercolor1 mb-6">
+          <div className="flex items-center gap-1 text-sidebartext dark:text-sidebartext/60 mb-6">
             <MapPin className="w-4 h-4" />
             <span className="text-[0.95rem] font-medium">
               {walletTruncate(wallet)}
@@ -63,50 +63,50 @@ const UserProfileCard = ({ userData }: { userData: User }) => {
         </div>
 
         {/* Divider */}
-        <div className="border-t bordergray100 dark:border-darkbgprimary mb-6" />
+        <div className="border-t border-bordercolor1 dark:border-bordercolor2 mb-6" />
 
         {/* Contact Details */}
         <div className="space-y-3">
           {/* Wallet */}
-          <div className="flex items-center gap-3 p-3 bg-bordercolor1 dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <WalletIcon className="w-4 h-4 text-bgpurple1" />
+          <div className="flex items-center gap-3 p-3 bg-primarycolor/5 dark:bg-darkbgsecondary rounded-xl hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm">
+              <WalletIcon className="w-4 h-4 text-primarycolor dark:text-secondarycolor" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-sidebartext dark:bordercolor1 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-bgblack dark:text-sidebartext/60 uppercase tracking-wide">
                 Wallet Address
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext truncate">
+              <p className="text-sm font-semibold text-textprimary dark:text-sidebartext truncate">
                 {walletTruncate(wallet) || "N/A"}
               </p>
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex items-center gap-3 p-3 bg-bordercolor1 dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <Mail className="w-4 h-4 text-bgpurple1" />
+          <div className="flex items-center gap-3 p-3 bg-primarycolor/5 dark:bg-darkbgsecondary rounded-xl hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm">
+              <Mail className="w-4 h-4 text-primarycolor dark:text-secondarycolor" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-sidebartext dark:bordercolor1 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-bgblack dark:text-sidebartext/60 uppercase tracking-wide">
                 Email Address
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext truncate">
+              <p className="text-sm font-semibold text-textprimary dark:text-sidebartext truncate">
                 {email}
               </p>
             </div>
           </div>
 
           {/* Phone */}
-          <div className="flex items-center gap-3 p-3 bg-bordercolor1 dark:bg-primarycolor/20 rounded-xl hover:bg-[#eef2fc] dark:hover:bg-gray-800/60 transition-all duration-300">
-            <div className="p-2 bg-bgwhite dark:bg-bgwhite rounded-lg shadow-sm">
-              <Phone className="w-4 h-4 text-bgpurple1" />
+          <div className="flex items-center gap-3 p-3 bg-primarycolor/5 dark:bg-darkbgsecondary rounded-xl hover:bg-primarycolor/10 dark:hover:bg-secondarycolor/10 transition-all duration-300">
+            <div className="p-2 bg-bgwhite dark:bg-darkbgprimary rounded-lg shadow-sm">
+              <Phone className="w-4 h-4 text-primarycolor dark:text-secondarycolor" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-sidebartext dark:bordercolor1 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-bgblack dark:text-sidebartext/60 uppercase tracking-wide">
                 Contact Number
               </p>
-              <p className="text-sm font-semibold text-[#2B3674] dark:text-sidebartext">
+              <p className="text-sm font-semibold text-textprimary dark:text-sidebartext">
                 {phoneNumber || "N/A"}
               </p>
             </div>
