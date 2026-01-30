@@ -265,7 +265,7 @@ const GameConfigTable = ({
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 transition-all duration-200 focus:outline-none focus:ring-0 font-medium bg-primarycolor text-bgwhite dark:bg-secondarycolor dark:text-black hover:bg-primaryhover dark:hover:bg-secondaryhover rounded-lg"
                   >
                     <Menu size={18} />
                     <span>Filters</span>

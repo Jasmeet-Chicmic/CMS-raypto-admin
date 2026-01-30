@@ -147,7 +147,7 @@ const DateRangeFilter = ({
             className={`w-full px-3 py-2.5 border-2 rounded-lg focus:ring-0 transition-all duration-200 ${
               !fromDate
                 ? "opacity-50 cursor-not-allowed bg-gray-100 dark:bg-darkbgprimary border-primarycolor dark:border-secondarycolor"
-                : "border-primarycolor focus:border-0 cursor-pointer"
+                : "border-primarycolor dark:border-secondarycolor cursor-pointer"
             }`}
           />
         </div>
@@ -156,7 +156,7 @@ const DateRangeFilter = ({
         <button
           onClick={handleApply}
           disabled={!fromDate}
-          className={`flex-1 px-4 py-2 bg-primarycolor text-bgwhite font-semibold rounded-lg hover:bg-bgprimary transition-all duration-200 ${
+          className={`flex-1 px-4 py-2 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-bgblack font-semibold rounded-lg hover:bg-primaryhover dark:hover:bg-secondaryhover transition-all duration-200 ${
             !fromDate ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -165,7 +165,7 @@ const DateRangeFilter = ({
         {hasFilters && (
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 border-2 border-b border-bordergray200gprimary text-bgprimary font-semibold rounded-lg hover:bg-primarycolor hover:text-bgwhite transition-all duration-200 dark:border-b border-bordergray200gpurple1 dark:text-bgpurple1"
+            className="flex-1 px-4 py-2 border-2 border-bordercolor1 dark:border-bordercolor2 text-primarycolor dark:text-secondarycolor font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-darkbgsecondary transition-all duration-200"
           >
             Clear
           </button>
