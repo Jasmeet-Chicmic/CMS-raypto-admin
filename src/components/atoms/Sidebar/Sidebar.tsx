@@ -17,6 +17,7 @@ const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("language");
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -58,6 +59,7 @@ const Sidebar: React.FC = () => {
 
     checkAndExpand(navItems);
     setExpanded(autoExpanded);
+    setMounted(true);
   }, [pathname]);
 
   const renderNavItem = (item: NavItem, depth = 0): React.ReactNode => {
@@ -228,9 +230,11 @@ const Sidebar: React.FC = () => {
             </h1> */}
             <Image
               src={
-                resolvedTheme === THEME_TYPE.DARK
+                !mounted
                   ? RayptoLogo.src
-                  : RayptoLogoDark.src
+                  : resolvedTheme === THEME_TYPE.DARK
+                    ? RayptoLogo.src
+                    : RayptoLogoDark.src
               }
               width={164}
               height={52}

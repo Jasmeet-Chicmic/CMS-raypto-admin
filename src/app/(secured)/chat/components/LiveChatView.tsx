@@ -15,6 +15,7 @@ import {
 import { ChatMessage, ChatRoom } from "../helpers/types";
 import { CHAT_STRINGS } from "../helpers/constants";
 import AdminChatMessage from "./AdminChatMessage";
+import { flagPlaceholder } from "@/assets";
 
 interface LiveChatViewProps {
   chatRooms: ChatRoom[];
@@ -181,6 +182,9 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
           src={option.logoURL}
           alt={option.label}
           className="w-5 h-5 rounded-full object-cover bgbgblack"
+          onError={(e) => {
+            e.target.src = flagPlaceholder.src;
+          }}
         />
       )}
       <span className="font-semibold">{option.label}</span>

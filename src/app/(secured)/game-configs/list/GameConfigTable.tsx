@@ -1,7 +1,8 @@
 "use client";
 
-import { Eye, Menu, RotateCcw } from "lucide-react";
-import { getStatusSelectStyles } from "@/shared/selectStyles";
+import { ChevronDown, Eye, Menu, RotateCcw } from "lucide-react";
+import CustomMenu from "@/components/atoms/Menu/Menu";
+import { cn } from "@/shared/utils";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState, useMemo } from "react";
 
@@ -15,9 +16,7 @@ import CustomModal from "@/components/molecules/CustomModal/CustomModal";
 import {
   CURRENCY_TYPE,
   CURRENCY_TYPE_NAMES,
-  THEME_TYPE,
 } from "@/shared/constants";
-import { useTheme } from "next-themes";
 import { ROUTES } from "@/shared/routes";
 import { ResponseType } from "@/shared/types";
 import { formatCurrency, createSortableColumn } from "@/shared/utils";
@@ -84,9 +83,6 @@ const GameConfigTable = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === THEME_TYPE.DARK;
-
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBetLimitItem, setSelectedBetLimitItem] =
     useState<GameConfig | null>(null);
@@ -119,19 +115,6 @@ const GameConfigTable = ({
     }
   };
 
-  const isEnabledOptions = [
-    { value: true, label: "Enabled" },
-    { value: false, label: "Disabled" },
-  ];
-
-  const isMaintenanceOptions = [
-    { value: true, label: "Under Maintenance" },
-    { value: false, label: "Active" },
-  ];
-
-  const getStatusStyles = (isPositive: boolean) =>
-    getStatusSelectStyles(isPositive, isDark);
-
   const columns: TableColumn<GameConfig>[] = [
     {
       field: "_id",
@@ -156,32 +139,118 @@ const GameConfigTable = ({
       );
     }),
     createSortableColumn("isEnabled", "Status", (item) => (
-      <div className="w-[120px]">
-        <Select
-          options={isEnabledOptions}
-          value={isEnabledOptions.find((opt) => opt.value === item.isEnabled)}
-          onChange={(val) =>
-            val && handleStatusUpdate(item._id, { isEnabled: val.value })
-          }
-          isSearchable={false}
-          styles={getStatusStyles(item.isEnabled)}
-        />
-      </div>
+      <CustomMenu
+        itemClassName={({ hover }) =>
+          cn(
+            "px-4 py-2 text-sm transition-colors cursor-pointer outline-none",
+            hover
+              ? "bg-primarycolor/10 text-primarycolor dark:bg-secondarycolor/10 dark:text-secondarycolor"
+              : "text-labelprimary dark:text-darklabelprimary",
+          )
+        }
+        menuButton={
+          <div
+            className={cn(
+              `flex items-center gap-2 px-3 py-1.5 rounded-full ${TEXT_SIZE_XS} font-bold transition-all duration-200 border cursor-pointer`,
+              item.isEnabled
+                ? "bg-primarycolor/10 text-primarycolor border-primarycolor/20 dark:bg-secondarycolor/10 dark:text-secondarycolor dark:border-secondarycolor/10"
+                : "bg-red-50 text-red-600 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800",
+            )}
+          >
+            <div
+              className={cn(
+                "w-1.5 h-1.5 rounded-full",
+                item.isEnabled
+                  ? "bg-primarycolor dark:bg-secondarycolor"
+                  : "bg-red-500",
+              )}
+            />
+            {item.isEnabled ? "Enabled" : "Disabled"}
+            <ChevronDown size={14} className="opacity-60" />
+          </div>
+        }
+        items={[
+          {
+            label: (
+              <div className="flex items-center gap-2 py-1">
+                <div className="w-2 h-2 rounded-full bg-primarycolor dark:bg-secondarycolor" />
+                <span className="font-medium">Enabled</span>
+              </div>
+            ),
+            onClick: () =>
+              void handleStatusUpdate(item._id, { isEnabled: true }),
+            disabled: item.isEnabled,
+          },
+          {
+            label: (
+              <div className="flex items-center gap-2 py-1">
+                <div className="w-2 h-2 rounded-full bg-red-500" />
+                <span className="font-medium">Disabled</span>
+              </div>
+            ),
+            onClick: () =>
+              void handleStatusUpdate(item._id, { isEnabled: false }),
+            disabled: !item.isEnabled,
+          },
+        ]}
+      />
     )),
     createSortableColumn("isMaintenance", "Maintenance", (item) => (
-      <div className="w-[160px]">
-        <Select
-          options={isMaintenanceOptions}
-          value={isMaintenanceOptions.find(
-            (opt) => opt.value === item.isMaintenance,
-          )}
-          onChange={(val) =>
-            val && handleStatusUpdate(item._id, { isMaintenance: val.value })
-          }
-          isSearchable={false}
-          styles={getStatusStyles(!item.isMaintenance)}
-        />
-      </div>
+      <CustomMenu
+        itemClassName={({ hover }) =>
+          cn(
+            "px-4 py-2 text-sm transition-colors cursor-pointer outline-none",
+            hover
+              ? "bg-primarycolor/10 text-primarycolor dark:bg-secondarycolor/10 dark:text-secondarycolor"
+              : "text-labelprimary dark:text-darklabelprimary",
+          )
+        }
+        menuButton={
+          <div
+            className={cn(
+              `flex items-center gap-2 px-3 py-1.5 rounded-full ${TEXT_SIZE_XS} font-bold transition-all duration-200 border cursor-pointer`,
+              !item.isMaintenance
+                ? "bg-primarycolor/10 text-primarycolor border-primarycolor/20 dark:bg-secondarycolor/10 dark:text-secondarycolor dark:border-secondarycolor/10"
+                : "bg-red-50 text-red-600 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800",
+            )}
+          >
+            <div
+              className={cn(
+                "w-1.5 h-1.5 rounded-full",
+                !item.isMaintenance
+                  ? "bg-primarycolor dark:bg-secondarycolor"
+                  : "bg-red-500",
+              )}
+            />
+            {!item.isMaintenance ? "Active" : "Under Maintenance"}
+            <ChevronDown size={14} className="opacity-60" />
+          </div>
+        }
+        items={[
+          {
+            label: (
+              <div className="flex items-center gap-2 py-1">
+                <div className="w-2 h-2 rounded-full bg-primarycolor dark:bg-secondarycolor" />
+                <span className="font-medium">Active</span>
+              </div>
+            ),
+            onClick: () =>
+              void handleStatusUpdate(item._id, { isMaintenance: false }),
+            disabled: !item.isMaintenance,
+          },
+          {
+            label: (
+              <div className="flex items-center gap-2 py-1">
+                <div className="w-2 h-2 rounded-full bg-red-500" />
+                <span className="font-medium">Maintenance</span>
+              </div>
+            ),
+            onClick: () =>
+              void handleStatusUpdate(item._id, { isMaintenance: true }),
+            disabled: item.isMaintenance,
+          },
+        ]}
+      />
     )),
     {
       field: "amountLimit",
