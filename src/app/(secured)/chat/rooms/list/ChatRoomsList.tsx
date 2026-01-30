@@ -306,7 +306,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
               <button
                 onClick={handleSaveConfig}
                 disabled={isConfigSaving}
-                className="p-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+                className="p-2 bg-primarycolor text-bgwhite dark:bg-secondarycolor dark:text-bgblack rounded-lg transition-colors font-semibold hover:bg-primaryhover dark:hover:bg-secondaryhover disabled:opacity-50"
                 title="Save Translation Settings"
               >
                 {isConfigSaving ? (
@@ -318,7 +318,7 @@ const ChatRoomsList: React.FC<ChatRoomsListProps> = ({
             </div>
 
             <button
-              className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite dark:bg-secondarycolor dark:text-bgblack rounded-lg transition-colors font-semibold hover:bg-primaryhover dark:hover:bg-secondaryhover"
               onClick={() => setModal({ open: true, type: MODAL_TYPE.CREATE })}
             >
               <Plus size={18} />

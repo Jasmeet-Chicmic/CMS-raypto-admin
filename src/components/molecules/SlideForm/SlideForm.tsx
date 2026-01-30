@@ -264,7 +264,7 @@ const SlideForm = ({
                   <button
                     type="button"
                     onClick={handleAddBox}
-                    className="px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition flex items-center gap-2"
+                    className="px-4 py-2 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-textprimary rounded-lg hover:bg-primaryhover dark:hover:bg-secondaryhover transition flex items-center gap-2 font-semibold"
                   >
                     <Plus className="w-4 h-4" />
                     Add Card
@@ -300,7 +300,7 @@ const SlideForm = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-primarycolor text-bgwhiterounded-xl hover:bg-[#3311db] hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold"
+                className="px-8 py-3 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-textprimary rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold hover:bg-primaryhover dark:hover:bg-secondaryhover"
               >
                 {isSubmitting
                   ? "Saving..."

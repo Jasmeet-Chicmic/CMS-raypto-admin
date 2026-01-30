@@ -170,7 +170,7 @@ const ChatRoomModal: React.FC<ChatRoomModalProps> = ({
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-bgblack font-semibold rounded-lg transition-colors disabled:opacity-50 hover:bg-primaryhover dark:hover:bg-secondaryhover"
             disabled={isLoading}
           >
             {isLoading ? "Saving..." : isEdit ? "Update" : "Create"}

@@ -77,7 +77,7 @@ const WeeklyActiveUsersChart = ({
         formatter: (value: number) => Math.round(value).toString(),
       },
     },
-    colors: ["#4F46E5"],
+    colors: ["#C4FF0E"],
     fill: {
       type: "gradient",
       gradient: {

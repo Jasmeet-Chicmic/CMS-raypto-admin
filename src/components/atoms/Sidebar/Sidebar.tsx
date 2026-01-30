@@ -56,6 +56,7 @@ const Sidebar: React.FC = () => {
     checkAndExpand(navItems);
     setExpanded(autoExpanded);
   }, [pathname]);
+
   const renderNavItem = (item: NavItem, depth = 0): React.ReactNode => {
     const isItemActive = (navItem: NavItem): boolean => {
       if (
@@ -79,19 +80,18 @@ const Sidebar: React.FC = () => {
           <Link
             href={item.path}
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-hoverbg hover:text-sidebartext dark:text-bgblack dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite",
+              "flex items-center px-3 py-3 rounded-[5px] sub-menu-item transition-all duration-200 group hover:bg-hoverbg hover:text-sidebartext dark:hover:bg-sidebarhoverbgcolor dark:hover:text-sidebarlinkhovercolor",
               isActive &&
-                "bg-hoverbg active:bg-hoverbg sub-menu-item-active hover:text-bgwhite dark:bg-secondarycolor dark:hover:bg-secondarycolor",
+                "bg-secondarycolor active:bg-secondarycolor sub-menu-item-active hover:text-bgwhite dark:bg-secondarycolor dark:hover:bg-secondarycolor",
             )}
             style={{ paddingLeft }}
             onClick={() => setIsOpen(false)}
           >
             <span
-              className={`mr-3 list-item-icon transition-transform duration-200 w-[10px] h-[10px] rounded-full
-                ${isActive ? "bg-bgwhite dark:bg-bgblack" : "border-none dark:border-none"}`}
+              className={`mr-3 list-item-icon transition-transform duration-200 w-[10px] h-[10px] rounded-full ${isActive ? "bg-bgblack dark:bg-bgblack" : "border-none dark:border-none"}`}
             ></span>
             <span
-              className={`flex-1 list-item-text text-[16px] font-medium ${isActive ? "text-bgblack" : "text-textparagraphlight2 dark:text-textparagraphlight2"}`}
+              className={`flex-1 list-item-text text-[16px] font-medium ${isActive ? "text-bgblack" : "text-sidebarlinkcolor dark:text-sidebarlinkcolor"}`}
             >
               {t(item.label)}
             </span>
@@ -105,9 +105,9 @@ const Sidebar: React.FC = () => {
           <button
             type="button"
             className={cn(
-              "flex items-center px-3 py-3 rounded-[5px] cursor-pointer hover:bg-hoverbg hover:text-sidebartext transition-all duration-200 group dark:text-sidebartext dark:hover:bg-darkhoverbgprimary dark:hover:text-bgwhite sidebar-menu-item w-full text-left",
+              "group flex items-center px-3 py-3 rounded-[5px] cursor-pointer sidebar-menu-item w-full text-left transition-all duration-200 hover:bg-hoverbg dark:hover:bg-sidebarhoverbgcolor",
               isActive &&
-                "bg-transparent text-bgwhite hover:bg-sidebarhoverbgcolor hover:text-white",
+                "bg-transparent hover:bg-sidebarhoverbgcolor dark:hover:bg-sidebarhoverbgcolor",
             )}
             style={{ paddingLeft }}
             onClick={() => toggleExpand(item.label)}
@@ -116,14 +116,20 @@ const Sidebar: React.FC = () => {
               {Icon && (
                 <Icon
                   size={24}
-                  className={
-                    isActive ? "text-secondarycolor" : "text-sidebarlinkcolor"
-                  }
+                  className={cn(
+                    "transition-colors duration-200",
+                    isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                    "group-hover:text-white"
+                  )}
                 />
               )}
             </span>
             <span
-              className={`flex-1 text-[16px] font-medium ${isActive ? "text-secondarycolor" : "text-sidebarlinkcolor"}`}
+              className={cn(
+                "flex-1 text-[16px] font-medium transition-colors duration-200",
+                isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                "group-hover:text-white"
+              )}
             >
               {t(item.label)}
             </span>
@@ -137,16 +143,20 @@ const Sidebar: React.FC = () => {
                 {expanded[item.label] ? (
                   <ChevronDown
                     size={16}
-                    className={
-                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor"
-                    }
+                    className={cn(
+                      "transition-colors duration-200",
+                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                      "group-hover:text-white"
+                    )}
                   />
                 ) : (
                   <ChevronRight
                     size={16}
-                    className={
-                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor"
-                    }
+                    className={cn(
+                      "transition-colors duration-200",
+                      isActive ? "text-secondarycolor" : "text-sidebarlinkcolor",
+                      "group-hover:text-white"
+                    )}
                   />
                 )}
               </div>

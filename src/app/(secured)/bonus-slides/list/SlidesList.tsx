@@ -172,7 +172,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
               onClick={() =>
                 router.push(`${ROUTES.BONUS_SLIDES_EDIT}?id=${item._id}`)
               }
-              className="text-gray-500 hover:text-purple-600 transition-colors dark:text-sidebartext"
+              className="text-gray-500 hover:text-primarycolor dark:hover:text-secondarycolor transition-colors dark:text-sidebartext"
               title="Edit"
             >
               <Pencil size={18} />
@@ -185,7 +185,7 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
                   slideId: item._id,
                 })
               }
-              className="text-gray-500 hover:text-red-600 transition-colors dark:text-red-600"
+              className="text-gray-500 hover:text-primarycolor dark:hover:text-secondarycolor"
               title="Delete"
             >
               <Trash2 size={18} />
@@ -229,14 +229,14 @@ const SlidesList = ({ slidesListData, searchString }: SlidesListProps) => {
                   />
                   <button
                     onClick={() => setIsFilterOpen(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-[8px] hover:bg-bgprimary transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-bgblack rounded-[8px] transition-all duration-200 focus:outline-none focus:ring-0 font-medium hover:bg-primaryhover dark:hover:bg-secondaryhover"
                   >
                     <Menu size={18} />
                     <span>Filters</span>
                   </button>
                   <button
                     onClick={() => router.push(ROUTES.BONUS_SLIDES_ADD)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor text-bgwhite rounded-lg hover:bg-purple-700 transition-all duration-200 focus:outline-none focus:ring-0 font-medium"
+                    className="flex items-center space-x-2 px-4 py-2 bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-bgblack rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 font-medium hover:bg-primaryhover dark:hover:bg-secondaryhover"
                   >
                     <Plus size={18} />
                     <span>Add New Slide</span>

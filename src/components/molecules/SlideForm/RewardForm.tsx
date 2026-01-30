@@ -52,7 +52,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
         <button
           type="button"
           onClick={handleAddReward}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-bgwhite bg-primarycolor rounded-xl hover:bg-purple-700 transition-all shadow-sm hover:shadow-lg hover:shadow-indigo-500/20"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-bold bg-primarycolor dark:bg-secondarycolor text-bgwhite dark:text-textprimary rounded-xl hover:bg-primaryhover dark:hover:bg-secondaryhover transition-all shadow-sm hover:shadow-lg hover:shadow-indigo-500/20"
         >
           <Plus className="w-4 h-4" />
           Add New Benefit
@@ -89,7 +89,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                       );
                       handleRewardChange(index, "amount", "0");
                     }}
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white appearance-none"
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-primarycolor transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>

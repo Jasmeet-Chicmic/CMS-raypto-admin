@@ -109,7 +109,7 @@ const TransactionStatsChart = ({
           [
             {
               offset: 0,
-              color: "#10B981",
+              color: "#c4ff0e",
               opacity: 1,
             },
             {
@@ -121,7 +121,7 @@ const TransactionStatsChart = ({
           [
             {
               offset: 0,
-              color: "#EF4444",
+              color: "#ff5722",
               opacity: 1,
             },
             {
@@ -133,7 +133,7 @@ const TransactionStatsChart = ({
         ],
       },
     },
-    colors: ["#10B981", "#EF4444"], // green for earned, red for spent
+    colors: ["#c4ff0e", "#ff5722"], // green for earned, red for spent
     legend: {
       position: "top",
       horizontalAlign: "right",

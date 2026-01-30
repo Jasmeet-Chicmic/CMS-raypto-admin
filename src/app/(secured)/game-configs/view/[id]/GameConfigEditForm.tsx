@@ -321,7 +321,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                   <div className="flex flex-col items-start gap-4 w-full lg:w-[calc(100%-160px)]">
                     {/* Game Name */}
                     {editMode ? (
-                      <div className="w-full h-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
+                      <div className="w-full h-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-secondarycolor transition-all">
                         <InputField<FormValues>
                           name="name"
                           label="Game Name"

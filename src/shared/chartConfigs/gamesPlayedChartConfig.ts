@@ -1,7 +1,7 @@
 import { ApexOptions } from "apexcharts";
 
 // Chart constants
-const PRIMARY_COLOR = "#4F46E5";
+const PRIMARY_COLOR = "#C4FF0E";
 const LABEL_COLOR = "#99a1af";
 const DATA_LABEL_COLOR = "#9CA3AF";
 
