@@ -829,5 +829,5 @@ export const STATUS_COLOR_MAP: Record<ENTITY_STATUS, string> = {
 export enum CHART_COLORS {
   PRIMARY = "#FF5722",
   SECONDARY = "#C4FF0E",
-  SPENT = "#EF4444",
+  SPENT = "#cf0707",
 }
