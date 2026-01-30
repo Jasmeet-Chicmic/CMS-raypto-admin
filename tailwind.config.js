@@ -47,6 +47,7 @@ module.exports = {
         bgblack: "#000000",
         bgprimary: "#0D0D0D",
         darkbgprimary: "#1A1A1A",
+        darkbgsecondary: "#262626",
         primarycolor: "#FF5722",
         secondarycolor: "#C4FF0E",
         primaryhover: "#ff5f17",
