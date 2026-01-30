@@ -30,7 +30,7 @@ const Header = () => {
   // const [notificationCount] = useState(3);
   // const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  // const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState<string>();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
