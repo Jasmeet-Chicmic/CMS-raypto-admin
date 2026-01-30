@@ -13,10 +13,7 @@ import Select from "@/components/atoms/Select";
 import { TableColumn } from "@/components/atoms/Table";
 import FilterSidebar from "@/components/molecules/FilterSidebar";
 import CustomModal from "@/components/molecules/CustomModal/CustomModal";
-import {
-  CURRENCY_TYPE,
-  CURRENCY_TYPE_NAMES,
-} from "@/shared/constants";
+import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { ROUTES } from "@/shared/routes";
 import { ResponseType } from "@/shared/types";
 import { formatCurrency, createSortableColumn } from "@/shared/utils";
