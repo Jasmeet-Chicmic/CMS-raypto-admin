@@ -71,6 +71,10 @@ export const STRING = {
   CREATED_DATE: "Created Date",
   LAST_UPDATED: "Last Updated",
   NOTES: "Admin Notes",
+  ENABLED: "Enabled",
+  DISABLED: "Disabled",
+  ACTIVE: "Active",
+  UNDER_MAINTENANCE: "Under Maintenance",
 } as const;
 
 export const MESSAGES = {

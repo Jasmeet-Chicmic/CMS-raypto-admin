@@ -17,6 +17,7 @@ import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { ROUTES } from "@/shared/routes";
 import { ResponseType } from "@/shared/types";
 import { formatCurrency, createSortableColumn } from "@/shared/utils";
+import { STRING } from "@/shared/strings";
 import { DataTable, DataTableConfig } from "@/components/organisms/DataTable";
 import type { GameConfig } from "./page";
 
@@ -60,13 +61,13 @@ const handleFilterChange = (
 };
 
 const STATUS_FILTER_OPTIONS = [
-  { label: "Enabled", value: "true" },
-  { label: "Disabled", value: "false" },
+  { label: STRING.ENABLED, value: "true" },
+  { label: STRING.DISABLED, value: "false" },
 ];
 
 const MAINTENANCE_FILTER_OPTIONS = [
-  { label: "Under Maintenance", value: "true" },
-  { label: "Active", value: "false" },
+  { label: STRING.UNDER_MAINTENANCE, value: "true" },
+  { label: STRING.ACTIVE, value: "false" },
 ];
 
 const GameConfigTable = ({
@@ -162,7 +163,7 @@ const GameConfigTable = ({
                   : "bg-red-500",
               )}
             />
-            {item.isEnabled ? "Enabled" : "Disabled"}
+            {item.isEnabled ? STRING.ENABLED : STRING.DISABLED}
             <ChevronDown size={14} className="opacity-60" />
           </div>
         }
@@ -171,26 +172,26 @@ const GameConfigTable = ({
             label: (
               <div className="flex items-center gap-2 py-1">
                 <div className="w-2 h-2 rounded-full bg-primarycolor dark:bg-secondarycolor" />
-                <span className="font-medium">Enabled</span>
+                <span className="font-medium">{STRING.ENABLED}</span>
               </div>
             ),
             onClick: () =>
               void handleStatusUpdate(item._id, { isEnabled: true }),
             disabled: item.isEnabled,
           },
-          {
-            label: (
-              <div className="flex items-center gap-2 py-1">
-                <div className="w-2 h-2 rounded-full bg-red-500" />
-                <span className="font-medium">Disabled</span>
-              </div>
-            ),
-            onClick: () =>
-              void handleStatusUpdate(item._id, { isEnabled: false }),
-            disabled: !item.isEnabled,
-          },
-        ]}
-      />
+            {
+              label: (
+                <div className="flex items-center gap-2 py-1">
+                  <div className="w-2 h-2 rounded-full bg-red-500" />
+                  <span className="font-medium">{STRING.DISABLED}</span>
+                </div>
+              ),
+              onClick: () =>
+                void handleStatusUpdate(item._id, { isEnabled: false }),
+              disabled: !item.isEnabled,
+            },
+          ]}
+          />
     )),
     createSortableColumn("isMaintenance", "Maintenance", (item) => (
       <CustomMenu
@@ -219,7 +220,7 @@ const GameConfigTable = ({
                   : "bg-red-500",
               )}
             />
-            {!item.isMaintenance ? "Active" : "Under Maintenance"}
+            {!item.isMaintenance ? STRING.ACTIVE : STRING.UNDER_MAINTENANCE}
             <ChevronDown size={14} className="opacity-60" />
           </div>
         }
@@ -228,7 +229,7 @@ const GameConfigTable = ({
             label: (
               <div className="flex items-center gap-2 py-1">
                 <div className="w-2 h-2 rounded-full bg-primarycolor dark:bg-secondarycolor" />
-                <span className="font-medium">Active</span>
+                <span className="font-medium">{STRING.ACTIVE}</span>
               </div>
             ),
             onClick: () =>
@@ -239,7 +240,7 @@ const GameConfigTable = ({
             label: (
               <div className="flex items-center gap-2 py-1">
                 <div className="w-2 h-2 rounded-full bg-red-500" />
-                <span className="font-medium">Maintenance</span>
+                <span className="font-medium">{STRING.UNDER_MAINTENANCE}</span>
               </div>
             ),
             onClick: () =>
