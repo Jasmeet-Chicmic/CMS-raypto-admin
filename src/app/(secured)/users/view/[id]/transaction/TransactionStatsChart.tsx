@@ -1,9 +1,15 @@
 "use client";
 
+import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { CURRENCY_TYPE_NAMES } from "@/shared/constants";
+import { useTheme } from "next-themes";
+import {
+  CURRENCY_TYPE_NAMES,
+  THEME_TYPE,
+  CHART_COLORS,
+} from "@/shared/constants";
 import { formatCurrency } from "@/shared/utils";
 import DateRangeFilterDropdown from "@/components/atoms/DateRangeFilter/DateRangeFilterDropdown";
 
@@ -31,6 +37,17 @@ const TransactionStatsChart = ({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { resolvedTheme } = useTheme();
+  const isDark = useMemo(
+    () => resolvedTheme === THEME_TYPE.DARK,
+    [resolvedTheme],
+  );
+
+  const earnedColor = useMemo(
+    () => (isDark ? CHART_COLORS.SECONDARY : CHART_COLORS.PRIMARY),
+    [isDark],
+  );
+  const spentColor = CHART_COLORS.SPENT;
 
   // Sort stats by currency type to ensure consistent order
   const sortedStats = [...stats].sort((a, b) => a.currency - b.currency);
@@ -109,7 +126,7 @@ const TransactionStatsChart = ({
           [
             {
               offset: 0,
-              color: "#c4ff0e",
+              color: earnedColor,
               opacity: 1,
             },
             {
@@ -121,7 +138,7 @@ const TransactionStatsChart = ({
           [
             {
               offset: 0,
-              color: "#ff5722",
+              color: spentColor,
               opacity: 1,
             },
             {
@@ -133,7 +150,7 @@ const TransactionStatsChart = ({
         ],
       },
     },
-    colors: ["#c4ff0e", "#ff5722"], // green for earned, red for spent
+    colors: [earnedColor, spentColor], // green/theme for earned, red for spent
     legend: {
       position: "top",
       horizontalAlign: "right",

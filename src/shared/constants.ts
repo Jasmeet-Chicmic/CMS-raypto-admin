@@ -825,3 +825,9 @@ export const STATUS_COLOR_MAP: Record<ENTITY_STATUS, string> = {
   [ENTITY_STATUS.ARCHIVED]: "bg-gray-100 text-gray-800",
   [ENTITY_STATUS.DELETED]: "bg-darklabelprimary text-gray-800",
 };
+
+export enum CHART_COLORS {
+  PRIMARY = "#FF5722",
+  SECONDARY = "#C4FF0E",
+  SPENT = "#EF4444",
+}

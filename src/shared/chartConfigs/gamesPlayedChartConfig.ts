@@ -1,7 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
 // Chart constants
-const PRIMARY_COLOR = "#C4FF0E";
 const LABEL_COLOR = "#99a1af";
 const DATA_LABEL_COLOR = "#9CA3AF";
 
@@ -16,6 +15,7 @@ const LABEL_STYLE = {
  */
 export const getGamesPlayedChartOptions = (
   categories: string[],
+  color: string,
 ): ApexOptions => ({
   chart: {
     type: "bar",
@@ -52,7 +52,7 @@ export const getGamesPlayedChartOptions = (
       formatter: (value: number) => Math.round(value).toString(),
     },
   },
-  colors: [PRIMARY_COLOR],
+  colors: [color],
   fill: {
     type: "gradient",
     gradient: {
@@ -64,7 +64,7 @@ export const getGamesPlayedChartOptions = (
       colorStops: [
         {
           offset: 0,
-          color: PRIMARY_COLOR,
+          color: color,
           opacity: 1,
         },
         {

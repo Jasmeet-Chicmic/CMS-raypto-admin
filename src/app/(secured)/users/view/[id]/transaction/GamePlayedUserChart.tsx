@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { useTheme } from "next-themes";
+import { THEME_TYPE, CHART_COLORS } from "@/shared/constants";
 import { fetchUserGamesPlayedAction } from "@/api/user";
 import DateRangeFilterDropdown from "@/components/atoms/DateRangeFilter/DateRangeFilterDropdown";
 import { ChartContentRenderer } from "@/components/molecules/Charts/ChartContentRenderer";
@@ -18,6 +20,11 @@ const GamePlayedUserChart = ({
   userId,
   className = "",
 }: GamePlayedUserChartProps) => {
+  const { resolvedTheme } = useTheme();
+  const isDark = useMemo(
+    () => resolvedTheme === THEME_TYPE.DARK,
+    [resolvedTheme],
+  );
   const [dateRange, setDateRange] = useState<{ from?: string; to?: string }>(
     {},
   );
@@ -62,8 +69,15 @@ const GamePlayedUserChart = ({
   const chartData = data.map((item) => item.gamesPlayed);
 
   // Use shared chart configuration
-  const chartOptions = getGamesPlayedChartOptions(categories);
-  const series = getGamesPlayedSeries(chartData);
+  const chartOptions = useMemo(
+    () =>
+      getGamesPlayedChartOptions(
+        categories,
+        isDark ? CHART_COLORS.SECONDARY : CHART_COLORS.PRIMARY,
+      ),
+    [categories, isDark],
+  );
+  const series = useMemo(() => getGamesPlayedSeries(chartData), [chartData]);
 
   return (
     <div
