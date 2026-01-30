@@ -9,7 +9,6 @@ import {
   Pencil,
   X,
   Gamepad2,
-  Settings,
   Coins,
   Wallet,
   TrendingUp,
@@ -19,6 +18,7 @@ import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 
 import {
   updateGameConfigAction,
+  uploadGameIcon,
   type AmountLimit,
   type GameConfig,
 } from "@/api/gameConfig";
@@ -28,9 +28,16 @@ import {
   FORM_FIELDS_TYPES,
 } from "@/shared/constants";
 import { ROUTES } from "@/shared/routes";
-import { formatDate, formatCurrency } from "@/shared/utils";
+import {
+  formatDate,
+  formatCurrency,
+  getImageUrl,
+  truncateToCurrencyPrecision,
+  getCurrencyStep,
+} from "@/shared/utils";
 import { InputField } from "@/components/molecules/FormBuilder/fields/InputField";
 import { SwitchField } from "@/components/molecules/FormBuilder/fields/SwitchField";
+import { ImageUpload, UPLOAD_FILE_TYPE } from "@/components/atoms/ImageUpload";
 
 interface GameConfigEditFormProps {
   gameConfig: GameConfig;
@@ -41,11 +48,13 @@ interface FormValues {
   isEnabled: boolean;
   isMaintenance: boolean;
   amountLimit: AmountLimit[];
+  icon: string;
 }
 
 const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
   const router = useRouter();
   const [editMode, setEditMode] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Initialize form
   const methods = useForm<FormValues>({
@@ -54,6 +63,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     },
   });
 
@@ -76,6 +86,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     });
   }, [gameConfig, reset]);
 
@@ -87,24 +98,64 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       isEnabled: gameConfig.isEnabled,
       isMaintenance: gameConfig.isMaintenance,
       amountLimit: gameConfig.amountLimit,
+      icon: gameConfig.icon || "",
     });
+    setErrors({});
     setEditMode(false);
+  };
+
+  const validate = (data: FormValues): Record<string, string> => {
+    const newErrors: Record<string, string> = {};
+
+    // Icon validation
+    if (!data.icon || data.icon.trim() === "") {
+      newErrors.icon = "Game icon is required";
+    }
+
+    setErrors(newErrors);
+    return newErrors;
   };
 
   const onSubmit = async (data: FormValues) => {
     if (!isDirty) return;
 
+    const validationErrors = validate(data);
+    if (Object.keys(validationErrors).length > 0) {
+      // Show first error in toast
+      const errorMessages = Object.values(validationErrors);
+      if (errorMessages.length > 0) {
+        toast.error(errorMessages[0]);
+      }
+      return;
+    }
+
     try {
+      const transformedAmountLimit = data.amountLimit.map((limit) => ({
+        ...limit,
+        maxBetAmount: String(limit.maxBetAmount || 0),
+        maxProfit: String(limit.maxProfit || 0),
+      }));
+
+      console.log("testing=>", {
+        gameConfigId: gameConfig._id,
+        name: data.name,
+        isEnabled: data.isEnabled,
+        isMaintenance: data.isMaintenance,
+        amountLimit: transformedAmountLimit as unknown as AmountLimit[],
+        icon: data.icon,
+      });
       const res = await updateGameConfigAction({
         gameConfigId: gameConfig._id,
         name: data.name,
         isEnabled: data.isEnabled,
         isMaintenance: data.isMaintenance,
-        amountLimit: data.amountLimit,
+        amountLimit: transformedAmountLimit as unknown as AmountLimit[],
+        icon: data.icon,
       });
 
       if (res.status) {
         toast.success(res.message || "Game configuration updated successfully");
+        setErrors({});
         setEditMode(false);
         router.refresh();
       } else {
@@ -192,7 +243,7 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
       <FormProvider {...methods}>
         <form id="game-config-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="p-8 space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-8">
               {/* Basic Info */}
               <div className="p-6 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-[20px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-6 pb-4 border-b border-bordergray200/50 dark:border-labelprimary/50">
@@ -204,96 +255,150 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                   </h3>
                 </div>
 
-                <div className="space-y-4">
-                  {editMode ? (
-                    <div className="p-4 bg-bgwhite dark:bg-darkbgprimary rounded-2xl border border-bordergray100 dark:border-darkbgprimary focus-within:border-b border-bordergray200gpurple1 transition-all">
-                      <InputField<FormValues>
-                        name="name"
-                        label="Game Name"
-                        type={FORM_FIELDS_TYPES.TEXT}
-                        placeholder="Enter game name"
-                        className="!mb-0"
-                      />
-                    </div>
-                  ) : (
-                    <div className="p-4 bg-bgwhite dark:bg-darkbgprimary rounded-2xl border border-bordergray100 dark:border-darkbgprimary">
-                      <div className="block mb-2 text-xs font-bold text-sidebartext dark:bordercolor1 uppercase tracking-widest">
-                        Game Name
-                      </div>
-                      <p className="text-xl font-bold text-textprimary dark:text-sidebartext">
-                        {watchedValues.name}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Status Toggles */}
-              <div className="p-6 bg-bordercolor1 dark:bg-darkbgprimary/40 rounded-[20px] border border-transparent hover:border-purple-200 dark:hover:border-purple-900/50 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-bordergray200/50 dark:border-labelprimary/50">
-                  <div className="p-2 bg-bgwhite dark:bg-primarycolor rounded-lg shadow-sm">
-                    <Settings className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
-                  </div>
-                  <h3 className="text-lg font-bold text-textprimary dark:text-sidebartext">
-                    Status Settings
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Enabled Toggle */}
-                  <div className="p-5 bg-bgwhite dark:bg-darkbgprimary rounded-2xl border border-bordergray100 dark:border-darkbgprimary flex items-center justify-between group/toggle">
-                    <div>
-                      <p className="text-xs font-medium text-sidebartext dark:bordercolor1 mt-1">
-                        Public visibility
-                      </p>
-                      <h4 className="font-bold text-textprimary text-xl dark:text-sidebartext">
-                        Enabled
-                      </h4>
+                <div className="flex w-full gap-4 flex-col md:flex-row">
+                  {/* Game Icon */}
+                  <div className="xl:max-w-[230px] items-center justify-center flex flex-col max-w-none w-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+                    <div className="block mb-3 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                      Game Icon
                     </div>
                     {editMode ? (
-                      <SwitchField<FormValues>
-                        name="isEnabled"
-                        label=""
-                        type={FORM_FIELDS_TYPES.SWITCH}
-                        className="!mb-0 !w-auto"
-                      />
+                      <div className="w-full items-center justify-center flex flex-col">
+                        <ImageUpload
+                          label=""
+                          value={watchedValues.icon || ""}
+                          onChange={(url) => {
+                            methods.setValue("icon", url, {
+                              shouldDirty: true,
+                            });
+                            // Clear error when user uploads an image
+                            if (url && errors.icon) {
+                              setErrors((prev) => {
+                                const newErrors = { ...prev };
+                                delete newErrors.icon;
+                                return newErrors;
+                              });
+                            }
+                          }}
+                          uploadFunction={uploadGameIcon}
+                          fileType={UPLOAD_FILE_TYPE.GAME_ICON}
+                          aspectRatio="70/93"
+                          validateAspectRatio={true}
+                          placeholder="Game Icon"
+                          maxSize={5}
+                          required={true}
+                          className="relative aspect-[3/4] w-[126px] rounded-xl overflow-hidden "
+                          previewClassName="relative aspect-[3/4] !w-[126px] !h-full !bg-white rounded-xl overflow-hidden "
+                        />
+                        {!watchedValues.icon && (
+                          <p className="text-xs text-red-500 dark:text-red-400 mt-2 text-center">
+                            Upload image 280 × 372 px or same Ratio.
+                          </p>
+                        )}
+                        {errors.icon && (
+                          <p className="text-red-500 text-[0.875rem] mt-2 font-medium">
+                            {errors.icon}
+                          </p>
+                        )}
+                      </div>
                     ) : (
-                      <div
-                        className={`p-2 rounded-lg transition-colors ${watchedValues.isEnabled ? "bg-green-50 dark:bg-green-900/20 text-green-600" : "bg-red-50 dark:bg-red-900/20 text-red-600"}`}
-                      >
-                        <span className="text-sm font-bold uppercase">
-                          {watchedValues.isEnabled ? "On" : "Off"}
-                        </span>
+                      <div className="flex items-center gap-4">
+                        {watchedValues.icon ? (
+                          <div className="relative aspect-[3/4] w-[120px] rounded-xl overflow-hidden ">
+                            <img
+                              src={getImageUrl(watchedValues.icon)}
+                              alt="Game icon"
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-20 h-20 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700">
+                            <Gamepad2 className="w-8 h-8 text-gray-400" />
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
-
-                  {/* Maintenance Toggle */}
-                  <div className="p-5 bg-bgwhite dark:bg-darkbgprimary rounded-2xl border border-bordergray100 dark:border-darkbgprimary flex items-center justify-between group/toggle">
-                    <div>
-                      <p className="text-xs font-medium text-sidebartext dark:bordercolor1 mt-1">
-                        System lockdowns
-                      </p>
-                      <h4 className="font-bold text-textprimary text-xl dark:text-sidebartext">
-                        Maintenance
-                      </h4>
-                    </div>
+                  <div className="flex flex-col items-start gap-4 w-full lg:w-[calc(100%-160px)]">
+                    {/* Game Name */}
                     {editMode ? (
-                      <SwitchField<FormValues>
-                        name="isMaintenance"
-                        label=""
-                        type={FORM_FIELDS_TYPES.SWITCH}
-                        className="!mb-0 !w-auto"
-                      />
+                      <div className="w-full h-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 focus-within:border-[#4F46E5] transition-all">
+                        <InputField<FormValues>
+                          name="name"
+                          label="Game Name"
+                          type={FORM_FIELDS_TYPES.TEXT}
+                          placeholder="Enter game name"
+                          labelClassName="block mb-2 text-xs !font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest"
+                          className="!mb-0"
+                        />
+                      </div>
                     ) : (
-                      <div
-                        className={`p-2 rounded-lg transition-colors ${watchedValues.isMaintenance ? "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600" : "bg-gray-50 dark:bg-darkbgprimary text-gray-500"}`}
-                      >
-                        <span className="text-sm font-bold uppercase">
-                          {watchedValues.isMaintenance ? "On" : "Off"}
-                        </span>
+                      <div className="w-full h-full p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+                        <div className="block mb-2 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                          Game Name
+                        </div>
+                        <p className="text-xl font-bold text-[#1B2559] dark:text-white">
+                          {watchedValues.name}
+                        </p>
                       </div>
                     )}
+
+                    <div className="w-full xl:w-full flex flex-col xl:flex-row items-start gap-4">
+                      {/* Enabled Toggle */}
+                      <div className="w-full p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 flex items-center justify-between group/toggle">
+                        <div>
+                          <p className="block mb-2 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                            Public visibility
+                          </p>
+                          <h4 className="font-bold text-[#1B2559] text-xl dark:text-white">
+                            Enabled
+                          </h4>
+                        </div>
+                        {editMode ? (
+                          <SwitchField<FormValues>
+                            name="isEnabled"
+                            label=""
+                            type={FORM_FIELDS_TYPES.SWITCH}
+                            className="!mb-0 !w-auto"
+                          />
+                        ) : (
+                          <div
+                            className={`p-2 rounded-lg transition-colors ${watchedValues.isEnabled ? "bg-green-50 dark:bg-green-900/20 text-green-600" : "bg-red-50 dark:bg-red-900/20 text-red-600"}`}
+                          >
+                            <span className="text-sm font-bold uppercase">
+                              {watchedValues.isEnabled ? "On" : "Off"}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Maintenance Toggle */}
+                      <div className="w-full p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 flex items-center justify-between group/toggle">
+                        <div>
+                          <p className="block mb-2 text-xs font-bold text-[#A3AED0] dark:text-gray-400 uppercase tracking-widest">
+                            System lockdowns
+                          </p>
+                          <h4 className="font-bold text-[#1B2559] text-xl dark:text-white">
+                            Maintenance
+                          </h4>
+                        </div>
+                        {editMode ? (
+                          <SwitchField<FormValues>
+                            name="isMaintenance"
+                            label=""
+                            type={FORM_FIELDS_TYPES.SWITCH}
+                            className="!mb-0 !w-auto"
+                          />
+                        ) : (
+                          <div
+                            className={`p-2 rounded-lg transition-colors ${watchedValues.isMaintenance ? "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600" : "bg-gray-50 dark:bg-gray-800 text-gray-500"}`}
+                          >
+                            <span className="text-sm font-bold uppercase">
+                              {watchedValues.isMaintenance ? "On" : "Off"}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -338,6 +443,10 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                               name={`amountLimit.${index}.maxBetAmount`}
                               label="Max Bet Amount"
                               type={FORM_FIELDS_TYPES.NUMBER}
+                              interceptor={(val) =>
+                                truncateToCurrencyPrecision(val, field.currency)
+                              }
+                              step={getCurrencyStep(field.currency)}
                               className="!mb-0"
                             />
                           </div>
@@ -368,6 +477,10 @@ const GameConfigEditForm = ({ gameConfig }: GameConfigEditFormProps) => {
                               label="Max Profit"
                               type={FORM_FIELDS_TYPES.NUMBER}
                               className="!mb-0"
+                              interceptor={(val) =>
+                                truncateToCurrencyPrecision(val, field.currency)
+                              }
+                              step={getCurrencyStep(field.currency)}
                             />
                           </div>
                         ) : (

@@ -13,6 +13,12 @@ import {
   updateConfigAction,
 } from "@/api/config";
 import { CURRENCY_TYPE_NAMES, CONFIG_TYPE } from "@/shared/constants";
+import {
+  formatCurrency,
+  truncateToCurrencyPrecision,
+  getCurrencyStep,
+  truncateToDecimalPlaces,
+} from "@/shared/utils";
 
 interface FormValues {
   currencyWiseConfigs: CurrencyWiseConfig[];
@@ -71,9 +77,10 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
           Number(configItem.currency) || fields[index]?.currency || 1;
         return {
           currency,
-          loginRewardPayout: Number(configItem.loginRewardPayout) || 0,
-          depositBonusPercentage:
-            Number(configItem.depositBonusPercentage) || 0,
+          loginRewardPayout: String(configItem.loginRewardPayout || 0),
+          depositBonusPercentage: String(
+            configItem.depositBonusPercentage || 0,
+          ),
         };
       },
     );
@@ -202,6 +209,10 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           type="number"
                           placeholder="Enter login reward amount"
                           className="!mb-0"
+                          step={getCurrencyStep(field.currency)}
+                          interceptor={(val) =>
+                            truncateToCurrencyPrecision(val, field.currency)
+                          }
                           validation={{
                             required: "Login reward payout is required",
                             min: { value: 0, message: "Must be 0 or greater" },
@@ -218,11 +229,13 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                             <Wallet className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                           </div>
                           <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
-                            {currencyWiseConfigs[
-                              index
-                            ]?.loginRewardPayout?.toLocaleString() ||
-                              field.loginRewardPayout?.toLocaleString() ||
-                              "0"}
+                            {formatCurrency(
+                              Number(
+                                currencyWiseConfigs[index]?.loginRewardPayout ||
+                                  field.loginRewardPayout ||
+                                  0,
+                              ),
+                            )}
                           </span>
                         </div>
                       </div>
@@ -239,6 +252,8 @@ const RewardConfigForm = ({ initialConfig }: RewardConfigFormProps) => {
                           type="number"
                           placeholder="Enter deposit bonus percentage"
                           className="!mb-0"
+                          step={0.01}
+                          interceptor={(val) => truncateToDecimalPlaces(val, 2)}
                           validation={{
                             required: "Deposit bonus percentage is required",
                             min: { value: 0, message: "Must be 0 or greater" },

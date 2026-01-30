@@ -10,6 +10,7 @@ import { Upload, X, ImageIcon, Loader2 } from "lucide-react";
 export const UPLOAD_FILE_TYPE = {
   BONUS_BACKGROUND_IMAGE: 1,
   ROOM_LOGO: 2,
+  GAME_ICON: 3,
   DEFAULT: 1,
 };
 
@@ -27,6 +28,7 @@ interface ImageUploadProps {
   accept?: string;
   maxSize?: number; // in MB
   aspectRatio?: string; // e.g., "16/9", "1/1", "4/3"
+  validateAspectRatio?: boolean; // Enable strict aspect ratio validation
   placeholder?: string;
   className?: string;
   previewClassName?: string;
@@ -52,6 +54,7 @@ const ImageUpload = ({
   accept = "image/*",
   maxSize = 5, // 5MB default
   aspectRatio = "16/9",
+  validateAspectRatio = false,
   placeholder = "Click or drag to upload",
   className = "",
   previewClassName = "",
@@ -76,7 +79,40 @@ const ImageUpload = ({
     }
   }, [value]);
 
-  const validateFile = (file: File): boolean => {
+  const validateAspectRatioAsync = (
+    file: File,
+    targetRatio: string,
+  ): Promise<boolean> => {
+    return new Promise((resolve) => {
+      const img = document.createElement("img");
+      const objectUrl = URL.createObjectURL(file);
+
+      img.onload = () => {
+        URL.revokeObjectURL(objectUrl);
+        const imageRatio = img.width / img.height;
+        const [targetWidth, targetHeight] = targetRatio.split("/").map(Number);
+        const targetRatioValue = targetWidth / targetHeight;
+
+        // Allow 5% tolerance for aspect ratio (to account for rounding)
+        const tolerance = targetRatioValue * 0.05;
+        const isValid = Math.abs(imageRatio - targetRatioValue) <= tolerance;
+
+        if (!isValid) {
+          toast.error(`Incorrect image aspect ratio.`);
+        }
+        resolve(isValid);
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        resolve(false);
+      };
+
+      img.src = objectUrl;
+    });
+  };
+
+  const validateFile = async (file: File): Promise<boolean> => {
     // Check file size
     const fileSizeMB = file.size / (1024 * 1024);
     if (fileSizeMB > maxSize) {
@@ -90,11 +126,20 @@ const ImageUpload = ({
       return false;
     }
 
+    // Validate aspect ratio if enabled
+    if (validateAspectRatio && aspectRatio) {
+      const isValidRatio = await validateAspectRatioAsync(file, aspectRatio);
+      if (!isValidRatio) {
+        return false;
+      }
+    }
+
     return true;
   };
 
   const handleFileUpload = async (file: File) => {
-    if (!validateFile(file)) return;
+    const isValid = await validateFile(file);
+    if (!isValid) return;
 
     const blobUrl = URL.createObjectURL(file);
     setPreview(blobUrl);

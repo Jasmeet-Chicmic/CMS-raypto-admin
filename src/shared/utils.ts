@@ -6,9 +6,11 @@ import Payment from "payment";
 import { twMerge } from "tailwind-merge";
 
 import {
+  BASE_URL,
   ENTITY_STATUS,
   STATUS_COLOR_MAP,
   TRANSACTION_SOURCE_TYPES,
+  CURRENCY_PRECISION,
 } from "./constants";
 
 // Set session cookie by sending token to server
@@ -357,3 +359,77 @@ export const createSortableColumn = <T>(
   sortable: true,
   sortKey: sortKey || (field as string),
 });
+
+/**
+ * Builds a complete image URL from a path string
+ * @param path - The image path (can be a relative path, full URL, or blob URL)
+ * @returns The complete image URL, or empty string if path is empty
+ * @example
+ * getImageUrl("uploads/image.jpg") // "https://api.example.com/uploads/image.jpg"
+ * getImageUrl("http://example.com/image.jpg") // "http://example.com/image.jpg"
+ * getImageUrl("blob:http://localhost:3000/abc123") // "blob:http://localhost:3000/abc123"
+ */
+export const getImageUrl = (path: string | null | undefined): string => {
+  if (!path) return "";
+  if (path.startsWith("blob:") || path.startsWith("http")) return path;
+  const baseUrl = BASE_URL?.replace(/\/$/, "") || "";
+  const encodedPath = encodeURI(path);
+  return `${baseUrl}/${encodedPath}`;
+};
+
+/**
+ * Get the number of decimal places in a value
+ * @param value - The value to check (string or number)
+ * @returns Number of decimal places
+ */
+export const getDecimalPlaces = (value: string | number): number => {
+  const strValue = String(value);
+  if (!strValue.includes(".")) return 0;
+  return strValue.split(".")[1]?.length || 0;
+};
+
+/**
+ * Truncate a value to the allowed decimal places for a currency
+ * @param value - The value to truncate
+ * @param currency - The currency type (from CURRENCY_TYPE enum)
+ * @returns The truncated value as a string
+ */
+export const truncateToCurrencyPrecision = (
+  value: string | number,
+  currency: number,
+): string => {
+  const precision =
+    CURRENCY_PRECISION[currency as keyof typeof CURRENCY_PRECISION];
+  if (precision === undefined) return String(value);
+
+  const strValue = String(value);
+  if (!strValue.includes(".")) return strValue;
+
+  const [integerPart, decimalPart] = strValue.split(".");
+  const truncatedDecimal = decimalPart.slice(0, precision);
+  return truncatedDecimal ? `${integerPart}.${truncatedDecimal}` : integerPart;
+};
+
+/**
+ * Get the step value for a number input based on currency precision
+ * @param currency - The currency type (from CURRENCY_TYPE enum)
+ * @returns The step value as a string (e.g., "0.00000001" for 8 decimals)
+ */
+export const getCurrencyStep = (currency: number): string => {
+  const precision =
+    CURRENCY_PRECISION[currency as keyof typeof CURRENCY_PRECISION];
+  if (precision === undefined || precision === 0) return "1";
+  return `0.${"0".repeat(precision - 1)}1`;
+};
+
+export const truncateToDecimalPlaces = (
+  value: string | number,
+  decimalPlaces: number,
+): string => {
+  const strValue = String(value);
+  if (!strValue.includes(".")) return strValue;
+
+  const [integerPart, decimalPart] = strValue.split(".");
+  const truncatedDecimal = decimalPart.slice(0, decimalPlaces);
+  return truncatedDecimal ? `${integerPart}.${truncatedDecimal}` : integerPart;
+};

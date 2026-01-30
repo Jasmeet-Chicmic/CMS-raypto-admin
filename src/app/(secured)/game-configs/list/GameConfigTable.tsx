@@ -438,6 +438,7 @@ const GameConfigTable = ({
       searchParams,
       router,
       pathname,
+      CURRENCY_OPTIONS,
     ],
   );
 

@@ -4,6 +4,7 @@ import React from "react";
 import { Reward } from "@/app/(secured)/bonus-slides/helpers/types";
 import { CURRENCY_TYPE, CURRENCY_TYPE_NAMES } from "@/shared/constants";
 import { Plus, Trash2, Coins, CreditCard } from "lucide-react";
+import { getCurrencyStep, truncateToCurrencyPrecision } from "@/shared/utils";
 
 interface RewardFormProps {
   rewards: Reward[];
@@ -12,7 +13,7 @@ interface RewardFormProps {
 
 const defaultReward: Reward = {
   currency: CURRENCY_TYPE.ETH,
-  amount: 0,
+  amount: "0",
   isAmountWithdrawable: true,
 };
 
@@ -28,7 +29,7 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
   const handleRewardChange = (
     index: number,
     field: keyof Reward,
-    value: number | boolean,
+    value: number | boolean | string,
   ) => {
     const updated = [...rewards];
     updated[index] = { ...updated[index], [field]: value };
@@ -80,14 +81,15 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                   <select
                     id={`reward-asset-${index}`}
                     value={reward.currency}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       handleRewardChange(
                         index,
                         "currency",
                         Number.parseInt(e.target.value),
-                      )
-                    }
-                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext appearance-none"
+                      );
+                      handleRewardChange(index, "amount", "0");
+                    }}
+                    className="w-full pl-10 pr-4 py-3 text-sm font-medium border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-[#4F46E5] transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white appearance-none"
                   >
                     {currencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -114,13 +116,16 @@ const RewardForm = ({ rewards, onChange }: RewardFormProps) => {
                     id={`reward-value-${index}`}
                     type="number"
                     min="0"
-                    step="0.01"
+                    step={getCurrencyStep(reward.currency)}
                     value={reward.amount}
                     onChange={(e) =>
                       handleRewardChange(
                         index,
                         "amount",
-                        Number.parseFloat(e.target.value) || 0,
+                        truncateToCurrencyPrecision(
+                          Number(e.target.value),
+                          Number(reward.currency),
+                        ) || 0,
                       )
                     }
                     placeholder="0.00"

@@ -7,17 +7,17 @@ import { ResponseType } from "@/shared/types";
 
 export interface CurrencyWiseConfig {
   currency: number;
-  loginRewardPayout: number;
-  depositBonusPercentage: number;
+  loginRewardPayout: string;
+  depositBonusPercentage: string;
 }
 
 export interface ReferralRewardConfig {
   currency: number;
-  rewardAmountNonWithdrawable: number;
-  rewardAmountWithdrawable: number;
+  rewardAmountNonWithdrawable: string | number;
+  rewardAmountWithdrawable: string | number;
   betCount: number;
-  minimumBetAmount: number;
-  commissionPercentage: number;
+  minimumBetAmount: string | number;
+  commissionPercentage: number | string;
 }
 
 export interface RewardConfig {

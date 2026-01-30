@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { BonusBox } from "@/app/(secured)/bonus-slides/helpers/types";
 import { ImageUpload, UPLOAD_FILE_TYPE } from "@/components/atoms/ImageUpload";
 import { uploadSlideImage } from "@/api/bonusSlides";
 import RewardForm from "./RewardForm";
 import Select from "@/components/atoms/Select";
+import Switch from "@/components/atoms/Switch/Switch";
 
 interface BonusBoxFormProps {
   box: BonusBox;
@@ -30,12 +31,12 @@ const BonusBoxForm = ({
   onRemove,
   canRemove,
 }: BonusBoxFormProps) => {
-  const handleFieldChange = <K extends keyof BonusBox>(
-    field: K,
-    value: BonusBox[K],
-  ) => {
-    onChange(index, { ...box, [field]: value });
-  };
+  const handleFieldChange = useCallback(
+    <K extends keyof BonusBox>(field: K, value: BonusBox[K]) => {
+      onChange(index, { ...box, [field]: value });
+    },
+    [onChange, index, box],
+  );
 
   // Format expireAt for datetime-local input
   const formatDateTimeLocal = (dateString: string) => {
@@ -49,7 +50,7 @@ const BonusBoxForm = ({
     if (box.buttonText !== "Claim") {
       handleFieldChange("buttonText", "Claim");
     }
-  }, [box.buttonText]);
+  }, [box.buttonText, handleFieldChange]);
 
   return (
     <div className="bg-bgwhite dark:bg-darkbgprimary border bordergray200 dark:border-darkbgprimary rounded-[24px] p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#868CFF]/30">
@@ -123,6 +124,15 @@ const BonusBoxForm = ({
             readOnly
             className="w-full px-4 py-2.5 border bordergray200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-b border-bordergray200gpurple1 transition-all dark:bg-darkbgprimary dark:border-labelprimary dark:text-sidebartext bg-gray-50 cursor-not-allowed"
           />
+          <div className="mt-4">
+            <Switch
+              enabled={box.enableButton ?? false}
+              onToggle={() =>
+                handleFieldChange("enableButton", !box.enableButton)
+              }
+              label="Enable"
+            />
+          </div>
         </div>
 
         {/* Expiry Date */}

@@ -203,7 +203,7 @@ const SlidePreview = ({
           )}
 
           {/* Button */}
-          {box.buttonText && (
+          {box.buttonText && box.enableButton && (
             <div className="preview-button">{box.buttonText}</div>
           )}
         </div>

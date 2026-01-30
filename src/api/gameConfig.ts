@@ -1,7 +1,7 @@
 "use server";
 
 import { API_END_POINTS } from "@/shared/api";
-import { getRequest, putRequest } from "@/shared/fetcher";
+import { getRequest, postRequest, putRequest } from "@/shared/fetcher";
 import { ResponseType, SORT_DIRECTION } from "@/shared/types";
 
 export interface AmountLimit {
@@ -19,6 +19,7 @@ export interface GameConfig {
   createdAt: string;
   amountLimit: AmountLimit[];
   profit?: number;
+  icon?: string;
 }
 
 interface UpdateGameConfigParams {
@@ -27,6 +28,7 @@ interface UpdateGameConfigParams {
   amountLimit?: AmountLimit[];
   isMaintenance?: boolean;
   isEnabled?: boolean;
+  icon?: string;
 }
 
 interface GetGameConfigsParams {
@@ -99,4 +101,26 @@ export async function getGameStatsAction(gameType: number) {
   >(API_END_POINTS.GAME_STATS, {
     gameType,
   });
+}
+
+// Upload game icon
+export async function uploadGameIcon(formData: FormData) {
+  try {
+    const result = await postRequest<
+      ResponseType & { data: { filePath: string } },
+      FormData
+    >(API_END_POINTS.FILE_UPLOAD, formData, {
+      headers: {
+        "Content-Type": undefined as unknown as string, // Remove Content-Type so axios auto-sets multipart boundary
+      },
+    });
+    return result;
+  } catch (error) {
+    console.error("Error uploading game icon:", error);
+    return {
+      status: false,
+      message: "Failed to upload game icon",
+      data: { filePath: "" },
+    };
+  }
 }

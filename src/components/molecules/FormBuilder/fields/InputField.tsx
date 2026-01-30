@@ -16,9 +16,11 @@ interface InputFieldProps<T extends FieldValues> {
   validation?: RegisterOptions<T, Path<T>>;
   defaultValue?: string;
   className?: string;
+  labelClassName?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interceptor?: (val: string) => any;
   width?: string;
+  step?: string | number;
 }
 
 export function InputField<T extends FieldValues>({
@@ -29,7 +31,9 @@ export function InputField<T extends FieldValues>({
   validation,
   className = "",
   width = "w-full",
+  labelClassName = "",
   interceptor = (val: string) => val,
+  step,
 }: Readonly<InputFieldProps<T>>) {
   const {
     setValue,
@@ -47,7 +51,7 @@ export function InputField<T extends FieldValues>({
     <div className={`mb-4 ${width} ${className}`}>
       <label
         htmlFor={name}
-        className="block mb-1 font-medium dark:text-sidebartext"
+        className={`block mb-1 font-medium dark:text-white ${labelClassName}`}
       >
         {label}
       </label>
@@ -55,6 +59,7 @@ export function InputField<T extends FieldValues>({
         id={name}
         type={type}
         placeholder={placeholder}
+        step={step}
         {...register(name, validation)}
         onChange={handleChange}
         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 textbgblack dark:bg-darkbgprimary dark:border-darkbordercolor1 dark:text-sidebartext"

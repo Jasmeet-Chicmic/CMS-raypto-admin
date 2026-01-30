@@ -27,6 +27,12 @@ import {
   CONFIG_TYPE,
   CURRENCY_TYPE,
 } from "@/shared/constants";
+import {
+  formatCurrency,
+  truncateToCurrencyPrecision,
+  getCurrencyStep,
+  truncateToDecimalPlaces,
+} from "@/shared/utils";
 
 interface FormValues {
   referralTimeLimitInHours: number;
@@ -115,12 +121,13 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
           Number(configItem.currency) || fields[index]?.currency || 1;
         return {
           currency,
-          rewardAmountNonWithdrawable:
-            Number(configItem.rewardAmountNonWithdrawable) || 0,
-          rewardAmountWithdrawable: 0, // Always set to 0
+          rewardAmountNonWithdrawable: String(
+            configItem.rewardAmountNonWithdrawable || 0,
+          ),
+          rewardAmountWithdrawable: String(0), // Always set to 0
           betCount: Number(configItem.betCount) || 0,
-          minimumBetAmount: Number(configItem.minimumBetAmount) || 0,
-          commissionPercentage: Number(configItem.commissionPercentage) || 0,
+          minimumBetAmount: String(configItem.minimumBetAmount || 0),
+          commissionPercentage: String(configItem.commissionPercentage || 0),
         };
       },
     );
@@ -298,6 +305,10 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                           type="number"
                           placeholder="Enter amount"
                           className="!mb-0"
+                          step={getCurrencyStep(field.currency)}
+                          interceptor={(val) =>
+                            truncateToCurrencyPrecision(val, field.currency)
+                          }
                           validation={{
                             required: "Required",
                             min: { value: 0, message: "Must be 0 or greater" },
@@ -314,11 +325,14 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                             <Wallet className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                           </div>
                           <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
-                            {referralRewardConfig[
-                              index
-                            ]?.rewardAmountNonWithdrawable?.toLocaleString() ||
-                              field.rewardAmountNonWithdrawable?.toLocaleString() ||
-                              "0"}
+                            {formatCurrency(
+                              Number(
+                                referralRewardConfig[index]
+                                  ?.rewardAmountNonWithdrawable ||
+                                  field.rewardAmountNonWithdrawable ||
+                                  0,
+                              ),
+                            )}
                           </span>
                         </div>
                       </div>
@@ -372,6 +386,10 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                           type="number"
                           placeholder="Enter minimum bet"
                           className="!mb-0"
+                          step={getCurrencyStep(field.currency)}
+                          interceptor={(val) =>
+                            truncateToCurrencyPrecision(val, field.currency)
+                          }
                           validation={{
                             required: "Required",
                             min: { value: 0, message: "Must be 0 or greater" },
@@ -388,11 +406,13 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                             <Banknote className="w-5 h-5 text-bgpurple1 dark:text-sidebartext" />
                           </div>
                           <span className="text-[1.75rem] font-bold text-textprimary dark:text-sidebartext leading-none">
-                            {referralRewardConfig[
-                              index
-                            ]?.minimumBetAmount?.toLocaleString() ||
-                              field.minimumBetAmount?.toLocaleString() ||
-                              "0"}
+                            {formatCurrency(
+                              Number(
+                                referralRewardConfig[index]?.minimumBetAmount ||
+                                  field.minimumBetAmount ||
+                                  0,
+                              ),
+                            )}
                           </span>
                         </div>
                       </div>
@@ -409,6 +429,8 @@ const ReferralConfigForm = ({ initialConfig }: ReferralConfigFormProps) => {
                           type="number"
                           placeholder="Enter percentage"
                           className="!mb-0"
+                          step={0.01}
+                          interceptor={(val) => truncateToDecimalPlaces(val, 2)}
                           validation={{
                             required: "Required",
                             min: { value: 0, message: "Must be 0 or greater" },
