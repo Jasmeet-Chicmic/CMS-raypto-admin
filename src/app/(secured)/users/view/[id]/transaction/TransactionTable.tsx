@@ -116,7 +116,7 @@ const TransactionTable = ({
       return (
         <span className={isPositive ? "text-green-600" : "text-red-600"}>
           {isPositive ? "+" : ""}
-          {amount.toFixed(2)}
+          {amount.toFixed(5)}
         </span>
       );
     }),

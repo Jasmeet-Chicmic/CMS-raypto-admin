@@ -182,8 +182,8 @@ const LiveChatView: React.FC<LiveChatViewProps> = ({
           src={option.logoURL}
           alt={option.label}
           className="w-5 h-5 rounded-full object-cover bgbgblack"
-          onError={(e) => {
-            e.target.src = flagPlaceholder.src;
+          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+            (e.target as HTMLImageElement).src = flagPlaceholder.src;
           }}
         />
       )}
