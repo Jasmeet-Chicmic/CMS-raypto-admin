@@ -242,7 +242,9 @@ const UserTable = ({
       const currency = currencyParam ? Number(currencyParam) : 1;
       return data?.betAmount ? (
         <div className="flex items-center gap-1">
-          <span className="font-medium">{formatCurrency(data.betAmount,5)}</span>
+          <span className="font-medium">
+            {formatCurrency(data.betAmount, 5)}
+          </span>
           <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
             {CURRENCY_TYPE_NAMES[currency] || ""}
           </span>
@@ -259,7 +261,9 @@ const UserTable = ({
         const currency = currencyParam ? Number(currencyParam) : 1;
         return data?.profit ? (
           <div className="flex items-center gap-1">
-            <span className="font-medium">{formatCurrency(data.profit,5)}</span>
+            <span className="font-medium">
+              {formatCurrency(data.profit, 5)}
+            </span>
             <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
               {CURRENCY_TYPE_NAMES[currency] || ""}
             </span>
