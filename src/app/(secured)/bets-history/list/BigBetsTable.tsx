@@ -56,7 +56,7 @@ const BigBetsTable = ({
         createSortableColumn("betAmount", "Bet Amount", (item) => (
           <div className="flex items-center gap-1">
             <span className="font-medium">
-              {formatCurrency(item.betAmount, 5)}
+              {formatCurrency(item.betAmount, 8)}
             </span>
             <span className={`${TEXT_SIZE_XS} ${TEXT_SECONDARY}`}>
               {CURRENCY_TYPE_NAMES[item.currency] || ""}

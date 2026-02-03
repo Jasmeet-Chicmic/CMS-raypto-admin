@@ -63,7 +63,7 @@ const AllBetsTable = ({
           render: (item) => (
             <div className="flex items-center gap-1">
               <span className="font-medium">
-                {formatCurrency(item.betAmount, 5)}
+                {formatCurrency(item.betAmount, 8)}
               </span>
               <span className={`${TEXT_SIZE_SM} ${TEXT_SECONDARY}`}>
                 {CURRENCY_TYPE_NAMES[item.currency] || ""}
@@ -96,7 +96,7 @@ const AllBetsTable = ({
               className={`font-medium ${(item.rewardAmount || 0) > 0 ? "text-green-600" : "text-gray-500"}`}
             >
               {(item.rewardAmount || 0) > 0
-                ? formatCurrency(item.rewardAmount || 0, 5)
+                ? formatCurrency(item.rewardAmount || 0, 8)
                 : "0"}
             </span>
           ),
