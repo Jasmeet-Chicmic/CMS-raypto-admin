@@ -226,9 +226,9 @@ const Sidebar: React.FC = () => {
               <Zap size={20} className="text-bgwhite" />
             </div>
             <h1 className="text-xl font-bold textbgblack dark:text-sidebartext">
-              Raypto
+              CMS
             </h1> */}
-            <Image
+            {/* <Image
               src={
                 !mounted
                   ? RayptoLogo.src
@@ -240,7 +240,7 @@ const Sidebar: React.FC = () => {
               height={52}
               alt="logo"
               className="max-h-20 max-w-max"
-            />
+            /> */}
           </div>
         </div>
 

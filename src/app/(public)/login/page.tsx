@@ -92,15 +92,15 @@ const Login = () => {
   return (
     <FormLayout layout={FormLayoutType.Default}>
       <div className="brand-logo max-w-[50px] text-center mx-auto mb-6">
-        <Image
+        {/* <Image
           src={logoSrc}
           className="mx-auto max-h-[100px] w-auto"
           width={164}
           height={52}
           alt="logo"
-        />
+        /> */}
       </div>
-      <h4 className="mb-1">Welcome to Raypto! 👋</h4>
+      <h4 className="mb-1">Welcome to CMS! 👋</h4>
       <p className="mb-6">
         Please sign-in to your account and start the adventure
       </p>

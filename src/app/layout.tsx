@@ -13,8 +13,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Raypto Admin",
-  description: "Raypto Admin Template",
+  title: "CMS Admin",
+  description: "CMS Admin Template",
 };
 
 export default function RootLayout({
