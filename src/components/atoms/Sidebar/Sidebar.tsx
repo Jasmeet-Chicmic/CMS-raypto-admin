@@ -5,19 +5,13 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { RayptoLogo, RayptoLogoDark } from "@/assets";
 import { cn } from "@/shared/utils";
 
 import { NavItem, navItems } from "./helpers/constants";
-import { useTheme } from "next-themes";
-import { THEME_TYPE } from "@/shared/constants";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("language");
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -59,7 +53,6 @@ const Sidebar: React.FC = () => {
 
     checkAndExpand(navItems);
     setExpanded(autoExpanded);
-    setMounted(true);
   }, [pathname]);
 
   const renderNavItem = (item: NavItem, depth = 0): React.ReactNode => {

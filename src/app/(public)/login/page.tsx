@@ -1,10 +1,7 @@
 "use client";
-import Image from "next/image";
 import { redirect, useSearchParams } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useTransition } from "react";
 import { toast } from "react-toastify";
-import { useTheme } from "next-themes";
-import { RayptoLogo, RayptoLogoDark } from "@/assets";
 import { loginAction } from "@/api/auth";
 import FormLayout from "@/components/layouts/FormLayout";
 import { FormLayoutType } from "@/components/layouts/FormLayout/helpers/constants";
@@ -14,7 +11,6 @@ import { FormConfig } from "@/components/molecules/FormBuilder/types";
 import { ROUTES } from "@/shared/routes";
 import { FIELD_NAMES, REGEX, STRING } from "@/shared/strings";
 import { createSessionClient } from "@/shared/utils";
-import { THEME_TYPE } from "@/shared/constants";
 export interface LoginFormValues {
   email: string;
   password: string;
@@ -52,22 +48,13 @@ const Login = () => {
   const [isLoading, startTransition] = useTransition();
   const searchParams = useSearchParams();
 
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
     if (searchParams.get("unauthorized") === "true") {
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
       toast.error("Session expired. Please login again.");
     }
   }, [searchParams]);
-
-  const logoSrc =
-    mounted && resolvedTheme === THEME_TYPE.LIGHT
-      ? RayptoLogoDark.src
-      : RayptoLogo.src;
 
   const handleSubmit = async (data: LoginFormValues) => {
     const payload = { ...data /*registrationToken: registrationToken || "" */ };
